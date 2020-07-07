@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Hugo从零开始搭建个人博客系列（一）：本篇是如何搭建的 // 冷眼</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.73.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="John Doe" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="https://cold-eye.github.io/css/main.min.88e7083eff65effb7485b6e6f38d10afbec25093a6fac42d734ce9024d3defbd.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Hugo从零开始搭建个人博客系列（一）：本篇是如何搭建的"/>
+<meta name="twitter:description" content="系统 Macbook Pro 10.13.6 一、环境搭建  更新brew，耗时较长，更换国内镜像源 https://blog.csdn.net/lwplwf/article/details/79097565  1.1 替换默认源 第一步：替换brew.git  cd &quot;$(brew --repo)&quot; git remote set-url origin https://mirrors.ustc.edu.cn/brew.git  第二步：替换homebrew-core.git  cd &quot;$(brew --repo)/Library/Taps/homebrew/homebrew-core&quot; git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git  第三步：升级  brew update  1.2 替换Homebrew Bottles源  echo &#39;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles&#39; &gt;&gt; ~/.bash_profile source ~/.bash_profile  1.3 安装git 1.4 安装hugo，需要0.55以上  brew install hugo  二、创建博客 2.1 创建根目录  hugo new site myblog  2.2 下载主题  主题地址 https://themes."/>
+
+    <meta property="og:title" content="Hugo从零开始搭建个人博客系列（一）：本篇是如何搭建的" />
+<meta property="og:description" content="系统 Macbook Pro 10.13.6 一、环境搭建  更新brew，耗时较长，更换国内镜像源 https://blog.csdn.net/lwplwf/article/details/79097565  1.1 替换默认源 第一步：替换brew.git  cd &quot;$(brew --repo)&quot; git remote set-url origin https://mirrors.ustc.edu.cn/brew.git  第二步：替换homebrew-core.git  cd &quot;$(brew --repo)/Library/Taps/homebrew/homebrew-core&quot; git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git  第三步：升级  brew update  1.2 替换Homebrew Bottles源  echo &#39;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles&#39; &gt;&gt; ~/.bash_profile source ~/.bash_profile  1.3 安装git 1.4 安装hugo，需要0.55以上  brew install hugo  二、创建博客 2.1 创建根目录  hugo new site myblog  2.2 下载主题  主题地址 https://themes." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://cold-eye.github.io/post/first/" />
+<meta property="article:published_time" content="2020-07-06T19:56:19+08:00" />
+<meta property="article:modified_time" content="2020-07-06T19:56:19+08:00" />
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://cold-eye.github.io/"><img class="app-header-avatar" src="/avatar.jpg" alt="John Doe" /></a>
+      <h1>冷眼</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium.</p>
+      <div class="app-header-social">
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Hugo从零开始搭建个人博客系列（一）：本篇是如何搭建的</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Jul 6, 2020
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          1 min read
+        </div></div>
+    </header>
+    <div class="post-content">
+      <h3 id="系统-macbook-pro-10136">系统 Macbook Pro 10.13.6</h3>
+<h1 id="一环境搭建">一、环境搭建</h1>
+<ul>
+<li>更新brew，耗时较长，更换国内镜像源 <a href="https://blog.csdn.net/lwplwf/article/details/79097565">https://blog.csdn.net/lwplwf/article/details/79097565</a></li>
+</ul>
+<h2 id="11-替换默认源">1.1 替换默认源</h2>
+<h3 id="第一步替换brewgit">第一步：替换brew.git</h3>
+<ul>
+<li><code>cd &quot;$(brew --repo)&quot;</code></li>
+<li><code>git remote set-url origin https://mirrors.ustc.edu.cn/brew.git</code></li>
+</ul>
+<h3 id="第二步替换homebrew-coregit">第二步：替换homebrew-core.git</h3>
+<ul>
+<li><code>cd &quot;$(brew --repo)/Library/Taps/homebrew/homebrew-core&quot;</code></li>
+<li><code>git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git</code></li>
+</ul>
+<h3 id="第三步升级">第三步：升级</h3>
+<ul>
+<li><code>brew update</code></li>
+</ul>
+<h2 id="12-替换homebrew-bottles源">1.2 替换Homebrew Bottles源</h2>
+<ul>
+<li><code>echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' &gt;&gt; ~/.bash_profile</code></li>
+<li><code>source ~/.bash_profile</code></li>
+</ul>
+<h2 id="13-安装git">1.3 安装git</h2>
+<h2 id="14-安装hugo需要055以上">1.4 安装hugo，需要0.55以上</h2>
+<ul>
+<li><code>brew install hugo</code></li>
+</ul>
+<h1 id="二创建博客">二、创建博客</h1>
+<h2 id="21-创建根目录">2.1 创建根目录</h2>
+<ul>
+<li><code>hugo new site myblog</code></li>
+</ul>
+<h2 id="22-下载主题">2.2 下载主题</h2>
+<ul>
+<li>主题地址 <a href="https://themes.gohugo.io/hugo-theme-m10c/">https://themes.gohugo.io/hugo-theme-m10c/</a></li>
+<li><code>git clone https://github.com/vaga/hugo-theme-m10c.git themes/m10c</code></li>
+</ul>
+<h2 id="23-编写博客">2.3 编写博客</h2>
+<ul>
+<li><code>hugo new post/first.md</code></li>
+<li>使用vs code编写markdown（本篇）</li>
+<li>在线调试 <code>hugo server -t m10c buildDrafts</code></li>
+</ul>
+<h2 id="24-修改标题">2.4 修改标题</h2>
+<ul>
+<li>本文件最上方的title</li>
+<li>根目录下的config.toml</li>
+</ul>
+<h1 id="三挂到个人github上">三、挂到个人github上</h1>
+<h2 id="31-github上建新仓">3.1 github上建新仓</h2>
+<ul>
+<li>点击右上角'+&rsquo; new repository</li>
+<li>repository name: 自己github名字，全小写cold-eye.github.io</li>
+<li>点击create repository</li>
+</ul>
+<h2 id="32-部署">3.2 部署</h2>
+<ul>
+<li><code>hugo --theme=m10c --baseUrl='https://cold-eye.github.io/' --buildDrafts</code> 该命令会在根目录下生成一个public文件，并上传到github上</li>
+<li><code>cd public</code></li>
+<li><code>git init</code></li>
+<li><code>git add .</code></li>
+<li><code>git commit -m &quot;hupo博客第一次提交&quot;</code></li>
+<li><code>git remote add origin https://github.com/cold-eye/cold-eye.github.io.git</code> 本地public与github关联</li>
+<li><code>git push -u origin master</code></li>
+<li>输入用户名cold-eye、密码***</li>
+</ul>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>
