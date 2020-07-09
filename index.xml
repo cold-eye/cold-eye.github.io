@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>冷眼</title>
+    <title>Even - A super concise theme for Hugo</title>
     <link>https://cold-eye.github.io/</link>
-    <description>Recent content on 冷眼</description>
+    <description>Recent content on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
     <lastBuildDate>Mon, 06 Jul 2020 19:56:19 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/index.xml" rel="self" type="application/rss+xml" />
@@ -16,7 +17,7 @@
       <pubDate>Mon, 06 Jul 2020 19:56:19 +0800</pubDate>
       
       <guid>https://cold-eye.github.io/post/first/</guid>
-      <description>系统 Macbook Pro 10.13.6 一、环境搭建  更新brew，耗时较长，更换国内镜像源 https://blog.csdn.net/lwplwf/article/details/79097565  1.1 替换默认源 第一步：替换brew.git  cd &amp;quot;$(brew --repo)&amp;quot; git remote set-url origin https://mirrors.ustc.edu.cn/brew.git  第二步：替换homebrew-core.git  cd &amp;quot;$(brew --repo)/Library/Taps/homebrew/homebrew-core&amp;quot; git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git  第三步：升级  brew update  1.2 替换Homebrew Bottles源  echo &#39;export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles&#39; &amp;gt;&amp;gt; ~/.bash_profile source ~/.bash_profile  1.3 安装git 1.4 安装hugo，需要0.55以上  brew install hugo  二、创建博客 2.1 创建根目录  hugo new site myblog  2.2 下载主题  主题地址 https://themes.</description>
+      <description>系统 Macbook Pro 10.13.6 一、环境搭建 更新brew，耗时较长，更换国内镜像源 https://blog.csdn.net/lwplwf/article/details/79097565 1.1 替换默认源 第一步：替换brew.git cd &amp;quot;$(brew --repo)&amp;quot; git remote set-url origin https://mirrors.ustc.edu.cn/brew.git 第二步：替换homeb</description>
     </item>
     
   </channel>

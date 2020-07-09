@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://cold-eye.github.io/sitemap.xml
