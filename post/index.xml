@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Even - A super concise theme for Hugo</title>
+    <title>Posts on 冷眼 - 技术驱动</title>
     <link>https://cold-eye.github.io/post/</link>
-    <description>Recent content in Posts on Even - A super concise theme for Hugo</description>
+    <description>Recent content in Posts on 冷眼 - 技术驱动</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 06 Jul 2020 19:56:19 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 10 Jul 2020 07:47:00 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hugo从零开始搭建个人博客系列（二）：第二篇博客该怎么生成--修改主题</title>
+      <link>https://cold-eye.github.io/post/second/</link>
+      <pubDate>Fri, 10 Jul 2020 07:47:00 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/second/</guid>
+      <description>上篇的主题过于简单，适合新手练手。现在想要更多的功能，在网上看到新的主题，感觉还不错，就想着把主题改了。 一、下载主题 git clone https://github.com/olOwOlo/hugo-theme-even themes/even cd themes/even/exampleSite 将confi</description>
+    </item>
     
     <item>
       <title>Hugo从零开始搭建个人博客系列（一）：本篇是如何搭建的</title>

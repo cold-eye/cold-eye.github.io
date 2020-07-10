@@ -2,21 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://cold-eye.github.io/</loc>
-    <lastmod>2020-07-06T19:56:19+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://cold-eye.github.io/post/first/</loc>
-    <lastmod>2020-07-06T19:56:19+08:00</lastmod>
+    <loc>https://cold-eye.github.io/post/second/</loc>
+    <lastmod>2020-07-10T07:47:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://cold-eye.github.io/post/</loc>
+    <lastmod>2020-07-10T07:47:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cold-eye.github.io/</loc>
+    <lastmod>2020-07-10T07:47:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cold-eye.github.io/post/first/</loc>
     <lastmod>2020-07-06T19:56:19+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
