@@ -1,14 +1,60 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on 冷眼 - 技术驱动</title>
+    <title>Tags on 冷眼-技术驱动</title>
     <link>https://cold-eye.github.io/tags/</link>
-    <description>Recent content in Tags on 冷眼 - 技术驱动</description>
+    <description>Recent content in Tags on 冷眼-技术驱动</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 10 Jul 2020 07:47:00 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>hugo</title>
+      <link>https://cold-eye.github.io/tags/hugo/</link>
+      <pubDate>Fri, 10 Jul 2020 07:47:00 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>修改主题</title>
+      <link>https://cold-eye.github.io/tags/%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98/</link>
+      <pubDate>Fri, 10 Jul 2020 07:47:00 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/tags/%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>第二篇</title>
+      <link>https://cold-eye.github.io/tags/%E7%AC%AC%E4%BA%8C%E7%AF%87/</link>
+      <pubDate>Fri, 10 Jul 2020 07:47:00 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/tags/%E7%AC%AC%E4%BA%8C%E7%AF%87/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>从零开始</title>
+      <link>https://cold-eye.github.io/tags/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B/</link>
+      <pubDate>Mon, 06 Jul 2020 19:56:19 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/tags/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>第一篇</title>
+      <link>https://cold-eye.github.io/tags/%E7%AC%AC%E4%B8%80%E7%AF%87/</link>
+      <pubDate>Mon, 06 Jul 2020 19:56:19 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/tags/%E7%AC%AC%E4%B8%80%E7%AF%87/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

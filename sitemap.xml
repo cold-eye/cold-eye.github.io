@@ -1,44 +1,78 @@
-<?xml-stylesheet type="text/xsl" href="https://cold-eye.github.io/sitemap.xsl"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://cold-eye.github.io/about/</loc>
+    <lastmod>2020-07-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cold-eye.github.io/categories/</loc>
+    <lastmod>2020-07-10T07:47:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cold-eye.github.io/tags/hugo/</loc>
+    <lastmod>2020-07-10T07:47:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cold-eye.github.io/categories/hugo/</loc>
+    <lastmod>2020-07-10T07:47:00+08:00</lastmod>
+  </url>
   
   <url>
     <loc>https://cold-eye.github.io/post/second/</loc>
     <lastmod>2020-07-10T07:47:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://cold-eye.github.io/post/</loc>
     <lastmod>2020-07-10T07:47:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cold-eye.github.io/tags/</loc>
+    <lastmod>2020-07-10T07:47:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cold-eye.github.io/tags/%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98/</loc>
+    <lastmod>2020-07-10T07:47:00+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://cold-eye.github.io/</loc>
     <lastmod>2020-07-10T07:47:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://cold-eye.github.io/tags/%E7%AC%AC%E4%BA%8C%E7%AF%87/</loc>
+    <lastmod>2020-07-10T07:47:00+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://cold-eye.github.io/post/first/</loc>
     <lastmod>2020-07-06T19:56:19+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://cold-eye.github.io/categories/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <loc>https://cold-eye.github.io/tags/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B/</loc>
+    <lastmod>2020-07-06T19:56:19+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://cold-eye.github.io/tags/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <loc>https://cold-eye.github.io/tags/%E7%AC%AC%E4%B8%80%E7%AF%87/</loc>
+    <lastmod>2020-07-06T19:56:19+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cold-eye.github.io/archives/</loc>
+  </url>
+  
+  <url>
+    <loc>https://cold-eye.github.io/search/</loc>
   </url>
   
 </urlset>

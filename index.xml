@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>冷眼 - 技术驱动</title>
+    <title>冷眼-技术驱动</title>
     <link>https://cold-eye.github.io/</link>
-    <description>Recent content on 冷眼 - 技术驱动</description>
+    <description>Recent content on 冷眼-技术驱动</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
+    <language>zh-CN</language>
     <lastBuildDate>Fri, 10 Jul 2020 07:47:00 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>博主</title>
+      <link>https://cold-eye.github.io/about/</link>
+      <pubDate>Sat, 18 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://cold-eye.github.io/about/</guid>
+      <description>专注于IT互联网，包括但不限于Python、自然语言处理、tensorflow、</description>
+    </item>
     
     <item>
       <title>Hugo从零开始搭建个人博客系列（二）：第二篇博客该怎么生成--修改主题</title>
@@ -17,7 +26,7 @@
       <pubDate>Fri, 10 Jul 2020 07:47:00 +0800</pubDate>
       
       <guid>https://cold-eye.github.io/post/second/</guid>
-      <description>上篇的主题过于简单，适合新手练手。现在想要更多的功能，在网上看到新的主题，感觉还不错，就想着把主题改了。 一、下载主题 git clone https://github.com/olOwOlo/hugo-theme-even themes/even cd themes/even/exampleSite 将confi</description>
+      <description>修改主题的一些配置方法</description>
     </item>
     
     <item>
@@ -26,7 +35,25 @@
       <pubDate>Mon, 06 Jul 2020 19:56:19 +0800</pubDate>
       
       <guid>https://cold-eye.github.io/post/first/</guid>
-      <description>系统 Macbook Pro 10.13.6 一、环境搭建 更新brew，耗时较长，更换国内镜像源 https://blog.csdn.net/lwplwf/article/details/79097565 1.1 替换默认源 第一步：替换brew.git cd &amp;quot;$(brew --repo)&amp;quot; git remote set-url origin https://mirrors.ustc.edu.cn/brew.git 第二步：替换homeb</description>
+      <description>第一次搭建自己的博客</description>
+    </item>
+    
+    <item>
+      <title>归档</title>
+      <link>https://cold-eye.github.io/archives/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cold-eye.github.io/archives/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>搜索</title>
+      <link>https://cold-eye.github.io/search/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://cold-eye.github.io/search/</guid>
+      <description></description>
     </item>
     
   </channel>
