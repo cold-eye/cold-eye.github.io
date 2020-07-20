@@ -56,5 +56,41 @@
       <description></description>
     </item>
     
+    <item>
+      <title>python</title>
+      <link>https://cold-eye.github.io/tags/python/</link>
+      <pubDate>Fri, 19 Jan 2018 19:31:04 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>图像</title>
+      <link>https://cold-eye.github.io/tags/%E5%9B%BE%E5%83%8F/</link>
+      <pubDate>Fri, 19 Jan 2018 19:31:04 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/tags/%E5%9B%BE%E5%83%8F/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>深度学习</title>
+      <link>https://cold-eye.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Fri, 19 Jan 2018 19:31:04 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>爬虫</title>
+      <link>https://cold-eye.github.io/tags/%E7%88%AC%E8%99%AB/</link>
+      <pubDate>Fri, 19 Jan 2018 19:31:04 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/tags/%E7%88%AC%E8%99%AB/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
