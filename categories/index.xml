@@ -6,10 +6,19 @@
     <description>Recent content in Categories on 冷眼-技术驱动</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 10 Jul 2020 07:47:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 20 Jul 2020 07:47:00 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>经济生活</title>
+      <link>https://cold-eye.github.io/categories/%E7%BB%8F%E6%B5%8E%E7%94%9F%E6%B4%BB/</link>
+      <pubDate>Mon, 20 Jul 2020 07:47:00 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/categories/%E7%BB%8F%E6%B5%8E%E7%94%9F%E6%B4%BB/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>hugo</title>

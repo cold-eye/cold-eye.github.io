@@ -6,10 +6,19 @@
     <description>Recent content in Tags on 冷眼-技术驱动</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 10 Jul 2020 07:47:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 20 Jul 2020 07:47:00 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>被动收入</title>
+      <link>https://cold-eye.github.io/tags/%E8%A2%AB%E5%8A%A8%E6%94%B6%E5%85%A5/</link>
+      <pubDate>Mon, 20 Jul 2020 07:47:00 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/tags/%E8%A2%AB%E5%8A%A8%E6%94%B6%E5%85%A5/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>hugo</title>
