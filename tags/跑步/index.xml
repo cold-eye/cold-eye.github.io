@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>跑步 on 冷眼-技术驱动</title>
+    <link>https://cold-eye.github.io/tags/%E8%B7%91%E6%AD%A5/</link>
+    <description>Recent content in 跑步 on 冷眼-技术驱动</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 05 Aug 2019 07:47:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://cold-eye.github.io/tags/%E8%B7%91%E6%AD%A5/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>跑步健身</title>
+      <link>https://cold-eye.github.io/post/running-fitting/</link>
+      <pubDate>Mon, 05 Aug 2019 07:47:00 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/running-fitting/</guid>
+      <description>一、健身跑步多长时间合适 1.1 以强健身体为目的跑40分钟左右 与开始健身跑步的十多分钟</description>
+    </item>
+    
+  </channel>
+</rss>

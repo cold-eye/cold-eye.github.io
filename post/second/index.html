@@ -57,6 +57,8 @@
                     
                     <a  href="https://cold-eye.github.io/archives/" title="归档">归档</a>
                     
+                    <a  href="https://cold-eye.github.io/categories/" title="分类">分类</a>
+                    
                     <a  href="https://cold-eye.github.io/about/" title="博主">博主</a>
                     
                 </nav>
@@ -207,6 +209,75 @@
 
                 <div id="secondary">
     <section class="widget">
+        <!DOCTYPE html>
+<html>
+
+<head>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+</head>
+
+
+
+
+
+
+<body>
+    <div class="demo">
+        <div id="player1">
+        </div>
+    </div>
+    <script>
+        var ap = new APlayer
+            ({
+                element: document.getElementById('player1'),
+                narrow: false,
+                fixed: false, 
+                autoplay: false,
+                showlrc: true,
+                mini: false,
+                theme: '#FADFA3',
+                loop: 'all',
+                order: 'random',
+                preload: 'auto',
+                volume: 0.7,
+                mutex: false,
+                listFolded: true,
+                listMaxHeight: 90,
+                lrcType: 2,
+                music:
+                    [
+                        {
+                            artist: 'A',
+                            name: 'A',
+                            url:'http://m10.music.126.net/20200722145444/8858882d8d3d84db9c716c605fddc9a4/ymusic/d7e0/51fc/e357/a5787ed4f598a1c3ff1f689726cb0e50.mp3',
+                            cover: '',
+                            lrc:''
+                        },{
+                            name: 'B',
+                            artist:'B',
+                            url:'http://m801.music.126.net/20200722143448/53d8816e8a8d307a057e17480bcf44ff/jdymusic/obj/w5zDlMODwrDDiGjCn8Ky/2070928986/4d2b/0401/82a8/b35d319b3f351f58690b0125cfb83ce8.mp3',
+                            cover: '',
+                            lrc:''
+                        },{
+                            name: 'C',
+                            artist:'C',
+                            url:'http://m10.music.126.net/20200722142405/c4dbf49273dc0c31f0f350ef8e7dcbd2/ymusic/5358/5259/045c/d238f72233e39a6d331e36703f868de2.mp3',
+                            cover: '',
+                            lrc:''
+                        },
+                    ]
+                    
+        });
+        
+    </script>
+</body>
+    </section>
+
+    <section class="widget">
         <form id="search" action='https://cold-eye.github.io/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
       
       <input type="text" name="q" maxlength="20" placeholder="Search">
@@ -220,7 +291,7 @@
 <ul class="widget-list">
     
     <li>
-        <a href="https://cold-eye.github.io/post/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AC%94%E8%A2%AB%E5%8A%A8%E6%94%B6%E5%85%A5/" title="我的第一笔被动收入">我的第一笔被动收入</a>
+        <a href="https://cold-eye.github.io/post/my-first-passive-income/" title="我的第一笔被动收入">我的第一笔被动收入</a>
     </li>
     
     <li>
@@ -232,7 +303,11 @@
     </li>
     
     <li>
-        <a href="https://cold-eye.github.io/post/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%88%B6%E4%BD%9C%E7%B1%BB%E4%BC%BCcifar10%E5%9B%BE%E5%83%8F%E6%95%B0%E6%8D%AE%E9%9B%86/" title="深度学习，制作类似cifar10图像数据集">深度学习，制作类似cifar10图像数据集</a>
+        <a href="https://cold-eye.github.io/post/running-fitting/" title="跑步健身">跑步健身</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/cifar10/" title="深度学习，制作类似cifar10图像数据集">深度学习，制作类似cifar10图像数据集</a>
     </li>
     
 </ul>
@@ -248,7 +323,7 @@
     
     <li><a href="https://cold-eye.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习 (1)</a></li>
     
-    <li><a href="https://cold-eye.github.io/categories/%E7%BB%8F%E6%B5%8E%E7%94%9F%E6%B4%BB/">经济生活 (1)</a></li>
+    <li><a href="https://cold-eye.github.io/categories/%E7%BB%8F%E6%B5%8E%E7%94%9F%E6%B4%BB/">经济生活 (2)</a></li>
     
 </ul>
     </section>
@@ -265,6 +340,8 @@
     
     <a href="https://cold-eye.github.io/tags/%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98/">修改主题</a>
     
+    <a href="https://cold-eye.github.io/tags/%E5%81%A5%E8%BA%AB/">健身</a>
+    
     <a href="https://cold-eye.github.io/tags/%E5%9B%BE%E5%83%8F/">图像</a>
     
     <a href="https://cold-eye.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
@@ -276,6 +353,8 @@
     <a href="https://cold-eye.github.io/tags/%E7%AC%AC%E4%BA%8C%E7%AF%87/">第二篇</a>
     
     <a href="https://cold-eye.github.io/tags/%E8%A2%AB%E5%8A%A8%E6%94%B6%E5%85%A5/">被动收入</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E8%B7%91%E6%AD%A5/">跑步</a>
     
 </div>
     </section>
