@@ -6,53 +6,17 @@
     <description>Recent content in Tags on 冷眼-技术驱动</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 27 Jul 2020 16:48:30 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 28 Jul 2020 13:48:30 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Cython</title>
-      <link>https://cold-eye.github.io/tags/Cython/</link>
-      <pubDate>Mon, 27 Jul 2020 16:48:30 +0800</pubDate>
-      
-      <guid>https://cold-eye.github.io/tags/Cython/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Golang</title>
-      <link>https://cold-eye.github.io/tags/Golang/</link>
-      <pubDate>Mon, 27 Jul 2020 16:48:30 +0800</pubDate>
-      
-      <guid>https://cold-eye.github.io/tags/Golang/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>python</title>
       <link>https://cold-eye.github.io/tags/python/</link>
-      <pubDate>Mon, 27 Jul 2020 16:48:30 +0800</pubDate>
+      <pubDate>Tue, 28 Jul 2020 13:48:30 +0800</pubDate>
       
       <guid>https://cold-eye.github.io/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>提速</title>
-      <link>https://cold-eye.github.io/tags/%E6%8F%90%E9%80%9F/</link>
-      <pubDate>Mon, 27 Jul 2020 16:48:30 +0800</pubDate>
-      
-      <guid>https://cold-eye.github.io/tags/%E6%8F%90%E9%80%9F/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>速度优化</title>
-      <link>https://cold-eye.github.io/tags/%E9%80%9F%E5%BA%A6%E4%BC%98%E5%8C%96/</link>
-      <pubDate>Mon, 27 Jul 2020 16:48:30 +0800</pubDate>
-      
-      <guid>https://cold-eye.github.io/tags/%E9%80%9F%E5%BA%A6%E4%BC%98%E5%8C%96/</guid>
       <description></description>
     </item>
     
