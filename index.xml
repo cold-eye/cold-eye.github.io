@@ -6,10 +6,19 @@
     <description>Recent content on 冷眼-技术驱动</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 28 Jul 2020 13:48:30 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jul 2020 15:48:30 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>linux下用户安装postgresql</title>
+      <link>https://cold-eye.github.io/post/linux-postgresql-install/</link>
+      <pubDate>Fri, 31 Jul 2020 15:48:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/linux-postgresql-install/</guid>
+      <description>”记录linux环境下安装pg库(postgreSQL)，从选择版本到桌面连接成功的过程。“</description>
+    </item>
     
     <item>
       <title>python 关键词快速匹配</title>

@@ -6,20 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>提速 7 到 72 倍，在 Python 里面调用 Cython 和 Golang 函数 | 冷眼-技术驱动</title>
-    <meta property="og:title" content="提速 7 到 72 倍，在 Python 里面调用 Cython 和 Golang 函数 - 冷眼-技术驱动">
+    <title>linux下用户安装postgresql | 冷眼-技术驱动</title>
+    <meta property="og:title" content="linux下用户安装postgresql - 冷眼-技术驱动">
     <meta property="og:type" content="article">
         
-    <meta property="article:published_time" content='2020-07-27T16:48:30&#43;08:00'>
+    <meta property="article:published_time" content='2020-07-31T15:48:30&#43;08:00'>
         
         
-    <meta property="article:modified_time" content='2020-07-27T16:48:30&#43;08:00'>
+    <meta property="article:modified_time" content='2020-07-31T15:48:30&#43;08:00'>
         
-    <meta name="Keywords" content="[提速 Golang python Cython 速度优化]">
-    <meta name="description" content="提速 7 到 72 倍，在 Python 里面调用 Cython 和 Golang 函数">
+    <meta name="Keywords" content="[linux postgresql pg库]">
+    <meta name="description" content="linux下用户安装postgresql">
         
     <meta name="author" content="冷眼">
-    <meta property="og:url" content="https://cold-eye.github.io/post/python-cython-golang/">
+    <meta property="og:url" content="https://cold-eye.github.io/post/linux-postgresql-install/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href='/css/normalize.css'>
@@ -77,79 +77,68 @@
     
     <article class="post">
         <header>
-            <h1 class="post-title">提速 7 到 72 倍，在 Python 里面调用 Cython 和 Golang 函数</h1>
+            <h1 class="post-title">linux下用户安装postgresql</h1>
         </header>
         <date class="post-meta meta-date">
-            2020年7月27日
+            2020年7月31日
         </date>
         
         <div class="post-meta">
             <span>|</span>
             
-            <span class="meta-category"><a href='https://cold-eye.github.io/categories/python'>python</a></span>
+            <span class="meta-category"><a href='https://cold-eye.github.io/categories/IT%E6%8A%80%E6%9C%AF'>IT技术</a></span>
             
         </div>
         
         
         <div class="post-meta">
             <span id="busuanzi_container_page_pv">| <span id="busuanzi_value_page_pv"></span><span>
-                    阅读</span></span> | <span class="post-date">共1090字</span>，阅读约<span class="more-meta"> 3 分钟</span>
+                    阅读</span></span> | <span class="post-date">共565字</span>，阅读约<span class="more-meta"> 2 分钟</span>
         </div>
         
         
         <div class="post-content">
-            <p>  我们的测试代码递归版本的斐波那契数列计算函数，由于递归版本涉及到大量重复计算，所以运行速度极慢。</p>
-<h2 id="一python">一、python</h2>
-<p>  用 Python 计算第40项，耗时36.6秒。</p>
+            <h2 id="一查看linux内核">一、查看linux内核</h2>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">time</span>
-
-<span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">lib</span>(n):
-    <span style="color:#000;font-weight:bold">if</span> n <span style="color:#000;font-weight:bold">in</span> [<span style="color:#099">1</span>,<span style="color:#099">2</span>]:
-        <span style="color:#000;font-weight:bold">return</span> <span style="color:#099">1</span>
-    <span style="color:#000;font-weight:bold">return</span> fib(n<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>) <span style="color:#000;font-weight:bold">+</span> fib(n<span style="color:#000;font-weight:bold">-</span><span style="color:#099">2</span>)
-
-start <span style="color:#000;font-weight:bold">=</span> time<span style="color:#000;font-weight:bold">.</span>time()
-result <span style="color:#000;font-weight:bold">=</span> fib(<span style="color:#099">40</span>)
-end <span style="color:#000;font-weight:bold">=</span> time<span style="color:#000;font-weight:bold">.</span>time()
-<span style="color:#000;font-weight:bold">print</span>(f<span style="color:#d14">&#39;{end-start}&#39;</span>)
-</code></pre></td></tr></table>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim">uname -a # 显示x86_64则是64位<span style="color:#a61717;background-color:#e3d2d2">
+</span></code></pre></td></tr></table>
 </div>
-</div><h2 id="二cython">二、cython</h2>
-<p>  Cython 是把 Python 代码编译为 C 语言代码python的库。</p>
+</div><h2 id="二下载安装postgresql">二、下载安装postgresql</h2>
+<h3 id="1下载安装包">1）下载安装包</h3>
+<p>下载页:<a href="https://www.enterprisedb.com/download-postgresql-binaries">https://www.enterprisedb.com/download-postgresql-binaries</a><br>
+软件包:postgresql-10.12-1-linux-x64-binaries.tar.gz
+<img src="/images/linux-postgresql-install.jpg" alt="pg"></p>
+<h3 id="2创建用户postgres需root权限">2）创建用户postgres，需root权限</h3>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">time</span>
-
-<span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">lib</span>(n):
-    <span style="color:#000;font-weight:bold">if</span> n <span style="color:#000;font-weight:bold">in</span> [<span style="color:#099">1</span>,<span style="color:#099">2</span>]:
-        <span style="color:#000;font-weight:bold">return</span> <span style="color:#099">1</span>
-    <span style="color:#000;font-weight:bold">return</span> fib(n<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>) <span style="color:#000;font-weight:bold">+</span> fib(n<span style="color:#000;font-weight:bold">-</span><span style="color:#099">2</span>)
-</code></pre></td></tr></table>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim">su root<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>useradd postgres<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>passwd postgres<span style="color:#a61717;background-color:#e3d2d2">
+</span></code></pre></td></tr></table>
 </div>
-</div><p>  把这个文件保存为fib.pyx。然后我们创建一个setup.py文件，文件内容如下：</p>
+</div><h3 id="3root创建-postgre-安装目录及数据目录">3）root创建 postgre 安装目录及数据目录</h3>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim">mkdir -p <span style="color:#009926">/home/</span>postgres<span style="color:#009926">/data/</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>chown -R postgres:postgres  <span style="color:#009926">/home/</span>postgres<span style="color:#009926">/data/</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>chmod -R <span style="color:#099">775</span> <span style="color:#009926">/home/</span>postgres<span style="color:#009926">/data/</span><span style="color:#a61717;background-color:#e3d2d2">
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="4用户postgres解压安装">4）用户postgres解压安装</h3>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -158,22 +147,24 @@ end <span style="color:#000;font-weight:bold">=</span> time<span style="color:#0
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000;font-weight:bold">from</span> <span style="color:#555">setuptools</span> <span style="color:#000;font-weight:bold">import</span> setup
-<span style="color:#000;font-weight:bold">from</span> <span style="color:#555">Cython.Build</span> <span style="color:#000;font-weight:bold">import</span> cythonize
-
-setup(ext_modules<span style="color:#000;font-weight:bold">=</span>cythonize(<span style="color:#d14">&#39;fib.pyx&#39;</span>))
-</code></pre></td></tr></table>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim">su - postgres<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>tar -xvf postgresql<span style="color:#099">-10</span>.<span style="color:#099">12-1</span>-linux-x64-binaries.tar.gz -C <span style="color:#009926">/home/</span>postgres/<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>su root<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>chmod -R <span style="color:#099">777</span> pgsql<span style="color:#a61717;background-color:#e3d2d2">
+</span></code></pre></td></tr></table>
 </div>
-</div><p>  这个文件的作用，就是调用 Cython 的cythonize函数把 Python 代码转换为 C 代码。接下来，开始编译代码，执行如下命令：</p>
+</div><h3 id="5用户postgres下初始化数据库">5）用户postgres下，初始化数据库</h3>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">python3 setup<span style="color:#000;font-weight:bold">.</span>py build_ext <span style="color:#000;font-weight:bold">--</span>inplace
-</code></pre></td></tr></table>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim">cd <span style="color:#009926">/home/</span>postgres<span style="color:#009926">/pgsql/</span>bin<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>.<span style="color:#009926">/initdb -D /</span>home<span style="color:#009926">/postgres/</span>data/<span style="color:#a61717;background-color:#e3d2d2">
+</span></code></pre></td></tr></table>
 </div>
-</div><p>  运行完成以后，会生成一个fib.cpython-37m-darwin.so。这个文件你可以改名字，例如改成fib.so。还有一个文件叫做fib.c。该文有3200多行。并且可以直接把它删掉。</p>
+</div><h3 id="6用户postgres修改配置">6）用户postgres修改配置</h3>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -183,104 +174,75 @@ setup(ext_modules<span style="color:#000;font-weight:bold">=</span>cythonize(<sp
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">time</span>
-<span style="color:#000;font-weight:bold">from</span> <span style="color:#555">fib</span> <span style="color:#000;font-weight:bold">import</span> fib
-
-start <span style="color:#000;font-weight:bold">=</span> time<span style="color:#000;font-weight:bold">.</span>time()
-result <span style="color:#000;font-weight:bold">=</span> fib(<span style="color:#099">40</span>)
-end <span style="color:#000;font-weight:bold">=</span> time<span style="color:#000;font-weight:bold">.</span>time()
-<span style="color:#000;font-weight:bold">print</span>(f<span style="color:#d14">&#39;{end-start}&#39;</span>)
-</code></pre></td></tr></table>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim"># 修改postgresql.conf<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>vi <span style="color:#009926">/home/</span>postgres<span style="color:#009926">/pgsql/</span>data/postgresql.conf<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span># 修改<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>listen_addresses = <span style="color:#d14">&#39;your server ip&#39;</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span># 修改pg_hba.conf<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>vi <span style="color:#009926">/home/</span>postgres<span style="color:#009926">/pgsql/</span>data/pg_hba.conf<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span># 最下方添加<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>host     all     all    <span style="color:#099">0</span>.<span style="color:#099">0</span>.<span style="color:#099">0</span>.<span style="color:#099">0</span>/<span style="color:#099">0</span>   trust<span style="color:#a61717;background-color:#e3d2d2">
+</span></code></pre></td></tr></table>
 </div>
-</div><p>  计算斐波那契数列第40项只需要5秒钟。使用 Cython，不仅可以提高程序的运行速度，还可以把你的核心代码转换为.so文件，防止别人反编译看到你的代码。</p>
-<h2 id="三golang">三、golang</h2>
-<p>  我们只需要把 Golang 写的程序编译为.so文件就可以在 Python 里面调用了。<br>
-  首先修改一下我们的 Golang 代码，把计算斐波拉契数列的函数fib的首字母改成大写。在 Golang 中，只有首字母大写的函数，才能被package外面的代码调用。修改以后的代码如下：</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-golang" data-lang="golang"><span style="color:#000;font-weight:bold">package</span> main
-
-<span style="color:#000;font-weight:bold">import</span> (
-    <span style="color:#d14">&#34;C&#34;</span>
-)
-
-<span style="color:#998;font-style:italic">//export Fib
-</span><span style="color:#998;font-style:italic"></span><span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">Fib</span>(n <span style="color:#458;font-weight:bold">int</span>) <span style="color:#458;font-weight:bold">int</span> {
-    <span style="color:#000;font-weight:bold">if</span> n <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">1</span> <span style="color:#000;font-weight:bold">||</span> n <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">2</span>{
-        <span style="color:#000;font-weight:bold">return</span> <span style="color:#099">1</span>
-    } <span style="color:#000;font-weight:bold">else</span> {
-        <span style="color:#000;font-weight:bold">return</span> <span style="color:#900;font-weight:bold">Fib</span>(n <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>) <span style="color:#000;font-weight:bold">+</span> <span style="color:#900;font-weight:bold">Fib</span>(n <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">2</span>)
-    }
-}
-
-<span style="color:#000;font-weight:bold">func</span> <span style="color:#900;font-weight:bold">main</span>() {}
-
-</code></pre></td></tr></table>
-</div>
-</div><p>  这里的注释//export Fib不能省略，因为在编译成.so文件的时候，编译器会寻找这个注释。同时，为了能正常编译，我们也必须导入C这个包。把代码保存为fib.go，然后我们使用如下命令进行编译：</p>
+</div><h3 id="7用户postgres启动数据库">7）用户postgres启动数据库</h3>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#000;font-weight:bold">go</span> build <span style="color:#000;font-weight:bold">-</span>buildmode=c<span style="color:#000;font-weight:bold">-</span>shared <span style="color:#000;font-weight:bold">-</span>o _fib.so fib.<span style="color:#000;font-weight:bold">go</span>
-</code></pre></td></tr></table>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim">cd <span style="color:#009926">/home/</span>postgres<span style="color:#009926">/pgsql/</span>bin<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>.<span style="color:#009926">/pg_ctl -D /</span>home<span style="color:#009926">/postgres/</span>data/ -l logfile start<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span># 查看进程<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>ps -ef | grep postgres<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span># 查看端口监听情况，默认5432<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>lsof -i:<span style="color:#099">5432</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span># 或者<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>netstat -an | grep <span style="color:#099">5432</span><span style="color:#a61717;background-color:#e3d2d2">
+</span></code></pre></td></tr></table>
 </div>
-</div><p>  这条命令指定了编译模式为c-shared，编译完成以后，当前文件夹下面会生成一个_fib.so文件。这就是我们需要用 Python 载入的文件了。下面，我们创建一个 Python 文件load.py，代码如下：</p>
+</div><h3 id="8本地电脑配置navicat">8）本地电脑配置navicat</h3>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">ctypes</span>
-<span style="color:#000;font-weight:bold">import</span> <span style="color:#555">time</span>
-
-
-so <span style="color:#000;font-weight:bold">=</span> ctypes<span style="color:#000;font-weight:bold">.</span>cdll<span style="color:#000;font-weight:bold">.</span>LoadLibrary(<span style="color:#d14">&#39;./_fib.so&#39;</span>)
-fib <span style="color:#000;font-weight:bold">=</span> so<span style="color:#000;font-weight:bold">.</span>Fib
-
-start <span style="color:#000;font-weight:bold">=</span> time<span style="color:#000;font-weight:bold">.</span>time()
-result <span style="color:#000;font-weight:bold">=</span> fib(<span style="color:#099">40</span>)
-end <span style="color:#000;font-weight:bold">=</span> time<span style="color:#000;font-weight:bold">.</span>time()
-<span style="color:#000;font-weight:bold">print</span>(f<span style="color:#d14">&#39;{end-start}&#39;</span>)
-</code></pre></td></tr></table>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim">连接名：随意<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>主机ip：<span style="color:#d14">&#39;your server ip&#39;</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>端口默认：<span style="color:#099">5432</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>账户：postgres<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>密码：postgres<span style="color:#a61717;background-color:#e3d2d2">
+</span></code></pre></td></tr></table>
 </div>
-</div><p>  在这段代码里面，通过 Python 自带的 ctypes 模块，加载 _fib.so 文件，然后提取出里面的 Fib 函数。这个函数就是用递归方式计算斐波那契数列的函数了。只需要 0.5 秒。<br>
-  但需要注意的是，由于 Golang 是静态强类型语言，定义函数的时候需要声明变量类型。如果你要导出的函数是字符串，那么变量类型需要改为 *C.char 而不是简单的 string。这里涉及到 C 语言中的变量类型与 Golang 中变量类型的映射关系。本文的例子中，由于整型比较特殊，直接使用 int 就可以了。但其他的类型可能并没有这么简单。</p>
-<h2 id="reference">Reference</h2>
-<p>1、 <a href="https://mp.weixin.qq.com/s?__biz=MzI2MzEwNTY3OQ==&amp;mid=2648978427&amp;idx=1&amp;sn=a0650a8ccf90c697078001bd57a8d1f7&amp;scene=21#wechat_redirect">https://mp.weixin.qq.com/s?__biz=MzI2MzEwNTY3OQ==&amp;mid=2648978427&amp;idx=1&amp;sn=a0650a8ccf90c697078001bd57a8d1f7&amp;scene=21#wechat_redirect</a><br>
-2、 <a href="https://mp.weixin.qq.com/s/H1Fe7BXdKIeEzIxjLxlYBg">https://mp.weixin.qq.com/s/H1Fe7BXdKIeEzIxjLxlYBg</a></p>
+</div><h3 id="9用户postgres关闭数据库">9）用户postgres关闭数据库</h3>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim">cd <span style="color:#009926">/home/</span>postgres<span style="color:#009926">/pgsql/</span>bin<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span>.<span style="color:#009926">/pg_ctl -D /</span>home<span style="color:#009926">/postgres/</span>data/ stop<span style="color:#a61717;background-color:#e3d2d2">
+</span></code></pre></td></tr></table>
+</div>
+</div><h2 id="reference">Reference</h2>
+<p>1、 <a href="https://blog.51cto.com/11298469/2414026?source=dra">https://blog.51cto.com/11298469/2414026?source=dra</a><br>
+2、 <a href="https://blog.csdn.net/joy_chou12/article/details/89351634">https://blog.csdn.net/joy_chou12/article/details/89351634</a></p>
 <h2 id="打赏">打赏</h2>
 <table>
 <thead>
@@ -297,7 +259,7 @@ end <span style="color:#000;font-weight:bold">=</span> time<span style="color:#0
 <div class="post-archive">
     <ul class="post-copyright">
         <li><strong>原文作者：</strong><a rel="author" href="https://cold-eye.github.io/">冷眼</a></li>
-        <li style="word-break:break-all"><strong>原文链接：</strong><a href="https://cold-eye.github.io/post/python-cython-golang/">https://cold-eye.github.io/post/python-cython-golang/</a></li>
+        <li style="word-break:break-all"><strong>原文链接：</strong><a href="https://cold-eye.github.io/post/linux-postgresql-install/">https://cold-eye.github.io/post/linux-postgresql-install/</a></li>
         <li><strong>版权声明：</strong>本作品采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可，非商业转载请注明出处（作者，原文链接），商业转载请联系作者获得授权。</li>
     </ul>
 </div>
@@ -307,21 +269,12 @@ end <span style="color:#000;font-weight:bold">=</span> time<span style="color:#0
 
         
 
-<div class="post-archive">
-    <h2>See Also</h2>
-    <ul class="listing">
-        
-        <li><a href="/post/cifar10/">深度学习，制作类似cifar10图像数据集</a></li>
-        
-    </ul>
-</div>
-
 
         <div class="post-meta meta-tags">
             
             <ul class="clearfix">
                 
-                <li><a href='https://cold-eye.github.io/tags/python'>python</a></li>
+                <li><a href='https://cold-eye.github.io/tags/linux'>linux</a></li>
                 
             </ul>
             
