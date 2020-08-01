@@ -6,20 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Hugo从零开始搭建个人博客系列（一）：本篇是如何搭建的 | 冷眼-技术驱动</title>
-    <meta property="og:title" content="Hugo从零开始搭建个人博客系列（一）：本篇是如何搭建的 - 冷眼-技术驱动">
+    <title>markdown 代码规范及制作表格 | 冷眼-技术驱动</title>
+    <meta property="og:title" content="markdown 代码规范及制作表格 - 冷眼-技术驱动">
     <meta property="og:type" content="article">
         
-    <meta property="article:published_time" content='2018-01-06T19:56:19&#43;08:00'>
+    <meta property="article:published_time" content='2020-06-18T09:18:30&#43;08:00'>
         
         
-    <meta property="article:modified_time" content='2018-01-06T19:56:19&#43;08:00'>
+    <meta property="article:modified_time" content='2020-06-18T09:18:30&#43;08:00'>
         
-    <meta name="Keywords" content="[hugo 第一篇 从零开始 mac 苹果电脑]">
-    <meta name="description" content="Hugo从零开始搭建个人博客系列（一）：本篇是如何搭建的">
+    <meta name="Keywords" content="[hugo markdown 代码规范 制作表格 字体居中 代码高亮]">
+    <meta name="description" content="markdown 代码规范及制作表格">
         
     <meta name="author" content="冷眼">
-    <meta property="og:url" content="https://cold-eye.github.io/post/first/">
+    <meta property="og:url" content="https://cold-eye.github.io/post/markdown-code-rule/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href='/css/normalize.css'>
@@ -77,96 +77,535 @@
     
     <article class="post">
         <header>
-            <h1 class="post-title">Hugo从零开始搭建个人博客系列（一）：本篇是如何搭建的</h1>
+            <h1 class="post-title">markdown 代码规范及制作表格</h1>
         </header>
         <date class="post-meta meta-date">
-            2018年1月6日
+            2020年6月18日
         </date>
         
         <div class="post-meta">
             <span>|</span>
             
-            <span class="meta-category"><a href='https://cold-eye.github.io/categories/hugo'>hugo</a></span>
+            <span class="meta-category"><a href='https://cold-eye.github.io/categories/IT%E6%8A%80%E6%9C%AF'>IT技术</a></span>
             
         </div>
         
         
         <div class="post-meta">
             <span id="busuanzi_container_page_pv">| <span id="busuanzi_value_page_pv"></span><span>
-                    阅读</span></span> | <span class="post-date">共464字</span>，阅读约<span class="more-meta"> 1 分钟</span>
+                    阅读</span></span> | <span class="post-date">共456字</span>，阅读约<span class="more-meta"> 1 分钟</span>
         </div>
         
         
         <div class="post-content">
-            <h3 id="系统-macbook-pro-10136">系统 Macbook Pro 10.13.6</h3>
-<h2 id="一环境搭建">一、环境搭建</h2>
+            <h2 id="一markdown-制作表格">一、markdown 制作表格</h2>
+<pre><code>|  表头   | 表头  |
+|  ----  | ----  |
+| 单元格  | 单元格 |
+| 单元格  | 单元格 |
+</code></pre><h3 id="设置表格的对齐方式">设置表格的对齐方式：</h3>
 <ul>
-<li>更新brew，耗时较长，更换国内镜像源 <a href="https://blog.csdn.net/lwplwf/article/details/79097565">https://blog.csdn.net/lwplwf/article/details/79097565</a></li>
+<li>-: 设置内容和标题栏居右对齐。</li>
+<li>:- 设置内容和标题栏居左对齐。</li>
+<li>:-: 设置内容和标题栏居中对齐。</li>
 </ul>
-<h3 id="11-替换默认源">1.1 替换默认源</h3>
-<h4 id="第一步替换brewgit">第一步：替换brew.git</h4>
-<ul>
-<li><code>cd &quot;$(brew --repo)&quot;</code></li>
-<li><code>git remote set-url origin https://mirrors.ustc.edu.cn/brew.git</code></li>
-</ul>
-<h4 id="第二步替换homebrew-coregit">第二步：替换homebrew-core.git</h4>
-<ul>
-<li><code>cd &quot;$(brew --repo)/Library/Taps/homebrew/homebrew-core&quot;</code></li>
-<li><code>git remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git</code></li>
-</ul>
-<h4 id="第三步升级">第三步：升级</h4>
-<ul>
-<li><code>brew update</code></li>
-</ul>
-<h3 id="12-替换homebrew-bottles源">1.2 替换Homebrew Bottles源</h3>
-<ul>
-<li><code>echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles' &gt;&gt; ~/.bash_profile</code></li>
-<li><code>source ~/.bash_profile</code></li>
-</ul>
-<h3 id="13-安装git">1.3 安装git</h3>
-<h3 id="14-安装hugo需要055以上">1.4 安装hugo，需要0.55以上</h3>
-<ul>
-<li><code>brew install hugo</code></li>
-</ul>
-<h2 id="二创建博客">二、创建博客</h2>
-<h3 id="21-创建根目录">2.1 创建根目录</h3>
-<ul>
-<li><code>hugo new site myblog</code></li>
-</ul>
-<h3 id="22-下载主题">2.2 下载主题</h3>
-<ul>
-<li>主题地址 <a href="https://themes.gohugo.io/hugo-theme-m10c/">https://themes.gohugo.io/hugo-theme-m10c/</a></li>
-<li><code>git clone https://github.com/vaga/hugo-theme-m10c.git themes/m10c</code></li>
-</ul>
-<h3 id="23-编写博客">2.3 编写博客</h3>
-<ul>
-<li><code>hugo new post/first.md</code></li>
-<li>使用vs code编写markdown（本篇）</li>
-<li>在线调试 <code>hugo server -t m10c --buildDrafts</code></li>
-</ul>
-<h3 id="24-修改标题">2.4 修改标题</h3>
-<ul>
-<li>本文件最上方的title</li>
-<li>根目录下的config.toml</li>
-</ul>
-<h2 id="三挂到个人github上">三、挂到个人github上</h2>
-<h3 id="31-github上建新仓">3.1 github上建新仓</h3>
-<ul>
-<li>点击右上角'+&rsquo; new repository</li>
-<li>repository name: 自己github名字，全小写cold-eye.github.io</li>
-<li>点击create repository</li>
-</ul>
-<h3 id="32-部署">3.2 部署</h3>
-<ul>
-<li><code>hugo --theme=m10c --baseUrl='https://cold-eye.github.io/' --buildDrafts</code> 该命令会在根目录下生成一个public文件，并上传到github上</li>
-<li><code>cd public</code></li>
-<li><code>git init</code></li>
-<li><code>git add .</code></li>
-<li><code>git commit -m &quot;hugo博客第一次提交&quot;</code></li>
-<li><code>git remote add origin https://github.com/cold-eye/cold-eye.github.io.git</code> 本地public与github关联</li>
-<li><code>git push -u origin master</code></li>
-<li>输入用户名cold-eye、密码***</li>
-</ul>
+<pre><code>| 左对齐 | 右对齐 | 居中对齐 |
+| :-----| ----: | :----: |
+| 单元格 | 单元格 | 单元格 |
+| 单元格 | 单元格 | 单元格 |
+</code></pre><h2 id="二各类语言代码规范">二、各类语言代码规范</h2>
+<h3 id="模板">模板</h3>
+<pre><code>```key
+codes
+```
+</code></pre>
+<h3 id="对照表">对照表</h3>
+<table>
+<thead>
+<tr>
+<th align="center">language</th>
+<th align="center">key</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">C</td>
+<td align="center">c</td>
+</tr>
+<tr>
+<td align="center">ActionScript</td>
+<td align="center">actionscript</td>
+</tr>
+<tr>
+<td align="center">Apache</td>
+<td align="center">apache</td>
+</tr>
+<tr>
+<td align="center">AppleScript</td>
+<td align="center">applescript</td>
+</tr>
+<tr>
+<td align="center">AsciiDoc</td>
+<td align="center">asciidoc</td>
+</tr>
+<tr>
+<td align="center">AspectJ</td>
+<td align="center">asciidoc</td>
+</tr>
+<tr>
+<td align="center">AutoHotkey</td>
+<td align="center">autohotkey</td>
+</tr>
+<tr>
+<td align="center">AVR Assembler</td>
+<td align="center">avrasm</td>
+</tr>
+<tr>
+<td align="center">Axapta</td>
+<td align="center">axapta</td>
+</tr>
+<tr>
+<td align="center">Bash</td>
+<td align="center">bash</td>
+</tr>
+<tr>
+<td align="center">BrainFuck</td>
+<td align="center">brainfuck</td>
+</tr>
+<tr>
+<td align="center">Cap’n Proto</td>
+<td align="center">capnproto</td>
+</tr>
+<tr>
+<td align="center">Clojure REPL</td>
+<td align="center">clojure</td>
+</tr>
+<tr>
+<td align="center">Clojure</td>
+<td align="center">clojure</td>
+</tr>
+<tr>
+<td align="center">CMake</td>
+<td align="center">cmake</td>
+</tr>
+<tr>
+<td align="center">CoffeeScript</td>
+<td align="center">coffeescript</td>
+</tr>
+<tr>
+<td align="center">C++</td>
+<td align="center">cpp</td>
+</tr>
+<tr>
+<td align="center">C#</td>
+<td align="center">cs</td>
+</tr>
+<tr>
+<td align="center">CSS</td>
+<td align="center">css</td>
+</tr>
+<tr>
+<td align="center">D</td>
+<td align="center">d</td>
+</tr>
+<tr>
+<td align="center">Dart</td>
+<td align="center">d</td>
+</tr>
+<tr>
+<td align="center">Delphi</td>
+<td align="center">delphi</td>
+</tr>
+<tr>
+<td align="center">Diff</td>
+<td align="center">diff</td>
+</tr>
+<tr>
+<td align="center">Django</td>
+<td align="center">django</td>
+</tr>
+<tr>
+<td align="center">DOS.bat</td>
+<td align="center">dos</td>
+</tr>
+<tr>
+<td align="center">Dust</td>
+<td align="center">dust</td>
+</tr>
+<tr>
+<td align="center">Elixir</td>
+<td align="center">elixir</td>
+</tr>
+<tr>
+<td align="center">ERB(Embedded Ruby)</td>
+<td align="center">erb</td>
+</tr>
+<tr>
+<td align="center">Erlang REPL</td>
+<td align="center">erlang-repl</td>
+</tr>
+<tr>
+<td align="center">Erlang</td>
+<td align="center">erlang</td>
+</tr>
+<tr>
+<td align="center">FIX</td>
+<td align="center">fix</td>
+</tr>
+<tr>
+<td align="center">F#</td>
+<td align="center">fsharp</td>
+</tr>
+<tr>
+<td align="center">G-code(ISO 6983)</td>
+<td align="center">gcode</td>
+</tr>
+<tr>
+<td align="center">Gherkin</td>
+<td align="center">gherkin</td>
+</tr>
+<tr>
+<td align="center">GLSL</td>
+<td align="center">glsl</td>
+</tr>
+<tr>
+<td align="center">Go</td>
+<td align="center">go</td>
+</tr>
+<tr>
+<td align="center">Gradle</td>
+<td align="center">gradle</td>
+</tr>
+<tr>
+<td align="center">Groovy</td>
+<td align="center">groovy</td>
+</tr>
+<tr>
+<td align="center">Haml</td>
+<td align="center">haml</td>
+</tr>
+<tr>
+<td align="center">Handlebars</td>
+<td align="center">handlebars</td>
+</tr>
+<tr>
+<td align="center">Haskell</td>
+<td align="center">haskell</td>
+</tr>
+<tr>
+<td align="center">Haxe</td>
+<td align="center">haxe</td>
+</tr>
+<tr>
+<td align="center">HTML</td>
+<td align="center">html</td>
+</tr>
+<tr>
+<td align="center">HTTP</td>
+<td align="center">http</td>
+</tr>
+<tr>
+<td align="center">Ini file</td>
+<td align="center">ini</td>
+</tr>
+<tr>
+<td align="center">Java</td>
+<td align="center">java</td>
+</tr>
+<tr>
+<td align="center">JavaScript</td>
+<td align="center">javascript</td>
+</tr>
+<tr>
+<td align="center">JSON</td>
+<td align="center">json</td>
+</tr>
+<tr>
+<td align="center">Lasso</td>
+<td align="center">lasso</td>
+</tr>
+<tr>
+<td align="center">Less</td>
+<td align="center">less</td>
+</tr>
+<tr>
+<td align="center">Lisp</td>
+<td align="center">lisp</td>
+</tr>
+<tr>
+<td align="center">LiveCode</td>
+<td align="center">livecodeserver</td>
+</tr>
+<tr>
+<td align="center">LiveScript</td>
+<td align="center">livescript</td>
+</tr>
+<tr>
+<td align="center">Lua</td>
+<td align="center">lua</td>
+</tr>
+<tr>
+<td align="center">Makefile</td>
+<td align="center">makefile</td>
+</tr>
+<tr>
+<td align="center">Markdown</td>
+<td align="center">markdown</td>
+</tr>
+<tr>
+<td align="center">Mathematica</td>
+<td align="center">mathematica</td>
+</tr>
+<tr>
+<td align="center">Matlab</td>
+<td align="center">matlab</td>
+</tr>
+<tr>
+<td align="center">MEL (Maya Embedded Language)</td>
+<td align="center">mel</td>
+</tr>
+<tr>
+<td align="center">Mercury</td>
+<td align="center">mercury</td>
+</tr>
+<tr>
+<td align="center">Mizar</td>
+<td align="center">mizar</td>
+</tr>
+<tr>
+<td align="center">Monkey</td>
+<td align="center">monkey</td>
+</tr>
+<tr>
+<td align="center">Nginx</td>
+<td align="center">nginx</td>
+</tr>
+<tr>
+<td align="center">Nimrod</td>
+<td align="center">nimrod</td>
+</tr>
+<tr>
+<td align="center">Nix</td>
+<td align="center">nix</td>
+</tr>
+<tr>
+<td align="center">NSIS</td>
+<td align="center">nsis</td>
+</tr>
+<tr>
+<td align="center">Objective C</td>
+<td align="center">objectivec</td>
+</tr>
+<tr>
+<td align="center">OCaml</td>
+<td align="center">ocaml</td>
+</tr>
+<tr>
+<td align="center">Oxygene</td>
+<td align="center">oxygene</td>
+</tr>
+<tr>
+<td align="center">Parser 3</td>
+<td align="center">parser3</td>
+</tr>
+<tr>
+<td align="center">Perl</td>
+<td align="center">perl</td>
+</tr>
+<tr>
+<td align="center">PHP</td>
+<td align="center">php</td>
+</tr>
+<tr>
+<td align="center">PowerShell</td>
+<td align="center">powershell</td>
+</tr>
+<tr>
+<td align="center">Processing</td>
+<td align="center">processing</td>
+</tr>
+<tr>
+<td align="center">Python’s profiler output</td>
+<td align="center">profile</td>
+</tr>
+<tr>
+<td align="center">Protocol Buffers</td>
+<td align="center">protobuf</td>
+</tr>
+<tr>
+<td align="center">Puppet</td>
+<td align="center">puppet</td>
+</tr>
+<tr>
+<td align="center">Python</td>
+<td align="center">python</td>
+</tr>
+<tr>
+<td align="center">Q</td>
+<td align="center">q</td>
+</tr>
+<tr>
+<td align="center">R</td>
+<td align="center">r</td>
+</tr>
+<tr>
+<td align="center">RenderMan RIB</td>
+<td align="center">rib</td>
+</tr>
+<tr>
+<td align="center">Roboconf</td>
+<td align="center">roboconf</td>
+</tr>
+<tr>
+<td align="center">RenderMan RSL</td>
+<td align="center">rsl</td>
+</tr>
+<tr>
+<td align="center">Ruby</td>
+<td align="center">ruby</td>
+</tr>
+<tr>
+<td align="center">Oracle Rules Language</td>
+<td align="center">ruleslanguage</td>
+</tr>
+<tr>
+<td align="center">Rust</td>
+<td align="center">rust</td>
+</tr>
+<tr>
+<td align="center">Scala</td>
+<td align="center">scala</td>
+</tr>
+<tr>
+<td align="center">Scheme</td>
+<td align="center">scheme</td>
+</tr>
+<tr>
+<td align="center">Scilab</td>
+<td align="center">scilab</td>
+</tr>
+<tr>
+<td align="center">SCSS</td>
+<td align="center">scss</td>
+</tr>
+<tr>
+<td align="center">Smali</td>
+<td align="center">smali</td>
+</tr>
+<tr>
+<td align="center">SmallTalk</td>
+<td align="center">smalltalk</td>
+</tr>
+<tr>
+<td align="center">SML</td>
+<td align="center">sml</td>
+</tr>
+<tr>
+<td align="center">SQL</td>
+<td align="center">sql</td>
+</tr>
+<tr>
+<td align="center">Stata</td>
+<td align="center">stata</td>
+</tr>
+<tr>
+<td align="center">STEP Part21(ISO 10303-21)</td>
+<td align="center">step21</td>
+</tr>
+<tr>
+<td align="center">Stylus</td>
+<td align="center">stylus</td>
+</tr>
+<tr>
+<td align="center">Swift</td>
+<td align="center">swift</td>
+</tr>
+<tr>
+<td align="center">Tcl</td>
+<td align="center">tcl</td>
+</tr>
+<tr>
+<td align="center">Tex</td>
+<td align="center">tex</td>
+</tr>
+<tr>
+<td align="center">text</td>
+<td align="center">text/plain</td>
+</tr>
+<tr>
+<td align="center">Thrift</td>
+<td align="center">thrift</td>
+</tr>
+<tr>
+<td align="center">Twig</td>
+<td align="center">twig</td>
+</tr>
+<tr>
+<td align="center">TypeScript</td>
+<td align="center">typescript</td>
+</tr>
+<tr>
+<td align="center">Vala</td>
+<td align="center">vala</td>
+</tr>
+<tr>
+<td align="center">VB.NET</td>
+<td align="center">vbnet</td>
+</tr>
+<tr>
+<td align="center">VBScript in HTML</td>
+<td align="center">vbscript-html</td>
+</tr>
+<tr>
+<td align="center">VBScript</td>
+<td align="center">vbscript</td>
+</tr>
+<tr>
+<td align="center">Verilog</td>
+<td align="center">verilog</td>
+</tr>
+<tr>
+<td align="center">VHDL</td>
+<td align="center">vhdl</td>
+</tr>
+<tr>
+<td align="center">Vim Script</td>
+<td align="center">vim</td>
+</tr>
+<tr>
+<td align="center">Intel x86 Assembly</td>
+<td align="center">x86asm</td>
+</tr>
+<tr>
+<td align="center">XL</td>
+<td align="center">xl</td>
+</tr>
+<tr>
+<td align="center">XML</td>
+<td align="center">xml</td>
+</tr>
+<tr>
+<td align="center">YAML</td>
+<td align="center">yml</td>
+</tr>
+</tbody>
+</table>
+<h3 id="效果">效果</h3>
+<pre><code>```python
+print(&quot;hello, python!&quot;)
+```
+</code></pre>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000;font-weight:bold">print</span>(<span style="color:#d14">&#34;hello, python!&#34;</span>)
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="reference">Reference</h2>
+<p>1、 <a href="https://blog.csdn.net/u012102104/article/details/78950290">https://blog.csdn.net/u012102104/article/details/78950290</a><br>
+2、 <a href="https://www.runoob.com/markdown/md-table.html">https://www.runoob.com/markdown/md-table.html</a></p>
 <h2 id="打赏">打赏</h2>
 <table>
 <thead>
@@ -189,7 +628,7 @@
 <div class="post-archive">
     <ul class="post-copyright">
         <li><strong>原文作者：</strong><a rel="author" href="https://cold-eye.github.io/">冷眼</a></li>
-        <li style="word-break:break-all"><strong>原文链接：</strong><a href="https://cold-eye.github.io/post/first/">https://cold-eye.github.io/post/first/</a></li>
+        <li style="word-break:break-all"><strong>原文链接：</strong><a href="https://cold-eye.github.io/post/markdown-code-rule/">https://cold-eye.github.io/post/markdown-code-rule/</a></li>
         <li><strong>版权声明：</strong>本作品采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可，非商业转载请注明出处（作者，原文链接），商业转载请联系作者获得授权。</li>
     </ul>
 </div>
@@ -198,6 +637,17 @@
 
 
         
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/second/">Hugo从零开始搭建个人博客系列（二）：第二篇博客该怎么生成--修改主题</a></li>
+        
+        <li><a href="/post/first/">Hugo从零开始搭建个人博客系列（一）：本篇是如何搭建的</a></li>
+        
+    </ul>
+</div>
 
 
         <div class="post-meta meta-tags">

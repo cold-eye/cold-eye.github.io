@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mac on 冷眼-技术驱动</title>
+    <link>https://cold-eye.github.io/tags/mac/</link>
+    <description>Recent content in mac on 冷眼-技术驱动</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 01 Jun 2020 11:18:30 +0800</lastBuildDate>
+    
+	<atom:link href="https://cold-eye.github.io/tags/mac/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>mac中对应的一些windows系统中的按键</title>
+      <link>https://cold-eye.github.io/post/mac-windows/</link>
+      <pubDate>Mon, 01 Jun 2020 11:18:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/mac-windows/</guid>
+      <description>记录一些在工作过程中用到的，windows与mac的等价按键。</description>
+    </item>
+    
+  </channel>
+</rss>

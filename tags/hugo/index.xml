@@ -6,15 +6,24 @@
     <description>Recent content in hugo on 冷眼-技术驱动</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 10 Jul 2020 07:47:00 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 18 Jun 2020 09:18:30 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>markdown 代码规范及制作表格</title>
+      <link>https://cold-eye.github.io/post/markdown-code-rule/</link>
+      <pubDate>Thu, 18 Jun 2020 09:18:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/markdown-code-rule/</guid>
+      <description>markdown制作表格，以及各种脚本、语言的代码书写规范及高亮。</description>
+    </item>
+    
+    <item>
       <title>Hugo从零开始搭建个人博客系列（二）：第二篇博客该怎么生成--修改主题</title>
       <link>https://cold-eye.github.io/post/second/</link>
-      <pubDate>Fri, 10 Jul 2020 07:47:00 +0800</pubDate>
+      <pubDate>Wed, 10 Jan 2018 07:47:00 +0800</pubDate>
       
       <guid>https://cold-eye.github.io/post/second/</guid>
       <description>修改主题的一些配置方法</description>
@@ -23,7 +32,7 @@
     <item>
       <title>Hugo从零开始搭建个人博客系列（一）：本篇是如何搭建的</title>
       <link>https://cold-eye.github.io/post/first/</link>
-      <pubDate>Mon, 06 Jul 2020 19:56:19 +0800</pubDate>
+      <pubDate>Sat, 06 Jan 2018 19:56:19 +0800</pubDate>
       
       <guid>https://cold-eye.github.io/post/first/</guid>
       <description>第一次搭建自己的博客</description>
