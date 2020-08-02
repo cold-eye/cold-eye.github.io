@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>linux下用户安装postgresql | 冷眼-技术驱动</title>
-    <meta property="og:title" content="linux下用户安装postgresql - 冷眼-技术驱动">
+    <title>linux 下用户安装 postgresql | 冷眼-技术驱动</title>
+    <meta property="og:title" content="linux 下用户安装 postgresql - 冷眼-技术驱动">
     <meta property="og:type" content="article">
         
     <meta property="article:published_time" content='2020-07-31T15:48:30&#43;08:00'>
@@ -16,7 +16,7 @@
     <meta property="article:modified_time" content='2020-07-31T15:48:30&#43;08:00'>
         
     <meta name="Keywords" content="[linux postgresql pg库]">
-    <meta name="description" content="linux下用户安装postgresql">
+    <meta name="description" content="linux 下用户安装 postgresql">
         
     <meta name="author" content="冷眼">
     <meta property="og:url" content="https://cold-eye.github.io/post/linux-postgresql-install/">
@@ -24,7 +24,9 @@
 
     <link rel="stylesheet" href='/css/normalize.css'>
     <link rel="stylesheet" href='/css/style.css'>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
 
     
     
@@ -77,7 +79,7 @@
     
     <article class="post">
         <header>
-            <h1 class="post-title">linux下用户安装postgresql</h1>
+            <h1 class="post-title">linux 下用户安装 postgresql</h1>
         </header>
         <date class="post-meta meta-date">
             2020年7月31日
@@ -93,7 +95,7 @@
         
         <div class="post-meta">
             <span id="busuanzi_container_page_pv">| <span id="busuanzi_value_page_pv"></span><span>
-                    阅读</span></span> | <span class="post-date">共569字</span>，阅读约<span class="more-meta"> 2 分钟</span>
+                    阅读</span></span> | <span class="post-date">共549字</span>，阅读约<span class="more-meta"> 2 分钟</span>
         </div>
         
         
@@ -104,8 +106,8 @@
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim">uname -a # 显示x86_64则是64位<span style="color:#a61717;background-color:#e3d2d2">
-</span></code></pre></td></tr></table>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">uname -a <span style="color:#998;font-style:italic"># 显示x86_64则是64位</span>
+</code></pre></td></tr></table>
 </div>
 </div><h2 id="二下载安装postgresql">二、下载安装postgresql</h2>
 <h3 id="1下载安装包">1）下载安装包</h3>
@@ -120,10 +122,10 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim">su root<span style="color:#a61717;background-color:#e3d2d2">
-</span><span style="color:#a61717;background-color:#e3d2d2"></span>useradd postgres<span style="color:#a61717;background-color:#e3d2d2">
-</span><span style="color:#a61717;background-color:#e3d2d2"></span>passwd postgres<span style="color:#a61717;background-color:#e3d2d2">
-</span></code></pre></td></tr></table>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">su root
+useradd postgres
+passwd postgres
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="3root创建-postgre-安装目录及数据目录">3）root创建 postgre 安装目录及数据目录</h3>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
@@ -133,10 +135,10 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim">mkdir -p <span style="color:#009926">/home/</span>postgres<span style="color:#009926">/data/</span><span style="color:#a61717;background-color:#e3d2d2">
-</span><span style="color:#a61717;background-color:#e3d2d2"></span>chown -R postgres:postgres  <span style="color:#009926">/home/</span>postgres<span style="color:#009926">/data/</span><span style="color:#a61717;background-color:#e3d2d2">
-</span><span style="color:#a61717;background-color:#e3d2d2"></span>chmod -R <span style="color:#099">775</span> <span style="color:#009926">/home/</span>postgres<span style="color:#009926">/data/</span><span style="color:#a61717;background-color:#e3d2d2">
-</span></code></pre></td></tr></table>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mkdir -p /home/postgres/data/
+chown -R postgres:postgres  /home/postgres/data/
+chmod -R <span style="color:#099">775</span> /home/postgres/data/
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="4用户postgres解压安装">4）用户postgres解压安装</h3>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
@@ -147,11 +149,11 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim">su - postgres<span style="color:#a61717;background-color:#e3d2d2">
-</span><span style="color:#a61717;background-color:#e3d2d2"></span>tar -xvf postgresql<span style="color:#099">-10</span>.<span style="color:#099">12-1</span>-linux-x64-binaries.tar.gz -C <span style="color:#009926">/home/</span>postgres/<span style="color:#a61717;background-color:#e3d2d2">
-</span><span style="color:#a61717;background-color:#e3d2d2"></span>su root<span style="color:#a61717;background-color:#e3d2d2">
-</span><span style="color:#a61717;background-color:#e3d2d2"></span>chmod -R <span style="color:#099">777</span> pgsql<span style="color:#a61717;background-color:#e3d2d2">
-</span></code></pre></td></tr></table>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">su - postgres
+tar -xvf postgresql-10.12-1-linux-x64-binaries.tar.gz -C /home/postgres/
+su root
+chmod -R <span style="color:#099">777</span> pgsql
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="5用户postgres下初始化数据库">5）用户postgres下，初始化数据库</h3>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
@@ -160,9 +162,9 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim">cd <span style="color:#009926">/home/</span>postgres<span style="color:#009926">/pgsql/</span>bin<span style="color:#a61717;background-color:#e3d2d2">
-</span><span style="color:#a61717;background-color:#e3d2d2"></span>.<span style="color:#009926">/initdb -D /</span>home<span style="color:#009926">/postgres/</span>data/<span style="color:#a61717;background-color:#e3d2d2">
-</span></code></pre></td></tr></table>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#0086b3">cd</span> /home/postgres/pgsql/bin
+./initdb -D /home/postgres/data/
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="6用户postgres修改配置">6）用户postgres修改配置</h3>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
@@ -178,16 +180,16 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim"># 修改postgresql.conf<span style="color:#a61717;background-color:#e3d2d2">
-</span><span style="color:#a61717;background-color:#e3d2d2"></span>vi <span style="color:#009926">/home/</span>postgres<span style="color:#009926">/pgsql/</span>data/postgresql.conf<span style="color:#a61717;background-color:#e3d2d2">
-</span><span style="color:#a61717;background-color:#e3d2d2"></span># 修改<span style="color:#a61717;background-color:#e3d2d2">
-</span><span style="color:#a61717;background-color:#e3d2d2"></span>listen_addresses = <span style="color:#d14">&#39;your server ip&#39;</span><span style="color:#a61717;background-color:#e3d2d2">
-</span><span style="color:#a61717;background-color:#e3d2d2">
-</span><span style="color:#a61717;background-color:#e3d2d2"></span># 修改pg_hba.conf<span style="color:#a61717;background-color:#e3d2d2">
-</span><span style="color:#a61717;background-color:#e3d2d2"></span>vi <span style="color:#009926">/home/</span>postgres<span style="color:#009926">/pgsql/</span>data/pg_hba.conf<span style="color:#a61717;background-color:#e3d2d2">
-</span><span style="color:#a61717;background-color:#e3d2d2"></span># 最下方添加<span style="color:#a61717;background-color:#e3d2d2">
-</span><span style="color:#a61717;background-color:#e3d2d2"></span>host     all     all    <span style="color:#099">0</span>.<span style="color:#099">0</span>.<span style="color:#099">0</span>.<span style="color:#099">0</span>/<span style="color:#099">0</span>   trust<span style="color:#a61717;background-color:#e3d2d2">
-</span></code></pre></td></tr></table>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># 修改postgresql.conf</span>
+vi /home/postgres/pgsql/data/postgresql.conf
+<span style="color:#998;font-style:italic"># 修改</span>
+<span style="color:#008080">listen_addresses</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;your server ip&#39;</span>
+
+<span style="color:#998;font-style:italic"># 修改pg_hba.conf</span>
+vi /home/postgres/pgsql/data/pg_hba.conf
+<span style="color:#998;font-style:italic"># 最下方添加</span>
+host     all     all    0.0.0.0/0   trust
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="7用户postgres启动数据库">7）用户postgres启动数据库</h3>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
@@ -202,15 +204,15 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim">cd <span style="color:#009926">/home/</span>postgres<span style="color:#009926">/pgsql/</span>bin<span style="color:#a61717;background-color:#e3d2d2">
-</span><span style="color:#a61717;background-color:#e3d2d2"></span>.<span style="color:#009926">/pg_ctl -D /</span>home<span style="color:#009926">/postgres/</span>data/ -l logfile start<span style="color:#a61717;background-color:#e3d2d2">
-</span><span style="color:#a61717;background-color:#e3d2d2"></span># 查看进程<span style="color:#a61717;background-color:#e3d2d2">
-</span><span style="color:#a61717;background-color:#e3d2d2"></span>ps -ef | grep postgres<span style="color:#a61717;background-color:#e3d2d2">
-</span><span style="color:#a61717;background-color:#e3d2d2"></span># 查看端口监听情况，默认5432<span style="color:#a61717;background-color:#e3d2d2">
-</span><span style="color:#a61717;background-color:#e3d2d2"></span>lsof -i:<span style="color:#099">5432</span><span style="color:#a61717;background-color:#e3d2d2">
-</span><span style="color:#a61717;background-color:#e3d2d2"></span># 或者<span style="color:#a61717;background-color:#e3d2d2">
-</span><span style="color:#a61717;background-color:#e3d2d2"></span>netstat -an | grep <span style="color:#099">5432</span><span style="color:#a61717;background-color:#e3d2d2">
-</span></code></pre></td></tr></table>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#0086b3">cd</span> /home/postgres/pgsql/bin
+./pg_ctl -D /home/postgres/data/ -l logfile start
+<span style="color:#998;font-style:italic"># 查看进程</span>
+ps -ef | grep postgres
+<span style="color:#998;font-style:italic"># 查看端口监听情况，默认5432</span>
+lsof -i:5432
+<span style="color:#998;font-style:italic"># 或者</span>
+netstat -an | grep <span style="color:#099">5432</span>
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="8本地电脑配置navicat">8）本地电脑配置navicat</h3>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
@@ -222,12 +224,12 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim">连接名：随意<span style="color:#a61717;background-color:#e3d2d2">
-</span><span style="color:#a61717;background-color:#e3d2d2"></span>主机ip：<span style="color:#d14">&#39;your server ip&#39;</span><span style="color:#a61717;background-color:#e3d2d2">
-</span><span style="color:#a61717;background-color:#e3d2d2"></span>端口默认：<span style="color:#099">5432</span><span style="color:#a61717;background-color:#e3d2d2">
-</span><span style="color:#a61717;background-color:#e3d2d2"></span>账户：postgres<span style="color:#a61717;background-color:#e3d2d2">
-</span><span style="color:#a61717;background-color:#e3d2d2"></span>密码：postgres<span style="color:#a61717;background-color:#e3d2d2">
-</span></code></pre></td></tr></table>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">连接名：随意
+主机ip：<span style="color:#d14">&#39;your server ip&#39;</span>
+端口默认：5432
+账户：postgres
+密码：postgres
+</code></pre></td></tr></table>
 </div>
 </div><h3 id="9用户postgres关闭数据库">9）用户postgres关闭数据库</h3>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
@@ -236,9 +238,9 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim">cd <span style="color:#009926">/home/</span>postgres<span style="color:#009926">/pgsql/</span>bin<span style="color:#a61717;background-color:#e3d2d2">
-</span><span style="color:#a61717;background-color:#e3d2d2"></span>.<span style="color:#009926">/pg_ctl -D /</span>home<span style="color:#009926">/postgres/</span>data/ stop<span style="color:#a61717;background-color:#e3d2d2">
-</span></code></pre></td></tr></table>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#0086b3">cd</span> /home/postgres/pgsql/bin
+./pg_ctl -D /home/postgres/data/ stop
+</code></pre></td></tr></table>
 </div>
 </div><h2 id="reference">Reference</h2>
 <p>1、 <a href="https://blog.51cto.com/11298469/2414026?source=dra">https://blog.51cto.com/11298469/2414026?source=dra</a><br>
@@ -427,12 +429,62 @@
     </section>
 
     <section class="widget">
-        <form id="search" action='https://cold-eye.github.io/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
-      
-      <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://cold-eye.github.io/">
-      <button type="submit" class="submit icon-search"></button>
+        
+    
+<form id="search" method="POST" action="https://duckduckgo.com/">
+    
+    <input type="text" name="q" maxlength="255" placeholder="搜索...">
+    
+    <input type="hidden" name="sites" value="https://cold-eye.github.io/">
+    
+    <input type="hidden" name="kp" value="-2">
+    
+    <input type="hidden" name="kh" value="1">
+    
+    <input type="hidden" name="kl" value="wt-wt">
+    
+    <input type="hidden" name="kg" value="p">
+    
+    <input type="hidden" name="kaf" value="1">
+    
+    
+    <input type="hidden" name="k1" value="-1">
+
+    
+
+    
+    
+    <input type="hidden" name="k7" value="#ffffff">
+    
+    <input type="hidden" name="kj" value="#ffffff">
+    
+    <input type="hidden" name="ky" value="#eaeaea">
+    
+    <input type="hidden" name="kx" value="#6E7173">
+    
+    <input type="hidden" name="k8" value="#444">
+    
+    <input type="hidden" name="k9" value="#6E7173">
+    
+    <input type="hidden" name="kaa" value="#6E7173">
+    
+    <input type="hidden" name="kae" value="#6E7173">
+
+    
+    
+    <input type="hidden" name="ko" value="1">
+    
+    <input type="hidden" name="kt" value="n">
+    
+    <input type="hidden" name="ka" value="g">
+    
+    <input type="hidden" name="ks" value="l">
+    
+    <input type="hidden" name="kv" value="1">
+
+    <button type="submit" class="submit icon-search"></button>
 </form>
+
     </section>
     
     <section class="widget">
@@ -440,11 +492,15 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://cold-eye.github.io/post/hugo-vscode/" title="hugo 博客编辑器">hugo 博客编辑器</a>
+    </li>
+    
+    <li>
         <a href="https://cold-eye.github.io/post/best-websites-a-programmer-should-visit/" title="程序员网站收藏">程序员网站收藏</a>
     </li>
     
     <li>
-        <a href="https://cold-eye.github.io/post/linux-postgresql-install/" title="linux下用户安装postgresql">linux下用户安装postgresql</a>
+        <a href="https://cold-eye.github.io/post/linux-postgresql-install/" title="linux 下用户安装 postgresql">linux 下用户安装 postgresql</a>
     </li>
     
     <li>
@@ -453,10 +509,6 @@
     
     <li>
         <a href="https://cold-eye.github.io/post/python-cython-golang/" title="提速 7 到 72 倍，在 Python 里面调用 Cython 和 Golang 函数">提速 7 到 72 倍，在 Python 里面调用 Cython 和 Golang 函数</a>
-    </li>
-    
-    <li>
-        <a href="https://cold-eye.github.io/post/my-first-passive-income/" title="我的第一笔被动收入">我的第一笔被动收入</a>
     </li>
     
 </ul>
@@ -470,7 +522,7 @@
     
     <li><a href="https://cold-eye.github.io/categories/IT%E6%8A%80%E6%9C%AF/">IT技术 (4)</a></li>
     
-    <li><a href="https://cold-eye.github.io/categories/hugo/">hugo (2)</a></li>
+    <li><a href="https://cold-eye.github.io/categories/hugo/">hugo (3)</a></li>
     
     <li><a href="https://cold-eye.github.io/categories/python/">python (2)</a></li>
     

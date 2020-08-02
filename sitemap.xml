@@ -4,26 +4,41 @@
   
   <url>
     <loc>https://cold-eye.github.io/categories/</loc>
-    <lastmod>2020-08-01T13:18:30+08:00</lastmod>
+    <lastmod>2020-08-01T15:18:30+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://cold-eye.github.io/categories/IT%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2020-08-01T13:18:30+08:00</lastmod>
+    <loc>https://cold-eye.github.io/tags/hugo/</loc>
+    <lastmod>2020-08-01T15:18:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cold-eye.github.io/categories/hugo/</loc>
+    <lastmod>2020-08-01T15:18:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cold-eye.github.io/post/hugo-vscode/</loc>
+    <lastmod>2020-08-01T15:18:30+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://cold-eye.github.io/post/</loc>
-    <lastmod>2020-08-01T13:18:30+08:00</lastmod>
+    <lastmod>2020-08-01T15:18:30+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://cold-eye.github.io/tags/</loc>
-    <lastmod>2020-08-01T13:18:30+08:00</lastmod>
+    <lastmod>2020-08-01T15:18:30+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://cold-eye.github.io/</loc>
+    <lastmod>2020-08-01T15:18:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cold-eye.github.io/categories/IT%E6%8A%80%E6%9C%AF/</loc>
     <lastmod>2020-08-01T13:18:30+08:00</lastmod>
   </url>
   
@@ -88,11 +103,6 @@
   </url>
   
   <url>
-    <loc>https://cold-eye.github.io/tags/hugo/</loc>
-    <lastmod>2020-06-18T09:18:30+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://cold-eye.github.io/post/markdown-code-rule/</loc>
     <lastmod>2020-06-18T09:18:30+08:00</lastmod>
   </url>
@@ -145,11 +155,6 @@
   <url>
     <loc>https://cold-eye.github.io/tags/%E7%88%AC%E8%99%AB/</loc>
     <lastmod>2018-01-19T19:31:04+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://cold-eye.github.io/categories/hugo/</loc>
-    <lastmod>2018-01-10T07:47:00+08:00</lastmod>
   </url>
   
   <url>
