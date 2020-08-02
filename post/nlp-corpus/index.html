@@ -1,0 +1,2826 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>自然语言处理语料库（长期更新...） | 冷眼-技术驱动</title>
+    <meta property="og:title" content="自然语言处理语料库（长期更新...） - 冷眼-技术驱动">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2020-08-02T15:00:30&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2020-08-02T15:00:30&#43;08:00'>
+        
+    <meta name="Keywords" content="[nlp 自然语言处理 语料 文本分类 情感分析 实体识别 机器翻译 知识图谱]">
+    <meta name="description" content="自然语言处理语料库（长期更新...）">
+        
+    <meta name="author" content="冷眼">
+    <meta property="og:url" content="https://cold-eye.github.io/post/nlp-corpus/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+
+    
+    
+    
+
+    
+    
+        <link rel="stylesheet" href='/css/douban.css'>
+    
+        <link rel="stylesheet" href='/css/other.css'>
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://cold-eye.github.io/">
+                        冷眼-技术驱动
+                    </a>
+                
+                <p class="description">专注于python、自然语言处理</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://cold-eye.github.io/">首页</a>
+                    
+                    <a  href="https://cold-eye.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://cold-eye.github.io/categories/" title="分类">分类</a>
+                    
+                    <a  href="https://cold-eye.github.io/about/" title="博主">博主</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">自然语言处理语料库（长期更新...）</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年8月2日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://cold-eye.github.io/categories/nlp'>nlp</a></span>
+            
+        </div>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">| <span id="busuanzi_value_page_pv"></span><span>
+                    阅读</span></span> | <span class="post-date">共24613字</span>，阅读约<span class="more-meta"> 50 分钟</span>
+        </div>
+        
+        
+        <div class="post-content">
+            <ul>
+<li>
+<p><a href="http://openkg.cn">开放知识图谱OpenKG.cn</a></p>
+</li>
+<li>
+<p><a href="https://github.com/cnschema/cnschema">开放中文知识图谱的schema</a></p>
+</li>
+<li>
+<p><a href="http://kw.fudan.edu.cn/cnprobase/search/">大规模中文概念图谱CN-Probase</a> <a href="https://mp.weixin.qq.com/s?__biz=MzI0MTI1Nzk1MA==&amp;mid=2651675884&amp;idx=1&amp;sn=1a43a93fd5bb53c8a9e48518bfa41db8&amp;chksm=f2f7a05dc580294b227332b1051bfa2e5c756c72efb4d102c83613185b571ac31343720a6eae&amp;mpshare=1&amp;scene=1&amp;srcid=1113llNDS1MvoadhCki83ERW#rd">公众号介绍</a></p>
+</li>
+<li>
+<p><a href="https://github.com/ownthink/KnowledgeGraphData">大规模1.4亿中文知识图谱开源下载</a></p>
+</li>
+<li>
+<p><a href="https://github.com/qq547276542/Agriculture_KnowledgeGraph">农业知识图谱</a> 农业领域的信息检索，命名实体识别，关系抽取，分类树构建，数据挖掘</p>
+</li>
+<li>
+<p><a href="http://www.chineseldc.org/">CLDC中文语言资源联盟</a></p>
+</li>
+<li>
+<p><a href="https://dumps.wikimedia.org/zhwiki/">中文 Wikipedia Dump</a></p>
+</li>
+<li>
+<p><a href="https://github.com/dbiir/UER-py">基于不同语料、不同模型（比如BERT、GPT）的中文预训练模型</a> 中文预训练模型框架，支持不同语料、编码器、目标任务的预训练模型（from RUC and Tencent）</p>
+</li>
+<li>
+<p><a href="https://github.com/thunlp/OpenCLaP">OpenCLaP</a> 多领域开源中文预训练语言模型仓库 (from Tsinghua)</p>
+</li>
+<li>
+<p><a href="https://pan.baidu.com/s/1gd6mslt">98年人民日报词性标注库@百度盘</a></p>
+</li>
+<li>
+<p><a href="https://pan.baidu.com/s/1bnhXX6Z">搜狗20061127新闻语料(包含分类)@百度盘</a></p>
+</li>
+<li>
+<p><a href="https://github.com/UniversalDependencies/UD_Chinese">UDChinese</a> (for training spaCy POS)</p>
+</li>
+<li>
+<p><a href="https://github.com/to-shimo/chinese-word2vec">中文word2vec模型</a></p>
+</li>
+<li>
+<p><a href="https://github.com/Embedding/Chinese-Word-Vectors">上百种预训练中文词向量</a></p>
+</li>
+<li>
+<p><a href="https://ai.tencent.com/ailab/nlp/embedding.html">Tencent AI Lab Embedding Corpus for Chinese Words and Phrases</a></p>
+</li>
+<li>
+<p><a href="https://github.com/ymcui/Chinese-BERT-wwm">中文预训练BERT with Whole Word Masking</a></p>
+</li>
+<li>
+<p><a href="https://github.com/Morizeyao/GPT2-Chinese">中文GPT2训练代码</a> 可以写诗，新闻，小说，或是训练通用语言模型。</p>
+</li>
+<li>
+<p><a href="https://github.com/chineseGLUE/chineseGLUE">中文语言理解测评基准ChineseGLUE</a> 包括代表性的数据集、基准(预训练)模型、语料库、排行榜。</p>
+</li>
+<li>
+<p><a href="https://github.com/pwxcoo/chinese-xinhua">中华新华字典数据库</a> 包括歇后语，成语，词语，汉字。</p>
+</li>
+<li>
+<p><a href="https://github.com/huyingxi/Synonyms/">Synonyms:中文近义词工具包</a> 基于维基百科中文和word2vec训练的近义词库，封装为python包文件。</p>
+</li>
+<li>
+<p><a href="https://github.com/z17176/Chinese_conversation_sentiment">Chinese_conversation_sentiment</a> A Chinese sentiment dataset may be useful for sentiment analysis.</p>
+</li>
+<li>
+<p><a href="https://github.com/shijiebei2009/CEC-Corpus">中文突发事件语料库</a> Chinese Emergency Corpus</p>
+</li>
+<li>
+<p><a href="https://github.com/rustch3n/dgk_lost_conv">dgk_lost_conv 中文对白语料</a> chinese conversation corpus</p>
+</li>
+<li>
+<p><a href="https://github.com/candlewill/Dialog_Corpus">用于训练中英文对话系统的语料库</a> Datasets for Training Chatbot System</p>
+</li>
+<li>
+<p><a href="https://github.com/zake7749/Gossiping-Chinese-Corpus">八卦版問答中文語料</a></p>
+</li>
+<li>
+<p><a href="https://github.com/codemayq/chaotbot_corpus_Chinese">中文公开聊天语料库</a></p>
+</li>
+<li>
+<p><a href="https://github.com/startprogress/China_stock_announcement">中国股市公告信息爬取</a> 通过python脚本从巨潮网络的服务器获取中国股市（sz,sh）的公告(上市公司和监管机构)</p>
+</li>
+<li>
+<p><a href="http://tushare.org/">tushare财经数据接口</a> TuShare是一个免费、开源的python财经数据接口包。</p>
+</li>
+<li>
+<p><a href="https://github.com/smoothnlp/FinancialDatasets">金融文本数据集</a> SmoothNLP 金融文本数据集(公开) Public Financial Datasets for NLP Researches</p>
+</li>
+<li>
+<p><a href="https://github.com/Samurais/insuranceqa-corpus-zh">保险行业语料库</a>   [<a href="http://www.52nlp.cn/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%BF%9D%E9%99%A9%E8%A1%8C%E4%B8%9A%E9%97%AE%E7%AD%94%E5%BC%80%E6%94%BE%E6%95%B0%E6%8D%AE%E9%9B%86">52nlp介绍Blog</a>] OpenData in insurance area for Machine Learning Tasks</p>
+</li>
+<li>
+<p><a href="https://github.com/chinese-poetry/chinese-poetry">最全中华古诗词数据库</a> 唐宋两朝近一万四千古诗人, 接近5.5万首唐诗加26万宋诗. 两宋时期1564位词人，21050首词。</p>
+</li>
+<li>
+<p><a href="http://ai.baidu.com/broad/subordinate?dataset=dureader">DuReader中文阅读理解数据</a></p>
+</li>
+<li>
+<p><a href="https://github.com/crownpku/Small-Chinese-Corpus">中文语料小数据</a> 包含了中文命名实体识别、中文关系识别、中文阅读理解等一些小量数据</p>
+</li>
+<li>
+<p><a href="https://github.com/lancopku/Chinese-Literature-NER-RE-Dataset">Chinese-Literature-NER-RE-Dataset</a> A Discourse-Level Named Entity Recognition and Relation Extraction Dataset for Chinese Literature Text</p>
+</li>
+<li>
+<p><a href="https://github.com/liuhuanyong/ChineseTextualInference">ChineseTextualInference</a> 中文文本推断项目,包括88万文本蕴含中文文本蕴含数据集的翻译与构建,基于深度学习的文本蕴含判定模型构建.</p>
+</li>
+<li>
+<p><a href="https://github.com/brightmart/nlp_chinese_corpus">大规模中文自然语言处理语料</a> 维基百科(wiki2019zh),新闻语料(news2016zh),百科问答(baike2018qa)</p>
+</li>
+<li>
+<p><a href="https://github.com/wainshine/Chinese-Names-Corpus">中文人名语料库</a> 中文姓名,姓氏,名字,称呼,日本人名,翻译人名,英文人名。</p>
+</li>
+<li>
+<p><a href="https://github.com/wainshine/Company-Names-Corpus">公司名、机构名语料库</a> 公司简称,缩写,品牌词,企业名。</p>
+</li>
+<li>
+<p><a href="https://github.com/observerss/textfilter">中文敏感词词库</a> 敏感词过滤的几种实现+某1w词敏感词库</p>
+</li>
+<li>
+<p><a href="https://github.com/zhangyics/Chinese-abbreviation-dataset">中文简称词库</a> A corpus of Chinese abbreviation, including negative full forms.</p>
+</li>
+<li>
+<p><a href="https://github.com/dongxiexidian/Chinese">中文数据预处理材料</a> 中文分词词典和中文停用词</p>
+</li>
+<li>
+<p><a href="https://github.com/kfcd/chaizi">漢語拆字字典</a></p>
+</li>
+<li>
+<p><a href="https://github.com/rainarch/SentiBridge">SentiBridge: 中文实体情感知识库</a> 刻画人们如何描述某个实体，包含新闻、旅游、餐饮，共计30万对。</p>
+</li>
+<li>
+<p><a href="https://github.com/hankcs/OpenCorpus">OpenCorpus</a> A collection of freely available (Chinese) corpora.</p>
+</li>
+<li>
+<p><a href="https://github.com/SophonPlus/ChineseNlpCorpus">ChineseNlpCorpus</a> 情感/观点/评论 倾向性分析，中文命名实体识别，推荐系统</p>
+</li>
+<li>
+<p><a href="https://github.com/smoothnlp/FinancialDatasets">FinancialDatasets</a> SmoothNLP 金融文本数据集(公开) Public Financial Datasets for NLP Researches Only</p>
+</li>
+<li>
+<p><a href="https://github.com/ymcui/Chinese-Cloze-RC">People&rsquo;s Daily &amp; Children&rsquo;s Fairy Tale</a> PD&amp;CFT: A Chinese Reading Comprehension Dataset</p>
+</li>
+</ul>
+<h2 id="1维基百科json版wiki2019zh">1.维基百科json版(wiki2019zh)</h2>
+<h4 id="104万个词条1043224条-原始文件大小16g压缩文件519m数据更新时间201927">104万个词条(1,043,224条; 原始文件大小1.6G，压缩文件519M；数据更新时间：2019.2.7)</h4>
+<p><a href="https://drive.google.com/file/d/1EdHUZIDpgcBoSqbjlfNKJ3b1t0XIUjbt/view?usp=sharing">Google Drive</a>
+<a href="https://pan.baidu.com/s/1uPMlIY3vhusdnhAge318TA">百度云盘</a></p>
+<h4 id="可能的用途">可能的用途：</h4>
+<pre><code>可以做为通用中文语料，做预训练的语料或构建词向量，也可以用于构建知识问答。
+</code></pre>
+<h4 id="结构">结构：</h4>
+<pre><code>{&quot;id&quot;:&lt;id&gt;,&quot;url&quot;:&lt;url&gt;,&quot;title&quot;:&lt;title&gt;,&quot;text&quot;:&lt;text&gt;} 其中，title是词条的标题，text是正文；通过&quot;\n\n&quot;换行。
+</code></pre>
+<h4 id="例子">例子：</h4>
+<pre><code>{&quot;id&quot;: &quot;53&quot;, &quot;url&quot;: &quot;https://zh.wikipedia.org/wiki?curid=53&quot;, &quot;title&quot;: &quot;经济学&quot;, &quot;text&quot;: &quot;经济学\n\n经济学是一门对产品和服务的生产、分配以及消费进行研究的社会科学。西方语言中的“经济学”一词源于古希腊的。\n\n经济学注重的是研究经济行为者在一个经济体系下的行为，以及他们彼此之间的互动。在现代，经济学的教材通常将这门领域的研究分为总体经济学和个体经济学。微观经济学检视一个社会里基本层次的行为，包括个体的行为者（例如个人、公司、买家或卖家）以及与市场的互动。而宏观经济学则分析整个经济体和其议题，包括失业、通货膨胀、经济成长、财政和货币政策等。...&quot;}
+</code></pre>
+<h4 id="效果">效果：</h4>
+<pre><code>经济学
+经济学是一门对产品和服务的生产、分配以及消费进行研究的社会科学。西方语言中的“经济学”一词源于古希腊的。
+经济学注重的是研究经济行为者在一个经济体系下的行为，以及他们彼此之间的互动。在现代，经济学的教材通常将这门领域的研究分为总体经济学和个体经济学。微观经济学检视一个社会里基本层次的行为，包括个体的行为者（例如个人、公司、买家或卖家）以及与市场的互动。而宏观经济学则分析整个经济体和其议题，包括失业、通货膨胀、经济成长、财政和货币政策等。
+其他的对照还包括了实证经济学（研究「是什么」）以及规范经济学（研究「应该是什么」）、经济理论与实用经济学、行为经济学与理性选择经济学、主流经济学（研究理性-个体-均衡等）与非主流经济学（研究体制-历史-社会结构等）。
+经济学的分析也被用在其他各种领域上，主要领域包括了商业、金融、和政府等，但同时也包括了如健康、犯罪、教育、法律、政治、社会架构、宗教、战争、和科学等等。到了21世纪初，经济学在社会科学领域各方面不断扩张影响力，使得有些学者讽刺地称其为「经济学帝国主义」。
+在现代对于经济学的定义有数种说法，其中有许多说法因为发展自不同的领域或理论而有截然不同的定义，苏格兰哲学家和经济学家亚当·斯密在1776年将政治经济学定义为「国民财富的性质和原因的研究」，他说：
+让-巴蒂斯特·赛伊在1803年将经济学从公共政策里独立出来，并定义其为对于财富之生产、分配、和消费的学问。另一方面，托马斯·卡莱尔则讽刺的称经济学为「忧郁的科学」（Dismal science），不过这一词最早是由马尔萨斯在1798年提出。约翰·斯图尔特·密尔在1844年提出了一个以社会科学定义经济学的角度：
+.....
+</code></pre>
+<h2 id="2新闻语料json版news2016zh">2.新闻语料json版(news2016zh)</h2>
+<h4 id="250万篇新闻-原始数据9g压缩文件36g新闻内容跨度2014-2016年">250万篇新闻( 原始数据9G，压缩文件3.6G；新闻内容跨度：2014-2016年)</h4>
+<p><a href="https://drive.google.com/file/d/1TMKu1FpTr6kcjWXWlQHX7YJsMfhhcVKp/view?usp=sharing">Google Drive</a>
+<a href="https://pan.baidu.com/s/1MLLM-CdM6BhJkj8D0u3atA">百度云盘</a>密码:k265</p>
+<h4 id="数据描述">数据描述</h4>
+<p>包含了250万篇新闻。新闻来源涵盖了6.3万个媒体，含标题、关键词、描述、正文。</p>
+<p>数据集划分：数据去重并分成三个部分。训练集：243万；验证集：7.7万；测试集，数万，不提供下载。</p>
+<h4 id="可能的用途-1">可能的用途：</h4>
+<pre><code>可以做为【通用中文语料】，训练【词向量】或做为【预训练】的语料；
+
+也可以用于训练【标题生成】模型，或训练【关键词生成】模型（选关键词内容不同于标题的数据）；
+
+亦可以通过新闻渠道区分出新闻的类型。
+</code></pre>
+<h4 id="结构-1">结构：</h4>
+<pre><code>{'news_id': &lt;news_id&gt;,'title':&lt;title&gt;,'content':&lt;content&gt;,'source': &lt;source&gt;,'time':&lt;time&gt;,'keywords': &lt;keywords&gt;,'desc': &lt;desc&gt;, 'desc': &lt;desc&gt;}
+
+其中，title是新闻标题，content是正文，keywords是关键词，desc是描述，source是新闻的来源，time是发布时间
+</code></pre>
+<h4 id="例子-1">例子：</h4>
+<pre><code>{&quot;news_id&quot;: &quot;610130831&quot;, &quot;keywords&quot;: &quot;导游，门票&quot;,&quot;title&quot;: &quot;故宫淡季门票40元 “黑导游”卖外地客140元&quot;, &quot;desc&quot;: &quot;近日有网友微博爆料称，故宫午门广场售票处出现“黑导游”，专门向外地游客出售高价门票。昨日，记者实地探访故宫，发现“黑导游”确实存在。窗口出售&quot;, &quot;source&quot;: &quot;新华网&quot;, &quot;time&quot;: &quot;03-22 12:00&quot;, &quot;content&quot;: &quot;近日有网友微博爆料称，故宫午门广场售票处出现“黑导游”，专门向外地游客出售高价门票。昨日，记者实地探访故宫，发现“黑导游”确实存在。窗口出售40元的门票，被“黑导游”加价出售，最高加到140元。故宫方面表示，请游客务必通过正规渠道购买门票，避免上当受骗遭受损失。目前单笔门票购买流程不过几秒钟，耐心排队购票也不会等待太长时间。....再反弹”的态势，打击黑导游需要游客配合，通过正规渠道购买门票。&quot;}
+</code></pre>
+<h2 id="3百科类问答json版baike2018qa">3.百科类问答json版(baike2018qa)</h2>
+<h4 id="150万个问答-原始数据1g多压缩文件663m数据更新时间2018年">150万个问答( 原始数据1G多，压缩文件663M；数据更新时间：2018年)</h4>
+<p><a href="https://drive.google.com/open?id=1_vgGQZpfSxN_Ng9iTAvE7hM3Z7NVwXP2">Google Drive</a>
+<a href="https://pan.baidu.com/s/12TCEwC_Q3He65HtPKN17cA">百度云盘</a>密码:fu45</p>
+<h4 id="数据描述-1">数据描述</h4>
+<p>含有150万个预先过滤过的、高质量问题和答案，每个问题属于一个类别。总共有492个类别，其中频率达到或超过10次的类别有434个。</p>
+<p>数据集划分：数据去重并分成三个部分。训练集：142.5万；验证集：4.5万；测试集，数万，不提供下载。</p>
+<h4 id="可能的用途-2">可能的用途：</h4>
+<pre><code>可以做为通用中文语料，训练词向量或做为预训练的语料；也可以用于构建百科类问答；其中类别信息比较有用，可以用于做监督训练，从而构建
+
+更好句子表示的模型、句子相似性任务等。
+</code></pre>
+<h4 id="结构-2">结构：</h4>
+<pre><code>{&quot;qid&quot;:&lt;qid&gt;,&quot;category&quot;:&lt;category&gt;,&quot;title&quot;:&lt;title&gt;,&quot;desc&quot;:&lt;desc&gt;,&quot;answer&quot;:&lt;answer&gt;}
+
+其中，category是问题的类型，title是问题的标题，desc是问题的描述，可以为空或与标题内容一致。
+</code></pre>
+<h4 id="例子-2">例子：</h4>
+<pre><code>{&quot;qid&quot;: &quot;qid_2540946131115409959&quot;, &quot;category&quot;: &quot;生活知识&quot;, &quot;title&quot;: &quot;冬天进补好一些呢，还是夏天进步好啊？ &quot;, &quot;desc&quot;: &quot;&quot;, &quot;answer&quot;: &quot;你好！\r\r当然是冬天进补好的了，夏天人体的胃处于收缩状态，不适宜大量的进补，所以我们有时候说：“夏天就要吃些清淡的，就是这个道理的。”\r\r不过，秋季进补要注意“四忌” 一忌多多益善。任何补药服用过量都有害。认为“多吃补药，有病治病，无病强身”是不的。过量进补会加重脾胃、肝脏负担。在夏季里，人们由于喝冷饮，常食冻品，多有脾胃功能减弱的现象，这时候如果突然大量进补，会骤然加重脾胃及肝脏的负担，使长期处于疲弱的消化器官难于承受，导致消化器官功能紊乱。 \r\r二忌以药代食。重药物轻食物的做法是不科学的，许多食物也是好的滋补品。如多吃荠菜可治疗高血压；多吃萝卜可健胃消食，顺气宽胸；多吃山药能补脾胃。日常食用的胡桃、芝麻、花生、红枣、扁豆等也是进补的佳品。\r\r三忌越贵越好。每个人的身体状况不同，因此与之相适应的补品也是不同的。价格昂贵的补品如燕窝、人参之类并非对每个人都适合。每种进补品都有一定的对象和适应症，应以实用有效为滋补原则，缺啥补啥。 \r\r四忌只补肉类。秋季适当食用牛羊肉进补效果好。但经过夏季后，由于脾胃尚未完全恢复到正常功能，因此过于油腻的食品不易消化吸收。另外，体内过多的脂类、糖类等物质堆积可能诱发心脑血管病。&quot;}
+</code></pre>
+<h2 id="4社区问答json版webtext2019zh-大规模高质量数据集">4.社区问答json版(webtext2019zh) ：大规模高质量数据集</h2>
+<h4 id="410万个问答-过滤后数据37g压缩文件17g数据跨度2015-2016年">410万个问答( 过滤后数据3.7G，压缩文件1.7G；数据跨度：2015-2016年)</h4>
+<p><a href="https://drive.google.com/open?id=1u2yW_XohbYL2YAK6Bzc5XrngHstQTf0v">Google Drive</a></p>
+<h4 id="数据描述-2">数据描述</h4>
+<p>含有410万个预先过滤过的、高质量问题和回复。每个问题属于一个【话题】，总共有2.8万个各式话题，话题包罗万象。</p>
+<p>从1400万个原始问答中，筛选出至少获得3个点赞以上的的答案，代表了回复的内容比较不错或有趣，从而获得高质量的数据集。</p>
+<p>除了对每个问题对应一个话题、问题的描述、一个或多个回复外，每个回复还带有点赞数、回复ID、回复者的标签。</p>
+<p>数据集划分：数据去重并分成三个部分。训练集：412万；验证集：6.8万；测试集a：6.8万；测试集b，不提供下载。</p>
+<h4 id="可能的用途-3">可能的用途：</h4>
+<pre><code>1）构建百科类问答：输入一个问题，构建检索系统得到一个回复或生产一个回复；或根据相关关键词从，社区问答库中筛选出你相关的领域数据
+
+2）训练话题预测模型：输入一个问题(和或描述)，预测属于话题。
+
+3）训练社区问答(cQA)系统：针对一问多答的场景，输入一个问题，找到最相关的问题，在这个基础上基于不同答案回复的质量、
+
+  问题与答案的相关性，找到最好的答案。
+
+4）做为通用中文语料，做大模型预训练的语料或训练词向量。其中类别信息也比较有用，可以用于做监督训练，从而构建更好句子表示的模型、句子相似性任务等。
+
+5）结合点赞数量这一额外信息，预测回复的受欢迎程度或训练答案评分系统。
+</code></pre>
+<h4 id="结构-3">结构：</h4>
+<pre><code>{&quot;qid&quot;:&lt;qid&gt;,&quot;title&quot;:&lt;title&gt;,&quot;desc&quot;:&lt;desc&gt;,&quot;topic&quot;:&lt;topic&gt;,&quot;star&quot;:&lt;star&gt;,&quot;content&quot;:&lt;content&gt;,
+
+&quot;answer_id&quot;:&lt;answer_id&gt;,&quot;answerer_tags&quot;:&lt;answerer_tags&gt;}
+
+其中，qid是问题的id，title是问题的标题，desc是问题的描述，可以为空；topic是问题所属的话题，star是该回复的点赞个数，
+
+content是回复的内容，answer_id是回复的ID,answerer_tags是回复者所携带的标签
+</code></pre>
+<h4 id="例子-3">例子：</h4>
+<pre><code>{&quot;qid&quot;: 65618973, &quot;title&quot;: &quot;AlphaGo只会下围棋吗？阿法狗能写小说吗？&quot;, &quot;desc&quot;: &quot;那么现在会不会有智能机器人能从事文学创作？&lt;br&gt;如果有，能写出什么水平的作品？&quot;, &quot;topic&quot;: &quot;机器人&quot;, &quot;star&quot;: 3, &quot;content&quot;: &quot;AlphaGo只会下围棋，因为它的设计目的，架构，技术方案以及训练数据，都是围绕下围棋这个核心进行的。它在围棋领域的突破，证明了深度学习深度强化学习MCTS技术在围棋领域的有效性，并且取得了重大的PR效果。AlphaGo不会写小说，它是专用的，不会做跨出它领域的其它事情，比如语音识别，人脸识别，自动驾驶，写小说或者理解小说。如果要写小说，需要用到自然语言处理（NLP））中的自然语言生成技术，那是人工智能领域一个&quot;, &quot;answer_id&quot;: 545576062, &quot;answerer_tags&quot;: &quot;人工智能@游戏业&quot;}
+</code></pre>
+<h4 id="在该数据集上的公开评测和任务">在该数据集上的公开评测和任务：</h4>
+<p>任务1： 话题预测。</p>
+<p>报告包括：#1）验证集上准确率；#2）采用的模型、方法描述、运行方式，1页PDF；#3）可运行的源代码(可选)</p>
+<p>基于#2和#3，我们会在测试集上做测试，并报告测试集上的准确率；只提供了#1和#2的队伍，验证集上的成绩依然可以被显示出来，但会被标记为未验证。</p>
+<p>任务2：训练社区问答(cQA)系统。</p>
+<p>要求：评价指标采用MAP，构建一个适合排序问题的测试集，并报告在该测试集上的效果。</p>
+<p>任务3：使用该数据集（webtext2019zh)，参考OpenAI的GPT-2，训练中文的文本写作模型、测试在其他数据集上的zero-shot的效果，或测评语言模型的效果。</p>
+<h2 id="5翻译语料translation2019zh">5.翻译语料(translation2019zh)</h2>
+<h4 id="520万个中英文平行语料-原始数据11g压缩文件596m">520万个中英文平行语料( 原始数据1.1G，压缩文件596M)</h4>
+<p><a href="https://drive.google.com/open?id=1EX8eE5YWBxCaohBO8Fh4e2j3b9C2bTVQ">Google Drive</a></p>
+<h4 id="数据描述-3">数据描述</h4>
+<p>中英文平行语料520万对。每一个对，包含一个英文和对应的中文。中文或英文，多数情况是一句带标点符号的完整的话。</p>
+<p>对于一个平行的中英文对，中文平均有36个字，英文平均有19个单词(单词如“she”)</p>
+<p>数据集划分：数据去重并分成三个部分。训练集：516万；验证集：3.9万；测试集，数万，不提供下载。</p>
+<h4 id="可能的用途-4">可能的用途：</h4>
+<pre><code>可以用于训练中英文翻译系统，从中文翻译到英文，或从英文翻译到中文；
+
+由于有上百万的中文句子，可以只抽取中文的句子，做为通用中文语料，训练词向量或做为预训练的语料。英文任务也可以类似操作；
+</code></pre>
+<h4 id="结构-4">结构：</h4>
+<pre><code>{&quot;english&quot;: &lt;english&gt;, &quot;chinese&quot;: &lt;chinese&gt;}
+
+其中，english是英文句子，chinese是中文句子，中英文一一对应。
+</code></pre>
+<h4 id="例子-4">例子：</h4>
+<pre><code>{&quot;english&quot;: &quot;In Italy, there is no real public pressure for a new, fairer tax system.&quot;, &quot;chinese&quot;: &quot;在意大利，公众不会真的向政府施压，要求实行新的、更公平的税收制度。&quot;}
+</code></pre>
+<h1 id="ner">NER</h1>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>标题</th>
+<th>更新日期</th>
+<th>数据集提供者</th>
+<th>许可</th>
+<th>说明</th>
+<th>关键字</th>
+<th>类别</th>
+<th>论文地址</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="https://biendata.com/competition/CCKS2017_2/data/">CCKS2017中文电子病例命名实体识别</a></td>
+<td>2017年5月</td>
+<td>北京极目云健康科技有限公司</td>
+<td></td>
+<td><!-- raw HTML omitted -->数据来源于其云医院平台的真实电子病历数据，共计800条（单个病人单次就诊记录），经脱敏处理<!-- raw HTML omitted --> <!-- raw HTML omitted --></td>
+<td>电子病历</td>
+<td>命名实体识别</td>
+<td>\</td>
+<td>中文</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="https://biendata.com/competition/CCKS2018_1/data/">CCKS2018中文电子病例命名实体识别</a></td>
+<td>2018年</td>
+<td>医渡云（北京）技术有限公司</td>
+<td></td>
+<td><!-- raw HTML omitted --> CCKS2018的电子病历命名实体识别的评测任务提供了600份标注好的电子病历文本，共需识别含解剖部位、独立症状、症状描述、手术和药物五类实体 <!-- raw HTML omitted --></td>
+<td>电子病历</td>
+<td>命名实体识别</td>
+<td>\</td>
+<td>中文</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="https://github.com/lemonhu/NER-BERT-pytorch/tree/master/data/msra">微软亚研院MSRA命名实体识别识别数据集</a></td>
+<td>\</td>
+<td>MSRA</td>
+<td></td>
+<td><!-- raw HTML omitted --> 数据来源于MSRA，标注形式为BIO，共有46365条语料               <!-- raw HTML omitted --></td>
+<td>Msra</td>
+<td>命名实体识别</td>
+<td>\</td>
+<td>中文</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="https://github.com/ThunderingII/nlp_ner/tree/master/data">1998人民日报语料集实体识别标注集</a></td>
+<td>1998年1月</td>
+<td>人民日报</td>
+<td></td>
+<td><!-- raw HTML omitted --> 数据来源为98年人民日报，标注形式为BIO，共有23061条语料       <!-- raw HTML omitted --></td>
+<td>98人民日报</td>
+<td>命名实体识别</td>
+<td>\</td>
+<td>中文</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="https://github.com/TomatoTang/BILSTM-CRF">Boson</a></td>
+<td>\</td>
+<td>玻森数据</td>
+<td></td>
+<td><!-- raw HTML omitted --> 数据来源为Boson，标注形式为BMEO,共有2000条语料               <!-- raw HTML omitted --></td>
+<td>Boson</td>
+<td>命名实体识别</td>
+<td>\</td>
+<td>中文</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="https://storage.googleapis.com/cluebenchmark/tasks/cluener_public.zip">CLUE Fine-Grain NER</a></td>
+<td>2020年</td>
+<td>CLUE</td>
+<td></td>
+<td><!-- raw HTML omitted --> CLUENER2020数据集，是在清华大学开源的文本分类数据集THUCTC基础上，选出部分数据进行细粒度命名实体标注，原数据来源于Sina News RSS。数据包含10个标签类别，训练集共有10748条语料，验证集共有1343条语料 <!-- raw HTML omitted --></td>
+<td>细粒度；CULE</td>
+<td>命名实体识别</td>
+<td>\</td>
+<td>中文</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="https://www.clips.uantwerpen.be/conll2003/ner/">CoNLL-2003</a></td>
+<td>2003</td>
+<td>CNTS - Language Technology Group</td>
+<td></td>
+<td><!-- raw HTML omitted --> 数据来源于CoNLL-2003的任务，该数据标注了包括PER, LOC, ORG和MISC的四个类别 <!-- raw HTML omitted --></td>
+<td>CoNLL-2003</td>
+<td>命名实体识别</td>
+<td><a href="https://www.aclweb.org/anthology/W03-0419.pdf">论文</a></td>
+<td>英文</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="https://github.com/hltcoe/golden-horse">微博实体识别</a></td>
+<td>2015年</td>
+<td><a href="https://github.com/hltcoe/golden-horse">https://github.com/hltcoe/golden-horse</a></td>
+<td></td>
+<td><!-- raw HTML omitted -->                                                              <!-- raw HTML omitted --></td>
+<td>EMNLP-2015</td>
+<td>命名实体识别</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="http://sighan.cs.uchicago.edu/bakeoff2005/">SIGHAN Bakeoff 2005</a></td>
+<td>2005年</td>
+<td>MSR/PKU</td>
+<td></td>
+<td><!-- raw HTML omitted -->                                                              <!-- raw HTML omitted --></td>
+<td>bakeoff-2005</td>
+<td>命名实体识别</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="qa">QA</h1>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>标题</th>
+<th>更新日期</th>
+<th>数据集提供者</th>
+<th>许可</th>
+<th>说明</th>
+<th>关键字</th>
+<th>类别</th>
+<th>论文地址</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="https://github.com/Maluuba/newsqa">NewsQA</a></td>
+<td>2019/9/13</td>
+<td>微软研究院</td>
+<td></td>
+<td><!-- raw HTML omitted --> Maluuba NewsQA数据集的目的是帮助研究社区构建能够回答需要人类水平的理解和推理技能的问题的算法。包含超过12000篇新闻文章和120,000答案，每篇文章平均616个单词，每个问题有2～3个答案。 <!-- raw HTML omitted --></td>
+<td>英文</td>
+<td>QA</td>
+<td><a href="https://arxiv.org/abs/1611.09830">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="https://rajpurkar.github.io/SQuAD-explorer/">SQuAD</a></td>
+<td></td>
+<td>斯坦福</td>
+<td></td>
+<td><!-- raw HTML omitted --> 斯坦福问答数据集（SQuAD）是一个阅读理解数据集，由维基百科的一组文章上提出的问题组成，其中每个问题的答案都是一段文本，可能来自相应的阅读段落，或者问题可能是未解答的。 <!-- raw HTML omitted --></td>
+<td>英文</td>
+<td>QA</td>
+<td><a href="https://arxiv.org/abs/1606.05250">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="https://www.dropbox.com/s/tohrsllcfy7rch4/SimpleQuestions_v2.tgz">SimpleQuestions</a></td>
+<td></td>
+<td>Facebook</td>
+<td></td>
+<td><!-- raw HTML omitted --> 基于存储网络的大规模简单问答系统, 数据集提供了一个多任务问答数据集，数据集有100K简单问题的回答。 <!-- raw HTML omitted --></td>
+<td>英文</td>
+<td>QA</td>
+<td><a href="https://arxiv.org/pdf/1506.02075v1.pdf">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="https://www.microsoft.com/en-us/download/details.aspx?id=52419&amp;from=http%3A%2F%2Fresearch.microsoft.com%2Fen-us%2Fdownloads%2F4495da01-db8c-4041-a7f6-7984a4f6a905%2Fdefault.aspx">WikiQA</a></td>
+<td>2016/7/14</td>
+<td>微软研究院</td>
+<td></td>
+<td><!-- raw HTML omitted --> 为了反映一般用户的真实信息需求，WikiQA使用Bing查询日志作为问题源。每个问题都链接到一个可能有答案的维基百科页面。因为维基百科页面的摘要部分提供了关于这个主题的基本且通常最重要的信息，所以使用本节中的句子作为候选答案。在众包的帮助下，数据集中包括3047个问题和29258个句子，其中1473个句子被标记为对应问题的回答句子。 <!-- raw HTML omitted --></td>
+<td>英文</td>
+<td>QA</td>
+<td><a href="https://www.microsoft.com/en-us/research/publication/wikiqa-a-challenge-dataset-for-open-domain-question-answering/?from=http%3A%2F%2Fresearch.microsoft.com%2Fpubs%2F252176%2Fyangyihmeek_emnlp-15_wikiqa.pdf">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="https://github.com/zhangsheng93/cMedQA">cMedQA</a></td>
+<td>2019/2/25</td>
+<td>Zhang Sheng</td>
+<td></td>
+<td><!-- raw HTML omitted --> 医学在线论坛的数据，包含5.4万个问题，及对应的约10万个回答。  <!-- raw HTML omitted --></td>
+<td>中文</td>
+<td>QA</td>
+<td><a href="https://www.mdpi.com/2076-3417/7/8/767">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="https://github.com/zhangsheng93/cMedQA2">cMedQA2</a></td>
+<td>2019/1/9</td>
+<td>Zhang Sheng</td>
+<td></td>
+<td><!-- raw HTML omitted --> cMedQA的扩展版，包含约10万个医学相关问题，及对应的约20万个回答。 <!-- raw HTML omitted --></td>
+<td>中文</td>
+<td>QA</td>
+<td><a href="https://ieeexplore.ieee.org/abstract/document/8548603">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="https://github.com/hejunqing/webMedQA">webMedQA</a></td>
+<td>2019/3/10</td>
+<td>He Junqing</td>
+<td></td>
+<td><!-- raw HTML omitted --> 一个医学在线问答数据集，包含6万个问题和31万个回答，而且包含问题的类别。 <!-- raw HTML omitted --></td>
+<td>中文</td>
+<td>QA</td>
+<td><a href="https://bmcmedinformdecismak.biomedcentral.com/articles/10.1186/s12911-019-0761-8">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="https://github.com/thunlp/XQA">XQA</a></td>
+<td>2019/7/29</td>
+<td>清华大学</td>
+<td></td>
+<td><!-- raw HTML omitted --> 该篇文章主要是针对开放式问答构建了一个跨语言的开放式问答数据集，该数据集（训练集、测试集）主要包括九种语言，9万多个问答。 <!-- raw HTML omitted --></td>
+<td>多语言</td>
+<td>QA</td>
+<td><a href="https://www.aclweb.org/anthology/P19-1227">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="https://github.com/amazonqa/amazonqa">AmazonQA</a></td>
+<td>2019/9/29</td>
+<td>亚马逊</td>
+<td></td>
+<td><!-- raw HTML omitted --> 卡耐基梅隆大学针对亚马逊平台上问题重复回答的痛点，提出了基于评论的QA模型任务，即利用先前对某一产品的问答，QA系统自动总结出一个答案给客户 <!-- raw HTML omitted --></td>
+<td>英文</td>
+<td>QA</td>
+<td><a href="https://arxiv.org/pdf/1908.04364v1.pdf">论文</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="情感分析">情感分析</h1>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>标题</th>
+<th>更新日期</th>
+<th>数据集提供者</th>
+<th>许可</th>
+<th>说明</th>
+<th>关键字</th>
+<th>类别</th>
+<th>论文地址</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="http://tcci.ccf.org.cn/conference/2013/pages/page04_tdata.html">NLPCC2013</a></td>
+<td>2013</td>
+<td>CCF</td>
+<td>\</td>
+<td><!-- raw HTML omitted --> 微博语料，标注了7 emotions: like, disgust, happiness, sadness, anger, surprise, fear。大小：14 000 条微博, 45 431句子 <!-- raw HTML omitted --></td>
+<td>NLPCC2013, Emotion</td>
+<td>情感分析</td>
+<td><a href="http://jcip.cipsc.org.cn/CN/article/downloadArticleFile.do?attachType=PDF&amp;id=143">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="http://tcci.ccf.org.cn/conference/2014/pages/page04_ans.html">NLPCC2014 Task1</a></td>
+<td>2014</td>
+<td>CCF</td>
+<td>\</td>
+<td><!-- raw HTML omitted --> 微博语料，标注了7 emotions: like, disgust, happiness, sadness, anger, surprise, fear。 大小：20000条微博 <!-- raw HTML omitted --></td>
+<td>NLPCC2014, Emotion</td>
+<td>情感分析</td>
+<td>\</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="http://tcci.ccf.org.cn/conference/2014/pages/page04_tdata.html">NLPCC2014 Task2</a></td>
+<td>2014</td>
+<td>CCF</td>
+<td>\</td>
+<td><!-- raw HTML omitted --> 微博语料，标注了正面和负面                                   <!-- raw HTML omitted --></td>
+<td>NLPCC2014, Sentiment</td>
+<td>情感分析</td>
+<td>\</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="https://github.com/MingleiLI/emotion_corpus_weibo">Weibo Emotion Corpus</a></td>
+<td>2016</td>
+<td>The Hong Kong Polytechnic University</td>
+<td>\</td>
+<td><!-- raw HTML omitted --> 微博语料，标注了7 emotions: like, disgust, happiness, sadness, anger, surprise, fear。 大小：四万多条微博 <!-- raw HTML omitted --></td>
+<td>weibo emotion corpus</td>
+<td>情感分析</td>
+<td><a href="http://www.lrec-conf.org/proceedings/lrec2016/pdf/515_Paper.pdf">Emotion Corpus Construction Based on Selection from Noisy Natural Labels</a></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>[RenCECPs](Fuji Ren can be contacted (<a href="mailto:ren@is.tokushima-u.ac.jp">ren@is.tokushima-u.ac.jp</a>) for a license agreement.)</td>
+<td>2009</td>
+<td>Fuji Ren</td>
+<td>\</td>
+<td><!-- raw HTML omitted --> 标注的博客语料库，在文档级、段落级和句子级标注了emotion和sentiment。包含了1500个博客，11000段落和35000句子。 <!-- raw HTML omitted --></td>
+<td>RenCECPs, emotion, sentiment</td>
+<td>情感分析</td>
+<td><a href="https://dl.acm.org/doi/10.5555/1699648.1699691">Construction of a blog emotion corpus for Chinese emotional expression analysis</a></td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="https://github.com/SophonPlus/ChineseNlpCorpus/blob/master/datasets/weibo_senti_100k/intro.ipynb">weibo_senti_100k</a></td>
+<td>不详</td>
+<td>不详</td>
+<td>\</td>
+<td><!-- raw HTML omitted --> 带情感标注 新浪微博，正负向评论约各 5 万条                   <!-- raw HTML omitted --></td>
+<td>weibo senti, sentiment</td>
+<td>情感分析</td>
+<td>\</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="https://www.datafountain.cn/competitions/310/datasets">BDCI2018-汽车行业用户观点主题及情感识别</a></td>
+<td>2018</td>
+<td>CCF</td>
+<td></td>
+<td><!-- raw HTML omitted --> 汽车论坛中对汽车的评论，标注了汽车的诗歌主题：动力、价格、内饰、配置、安全性、外观、操控、油耗、空间、舒适性。每个主题标注了情感标签，情感分为3类，分别用数字0、1、-1表示中立、正向、负向。 <!-- raw HTML omitted --></td>
+<td>属性情感分析 主题情感分析</td>
+<td>情感分析</td>
+<td>\</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="https://blog.csdn.net/linxid/article/details/82764682">AI Challenger 细粒度用户评论情感分析</a></td>
+<td>2o18</td>
+<td>美团</td>
+<td>\</td>
+<td><!-- raw HTML omitted --> 餐饮评论，6个一级属性，20个二级属性，每个属性标注正面、负面、中性、未提及。 <!-- raw HTML omitted --></td>
+<td>属性情感分析</td>
+<td>情感分析</td>
+<td>\</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="https://www.datafountain.cn/competitions/353">BDCI2019金融信息负面及主体判定</a></td>
+<td>2019</td>
+<td>中原银行</td>
+<td>\</td>
+<td><!-- raw HTML omitted --> 金融领域新闻，每个样本标记了实体列表以及负面实体列表。任务是判断一个样本是否是负面以及对应的负面的实体。 <!-- raw HTML omitted --></td>
+<td>实体情感分析</td>
+<td>情感分析</td>
+<td>\</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="https://zhejianglab.aliyun.com/entrance/231731/introduction?spm=5176.12281949.1003.3.2b58c341YnOFck">之江杯电商评论观点挖掘大赛</a></td>
+<td>2019</td>
+<td>之江实验室</td>
+<td>\</td>
+<td><!-- raw HTML omitted --> 本次品牌评论观点挖掘的任务是在商品评论中抽取商品属性特征和消费者观点，并确认其情感极性和属性种类。对于商品的某一个属性特征，存在着一系列描述它的观点词，它们代表了消费者对该属性特征的观点。每一组{商品属性特征，消费者观点}具有相应的情感极性（负面、中性、正面），代表了消费者对该属性的满意程度。此外，多个属性特征可以归入某一个属性种类，例如外观、盒子等属性特征均可归入包装这个属性种类。参赛队伍最终需提交对测试数据的抽取预测信息，包括属性特征词、观点词、观点极性和属性种类4个字段。 <!-- raw HTML omitted --></td>
+<td>属性情感分析</td>
+<td>情感分析</td>
+<td>\</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td><a href="https://biendata.com/competition/sohu2019/">2019搜狐校园算法大赛</a></td>
+<td>2019</td>
+<td>搜狐</td>
+<td>\</td>
+<td><!-- raw HTML omitted --> 给定若干文章，目标是判断文章的核心实体以及对核心实体的情感态度。每篇文章识别最多三个核心实体，并分别判断文章对上述核心实体的情感倾向（积极、中立、消极三种）。实体：人、物、地区、机构、团体、企业、行业、某一特定事件等固定存在，且可以作为文章主体的实体词。核心实体：文章主要描述、或担任文章主要角色的实体词。 <!-- raw HTML omitted --></td>
+<td>实体情感分析</td>
+<td>情感分析</td>
+<td>\</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="文本分类">文本分类</h1>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>标题</th>
+<th>更新日期</th>
+<th>数据集提供者</th>
+<th>许可</th>
+<th>说明</th>
+<th>关键字</th>
+<th>类别</th>
+<th>论文地址</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="https://www.pkbigdata.com/common/cmpt/%E2%80%9C%E8%BE%BE%E8%A7%82%E6%9D%AF%E2%80%9D%E6%96%87%E6%9C%AC%E6%99%BA%E8%83%BD%E5%A4%84%E7%90%86%E6%8C%91%E6%88%98%E8%B5%9B_%E8%B5%9B%E4%BD%93%E4%B8%8E%E6%95%B0%E6%8D%AE.html">2018“达观杯”文本智能处理挑战赛</a></td>
+<td>2018年7月</td>
+<td>达观数据</td>
+<td></td>
+<td><!-- raw HTML omitted --> 数据集来源于达观数据，为长文本分类任务，其主要包括了id，article，word_seg和class四个字段，数据包含19个类别，共102275条样本 <!-- raw HTML omitted --></td>
+<td>长文本；脱敏</td>
+<td>文本分类</td>
+<td>\</td>
+<td>中文</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="https://github.com/skdjfla/toutiao-text-classfication-dataset">今日头条中文新闻（文本）分类</a></td>
+<td>2018年5月</td>
+<td>今日头条</td>
+<td></td>
+<td><!-- raw HTML omitted --> 数据集来源于今日头条，为短文本分类任务，数据包含15个类别，共382688条样本 <!-- raw HTML omitted --></td>
+<td>短文本；新闻</td>
+<td>文本分类</td>
+<td>\</td>
+<td>中文</td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="%5Bhttp://thuctc.thunlp.org/#%E4%B8%AD%E6%96%87%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB%E6%95%B0%E6%8D%AE%E9%9B%86THUCNews%5D(http://thuctc.thunlp.org/#%E4%B8%AD%E6%96%87%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB%E6%95%B0%E6%8D%AE%E9%9B%86THUCNews)">THUCNews中文文本分类</a></td>
+<td>2016年</td>
+<td>清华大学</td>
+<td></td>
+<td><!-- raw HTML omitted -->THUCNews是根据新浪新闻RSS订阅频道2005~2011年间的历史数据筛选过滤生成，均为UTF-8纯文本格式。我们在原始新浪新闻分类体系的基础上，重新整合划分出14个候选分类类别：财经、彩票、房产、股票、家居、教育、科技、社会、时尚、时政、体育、星座、游戏、娱乐，共74万篇新闻文档（2.19 GB）<!-- raw HTML omitted --></td>
+<td>文档；新闻</td>
+<td>文本分类</td>
+<td>\</td>
+<td>中文</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="https://www.kesci.com/home/dataset/5d3a9c86cf76a600360edd04">复旦大学中文文本分类</a></td>
+<td>\</td>
+<td>复旦大学计算机信息与技术系国际数据库中心自然语言处理小组</td>
+<td></td>
+<td><!-- raw HTML omitted --> 数据集来源于复旦大学，为短文本分类任务，数据包含20个类别，共9804篇文档 <!-- raw HTML omitted --></td>
+<td>文档；新闻</td>
+<td>文本分类</td>
+<td>\</td>
+<td>中文</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="https://www.kesci.com/home/dataset/5dd645fca0cb22002c94e65d/files">新闻标题短文本分类</a></td>
+<td>2019年12月</td>
+<td>chenfengshf</td>
+<td>CC0 公共领域共享</td>
+<td><!-- raw HTML omitted --> 数据集来源于Kesci平台，为新闻标题领域短文本分类任务。内容大多为短文本标题(length&lt;50)，数据包含15个类别，共38w条样本 <!-- raw HTML omitted --></td>
+<td>短文本；新闻标题</td>
+<td>文本分类</td>
+<td>\</td>
+<td>中文</td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="https://biendata.com/competition/zhihu/">2017 知乎看山杯机器学习挑战赛</a></td>
+<td>2017年6月</td>
+<td>中国人工智能学会;知乎</td>
+<td></td>
+<td><!-- raw HTML omitted --> 数据集来源于知乎，为问题及话题标签的绑定关系的标注数据，每个问题有 1 个或多个标签，累计1999 个标签，共包含 300 万个问题 <!-- raw HTML omitted --></td>
+<td>问题；短文本</td>
+<td>文本分类</td>
+<td>\</td>
+<td>中文</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="https://zhejianglab.aliyun.com/entrance/231731/information">2019之江杯-电商评论观点挖掘大赛</a></td>
+<td>2019年8月</td>
+<td>之江实验室</td>
+<td></td>
+<td><!-- raw HTML omitted --> 本次品牌评论观点挖掘的任务是在商品评论中抽取商品属性特征和消费者观点，并确认其情感极性和属性种类。对于商品的某一个属性特征，存在着一系列描述它的观点词，它们代表了消费者对该属性特征的观点。每一组{商品属性特征，消费者观点}具有相应的情感极性（负面、中性、正面），代表了消费者对该属性的满意程度 <!-- raw HTML omitted --></td>
+<td>评论；短文本</td>
+<td>文本分类</td>
+<td>\</td>
+<td>中文</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="https://storage.googleapis.com/cluebenchmark/tasks/iflytek_public.zip">IFLYTEK&rsquo; 长文本分类</a></td>
+<td>\</td>
+<td>科大讯飞</td>
+<td></td>
+<td><!-- raw HTML omitted --> 该数据集共有1.7万多条关于app应用描述的长文本标注数据，包含和日常生活相关的各类应用主题，共119个类别 <!-- raw HTML omitted --></td>
+<td>长文本</td>
+<td>文本分类</td>
+<td>\</td>
+<td>中文</td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="http://www.sogou.com/labs/resource/ca.php">全网新闻分类数据(SogouCA)</a></td>
+<td>2012年8月16号</td>
+<td>搜狗</td>
+<td></td>
+<td><!-- raw HTML omitted --> 该数据来自若干新闻站点2012年6月—7月期间国内，国际，体育，社会，娱乐等18个频道的新闻数据 <!-- raw HTML omitted --></td>
+<td>新闻</td>
+<td>文本分类</td>
+<td>\</td>
+<td>中文</td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="http://www.sogou.com/labs/resource/cs.php">搜狐新闻数据(SogouCS)</a></td>
+<td>2012年8月</td>
+<td>搜狗</td>
+<td></td>
+<td><!-- raw HTML omitted --> 数据来源为搜狐新闻2012年6月—7月期间国内，国际，体育，社会，娱乐等18个频道的新闻数据 <!-- raw HTML omitted --></td>
+<td>新闻</td>
+<td>文本分类</td>
+<td>\</td>
+<td>中文</td>
+</tr>
+<tr>
+<td>11</td>
+<td><a href="http://www.nlpir.org/?action-viewnews-itemid-145">中科大新闻分类语料库</a></td>
+<td>2017年11月</td>
+<td>刘禹 中国科学院自动化研究所综合信息中心</td>
+<td></td>
+<td><!-- raw HTML omitted --> 暂时不能下载，已经联系作者，等待反馈                         <!-- raw HTML omitted --></td>
+<td>新闻</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td><a href="https://github.com/SophonPlus/ChineseNlpCorpus/tree/master/datasets">ChnSentiCorp_htl_all</a></td>
+<td>2018年3月</td>
+<td><a href="https://github.com/SophonPlus/ChineseNlpCorpus">https://github.com/SophonPlus/ChineseNlpCorpus</a></td>
+<td></td>
+<td><!-- raw HTML omitted --> 7000 多条酒店评论数据，5000 多条正向评论，2000 多条负向评论  <!-- raw HTML omitted --></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td><a href="https://github.com/SophonPlus/ChineseNlpCorpus/tree/master/datasets">waimai_10k</a></td>
+<td>2018年3月</td>
+<td><a href="https://github.com/SophonPlus/ChineseNlpCorpus">https://github.com/SophonPlus/ChineseNlpCorpus</a></td>
+<td></td>
+<td><!-- raw HTML omitted --> 某外卖平台收集的用户评价，正向 4000 条，负向 约 8000 条      <!-- raw HTML omitted --></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td><a href="https://github.com/SophonPlus/ChineseNlpCorpus/tree/master/datasets">online_shopping_10_cats</a></td>
+<td>2018年3月</td>
+<td><a href="https://github.com/SophonPlus/ChineseNlpCorpus">https://github.com/SophonPlus/ChineseNlpCorpus</a></td>
+<td></td>
+<td><!-- raw HTML omitted --> 10 个类别，共 6 万多条评论数据，正、负向评论各约 3 万条， 包括书籍、平板、手机、水果、洗发水、热水器、蒙牛、衣服、计算机、酒店 <!-- raw HTML omitted --></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td><a href="https://github.com/SophonPlus/ChineseNlpCorpus/tree/master/datasets">weibo_senti_100k</a></td>
+<td>2018年3月</td>
+<td><a href="https://github.com/SophonPlus/ChineseNlpCorpus">https://github.com/SophonPlus/ChineseNlpCorpus</a></td>
+<td></td>
+<td><!-- raw HTML omitted --> 10 万多条，带情感标注 新浪微博，正负向评论约各 5 万条        <!-- raw HTML omitted --></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td><a href="https://github.com/SophonPlus/ChineseNlpCorpus/tree/master/datasets">simplifyweibo_4_moods</a></td>
+<td>2018年3月</td>
+<td><a href="https://github.com/SophonPlus/ChineseNlpCorpus">https://github.com/SophonPlus/ChineseNlpCorpus</a></td>
+<td></td>
+<td><!-- raw HTML omitted --> 36 万多条，带情感标注 新浪微博，包含 4 种情感， 其中喜悦约 20 万条，愤怒、厌恶、低落各约 5 万条 <!-- raw HTML omitted --></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td><a href="https://github.com/SophonPlus/ChineseNlpCorpus/tree/master/datasets">dmsc_v2</a></td>
+<td>2018年3月</td>
+<td><a href="https://github.com/SophonPlus/ChineseNlpCorpus">https://github.com/SophonPlus/ChineseNlpCorpus</a></td>
+<td></td>
+<td><!-- raw HTML omitted --> 28 部电影，超 70 万 用户，超 200 万条 评分/评论 数据         <!-- raw HTML omitted --></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<td><a href="https://github.com/SophonPlus/ChineseNlpCorpus/tree/master/datasets">yf_dianping</a></td>
+<td>2018年3月</td>
+<td><a href="https://github.com/SophonPlus/ChineseNlpCorpus">https://github.com/SophonPlus/ChineseNlpCorpus</a></td>
+<td></td>
+<td><!-- raw HTML omitted --> 24 万家餐馆，54 万用户，440 万条评论/评分数据                <!-- raw HTML omitted --></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>19</td>
+<td><a href="https://github.com/SophonPlus/ChineseNlpCorpus/tree/master/datasets">yf_amazon</a></td>
+<td>2018年3月</td>
+<td><a href="https://github.com/SophonPlus/ChineseNlpCorpus">https://github.com/SophonPlus/ChineseNlpCorpus</a></td>
+<td></td>
+<td><!-- raw HTML omitted --> 52 万件商品，1100 多个类目，142 万用户，720 万条评论/评分数据 <!-- raw HTML omitted --></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="文本匹配">文本匹配</h1>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>标题</th>
+<th>更新日期</th>
+<th>数据集提供者</th>
+<th>许可</th>
+<th>说明</th>
+<th>关键字</th>
+<th>类别</th>
+<th>论文地址</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="http://icrc.hitsz.edu.cn/Article/show/171.html">LCQMC</a></td>
+<td>2018/6/6</td>
+<td>哈工大(深圳)智能计算研究中心</td>
+<td>Creative Commons Attribution 4.0 International License</td>
+<td><!-- raw HTML omitted --> 该数据集共包含来自多个领域的260068个中文问句对，相同询问意图的句子对标记为1，否则为0；并预先将其切分为了训练集：238766对，验证集：8802对，测试集：12500对 <!-- raw HTML omitted --></td>
+<td>大规模问句匹配；意图匹配</td>
+<td>短文本匹配；问句匹配</td>
+<td><a href="https://www.aclweb.org/anthology/C18-1166">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="http://icrc.hitsz.edu.cn/Article/show/175.html">The BQ Corpus</a></td>
+<td>2018/9/4</td>
+<td>哈工大(深圳)智能计算研究中心；微众银行</td>
+<td></td>
+<td><!-- raw HTML omitted --> 该数据集共有120000个句子对，来自银行一年中的咨询服务日志；句子对包含不同的意图，标记正负样本比例为1:1 <!-- raw HTML omitted --></td>
+<td>银行服务问句；意图匹配</td>
+<td>短文本匹配；问句一致性检测</td>
+<td><a href="https://www.aclweb.org/anthology/D18-1536/">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="https://dc.cloud.alipay.com/index?click_from=MAIL&amp;_bdType=acafbbbiahdahhadhiih#/topic/intro?id=3">AFQMC 蚂蚁金融语义相似度</a></td>
+<td>2018/4/25</td>
+<td>蚂蚁金服</td>
+<td></td>
+<td><!-- raw HTML omitted -->提供10万对的标注数据（分批次更新，已更新完毕），作为训练数据，包括同义对和不同义对<!-- raw HTML omitted --></td>
+<td>金融问句</td>
+<td>短文本匹配；问句匹配</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="https://ai.ppdai.com/mirror/goToMirrorDetail?mirrorId=1">第三届拍拍贷“魔镜杯”大赛</a></td>
+<td>2018/6/10</td>
+<td>拍拍贷智慧金融研究院</td>
+<td></td>
+<td><!-- raw HTML omitted --> train.csv文件包含3列，分别是标签（label，表示问题1和问题2是否表示相同的意思，1表示相同，0表示不同），问题1的编号（q1）和问题2的编号（q2）。本文件中出现的所有问题编号均在question.csv中出现过 <!-- raw HTML omitted --></td>
+<td>金融产品</td>
+<td>短文本匹配；问句匹配</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="https://github.com/china-ai-law-challenge/CAIL2019/tree/master/scm">CAIL2019相似案例匹配大赛</a></td>
+<td>2019/6</td>
+<td>清华大学；中国裁判文书网</td>
+<td></td>
+<td><!-- raw HTML omitted --> 对于每份数据，用三元组(A,B,C)来代表该组数据，其中A,B,C均对应某一篇文书。文书数据A与B的相似度总是大于A与B的相似度的，即sim(A,B)&gt;sim(A,C) <!-- raw HTML omitted --></td>
+<td>法律文书；相似案例</td>
+<td>长文本匹配</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="https://biendata.com/competition/CCKS2018_3/data/">CCKS 2018 微众银行智能客服问句匹配大赛</a></td>
+<td>2018/4/5</td>
+<td>哈工大(深圳)智能计算研究中心；微众银行</td>
+<td></td>
+<td><!-- raw HTML omitted -->                                                              <!-- raw HTML omitted --></td>
+<td>银行服务问句；意图匹配</td>
+<td>短文本匹配；问句匹配</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="https://github.com/liuhuanyong/ChineseTextualInference">ChineseTextualInference</a></td>
+<td>2018/12/15</td>
+<td>刘焕勇，中国科学院软件研究所</td>
+<td></td>
+<td><!-- raw HTML omitted --> 中文文本推断项目,包括88万文本蕴含中文文本蕴含数据集的翻译与构建,基于深度学习的文本蕴含判定模型构建 <!-- raw HTML omitted --></td>
+<td>中文NLI</td>
+<td>中文文本推断；文本蕴含</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="https://biendata.com/ccf_tcci2018/datasets/tcci_tag/11">NLPCC-DBQA</a></td>
+<td>2016/2017/2018</td>
+<td>NLPCC</td>
+<td></td>
+<td><!-- raw HTML omitted --> 给定问题-答案，以及该答案是否是该问题的答案之一的标记，1表示是，0表示不是 <!-- raw HTML omitted --></td>
+<td>DBQA</td>
+<td>问答匹配</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="https://www.datafountain.cn/competitions/359">“技术需求”与“技术成果”项目之间关联度计算模型</a></td>
+<td>201/8/32</td>
+<td>CCF</td>
+<td></td>
+<td><!-- raw HTML omitted --> 给定文本形式的技术需求和技术成果，以及需求与成果的关联度标签；其中技术需求与技术成果之间的关联度分为四个层级： 强相关、较强相关、弱相关、无相关 <!-- raw HTML omitted --></td>
+<td>长文本；需求与成果匹配</td>
+<td>长文本匹配</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="https://github.com/zengjunjun/CNSD">CNSD / CLUE-CMNLI</a></td>
+<td>2019/12</td>
+<td>ZengJunjun</td>
+<td></td>
+<td><!-- raw HTML omitted --> 中文自然语言推理数据集，本数据及通过翻译加部分人工修正的方法，从英文原数据集生成，可以一定程度缓解中文自然语言推理和语义相似度计算数据集不够的问题 <!-- raw HTML omitted --></td>
+<td>中文NLI</td>
+<td>中文自然语言推断</td>
+<td><a href="https://6a75-junzeng-uxxxm-1300734931.tcb.qcloud.la/CNSD.pdf?sign=401485f4d6f256393a264e68464ca4ae&amp;t=1578114336">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td><a href="https://github.com/zhangsheng93/cMedQA">cMedQA v1.0</a></td>
+<td>2017/4/5</td>
+<td>寻药寻医网 和国防科技大学 信息系统及管理 学院</td>
+<td></td>
+<td><!-- raw HTML omitted --> 该数据集来源为寻医寻药网站中的提问和回答， 数据集做过匿名处理，提供的是包含 训练集中有50,000个问题，94,134个答案，平均每个问题、答案字符数分别为为120、212个； 验证集有2,000个问题，有3774个答案，问题和答案的平均字符数分别为117和212个； 测试集有2,000个问题，有3835个答案，问题和答案的平均字符数分别为119和211个； 数据集总量有54,000个问题，101,743个答案，平均每个问题和答案的字符数分别为119、212个； <!-- raw HTML omitted --></td>
+<td>医疗问答匹配</td>
+<td>问答匹配</td>
+<td><a href="https://www.mdpi.com/2076-3417/7/8/767">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td><a href="https://github.com/zhangsheng93/cMedQA2">cMedQA2</a></td>
+<td>2018/11/8</td>
+<td>寻药寻医网 和国防科技大学 信息系统及管理 学院</td>
+<td></td>
+<td><!-- raw HTML omitted --> 该数据集来源为寻医寻药网站中的提问和回答， 数据集做过匿名处理，提供的是包含 训练集中有100,000个问题，188,490个答案，平均每个问题、答案字符数分别为为48、101个； 验证集有4,000个问题，有7527个答案，问题和答案的平均字符数分别为49和101个； 测试集有4,000个问题，有7552个答案，问题和答案的平均字符数分别为49和100个； 数据集总量有108,000个问题，203,569个答案，平均每个问题和答案的字符数分别为49、101个； <!-- raw HTML omitted --></td>
+<td>医疗问答匹配</td>
+<td>问答匹配</td>
+<td><a href="https://www.mdpi.com/2076-3417/7/8/767">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td><a href="https://github.com/IAdmireu/ChineseSTS">ChineseSTS</a></td>
+<td>2017/9/21</td>
+<td>唐善成, 白云悦, 马付玉.  西安科技大学</td>
+<td></td>
+<td><!-- raw HTML omitted --> 该数据集提供了12747对中文相似数据集，在数据集后 作者给出了他们相似度的打分，语料由短句构成。 <!-- raw HTML omitted --></td>
+<td>短句相似度 匹配</td>
+<td>相似度匹配</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td><a href="https://biendata.com/competition/chip2018/">中国健康信息处理会议 举办的医疗问题相似度 衡量竞赛数据集</a></td>
+<td>2018</td>
+<td>CHIP 2018-第四届中国健康信息处理会议（CHIP）</td>
+<td></td>
+<td><!-- raw HTML omitted --> 本次评测任务的主要目标是针对中文的真实患者健康咨询语料，进行问句意图匹配。 给定两个语句，要求判定两者意图是否相同或者相近。 所有语料来自互联网上患者真实的问题，并经过了筛选和人工的意图匹配标注。 数据集经过脱敏处理，问题由数字标示 训练集包含20000条左右标注好的数据（经过脱敏处理，包含标点符号），  测试集包含10000条左右无label的数据（经过脱敏处理，包含标点&gt; 符号）。 <!-- raw HTML omitted --></td>
+<td>医疗问题相似度 匹配</td>
+<td>相似度匹配</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td><a href="https://github.com/thunlp/COS960">COS960: A Chinese Word Similarity Dataset of 960 Word Pairs</a></td>
+<td>2019/6/6</td>
+<td>清华大学</td>
+<td></td>
+<td><!-- raw HTML omitted --> 该数据集中包含了960对单词， 并且每对单词都被15个母语者用相似度分数来衡量 这960个词对根据标签被分成三组， 包含480对名词，240对动词和240对形容词。 <!-- raw HTML omitted --></td>
+<td>单词之间的相似度</td>
+<td>同义词</td>
+<td><a href="https://arxiv.org/abs/1906.00247">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td><a href="https://pan.baidu.com/s/1Hg2Hubsn3GEuu4gubbHCzw">OPPO手机搜索排序query-title语义匹配数据集</a>，密码7p3n</td>
+<td>2018/11/6</td>
+<td>OPPO</td>
+<td></td>
+<td><!-- raw HTML omitted --> 该数据集来自于OPPO手机搜索排序优化实时搜索场景, 该场景就是在用户不断输入过程中，实时返回查询结果。 该数据集在此基础上做了相应的简化， 提供了一个query-title语义匹配，即ctr预测的问题。 <!-- raw HTML omitted --></td>
+<td>问题标题匹配， ctr预测</td>
+<td>相似度匹配</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td><a href="https://www.sogou.com/labs/resource/e.php">网页搜索结果评价(SogouE)</a></td>
+<td>2012年</td>
+<td>搜狗</td>
+<td>搜狗实验室数据使用许可协议</td>
+<td><!-- raw HTML omitted --> 该数据集包含了查询词，相关URL以及查询类别的搜索数据，格式如下 数据格式说明：查询词]\t相关的URL\t查询类别 其中URL保证存在于对应的互联网语料库； 查询类别中“1”表示导航类查询；“2”表示信息类查询 <!-- raw HTML omitted --></td>
+<td><a href="https://www.sogou.com/labs/paper/Automatic_Search_Engine_Performance_Evaluation_with_Click-through_Data_Analysis.pdf">Automatic Search Engine Performance Evaluation with Click-through Data Analysis</a></td>
+<td>查询类型匹配预测</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="文本摘要">文本摘要</h1>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>标题</th>
+<th>更新日期</th>
+<th>数据集提供者</th>
+<th>许可</th>
+<th>说明</th>
+<th>关键字</th>
+<th>类别</th>
+<th>论文地址</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="http://icrc.hitsz.edu.cn/Article/show/139.html">LCSTS</a></td>
+<td>2015/8/6</td>
+<td>Qingcai Chen</td>
+<td></td>
+<td><!-- raw HTML omitted --> 数据集来源于新浪微博，包含两百万左右真实中文短文本，每条数据包括由作者标注的摘要和正文两个字段。另外有10,666条数据由人工标注出短文本与摘要的相关性，从1-5相关性依次增加。 <!-- raw HTML omitted --></td>
+<td>单文本摘要；短文本；文本相关性</td>
+<td>文本摘要</td>
+<td><a href="http://arxiv.org/abs/1506.05865">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="https://www.jianshu.com/p/8f52352f0748?tdsourcetag=s_pcqq_aiomsg">中文短文本摘要数据集</a></td>
+<td>2018/6/20</td>
+<td>He Zhengfang</td>
+<td></td>
+<td><!-- raw HTML omitted --> 数据来源于新浪微博主流媒体发布的微博，共679898条数据。       <!-- raw HTML omitted --></td>
+<td>单文本摘要；短文本</td>
+<td>文本摘要</td>
+<td>\</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="https://github.com/wonderfulsuccess/chinese_abstractive_corpus">教育培训行业抽象式自动摘要中文语料库</a></td>
+<td>2018/6/5</td>
+<td>匿名</td>
+<td></td>
+<td><!-- raw HTML omitted --> 语料库收集了教育培训行业主流垂直媒体的历史文章，约24500条数据，每条数据包括由作者标注的摘要和正文两个字段。 <!-- raw HTML omitted --></td>
+<td>单文本摘要；教育培训</td>
+<td>文本摘要</td>
+<td>\</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="http://tcci.ccf.org.cn/conference/2017/taskdata.php">NLPCC2017 Task3</a></td>
+<td>2017/11/8</td>
+<td>NLPCC2017主办方</td>
+<td></td>
+<td><!-- raw HTML omitted --> 数据集来源于新闻领域，是NLPCC2017举办提供的任务数据，可用于单文本摘要。 <!-- raw HTML omitted --></td>
+<td>单文本摘要；新闻</td>
+<td>文本摘要</td>
+<td>\</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="https://www.dcjingsai.com/common/cmpt/%E2%80%9C%E7%A5%9E%E7%AD%96%E6%9D%AF%E2%80%9D2018%E9%AB%98%E6%A0%A1%E7%AE%97%E6%B3%95%E5%A4%A7%E5%B8%88%E8%B5%9B_%E7%AB%9E%E8%B5%9B%E4%BF%A1%E6%81%AF.html">神策杯2018</a></td>
+<td>2018/10/11</td>
+<td>DC竞赛主办方</td>
+<td></td>
+<td><!-- raw HTML omitted --> 数据来源于新闻文本，由DC竞赛主办方提供，模拟业务场景，以新闻文本的核心词提取为目的，最终结果达到提升推荐和用户画像的效果。 <!-- raw HTML omitted --></td>
+<td>文本关键字；新闻</td>
+<td>文本摘要</td>
+<td>\</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="http://biendata.com/competition/bytecup2018/data/">Byte Cup 2018国际机器学习竞赛</a></td>
+<td>2018/12/4</td>
+<td>字节跳动</td>
+<td></td>
+<td><!-- raw HTML omitted --> 数据来自字节跳动旗下产品TopBuzz和开放版权的文章，训练集包括了约 130 万篇文本的信息，验证集 1000 篇文章， 测试集 800 篇文章。 每条测试集和验证集的数据经由人工编辑手工标注多个可能的标题，作为答案备选。 <!-- raw HTML omitted --></td>
+<td>单文本摘要；视频；新闻</td>
+<td>文本摘要</td>
+<td>\</td>
+<td>英文</td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="https://summari.es/">NEWSROOM</a></td>
+<td>2018/6/1</td>
+<td>Grusky</td>
+<td></td>
+<td><!-- raw HTML omitted --> 数据是从1998年到2017年的搜索和社交元数据中获得，并使用了多种提取和抽象相结合的摘要策略，包含作者和编辑在38个主要出版物编辑部撰写的130万篇文章和摘要。 <!-- raw HTML omitted --></td>
+<td>单文本摘要；社交元数据；搜索</td>
+<td>文本摘要</td>
+<td><a href="http://aclweb.org/anthology/N18-1065">论文</a></td>
+<td>英文</td>
+</tr>
+<tr>
+<td>8</td>
+<td>[DUC/TAC](<a href="https://duc.nist.gov/">https://duc.nist.gov/</a> <a href="https://tac.nist.gov//">https://tac.nist.gov//</a>)</td>
+<td>2014/9/9</td>
+<td>NIST</td>
+<td></td>
+<td><!-- raw HTML omitted --> 全称Document Understanding Conferences/Text Analysis Conference，数据集来源于每年的TAC KBP（TAC Knowledge Base Population）比赛使用的语料库中的新闻专线和网络文本。 <!-- raw HTML omitted --></td>
+<td>单文本/多文本摘要；新闻</td>
+<td>文本摘要</td>
+<td>\</td>
+<td>英文</td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="https://cs.nyu.edu/~kcho/DMQA/">CNN/Daily Mail</a></td>
+<td>2017/7/31</td>
+<td>Standford</td>
+<td>GNU v3</td>
+<td><!-- raw HTML omitted --> 数据集是从美国有线新闻网（CNN）和每日邮报(DailyMail)中手机大约一百万条新闻数据作为机器阅读理解语料库。 <!-- raw HTML omitted --></td>
+<td>多文本摘要；长文本；新闻</td>
+<td>文本摘要</td>
+<td><a href="https://arxiv.org/pdf/1704.04368.pdf">论文</a></td>
+<td>英文</td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="https://snap.stanford.edu/data/web-Amazon.html">Amazon SNAP Review</a></td>
+<td>2013/3/1</td>
+<td>Standford</td>
+<td></td>
+<td><!-- raw HTML omitted --> 数据来源于Amazon网站购物评论，可以获取每个大类别（如美食、电影等）下的数据，也可以一次性获取所有数据。 <!-- raw HTML omitted --></td>
+<td>多文本摘要；购物评论</td>
+<td>文本摘要</td>
+<td>\</td>
+<td>英文</td>
+</tr>
+<tr>
+<td>11</td>
+<td><a href="https://github.com/harvardnlp/sent-summary">Gigaword</a></td>
+<td>2003/1/28</td>
+<td>David Graff, Christopher Cieri</td>
+<td></td>
+<td><!-- raw HTML omitted --> 数据集包括约950w 篇新闻文章，用文章标题做摘要，属于单句摘要数据集。 <!-- raw HTML omitted --></td>
+<td>单文本摘要；新闻</td>
+<td>文本摘要</td>
+<td></td>
+<td>英文</td>
+</tr>
+<tr>
+<td>12</td>
+<td><a href="http://www1.se.cuhk.edu.hk/~textmine/dataset/ra-mds/">RA-MDS</a></td>
+<td>2017/9/11</td>
+<td>Piji Li</td>
+<td></td>
+<td><!-- raw HTML omitted --> 全称Reader-Aware Multi-Document Summarization，数据集来源于新闻文章，由专家收集、标注和审查。涵盖了45个主题，每个主题包含10个新闻文档和4个模型摘要，每个新闻文档平均包含27个句子，每个句子平均包含25个单词。 <!-- raw HTML omitted --></td>
+<td>多文本摘要；新闻；人工标注</td>
+<td>文本摘要</td>
+<td><a href="http://lipiji.com/docs/li2017ramds.pdf">论文</a></td>
+<td>英文</td>
+</tr>
+<tr>
+<td>13</td>
+<td><a href="https://www-nlpir.nist.gov/related_projects/tipster_summac/cmp_lg.html">TIPSTER SUMMAC</a></td>
+<td>2003/5/21</td>
+<td>The MITRE Corporation and the University of Edinburgh</td>
+<td></td>
+<td><!-- raw HTML omitted --> 数据由183篇Computation and Language (cmp-lg) collection标记的文档组成，文档取自ACL会议发表论文。 <!-- raw HTML omitted --></td>
+<td>多文本摘要；长文本</td>
+<td>文本摘要</td>
+<td>\</td>
+<td>英文</td>
+</tr>
+<tr>
+<td>14</td>
+<td><a href="http://www.wikihow.com/">WikiHow</a></td>
+<td>2018/10/18</td>
+<td>Mahnaz Koupaee</td>
+<td></td>
+<td><!-- raw HTML omitted --> 每条数据为一篇文章，每篇文章由多个段落组成，每个段落以一个总结它的句子开头。通过合并段落形成文章和段落大纲形成摘要，数据集的最终版本包含了超过200,000个长序列对。 <!-- raw HTML omitted --></td>
+<td>多文本摘要；长文本</td>
+<td>文本摘要</td>
+<td><a href="https://arxiv.org/abs/1810.09305">论文</a></td>
+<td>英文</td>
+</tr>
+<tr>
+<td>15</td>
+<td><a href="https://github.com/Alex-Fabbri/Multi-News">Multi-News</a></td>
+<td>2019/12/4</td>
+<td>Alex Fabbri</td>
+<td></td>
+<td><!-- raw HTML omitted --> 数据来自1500多个不同网站的输入文章以及从网站newser.com获得的56,216篇这些文章的专业摘要。 <!-- raw HTML omitted --></td>
+<td>多文本摘要</td>
+<td>文本摘要</td>
+<td><a href="http://arxiv.org/abs/1906.01749">论文</a></td>
+<td>英文</td>
+</tr>
+<tr>
+<td>16</td>
+<td><a href="http://lear.inrialpes.fr/people/potapov/med_summaries">MED Summaries</a></td>
+<td>2018/8/17</td>
+<td>D.Potapov</td>
+<td></td>
+<td><!-- raw HTML omitted --> 数据集用于动态视频摘要评估，包含160个视频的注释，其中验证集60、测试集100，测试集中有10个事件类别。 <!-- raw HTML omitted --></td>
+<td>单文本摘要；视频注释</td>
+<td>文本摘要</td>
+<td><a href="http://hal.inria.fr/hal-01022967">论文</a></td>
+<td>英文</td>
+</tr>
+<tr>
+<td>17</td>
+<td><a href="http://arxiv.org/abs/1906.03741">BIGPATENT</a></td>
+<td>2019/7/27</td>
+<td>Sharma</td>
+<td></td>
+<td><!-- raw HTML omitted --> 数据集包括130万份美国专利文献记录以及人类书面抽象摘要，摘要包含更丰富的话语结构和更多的常用实体。 <!-- raw HTML omitted --></td>
+<td>单文本摘要；专利；书面语</td>
+<td>文本摘要</td>
+<td><a href="http://arxiv.org/abs/1906.03741">论文</a></td>
+<td>英文</td>
+</tr>
+<tr>
+<td>18</td>
+<td>[NYT](<a href="https://catalog.ldc.upenn.edu/LDC2008T19"> https://catalog.ldc.upenn.edu/LDC2008T19</a>)</td>
+<td>2008/10/17</td>
+<td>Evan Sandhaus</td>
+<td></td>
+<td><!-- raw HTML omitted --> 全称The New York Times,数据集包含150篇来自纽约时报的商业文章,抓取了从2009年11月到2010年1月纽约时报网站上的所有文章。 <!-- raw HTML omitted --></td>
+<td>单文本摘要；商业文章</td>
+<td>文本摘要</td>
+<td>\</td>
+<td>英文</td>
+</tr>
+<tr>
+<td>19</td>
+<td><a href="https://catalog.ldc.upenn.edu/LDC2002T31">The AQUAINT Corpus of English News Text</a></td>
+<td>2002/9/26</td>
+<td>David Graff</td>
+<td></td>
+<td><!-- raw HTML omitted --> 数据集由新华社(中华人民共和国)、纽约时报新闻服务和美联社世界新闻服务的英文新闻文本数据组成，包含大约3.75亿字。数据集收费。 <!-- raw HTML omitted --></td>
+<td>单文本摘要；新闻</td>
+<td>文本摘要</td>
+<td>\</td>
+<td>中文和英文</td>
+</tr>
+<tr>
+<td>20</td>
+<td><a href="https://archive.ics.uci.edu/ml/datasets/Legal+Case+Reports">Legal Case Reports Data Set</a></td>
+<td>2012/10/19</td>
+<td>Filippo Galgani</td>
+<td></td>
+<td><!-- raw HTML omitted --> 数据集来自2006-2009年澳大利亚联邦法院(FCA)的澳大利亚法律案例，包含约4000个法律案件及其摘要。 <!-- raw HTML omitted --></td>
+<td>单文本摘要；法律案件</td>
+<td>文本摘要</td>
+<td>\</td>
+<td>英文</td>
+</tr>
+<tr>
+<td>21</td>
+<td><a href="http://www.l3s.de/~gtran/timeline/">17 Timelines</a></td>
+<td>2015/5/29</td>
+<td>G. B. Tran</td>
+<td></td>
+<td><!-- raw HTML omitted --> 数据是从新闻文章网页中提取的内容，包含埃及、利比亚、也门、叙利亚四个国家的新闻。 <!-- raw HTML omitted --></td>
+<td>单文本摘要；新闻</td>
+<td>文本摘要</td>
+<td><a href="http://l3s.de/~gtran/publications/www2013.pdf">论文</a></td>
+<td>多语言</td>
+</tr>
+<tr>
+<td>22</td>
+<td><a href="https://github.com/FeiSun/ProductTitleSummarizationCorpus">PTS Corpus</a></td>
+<td>2018/10/9</td>
+<td>Fei Sun</td>
+<td></td>
+<td><!-- raw HTML omitted --> 全称Product Title Summarization Corpus，数据为移动设备显示电子商务应用中的产品名称摘要 <!-- raw HTML omitted --></td>
+<td>单文本摘要；短文本</td>
+<td>文本摘要</td>
+<td><a href="https://arxiv.org/abs/1808.06885">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>23</td>
+<td><a href="https://github.com/Santosh-Gupta/ScientificSummarizationDataSets">Scientific Summarization DataSets</a></td>
+<td>2019/10/26</td>
+<td>Santosh Gupta</td>
+<td></td>
+<td><!-- raw HTML omitted --> 数据集取自Semantic Scholar Corpus和ArXiv。来自Semantic Scholar语料库的标题/摘要对，过滤掉生物医学领域的所有论文，包含580万条数据。来自ArXiv的数据，包含了从1991年开始到2019年7月5日的每篇论文的标题/摘要对。数据集包含金融类数据10k，生物学类26k，数学类417k，物理类157万，CS类221k。 <!-- raw HTML omitted --></td>
+<td>单文本摘要；论文</td>
+<td>文本摘要</td>
+<td>\</td>
+<td>英文</td>
+</tr>
+<tr>
+<td>24</td>
+<td><a href="https://github.com/WING-NUS/scisumm-corpus">Scientific Document Summarization Corpus and Annotations from the WING NUS group</a></td>
+<td>2019/3/19</td>
+<td>Jaidka</td>
+<td></td>
+<td><!-- raw HTML omitted --> 数据集包括ACL计算语言学和自然语言处理研究论文，以及各自的引用论文和三个输出摘要:传统作者的论文摘要(摘要)、社区摘要(引用语句“引文”的收集)和由训练有素的注释员撰写的人类摘要，训练集包含40篇文章和引用论文。 <!-- raw HTML omitted --></td>
+<td>单文本摘要；论文</td>
+<td>文本摘要</td>
+<td><a href="http://www.aclweb.org/anthology/W16-1511.pdf">论文</a></td>
+<td>英文</td>
+</tr>
+</tbody>
+</table>
+<h1 id="机器翻译">机器翻译</h1>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>标题</th>
+<th>更新日期</th>
+<th>数据集提供者</th>
+<th>许可</th>
+<th>说明</th>
+<th>关键字</th>
+<th>类别</th>
+<th>论文地址</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="http://www.statmt.org/wmt17/translation-task.html">WMT2017</a></td>
+<td>2017/2/1</td>
+<td>EMNLP 2017  Workshop on Machine Translation</td>
+<td></td>
+<td><!-- raw HTML omitted --> 数据主要来源于  Europarl corpus和UN corpus两个机构， 附带2017年从News Commentary corpus 任务中重新抽取的文章。 这是由EMNLP会议提供的翻译语料， 作为很多论文效果 的benchmark来检测 <!-- raw HTML omitted --></td>
+<td>Benchmark, WMT2017</td>
+<td>中英翻译 语料</td>
+<td><a href="https://www.statmt.org/wmt17/pdf/WMT17.pdf">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="http://statmt.org/wmt18/translation-task.html#download">WMT2018</a></td>
+<td>2018/11/1</td>
+<td>EMNLP 2018  Workshop on Machine Translation</td>
+<td></td>
+<td><!-- raw HTML omitted -->数据主要来源于  Europarl corpus和UN corpus两个机构， 附带2018年从News Commentary corpus 任务中重新抽取的文章。 这是由EMNLP会议提供的翻译语料， 作为很多论文效果 的benchmark来检测<!-- raw HTML omitted --></td>
+<td>Benchmark, WMT2018</td>
+<td>中英翻译 语料</td>
+<td><a href="http://www.statmt.org/wmt18/">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="http://www.statmt.org/wmt19/translation-task.html">WMT2019</a></td>
+<td>2019/1/31</td>
+<td>EMNLP 2019  Workshop on Machine Translation</td>
+<td></td>
+<td><!-- raw HTML omitted --> 数据主要来源于 Europarl corpus和UN corpus两个机构, 以及附加了 news-commentary corpus  and the ParaCrawl corpus中来得数据 <!-- raw HTML omitted --></td>
+<td>Benchmark, WMT2019</td>
+<td>中英翻译 语料</td>
+<td><a href="http://www.statmt.org/wmt19/pdf/53/WMT01.pdf">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="http://nlp2ct.cis.umac.mo/um-corpus/">UM-Corpus:A Large  English-Chinese Parallel Corpus</a></td>
+<td>2014/5/26</td>
+<td>Department of Computer  and Information Science,  University of Macau, Macau</td>
+<td></td>
+<td><!-- raw HTML omitted --> 由澳门大学发布的 中英文对照的 高质量翻译语料                 <!-- raw HTML omitted --></td>
+<td>UM-Corpus;English; Chinese;large</td>
+<td>中英翻译 语料</td>
+<td><a href="http://www.lrec-conf.org/proceedings/lrec2014/pdf/774_Paper.pdf">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="https://pan.baidu.com/s/1E5gD5QnZvNxT3ZLtxe_boA">Ai challenger translation 2017</a>提取码: stjf</td>
+<td>2017/8/14</td>
+<td>创新工场、搜狗和 今日头条联合发起的 AI科技竞赛</td>
+<td></td>
+<td><!-- raw HTML omitted --> 规模最大的口语领域英中双语对照数据集。 提供了超过1000万的英中对照的句子对作为数据集合。 所有双语句对经过人工检查， 数据集从规模、相关度、质量上都有保障。     训练集：10,000,000 句 验证集（同声传译）：934 句 验证集（文本翻译）：8000 句 <!-- raw HTML omitted --></td>
+<td>AI challenger 2017</td>
+<td>中英翻译 语料</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="http://opus.nlpl.eu/download.php?f=MultiUN/v1/tmx/en-zh.tmx.gz">MultiUN</a></td>
+<td>2010</td>
+<td>Department of Linguistics  and Philology Uppsala  University, Uppsala/Sweden</td>
+<td></td>
+<td><!-- raw HTML omitted --> 该数据集由德国人工智能研究中心提供， 除此数据集外，该网站还提供了很多的别 的语言之间的翻译对照语料供下载 <!-- raw HTML omitted --></td>
+<td>MultiUN</td>
+<td>中英翻译 语料</td>
+<td><a href="http://www.dfki.de/lt/publication_show.php?id=4790">MultiUN: A Multilingual corpus from United Nation Documents, Andreas Eisele and Yu Chen, LREC 2010</a></td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="https://catalog.ldc.upenn.edu/LDC2010T10">NIST 2002 Open Machine Translation (OpenMT) Evaluation</a></td>
+<td>2010/5/14</td>
+<td>NIST Multimodal Information Group</td>
+<td>LDC User Agreement for Non-Members</td>
+<td><!-- raw HTML omitted --> 数据来源于Xinhua 新闻服务包含70个新闻故事， 以及来自于Zaobao新闻服务的30个新闻故事，共100个 从两个新闻集中选择出来的故事的长度都再212到707个 中文字符之间，Xinhua部分共有有25247个字符， Zaobao有39256个字符 <!-- raw HTML omitted --></td>
+<td>NIST</td>
+<td>中英翻译 语料</td>
+<td><a href="http://www.lrec-conf.org/proceedings/lrec2018/pdf/678.pdf">论文</a></td>
+<td>该系列有多年的数据， 该数据使用需要付费</td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="http://cs.jhu.edu/~kevinduh/a/multitarget-tedtalks/">The Multitarget TED Talks Task (MTTT)</a></td>
+<td>2018</td>
+<td>Kevin Duh, JUH</td>
+<td></td>
+<td><!-- raw HTML omitted --> 该数据集包含基于TED演讲的多种语言的平行语料，包含中英文等共计20种语言 <!-- raw HTML omitted --></td>
+<td>TED</td>
+<td>中英翻译 语料</td>
+<td>The Multitarget TED Talks Task</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="http://lotus.kuee.kyoto-u.ac.jp/WAT/">ASPEC Chinese-Japanese</a></td>
+<td>2019</td>
+<td>Workshop on Asian Translation</td>
+<td></td>
+<td><!-- raw HTML omitted --> 该数据集主要研究亚洲区域的语言，如中文和日语之间， 日语和英文之间的翻译任务 翻译语料主要来自语科技论文（论文摘要；发明描述；专利等等） <!-- raw HTML omitted --></td>
+<td>Asian scientific patent Japanese</td>
+<td>中日翻译语料</td>
+<td><a href="http://lotus.kuee.kyoto-u.ac.jp/WAT/">http://lotus.kuee.kyoto-u.ac.jp/WAT/</a></td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="http://nlp.nju.edu.cn/cwmt-wmt/">casia2015</a></td>
+<td>2015</td>
+<td>research group in Institute of Automation , Chinese Academy of Sciences</td>
+<td></td>
+<td><!-- raw HTML omitted --> 语料库包含从网络自动收集的大约一百万个句子对                 <!-- raw HTML omitted --></td>
+<td>casia CWMT 2015</td>
+<td>中英翻译语料</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td><a href="http://nlp.nju.edu.cn/cwmt-wmt/">casict2011</a></td>
+<td>2011</td>
+<td>research group in Institute of Computing Technology , Chinese Academy of Sciences</td>
+<td></td>
+<td><!-- raw HTML omitted --> 语料库包含2个部分，每个部分包含从网络自动收集 的大约1百万（总计2百万）个句子对。 句子级别的对齐精度约为90％。 <!-- raw HTML omitted --></td>
+<td>casict CWMT 2011</td>
+<td>中英翻译语料</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td><a href="http://nlp.nju.edu.cn/cwmt-wmt/">casict2015</a></td>
+<td>2015</td>
+<td>research group in Institute of Computing Technology , Chinese Academy of Sciences</td>
+<td></td>
+<td><!-- raw HTML omitted --> 语料库包含大约200万个句子对，包括从网络（60％）， 电影字幕（20％）和英语/汉语词库（20％）收集的句子。 句子水平对齐精度高于99％。 <!-- raw HTML omitted --></td>
+<td>casict CWMT 2015</td>
+<td>中英翻译语料</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td><a href="http://nlp.nju.edu.cn/cwmt-wmt/">datum2015</a></td>
+<td>2015</td>
+<td>Datum Data Co., Ltd.</td>
+<td></td>
+<td><!-- raw HTML omitted --> 语料库包含一百万对句子，涵盖不同类型， 例如用于语言教育的教科书，双语书籍， 技术文档，双语新闻，政府白皮书， 政府文档，网络上的双语资源等。 请注意，数据中文部分的某些部分是按词段划分的。 <!-- raw HTML omitted --></td>
+<td>datum CWMT 2015</td>
+<td>中英翻译语料</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td><a href="http://nlp.nju.edu.cn/cwmt-wmt/">datum2017</a></td>
+<td>2017</td>
+<td>Datum Data Co., Ltd.</td>
+<td></td>
+<td><!-- raw HTML omitted --> 语料库包含20个文件，涵盖不同类型，例如新闻，对话，法律文件，小说等。 每个文件有50,000个句子。 整个语料库包含一百万个句子。 前10个文件（Book1-Book10）的中文词均已分段。 <!-- raw HTML omitted --></td>
+<td>datum CWMT 2017</td>
+<td>中英翻译语料</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td><a href="http://nlp.nju.edu.cn/cwmt-wmt/">neu2017</a></td>
+<td>2017</td>
+<td>NLP lab of Northeastern University, China</td>
+<td></td>
+<td><!-- raw HTML omitted --> 语料库包含从网络自动收集的200万个句子对，包括新闻，技术文档等。 句子级别的对齐精度约为90％。 <!-- raw HTML omitted --></td>
+<td>neu CWMT 2017</td>
+<td>中英翻译语料</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td><a href="https://github.com/brightmart/nlp_chinese_corpus">翻译语料(translation2019zh)</a></td>
+<td>2019</td>
+<td>徐亮</td>
+<td></td>
+<td><!-- raw HTML omitted --> 可以用于训练中英文翻译系统，从中文翻译到英文，或从英文翻译到中文；  由于有上百万的中文句子，可以只抽取中文的句子，做为通用中文语料，训练词向量或做为预训练的语料。英文任务也可以类似操作； <!-- raw HTML omitted --></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="知识图谱">知识图谱</h1>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>标题</th>
+<th>更新日期</th>
+<th>数据集提供者</th>
+<th>许可</th>
+<th>说明</th>
+<th>关键字</th>
+<th>类别</th>
+<th>论文地址</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="http://www.nlpir.org/wordpress/download/weibo_relation_corpus.rar">NLPIR微博关注关系语料库100万条</a></td>
+<td>2017/12/2</td>
+<td>北京理工大学网络搜索挖掘与安全实验室张华平博士</td>
+<td></td>
+<td><!-- raw HTML omitted --> NLPIR微博关注关系语料库说明 1.NLPIR微博关注关系语料库由北京理工大学网络搜索挖掘与安全实验室张华平博士，通过公开采集与抽取从新浪微博、腾讯微博中获得。为了推进微博计算的研究，现通过自然语言处理与信息检索共享平台(127.0.0.1/wordpress)予以公开共享其中的1000万条数据（目前已有数据接近10亿，已经剔除了大量的冗余数据）； 2.本语料库在公开过程中，已经最大限度地采用技术手段屏蔽了用户真实姓名和url，如果涉及到的用户需要全面保护个人隐私的，可以Email给张华平博士kevinzhang@bit.edu.cn予以删除，对给您造成的困扰表示抱歉，并希望谅解； 3.只适用于科研教学用途，不得作为商用；引用本语料库，恭请在软件或者论文等成果特定位置表明出处为：NLPIR微博语料库，出处为自然语言处理与信息检索共享平台(<a href="http://www.nlpir.org/">http://www.nlpir.org/</a>)。 4.字段说明： person_id  人物的id guanzhu_id 所关注人的id <!-- raw HTML omitted --></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="语料库">语料库</h1>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>标题</th>
+<th>更新日期</th>
+<th>数据集提供者</th>
+<th>许可</th>
+<th>说明</th>
+<th>关键字</th>
+<th>类别</th>
+<th>论文地址</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="%5Bhttp://www.nlpir.org/wordpress/2017/12/03/nlpir%e5%be%ae%e5%8d%9a%e5%86%85%e5%ae%b9%e8%af%ad%e6%96%99%e5%ba%93-23%e4%b8%87%e6%9d%a1/%5D(http://www.nlpir.org/wordpress/2017/12/03/nlpir%E5%BE%AE%E5%8D%9A%E5%86%85%E5%AE%B9%E8%AF%AD%E6%96%99%E5%BA%93-23%E4%B8%87%E6%9D%A1/)">NLPIR微博内容语料库-23万条</a></td>
+<td>2017年12月</td>
+<td>北京理工大学网络搜索挖掘与安全实验室张华平博士</td>
+<td></td>
+<td><!-- raw HTML omitted --> NLPIR微博内容语料库说明 1.NLPIR微博内容语料库由北京理工大学网络搜索挖掘与安全实验室张华平博士，通过公开采集与抽取从新浪微博、腾讯微博中获得。为了推进微博计算的研究，现通过自然语言处理与信息检索共享平台(127.0.0.1/wordpress)予以公开共享其中的23万条数据（目前已有数据接近1000万，已经剔除了大量的冗余数据）。 2.本语料库在公开过程中，已经最大限度地采用技术手段屏蔽了用户真实姓名和url，如果涉及到的用户需要全面保护个人隐私的，可以Email给张华平博士kevinzhang@bit.edu.cn予以删除，对给您造成的困扰表示抱歉，并希望谅解； 3.只适用于科研教学用途，不得作为商用；引用本语料库，恭请在软件或者论文等成果特定位置表明出处为：NLPIR微博语料库，出处为自然语言处理与信息检索共享平台(<a href="http://www.nlpir.org/">http://www.nlpir.org/</a>)。 4.字段说明： id  文章编号 article  正文 discuss  评论数目 insertTime 正文插入时间 origin  来源 person_id 所属人物的id time  正文发布时间 transmit 转发 <!-- raw HTML omitted --></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="http://www.nlpir.org/wordpress/download/weibo.7z">500万微博语料</a></td>
+<td>2018年1月</td>
+<td>北京理工大学网络搜索挖掘与安全实验室张华平博士</td>
+<td></td>
+<td><!-- raw HTML omitted --> 【500万微博语料】北理工搜索挖掘实验室主任@ICTCLAS张华平博士 提供500万微博语料供大家使用，文件为sql文件，只能导入mysql数据库，内含建表语句，共500万数据。语料只适用于科研教学用途，不得作为商用；引用本语料库，请在软件或者论文等成果特定位置表明出处 。   【看起来这份数据比上面那一份要杂糅一些，没有做过处理】 <!-- raw HTML omitted --></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="http://www.nlpir.org/wordpress/download/NLPIR-news-corpus.rar">NLPIR新闻语料库-2400万字</a></td>
+<td>2017年7月</td>
+<td><a href="http://www.nlpir.org/">www.NLPIR.org</a></td>
+<td></td>
+<td><!-- raw HTML omitted --> NLPIR新闻语料库说明   1.解压缩后数据量为48MB，大约2400万字的新闻； 2.采集的新闻时间跨度为2009年10月12日至2009年12月14日。 3.文件名为新闻的时间；每个文件包括多个新闻正文内容（已经去除了新闻的垃圾信息）； 4.新闻本身内容的版权属于原作者或者新闻机构； 5.整理后的语料库版权属于www.NLPIR.org； 6.可供新闻分析、自然语言处理、搜索等应用提供测试数据场景； 如需更大规模的语料库，可以联系NLPIR.org管理员。 <!-- raw HTML omitted --></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="http://www.nlpir.org/wordpress/download/weibo_relation_corpus.rar">NLPIR微博关注关系语料库100万条</a></td>
+<td>2017年12月</td>
+<td>北京理工大学网络搜索挖掘与安全实验室张华平博士</td>
+<td></td>
+<td><!-- raw HTML omitted --> NLPIR微博关注关系语料库说明 1.NLPIR微博关注关系语料库由北京理工大学网络搜索挖掘与安全实验室张华平博士，通过公开采集与抽取从新浪微博、腾讯微博中获得。为了推进微博计算的研究，现通过自然语言处理与信息检索共享平台(127.0.0.1/wordpress)予以公开共享其中的1000万条数据（目前已有数据接近10亿，已经剔除了大量的冗余数据）； 2.本语料库在公开过程中，已经最大限度地采用技术手段屏蔽了用户真实姓名和url，如果涉及到的用户需要全面保护个人隐私的，可以Email给张华平博士kevinzhang@bit.edu.cn予以删除，对给您造成的困扰表示抱歉，并希望谅解； 3.只适用于科研教学用途，不得作为商用；引用本语料库，恭请在软件或者论文等成果特定位置表明出处为：NLPIR微博语料库，出处为自然语言处理与信息检索共享平台(<a href="http://www.nlpir.org/">http://www.nlpir.org/</a>)。 4.字段说明： person_id  人物的id guanzhu_id 所关注人的id <!-- raw HTML omitted --></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="%5Bhttp://www.nlpir.org/wordpress/2017/09/02/nlpir%e5%be%ae%e5%8d%9a%e5%8d%9a%e4%b8%bb%e8%af%ad%e6%96%99%e5%ba%93100%e4%b8%87%e6%9d%a1/%5D(http://www.nlpir.org/wordpress/2017/09/02/nlpir%E5%BE%AE%E5%8D%9A%E5%8D%9A%E4%B8%BB%E8%AF%AD%E6%96%99%E5%BA%93100%E4%B8%87%E6%9D%A1/)">NLPIR微博博主语料库100万条</a></td>
+<td>2017年9月</td>
+<td>北京理工大学网络搜索挖掘与安全实验室张华平博士</td>
+<td></td>
+<td><!-- raw HTML omitted --> NLPIR微博博主语料库说明 1.NLPIR微博博主语料库由北京理工大学网络搜索挖掘与安全实验室张华平博士，通过公开采集与抽取从新浪微博、腾讯微博中获得。为了推进微博计算的研究，现通过自然语言处理与信息检索共享平台(127.0.0.1/wordpress)予以公开共享其中的100万条数据（目前已有数据接近1亿，已经剔除了大量的冗余与机器粉丝） 2.本语料库在公开过程中，已经最大限度地采用技术手段屏蔽了用户真实姓名和url，如果涉及到的用户需要全面保护个人隐私的，可以Email给张华平博士kevinzhang@bit.edu.cn予以删除，对给您造成的困扰表示抱歉，并希望谅解； 3.只适用于科研教学用途，不得作为商用；引用本语料库，恭请在软件或者论文等成果特定位置表明出处为：NLPIR微博语料库，出处为自然语言处理与信息检索共享平台(<a href="http://www.nlpir.org/">http://www.nlpir.org/</a>)。 4.字段说明： id  内部id sex  性别 address  家庭住址 fansNum  粉丝数目 summary  个人摘要 wbNum  微博数量 gzNum   关注数量 blog  博客地址 edu  教育情况 work  工作情况 renZh  是否认证 brithday 生日； <!-- raw HTML omitted --></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="%5Bhttp://www.nlpir.org/wordpress/2017/08/12/nlpir%e7%9f%ad%e6%96%87%e6%9c%ac%e8%af%ad%e6%96%99%e5%ba%93-40%e4%b8%87%e5%ad%97/%5D(http://www.nlpir.org/wordpress/2017/08/12/nlpir%E7%9F%AD%E6%96%87%E6%9C%AC%E8%AF%AD%E6%96%99%E5%BA%93-40%E4%B8%87%E5%AD%97/)">NLPIR短文本语料库-40万字</a></td>
+<td>2017年8月</td>
+<td>北京理工大学网络搜索挖掘与安全实验室 (SMS@BIT)</td>
+<td></td>
+<td><!-- raw HTML omitted --> NLPIR短文本语料库说明   1.解压缩后数据量为48万字，大约8704篇短文本内容； 2.整理后的语料库版权属于www.NLPIR.org； 3.可供短文本自然语言处理、搜索、舆情分析等应用提供测试数据场景； <!-- raw HTML omitted --></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="https://dumps.wikimedia.org/zhwiki/">维基百科语料库</a></td>
+<td>\</td>
+<td>维基百科</td>
+<td></td>
+<td><!-- raw HTML omitted --> 维基百科会定期打包发布语料库                                 <!-- raw HTML omitted --></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="%5Bhttps://github.com/chinese-poetry/chinese-poetry%5D(https://link.zhihu.com/?target=https%3A//github.com/chinese-poetry/chinese-poetry)">古诗词数据库</a></td>
+<td>2020年</td>
+<td>github主爬虫，http://shici.store</td>
+<td></td>
+<td><!-- raw HTML omitted -->                                                              <!-- raw HTML omitted --></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="https://github.com/chatopera/insuranceqa-corpus-zh">保险行业语料库</a></td>
+<td>2017年</td>
+<td></td>
+<td></td>
+<td><!-- raw HTML omitted --> 该语料库包含从网站Insurance Library 收集的问题和答案。  据我们所知，这是保险领域首个开放的QA语料库：  该语料库的内容由现实世界的用户提出，高质量的答案由具有深度领域知识的专业人士提供。 所以这是一个具有真正价值的语料，而不是玩具。  在上述论文中，语料库用于答复选择任务。 另一方面，这种语料库的其他用法也是可能的。 例如，通过阅读理解答案，观察学习等自主学习，使系统能够最终拿出自己的看不见的问题的答案。  数据集分为两个部分“问答语料”和“问答对语料”。问答语料是从原始英文数据翻译过来，未经其他处理的。问答对语料是基于问答语料，又做了分词和去标去停，添加label。所以，&ldquo;问答对语料&quot;可以直接对接机器学习任务。如果对于数据格式不满意或者对分词效果不满意，可以直接对&quot;问答语料&quot;使用其他方法进行处理，获得可以用于训练模型的数据。 <!-- raw HTML omitted --></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="https://github.com/kfcd/chaizi">汉语拆字字典</a></td>
+<td>1905年7月</td>
+<td></td>
+<td></td>
+<td><!-- raw HTML omitted --> 本倉庫含開放詞典網用以提供字旁和部件查詢的拆字字典數據庫，有便利使用者查難打漢字等用途。目前數據庫收錄17,803不同漢字的拆法，分為繁體字（chaizi-ft.txt）和簡體字（chaizi-jt.txt）兩個版本。  拆字法有別於固有的筆順字庫。拆字著重於儘量把每個字拆成兩個以上的組成部件，而不是拆成手寫字時所使用的筆畫。 <!-- raw HTML omitted --></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td><a href="https://github.com/brightmart/nlp_chinese_corpus">新闻预料</a></td>
+<td>2016年</td>
+<td>徐亮</td>
+<td></td>
+<td><!-- raw HTML omitted --> 可以做为【通用中文语料】，训练【词向量】或做为【预训练】的语料；  也可以用于训练【标题生成】模型，或训练【关键词生成】模型（选关键词内容不同于标题的数据）；  亦可以通过新闻渠道区分出新闻的类型。 <!-- raw HTML omitted --></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td><a href="https://github.com/brightmart/nlp_chinese_corpus">百科类问答json版(baike2018qa)</a></td>
+<td>2018年</td>
+<td>徐亮</td>
+<td></td>
+<td><!-- raw HTML omitted --> 可以做为通用中文语料，训练词向量或做为预训练的语料；也可以用于构建百科类问答；其中类别信息比较有用，可以用于做监督训练，从而构建  更好句子表示的模型、句子相似性任务等。 <!-- raw HTML omitted --></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td><a href="https://github.com/brightmart/nlp_chinese_corpus">社区问答json版(webtext2019zh) ：大规模高质量数据集</a></td>
+<td>2019年</td>
+<td>徐亮</td>
+<td></td>
+<td><!-- raw HTML omitted --> 1）构建百科类问答：输入一个问题，构建检索系统得到一个回复或生产一个回复；或根据相关关键词从，社区问答库中筛选出你相关的领域数据  2）训练话题预测模型：输入一个问题(和或描述)，预测属于话题。  3）训练社区问答(cQA)系统：针对一问多答的场景，输入一个问题，找到最相关的问题，在这个基础上基于不同答案回复的质量、    问题与答案的相关性，找到最好的答案。  4）做为通用中文语料，做大模型预训练的语料或训练词向量。其中类别信息也比较有用，可以用于做监督训练，从而构建更好句子表示的模型、句子相似性任务等。  5）结合点赞数量这一额外信息，预测回复的受欢迎程度或训练答案评分系统。 <!-- raw HTML omitted --></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td><a href="https://github.com/brightmart/nlp_chinese_corpus">.维基百科json版(wiki2019zh)</a></td>
+<td>2019年</td>
+<td>徐亮</td>
+<td></td>
+<td><!-- raw HTML omitted --> 可以做为通用中文语料，做预训练的语料或构建词向量，也可以用于构建知识问答。【不同于wiki原始释放的数据集，这个处理过了】 <!-- raw HTML omitted --></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="阅读理解">阅读理解</h1>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>标题</th>
+<th>更新日期</th>
+<th>数据集提供者</th>
+<th>许可</th>
+<th>说明</th>
+<th>关键字</th>
+<th>类别</th>
+<th>论文地址</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="http://ai.baidu.com/broad/download?dataset=dureader">百度DuReader中文阅读理解数据集</a></td>
+<td>2018/3/1</td>
+<td>百度</td>
+<td>Apache2.0</td>
+<td><!-- raw HTML omitted --> 本次竞赛数据集来自搜索引擎真实应用场景，其中的问题为百度搜索用户的真实问题，每个问题对应5个候选文档文本及人工整理的优质答案。 <!-- raw HTML omitted --></td>
+<td>阅读理解、百度搜索真实问题</td>
+<td>中文阅读理解</td>
+<td><a href="https://arxiv.org/abs/1711.05073">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="https://github.com/china-ai-law-challenge/CAIL2019">中文法律阅读理解数据集CJRC</a></td>
+<td>2019/8/17</td>
+<td>哈工大讯飞联合实验室（HFL）</td>
+<td>\</td>
+<td><!-- raw HTML omitted --> 数据集包含约10,000篇文档，主要涉及民事一审判决书和刑事一审判决书。通过抽取裁判文书的事实描述内容，针对事实描述内容标注问题，最终形成约50,000个问答对 <!-- raw HTML omitted --></td>
+<td>阅读理解、中文法律领域</td>
+<td>中文阅读理解</td>
+<td><a href="https://link.springer.com/chapter/10.1007/978-3-030-32381-3_36">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="https://github.com/ymcui/cmrc2019">2019“讯飞杯”中文机器阅读理解数据集（CMRC ）</a></td>
+<td>2019年10月</td>
+<td>哈工大讯飞联合实验室（HFL）</td>
+<td>CC-BY-SA-4.0</td>
+<td><!-- raw HTML omitted --> 本次阅读理解的任务是句子级填空型阅读理解。 根据给定的一个叙事篇章以及若干个从篇章中抽取出的句子，参赛者需要建立模型将候选句子精准的填回原篇章中，使之成为完整的一篇文章。 <!-- raw HTML omitted --></td>
+<td>句子级填空型阅读理解</td>
+<td>中文阅读理解</td>
+<td>\</td>
+<td>赛事官网：https://hfl-rc.github.io/cmrc2019/</td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="https://github.com/ymcui/cmrc2018">2018“讯飞杯”中文机器阅读理解数据集（CMRC ）</a></td>
+<td>2018/10/19</td>
+<td>哈工大讯飞联合实验室（HFL）</td>
+<td>CC-BY-SA-4.0</td>
+<td><!-- raw HTML omitted --> CMRC 2018数据集包含了约20,000个在维基百科文本上人工标注的问题。同时，我们还标注了一个挑战集，其中包含了需要多句推理才能够正确解答的问题，更富有挑战性 <!-- raw HTML omitted --></td>
+<td>阅读理解、基于篇章片段抽取</td>
+<td>中文阅读理解</td>
+<td><a href="https://www.aclweb.org/anthology/D19-1600/">论文</a></td>
+<td>赛事官网：https://hfl-rc.github.io/cmrc2018/</td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="https://github.com/ymcui/Chinese-Cloze-RC">2017“讯飞杯”中文机器阅读理解数据集（CMRC ）</a></td>
+<td>2017/10/14</td>
+<td>哈工大讯飞联合实验室（HFL）</td>
+<td>CC-BY-SA-4.0</td>
+<td><!-- raw HTML omitted --> 首个中文填空型阅读理解数据集PD&amp;CFT                           <!-- raw HTML omitted --></td>
+<td>填空型阅读理解</td>
+<td>中文阅读理解</td>
+<td><a href="https://arxiv.org/abs/1607.02250">论文</a></td>
+<td><a href="https://hfl-rc.github.io/cmrc2017/">赛事官网</a></td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="https://www.kesci.com/home/competition/5d142d8cbb14e6002c04e14a/content/5">莱斯杯：全国第二届“军事智能机器阅读”挑战赛</a></td>
+<td>2019/9/3</td>
+<td>中电莱斯信息系统有限公司</td>
+<td>\</td>
+<td><!-- raw HTML omitted --> 面向军事应用场景的大规模中文阅读理解数据集，围绕多文档机器阅读理解进行竞赛，涉及理解、推理等复杂技术。 <!-- raw HTML omitted --></td>
+<td>多文档机器阅读理解</td>
+<td>中文阅读理解</td>
+<td>\</td>
+<td><a href="https://www.kesci.com/home/competition/5d142d8cbb14e6002c04e14a">赛事官网</a></td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="https://stanfordnlp.github.io/coqa/">CoQA</a></td>
+<td>2018/9</td>
+<td>斯坦福大学</td>
+<td>CC BY-SA 4.0、Apache等</td>
+<td><!-- raw HTML omitted --> CoQA是面向建立对话式问答系统的大型数据集，挑战的目标是衡量机器对文本的理解能力，以及机器面向对话中出现的彼此相关的问题的回答能力的高低 <!-- raw HTML omitted --></td>
+<td>对话问答</td>
+<td>英文阅读理解</td>
+<td><a href="https://arxiv.org/abs/1808.07042">论文</a></td>
+<td><a href="https://www.jiqizhixin.com/articles/2018-09-11-3">官方网站</a></td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="https://github.com/rajpurkar/SQuAD-explorer/tree/master/dataset">SQuAD2.0</a></td>
+<td>2018/1/11</td>
+<td>斯坦福大学</td>
+<td>\</td>
+<td><!-- raw HTML omitted --> 行业内公认的机器阅读理解领域的顶级水平测试；它构建了一个包含十万个问题的大规模机器阅读理解数据集，选取超过 500 篇的维基百科文章。数据集中每一个阅读理解问题的答案是来自给定的阅读文章的一小段文本 —— 以及，现在在 SQuAD 2.0 中还要判断这个问题是否能够根据当前的阅读文本作答 <!-- raw HTML omitted --></td>
+<td>问答、包含未知答案</td>
+<td>英文阅读理解</td>
+<td><a href="https://arxiv.org/abs/1806.03822">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="https://github.com/rajpurkar/SQuAD-explorer/tree/master/dataset">SQuAD1.0</a></td>
+<td>2016</td>
+<td>斯坦福大学</td>
+<td>\</td>
+<td><!-- raw HTML omitted --> 斯坦福大学于2016年推出的阅读理解数据集，给定一篇文章和相应问题，需要算法给出问题的答案。此数据集所有文章选自维基百科，一共有107,785问题，以及配套的 536 篇文章 <!-- raw HTML omitted --></td>
+<td>问答、基于篇章片段抽取</td>
+<td>英文阅读理解</td>
+<td><a href="https://arxiv.org/pdf/1606.05250.pdf">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="https://www.microsoft.com/en-us/research/publication/mctest-challenge-dataset-open-domain-machine-comprehension-text/">MCTest</a></td>
+<td>2013</td>
+<td>微软</td>
+<td>\</td>
+<td><!-- raw HTML omitted --> 100,000个必应Bing问题和人工生成的答案。从那时起，相继发布了1,000,000个问题数据集，自然语言生成数据集，段落排名数据集，关键词提取数据集，爬网数据集和会话搜索。 <!-- raw HTML omitted --></td>
+<td>问答、搜索</td>
+<td>英文阅读理解</td>
+<td><a href="https://microsoft.github.io/msmarco/">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td><a href="https://cs.nyu.edu/~kcho/DMQA/">CNN/Dailymail</a></td>
+<td>2015</td>
+<td>DeepMind</td>
+<td>Apache-2.0</td>
+<td><!-- raw HTML omitted --> 填空型大规模英文机器理解数据集，答案是原文中的某一个词。 CNN数据集包含美国有线电视新闻网的新闻文章和相关问题。大约有90k文章和380k问题。 Dailymail数据集包含每日新闻的文章和相关问题。大约有197k文章和879k问题。 <!-- raw HTML omitted --></td>
+<td>问答对、填空型阅读理解</td>
+<td>英文阅读理解</td>
+<td><a href="https://arxiv.org/abs/1506.03340">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td><a href="http://www.cs.cmu.edu/~glai1/data/race/">RACE</a></td>
+<td>2017</td>
+<td>卡耐基梅隆大学</td>
+<td>/</td>
+<td><!-- raw HTML omitted --> 数据集为中国中学生英语阅读理解题目，给定一篇文章和 5 道 4 选 1 的题目，包括了 28000+ passages 和 100,000 问题。 <!-- raw HTML omitted --></td>
+<td>选择题形式</td>
+<td>英文阅读理解</td>
+<td><a href="https://arxiv.org/abs/1704.04683">论文</a></td>
+<td>下载需邮件申请</td>
+</tr>
+<tr>
+<td>13</td>
+<td><a href="https://github.com/aghie/head-qa">HEAD-QA</a></td>
+<td>2019</td>
+<td>aghie</td>
+<td>MIT</td>
+<td><!-- raw HTML omitted --> 一个面向复杂推理的医疗保健、多选问答数据集。提供英语、西班牙语两种形式的数据 <!-- raw HTML omitted --></td>
+<td>医疗领域、选择题形式</td>
+<td>英文阅读理解 西班牙语阅读理解</td>
+<td><a href="https://arxiv.org/pdf/1906.04701.pdf">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td><a href="http://hfl.iflytek.com/chinese-rc/">Consensus Attention-based Neural Networks for Chinese Reading Comprehension</a></td>
+<td>2018</td>
+<td>哈工大讯飞联合实验室</td>
+<td>/</td>
+<td><!-- raw HTML omitted --> 中文完形填空型阅读理解                                       <!-- raw HTML omitted --></td>
+<td>填空型阅读理解</td>
+<td>中文阅读理解</td>
+<td><a href="https://arxiv.org/pdf/1607.02250.pdf">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td><a href="https://www.microsoft.com/en-us/research/publication/wikiqa-a-challenge-dataset-for-open-domain-question-answering/">WikiQA</a></td>
+<td>2015</td>
+<td>微软</td>
+<td>/</td>
+<td><!-- raw HTML omitted --> WikiQA语料库是一个新的公开的问题和句子对集，收集并注释用于开放域问答研究 <!-- raw HTML omitted --></td>
+<td>片段抽取阅读理解</td>
+<td>英文阅读理解</td>
+<td><a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/YangYihMeek_EMNLP-15_WikiQA.pdf">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td><a href="https://research.fb.com/downloads/babi/">Children’s Book Test (CBT)</a></td>
+<td>2016</td>
+<td>Facebook</td>
+<td>/</td>
+<td><!-- raw HTML omitted --> 测试语言模型如何在儿童书籍中捕捉意义。与标准语言建模基准不同，它将预测句法功能词的任务与预测语义内容更丰富的低频词的任务区分开来 <!-- raw HTML omitted --></td>
+<td>填空型阅读理解</td>
+<td>英文阅读理解</td>
+<td><a href="https://arxiv.org/pdf/1511.02301.pdf">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td><a href="https://www.microsoft.com/en-us/research/project/newsqa-dataset/">NewsQA</a></td>
+<td>2017</td>
+<td>Maluuba Research</td>
+<td>/</td>
+<td><!-- raw HTML omitted --> 一个具有挑战性的机器理解数据集，包含超过100000个人工生成的问答对，根据CNN的10000多篇新闻文章提供问题和答案，答案由相应文章的文本跨度组成。 <!-- raw HTML omitted --></td>
+<td>片段抽取阅读理解</td>
+<td>英文阅读理解</td>
+<td><a href="https://arxiv.org/pdf/1611.09830.pdf">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<td><a href="https://www.microsoft.com/en-us/research/project/frames-dataset/#!download">Frames dataset</a></td>
+<td>2017</td>
+<td>微软</td>
+<td>/</td>
+<td>介绍了一个由1369个人类对话组成的框架数据集，平均每个对话15轮。开发这个数据集是为了研究记忆在目标导向对话系统中的作用。</td>
+<td>阅读理解、对话</td>
+<td>英文阅读理解</td>
+<td><a href="https://arxiv.org/pdf/1704.00057.pdf">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>19</td>
+<td><a href="https://github.com/bdhingra/quasar">Quasar</a></td>
+<td>2017</td>
+<td>卡内基梅隆大学</td>
+<td>BSD-2-Clause</td>
+<td><!-- raw HTML omitted --> 提出了两个大规模数据集。Quasar-S数据集由37000个完形填空式查询组成，这些查询是根据流行网站 Stack overflow 上的软件实体标记的定义构造的。网站上的帖子和评论是回答完形填空问题的背景语料库。Quasar-T数据集包含43000个开放域琐事问题及其从各种互联网来源获得的答案。 <!-- raw HTML omitted --></td>
+<td>片段抽取阅读理解</td>
+<td>英文阅读理解</td>
+<td><a href="https://arxiv.org/pdf/1707.03904.pdf">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>20</td>
+<td><a href="http://www.msmarco.org/dataset.aspx">MS MARCO</a></td>
+<td>2018</td>
+<td>微软</td>
+<td>/</td>
+<td><!-- raw HTML omitted --> 微软基于搜索引擎 BING 构建的大规模英文阅读理解数据集，包含10万个问题和20万篇不重复的文档。MARCO 数据集中的问题全部来自于 BING 的搜索日志，根据用户在 BING 中输入的真实问题模拟搜索引擎中的真实应用场景，是该领域最有应用价值的数据集之一。 <!-- raw HTML omitted --></td>
+<td>多文档</td>
+<td>英文阅读理解</td>
+<td><a href="https://arxiv.org/pdf/1611.09268.pdf">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>21</td>
+<td><a href="https://github.com/ymcui/Chinese-Cloze-RC">中文完形填空</a></td>
+<td>2016年</td>
+<td>崔一鸣</td>
+<td></td>
+<td><!-- raw HTML omitted --> 首个中文填空型阅读理解数据集PD&amp;CFT， 全称People Daily and Children&rsquo;s Fairy Tale， 数据来源于人民日报和儿童故事。 <!-- raw HTML omitted --></td>
+<td>填空型阅读理解</td>
+<td>中文完形填空</td>
+<td><a href="http://aclanthology.info/papers/consensus-attention-based-neural-networks-for-chinese-reading-comprehension">论文</a></td>
+<td></td>
+</tr>
+<tr>
+<td>22</td>
+<td><a href="http://tcci.ccf.org.cn/conference/2016/">NLPCC ICCPOL2016</a></td>
+<td>2016.12.2</td>
+<td>NLPCC主办方</td>
+<td></td>
+<td><!-- raw HTML omitted --> 基于文档中的句子人工合成14659个问题，包括14K中文篇章。       <!-- raw HTML omitted --></td>
+<td>问答对阅读理解</td>
+<td>中文阅读理解</td>
+<td>\</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="文本分类-1">文本分类</h1>
+<h2 id="新闻分类">新闻分类</h2>
+<ul>
+<li>今日头条中文新闻（短文本）分类数据集 ： <a href="https://github.com/fateleak/toutiao-text-classfication-dataset">https://github.com/fateleak/toutiao-text-classfication-dataset</a>
+<ul>
+<li>数据规模：共<strong>38万条</strong>，分布于15个分类中。</li>
+<li>采集时间：2018年05月。</li>
+<li>以0.7 0.15 0.15做分割 。</li>
+</ul>
+</li>
+<li>清华新闻分类语料：
+<ul>
+<li>根据新浪新闻RSS订阅频道2005~2011年间的历史数据筛选过滤生成。</li>
+<li>数据量：<strong>74万篇新闻文档</strong>（2.19 GB）</li>
+<li>小数据实验可以筛选类别：体育, 财经, 房产, 家居, 教育, 科技, 时尚, 时政, 游戏, 娱乐</li>
+<li><a href="http://thuctc.thunlp.org/#%E8%8E%B7%E5%8F%96%E9%93%BE%E6%8E%A5">http://thuctc.thunlp.org/#%E8%8E%B7%E5%8F%96%E9%93%BE%E6%8E%A5</a></li>
+<li>rnn和cnn实验： <a href="https://github.com/gaussic/text-classification-cnn-rnn">https://github.com/gaussic/text-classification-cnn-rnn</a></li>
+</ul>
+</li>
+<li>中科大新闻分类语料库： <a href="http://www.nlpir.org/?action-viewnews-itemid-145">http://www.nlpir.org/?action-viewnews-itemid-145</a></li>
+</ul>
+<h2 id="情感观点评论-倾向性分析">情感/观点/评论 倾向性分析</h2>
+<table>
+<thead>
+<tr>
+<th>数据集</th>
+<th>数据概览</th>
+<th>下载</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ChnSentiCorp_htl_all</td>
+<td>7000 多条酒店评论数据，5000 多条正向评论，2000 多条负向评论</td>
+<td><a href="https://github.com/SophonPlus/ChineseNlpCorpus/blob/master/datasets/ChnSentiCorp_htl_all/intro.ipynb">地址</a></td>
+</tr>
+<tr>
+<td>waimai_10k</td>
+<td>某外卖平台收集的用户评价，正向 4000 条，负向 约 8000 条</td>
+<td><a href="https://github.com/SophonPlus/ChineseNlpCorpus/blob/master/datasets/waimai_10k/intro.ipynb">地址</a></td>
+</tr>
+<tr>
+<td>online_shopping_10_cats</td>
+<td>10 个类别，共 6 万多条评论数据，正、负向评论各约 3 万条， 包括书籍、平板、手机、水果、洗发水、热水器、蒙牛、衣服、计算机、酒店</td>
+<td><a href="https://github.com/SophonPlus/ChineseNlpCorpus/blob/master/datasets/online_shopping_10_cats/intro.ipynb">地址</a></td>
+</tr>
+<tr>
+<td>weibo_senti_100k</td>
+<td>10 万多条，带情感标注 新浪微博，正负向评论约各 5 万条</td>
+<td><a href="https://github.com/SophonPlus/ChineseNlpCorpus/blob/master/datasets/weibo_senti_100k/intro.ipynb">地址</a></td>
+</tr>
+<tr>
+<td>simplifyweibo_4_moods</td>
+<td>36 万多条，带情感标注 新浪微博，包含 4 种情感， 其中喜悦约 20 万条，愤怒、厌恶、低落各约 5 万条</td>
+<td><a href="https://github.com/SophonPlus/ChineseNlpCorpus/blob/master/datasets/simplifyweibo_4_moods/intro.ipynb">地址</a></td>
+</tr>
+<tr>
+<td>dmsc_v2</td>
+<td>28 部电影，超 70 万 用户，超 200 万条 评分/评论 数据</td>
+<td><a href="https://github.com/SophonPlus/ChineseNlpCorpus/blob/master/datasets/dmsc_v2/intro.ipynb">地址</a></td>
+</tr>
+<tr>
+<td>yf_dianping</td>
+<td>24 万家餐馆，54 万用户，440 万条评论/评分数据</td>
+<td><a href="https://github.com/SophonPlus/ChineseNlpCorpus/blob/master/datasets/yf_dianping/intro.ipynb">地址</a></td>
+</tr>
+<tr>
+<td>yf_amazon</td>
+<td>52 万件商品，1100 多个类目，142 万用户，720 万条评论/评分数据</td>
+<td><a href="https://github.com/SophonPlus/ChineseNlpCorpus/blob/master/datasets/yf_amazon/intro.ipynb">地址</a></td>
+</tr>
+</tbody>
+</table>
+<h1 id="实体识别词性标注">实体识别&amp;词性标注</h1>
+<ul>
+<li>
+<h2 id="微博实体识别">微博实体识别.</h2>
+<ul>
+<li><a href="https://github.com/hltcoe/golden-horse">https://github.com/hltcoe/golden-horse</a></li>
+</ul>
+</li>
+<li>
+<h2 id="boson数据">boson数据。</h2>
+<ul>
+<li>包含6种实体类型。</li>
+<li><a href="https://github.com/InsaneLife/ChineseNLPCorpus/tree/master/NER/boson">https://github.com/InsaneLife/ChineseNLPCorpus/tree/master/NER/boson</a></li>
+</ul>
+</li>
+<li>
+<h2 id="人民日报数据集">人民日报数据集。</h2>
+<ul>
+<li>人名、地名、组织名三种实体类型</li>
+<li>1998：<a href="https://github.com/InsaneLife/ChineseNLPCorpus/tree/master/NER/renMinRiBao">https://github.com/InsaneLife/ChineseNLPCorpus/tree/master/NER/renMinRiBao</a></li>
+<li>2004： <a href="https://pan.baidu.com/s/1LDwQjoj7qc-HT9qwhJ3rcA">https://pan.baidu.com/s/1LDwQjoj7qc-HT9qwhJ3rcA</a> password: 1fa3</li>
+</ul>
+</li>
+<li>
+<h2 id="msra微软亚洲研究院数据集">MSRA微软亚洲研究院数据集。</h2>
+<ul>
+<li>5 万多条中文命名实体识别标注数据（包括地点、机构、人物）</li>
+<li><a href="https://github.com/InsaneLife/ChineseNLPCorpus/tree/master/NER/MSRA">https://github.com/InsaneLife/ChineseNLPCorpus/tree/master/NER/MSRA</a></li>
+</ul>
+</li>
+<li>
+<p>SIGHAN Bakeoff 2005：一共有四个数据集，包含繁体中文和简体中文，下面是简体中文分词数据。</p>
+<ul>
+<li>MSR: <a href="http://sighan.cs.uchicago.edu/bakeoff2005/">http://sighan.cs.uchicago.edu/bakeoff2005/</a></li>
+<li>PKU ：<a href="http://sighan.cs.uchicago.edu/bakeoff2005/">http://sighan.cs.uchicago.edu/bakeoff2005/</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="搜索匹配">搜索匹配</h1>
+<h2 id="oppo手机搜索排序">OPPO手机搜索排序</h2>
+<p>OPPO手机搜索排序query-title语义匹配数据集。</p>
+<p>链接: <a href="https://pan.baidu.com/s/1Hg2Hubsn3GEuu4gubbHCzw">https://pan.baidu.com/s/1Hg2Hubsn3GEuu4gubbHCzw</a> 提取码:7p3n</p>
+<h2 id="网页搜索结果评价sogoue">网页搜索结果评价(SogouE)</h2>
+<ul>
+<li>
+<p>用户查询及相关URL列表</p>
+</li>
+<li>
+<p><a href="https://www.sogou.com/labs/resource/e.php">https://www.sogou.com/labs/resource/e.php</a></p>
+</li>
+</ul>
+<h1 id="推荐系统">推荐系统</h1>
+<table>
+<thead>
+<tr>
+<th>数据集</th>
+<th>数据概览</th>
+<th>下载地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ez_douban</td>
+<td>5 万多部电影（3 万多有电影名称，2 万多没有电影名称），2.8 万 用户，280 万条评分数据</td>
+<td><a href="https://github.com/SophonPlus/ChineseNlpCorpus/blob/master/datasets/ez_douban/intro.ipynb">点击查看</a></td>
+</tr>
+<tr>
+<td>dmsc_v2</td>
+<td>28 部电影，超 70 万 用户，超 200 万条 评分/评论 数据</td>
+<td><a href="https://github.com/SophonPlus/ChineseNlpCorpus/blob/master/datasets/dmsc_v2/intro.ipynb">点击查看</a></td>
+</tr>
+<tr>
+<td>yf_dianping</td>
+<td>24 万家餐馆，54 万用户，440 万条评论/评分数据</td>
+<td><a href="https://github.com/SophonPlus/ChineseNlpCorpus/blob/master/datasets/yf_dianping/intro.ipynb">点击查看</a></td>
+</tr>
+<tr>
+<td>yf_amazon</td>
+<td>52 万件商品，1100 多个类目，142 万用户，720 万条评论/评分数据</td>
+<td><a href="https://github.com/SophonPlus/ChineseNlpCorpus/blob/master/datasets/yf_amazon/intro.ipynb">点击查看</a></td>
+</tr>
+</tbody>
+</table>
+<h1 id="百科数据">百科数据</h1>
+<h2 id="维基百科">维基百科</h2>
+<p>维基百科会定时将语料库打包发布： <a href="https://dumps.wikimedia.org/zhwiki/">https://dumps.wikimedia.org/zhwiki/</a></p>
+<h2 id="百度百科">百度百科</h2>
+<p>只能自己爬，爬取得链接： <a href="https://pan.baidu.com/share/init?surl=i3wvfil">https://pan.baidu.com/share/init?surl=i3wvfil</a> 提取码 neqs 。</p>
+<h1 id="指代消歧">指代消歧</h1>
+<p>CoNLL 2012 ：<a href="http://conll.cemantix.org/2012/data.html">http://conll.cemantix.org/2012/data.html</a></p>
+<h1 id="中文微博情感分析测评数据">中文微博情感分析测评数据</h1>
+<p>说明：数据来自腾讯微博 1。评测数据全集包括 20 个话题，每个话题采集大约1000条微博，共约20000条微博。数据采用xml格式，已经预先切分好句子。每条句子的所有标注信息都包含在元素的属性中。其中opinionated表示是否观点句，polarity表示句子情感倾向。</p>
+<p>下载地址: <a href="https://pan.baidu.com/s/1psjysSXpKOEb1ciem7DsRw">https://pan.baidu.com/s/1psjysSXpKOEb1ciem7DsRw</a> 密码：7hb4</p>
+<h1 id="中文情感词汇本体">中文情感词汇本体</h1>
+<p>情感分类按照论文《情感词汇本体的构造》所述，情感分为7大类21小类。<br>
+情感强度分为1,3,5,7,9五档，9表示强度最大，1为强度最小。</p>
+<p>情感分类如表2所示：<br>
+表2 情感分类<br>
+编号 情感大类 情感类 例词<br>
+1 乐 快乐(PA) 喜悦、欢喜、笑眯眯、欢天喜地<br>
+2 安心(PE) 踏实、宽心、定心丸、问心无愧<br>
+3 好 尊敬(PD) 恭敬、敬爱、毕恭毕敬、肃然起敬<br>
+4 赞扬(PH) 英俊、优秀、通情达理、实事求是<br>
+5 相信(PG) 信任、信赖、可靠、毋庸置疑<br>
+6 喜爱(PB) 倾慕、宝贝、一见钟情、爱不释手</p>
+<p>7 祝愿(PK) 渴望、保佑、福寿绵长、万寿无疆<br>
+8 怒 愤怒(NA) 气愤、恼火、大发雷霆、七窍生烟<br>
+9 哀 悲伤(NB) 忧伤、悲苦、心如刀割、悲痛欲绝<br>
+10 失望(NJ) 憾事、绝望、灰心丧气、心灰意冷<br>
+11 疚(NH) 内疚、忏悔、过意不去、问心有愧<br>
+12 思(PF) 思念、相思、牵肠挂肚、朝思暮想<br>
+13 惧 慌(NI) 慌张、心慌、不知所措、手忙脚乱<br>
+14 恐惧(NC) 胆怯、害怕、担惊受怕、胆颤心惊<br>
+15 羞(NG) 害羞、害臊、面红耳赤、无地自容<br>
+16 恶 烦闷(NE) 憋闷、烦躁、心烦意乱、自寻烦恼<br>
+17 憎恶(ND) 反感、可耻、恨之入骨、深恶痛绝<br>
+18 贬责(NN) 呆板、虚荣、杂乱无章、心狠手辣<br>
+19 妒忌(NK) 眼红、吃醋、醋坛子、嫉贤妒能<br>
+20 怀疑(NL) 多心、生疑、将信将疑、疑神疑鬼<br>
+21 惊 惊奇(PC) 奇怪、奇迹、大吃一惊、瞠目结舌</p>
+<ul>
+<li>词性种类</li>
+</ul>
+<p>情感词汇本体中的词性种类一共分为7类，分别是名词（noun），动词（verb），形容词（adj），副词（adv），网络词语（nw），成语（idiom），介词短语（prep）。</p>
+<ul>
+<li>极性标注</li>
+</ul>
+<p>每个词在每一类情感下都对应了一个极性。其中，0代表中性，1代表褒义，2代表贬义，3代表兼有褒贬两性。
+注：褒贬标注时，通过词本身和情感共同确定，所以有些情感在一些词中可能极性1，而其他的词中有可能极性为0。</p>
+<ul>
+<li>存储格式及规模</li>
+</ul>
+<p>中文情感本体以excel的格式进行存储，共含有情感词共计27466个，文件大小为1.22M。</p>
+<p>下载地址: <a href="https://pan.baidu.com/s/1jTw3F-Zme2ekspQUUsCiNQ">https://pan.baidu.com/s/1jTw3F-Zme2ekspQUUsCiNQ</a> 密码：py1q<br>
+修改版下载地址: <a href="https://figshare.com/articles/___/6881282/1">https://figshare.com/articles/___/6881282/1</a></p>
+<h2 id="中文褒贬义词词典">中文褒贬义词词典</h2>
+<p>下载链接： <a href="https://pan.baidu.com/s/1RzqIGwrE023PmnEZGFszHg">https://pan.baidu.com/s/1RzqIGwrE023PmnEZGFszHg</a> 密码：hu1h</p>
+<h2 id="商品评论情感语料库">商品评论情感语料库</h2>
+<p>中文情感分析语料库，包含 酒店、服装、水果、平板、洗发水 等 5 个领域的评价数据，每个领域各包含 5000 条正面和负面评价，数据抓取于 携程网 和 京东 ，仅供科研学习之用，欢迎下载使用！</p>
+<p>下载地址: <a href="https://pan.baidu.com/s/1_9sGJFD29gssC9ZrQaMa7A">https://pan.baidu.com/s/1_9sGJFD29gssC9ZrQaMa7A</a> 密码：h5hf</p>
+<h2 id="reference">Reference</h2>
+<p>1、 <a href="https://github.com/crownpku/Awesome-Chinese-NLP">https://github.com/crownpku/Awesome-Chinese-NLP</a><br>
+2、 <a href="https://github.com/brightmart/nlp_chinese_corpus">https://github.com/brightmart/nlp_chinese_corpus</a><br>
+3、 <a href="https://github.com/CLUEbenchmark/CLUEDatasetSearch">https://github.com/CLUEbenchmark/CLUEDatasetSearch</a><br>
+4、 <a href="https://github.com/InsaneLife/ChineseNLPCorpus">https://github.com/InsaneLife/ChineseNLPCorpus</a><br>
+5、 <a href="https://mlln.cn/2018/10/11/%E4%B8%AD%E6%96%87%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90%E8%AF%AD%E6%96%99%E5%BA%93%E5%A4%A7%E5%85%A8-%E5%B8%A6%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80/">https://mlln.cn/2018/10/11/%E4%B8%AD%E6%96%87%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90%E8%AF%AD%E6%96%99%E5%BA%93%E5%A4%A7%E5%85%A8-%E5%B8%A6%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80/</a></p>
+<h2 id="打赏">打赏</h2>
+<table>
+<thead>
+<tr>
+<th align="left">微信<img src="/about/wechat.png" alt="微信"></th>
+<th align="left">支付宝<img src="/about/alipay.png" alt="支付宝"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em><strong>万分感谢</strong></em></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+
+        
+<div class="post-archive">
+    <ul class="post-copyright">
+        <li><strong>原文作者：</strong><a rel="author" href="https://cold-eye.github.io/">冷眼</a></li>
+        <li style="word-break:break-all"><strong>原文链接：</strong><a href="https://cold-eye.github.io/post/nlp-corpus/">https://cold-eye.github.io/post/nlp-corpus/</a></li>
+        <li><strong>版权声明：</strong>本作品采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可，非商业转载请注明出处（作者，原文链接），商业转载请联系作者获得授权。</li>
+    </ul>
+</div>
+<br/>
+
+
+
+        
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='https://cold-eye.github.io/tags/nlp'>nlp</a></li>
+                
+                <li><a href='https://cold-eye.github.io/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86'>自然语言处理</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    
+    
+    
+    <div id="vcomments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+    <script type="text/javascript">
+      new Valine({
+          el: '#vcomments' ,
+          appId: '2bNGHPmILSH9xQJ9XjQchomv-gzGzoHsz',
+          appKey: '52xbEYwnpwLahMh4Yj55r69v',
+          notify: 'false', 
+          verify: 'false', 
+          avatar:'mm', 
+          placeholder: '说点什么吧...',
+          visitor: 'false'
+      });
+    </script>
+</div>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <!DOCTYPE html>
+<html>
+
+<head>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+</head>
+
+
+
+
+
+
+
+
+
+
+
+<body>
+    <div class="demo">
+        <div id="player1">
+        </div>
+    </div>
+    <script>
+        var ap = new APlayer
+            ({
+                element: document.getElementById('player1'),
+                narrow: false,
+                fixed: false, 
+                autoplay: false,
+                showlrc: true,
+                mini: false,
+                theme: '#FADFA3',
+                loop: 'all',
+                order: 'random',
+                preload: 'auto',
+                volume: 0.5,
+                mutex: false,
+                listFolded: true,
+                listMaxHeight: 90,
+                lrcType: 2,
+                music:
+                    [
+                        {
+                            artist: 'A',
+                            name: 'A',
+                            url:'http://music.163.com/song/media/outer/url?id=28560087.mp3',
+                            cover: '',
+                            lrc:'A',
+                        },{
+                            name: 'B',
+                            artist:'B',
+                            url:'http://music.163.com/song/media/outer/url?id=1438282140.mp3',
+                            cover: '',
+                            lrc:'B',
+                            theme: '#ebd0c2'
+                        },{
+                            name: 'C',
+                            artist:'C',
+                            url:'http://music.163.com/song/media/outer/url?id=5316168.mp3',
+                            cover: '',
+                            lrc:'C',
+                            theme: '#46718b'
+                        },{
+                            name: 'D',
+                            artist:'D',
+                            url:'http://music.163.com/song/media/outer/url?id=2007819.mp3',
+                            cover: '',
+                            lrc:'D',
+                            theme: ''
+                        },{
+                            name: 'E',
+                            artist:'E',
+                            url:'http://music.163.com/song/media/outer/url?id=1398850429.mp3',
+                            cover: '',
+                            lrc:'E',
+                            theme: ''
+                        },{
+                            name: 'F',
+                            artist:'F',
+                            url:'http://music.163.com/song/media/outer/url?id=28830038.mp3',
+                            cover: '',
+                            lrc:'F',
+                            theme: ''
+                        },{
+                            name: 'G',
+                            artist:'G',
+                            url:'http://music.163.com/song/media/outer/url?id=451126971.mp3',
+                            cover: '',
+                            lrc:'G',
+                            theme: ''
+                        },{
+                            name: 'H',
+                            artist:'H',
+                            url:'http://music.163.com/song/media/outer/url?id=744866.mp3',
+                            cover: '',
+                            lrc:'H',
+                            theme: ''
+                        },
+                    ]
+                    
+        });
+        
+    </script>
+</body>
+    </section>
+
+    <section class="widget">
+        <form id="search" action='https://cold-eye.github.io/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://cold-eye.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/nlp-corpus/" title="自然语言处理语料库（长期更新...）">自然语言处理语料库（长期更新...）</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/hugo-vscode/" title="hugo 博客编辑器">hugo 博客编辑器</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/best-websites-a-programmer-should-visit/" title="程序员网站收藏">程序员网站收藏</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/linux-postgresql-install/" title="linux 下用户安装 postgresql">linux 下用户安装 postgresql</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/python-ac-flashtext/" title="python 关键词快速匹配">python 关键词快速匹配</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li><a href="https://cold-eye.github.io/categories/IT%E6%8A%80%E6%9C%AF/">IT技术 (4)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/hugo/">hugo (3)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/nlp/">nlp (1)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/python/">python (2)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能 (1)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/%E7%BB%8F%E6%B5%8E%E7%94%9F%E6%B4%BB/">经济生活 (2)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://cold-eye.github.io/tags/hugo/">hugo</a>
+    
+    <a href="https://cold-eye.github.io/tags/linux/">linux</a>
+    
+    <a href="https://cold-eye.github.io/tags/mac/">mac</a>
+    
+    <a href="https://cold-eye.github.io/tags/nlp/">nlp</a>
+    
+    <a href="https://cold-eye.github.io/tags/python/">python</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E5%81%A5%E8%BA%AB/">健身</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E5%9B%BE%E5%83%8F/">图像</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E7%88%AC%E8%99%AB/">爬虫</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/">程序员</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E8%A2%AB%E5%8A%A8%E6%94%B6%E5%85%A5/">被动收入</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E8%B7%91%E6%AD%A5/">跑步</a>
+    
+</div>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://cold-eye.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <script src="//code.tidio.co/2dpeb0joi7ueoxequchq01ya9ckrmy63.js" async></script>
+    <div class="container">
+        &copy; 
+        2018 - 
+        2020
+        <a href="https://cold-eye.github.io/">冷眼-技术驱动 By 冷眼</a>.
+        
+        访问量<span id="busuanzi_value_site_pv"></span>次 | 访客<span id="busuanzi_value_site_uv"></span>人
+        
+        
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-173047983-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+    <script src='/js/douban.js'></script>
+
+
+
+</body>
+
+</html>

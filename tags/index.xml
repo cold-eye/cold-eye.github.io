@@ -6,10 +6,28 @@
     <description>Recent content in Tags on 冷眼-技术驱动</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 01 Aug 2020 15:18:30 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 02 Aug 2020 15:00:30 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>nlp</title>
+      <link>https://cold-eye.github.io/tags/nlp/</link>
+      <pubDate>Sun, 02 Aug 2020 15:00:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/tags/nlp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>自然语言处理</title>
+      <link>https://cold-eye.github.io/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/</link>
+      <pubDate>Sun, 02 Aug 2020 15:00:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>hugo</title>

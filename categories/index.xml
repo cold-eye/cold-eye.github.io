@@ -6,10 +6,19 @@
     <description>Recent content in Categories on 冷眼-技术驱动</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 01 Aug 2020 15:18:30 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 02 Aug 2020 15:00:30 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>nlp</title>
+      <link>https://cold-eye.github.io/categories/nlp/</link>
+      <pubDate>Sun, 02 Aug 2020 15:00:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/categories/nlp/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>hugo</title>

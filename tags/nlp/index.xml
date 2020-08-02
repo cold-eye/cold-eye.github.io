@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nlp on 冷眼-技术驱动</title>
+    <link>https://cold-eye.github.io/tags/nlp/</link>
+    <description>Recent content in nlp on 冷眼-技术驱动</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 02 Aug 2020 15:00:30 +0800</lastBuildDate>
+    
+	<atom:link href="https://cold-eye.github.io/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>自然语言处理语料库（长期更新...）</title>
+      <link>https://cold-eye.github.io/post/nlp-corpus/</link>
+      <pubDate>Sun, 02 Aug 2020 15:00:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/nlp-corpus/</guid>
+      <description>三军未动粮草先行，语料就是人工智能的粮草。</description>
+    </item>
+    
+  </channel>
+</rss>

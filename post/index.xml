@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 冷眼-技术驱动</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 01 Aug 2020 15:18:30 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 02 Aug 2020 15:00:30 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>自然语言处理语料库（长期更新...）</title>
+      <link>https://cold-eye.github.io/post/nlp-corpus/</link>
+      <pubDate>Sun, 02 Aug 2020 15:00:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/nlp-corpus/</guid>
+      <description>三军未动粮草先行，语料就是人工智能的粮草。</description>
+    </item>
     
     <item>
       <title>hugo 博客编辑器</title>
