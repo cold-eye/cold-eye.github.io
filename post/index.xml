@@ -6,10 +6,28 @@
     <description>Recent content in Posts on 冷眼-技术驱动</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 03 Aug 2020 17:18:30 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 05 Aug 2020 15:18:30 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>一些非常有用的网站API（持续更新...）</title>
+      <link>https://cold-eye.github.io/post/wonderful-api/</link>
+      <pubDate>Wed, 05 Aug 2020 15:18:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/wonderful-api/</guid>
+      <description>一些非常有用的网站API。</description>
+    </item>
+    
+    <item>
+      <title>半监督学习Bootstrapping抽取知识图谱</title>
+      <link>https://cold-eye.github.io/post/kg-bootstrapping/</link>
+      <pubDate>Tue, 04 Aug 2020 18:18:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/kg-bootstrapping/</guid>
+      <description>鉴于监督学习的成本太大，用半监督学习做关系抽取是一个很值得研究的方向。</description>
+    </item>
     
     <item>
       <title>rust 与 python 由浅入深：摄氏温度转华氏温度</title>

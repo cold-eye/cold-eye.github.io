@@ -95,7 +95,7 @@
         
         <div class="post-meta">
             <span id="busuanzi_container_page_pv">| <span id="busuanzi_value_page_pv"></span><span>
-                    阅读</span></span> | <span class="post-date">共549字</span>，阅读约<span class="more-meta"> 2 分钟</span>
+                    阅读</span></span> | <span class="post-date">共558字</span>，阅读约<span class="more-meta"> 2 分钟</span>
         </div>
         
         
@@ -181,13 +181,13 @@ chmod -R <span style="color:#099">777</span> pgsql
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#998;font-style:italic"># 修改postgresql.conf</span>
-vi /home/postgres/pgsql/data/postgresql.conf
+vi /home/postgres/data/postgresql.conf
 <span style="color:#998;font-style:italic"># 修改</span>
-<span style="color:#008080">listen_addresses</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;your server ip&#39;</span>
+<span style="color:#008080">listen_addresses</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;*&#39;</span>
 
 <span style="color:#998;font-style:italic"># 修改pg_hba.conf</span>
-vi /home/postgres/pgsql/data/pg_hba.conf
-<span style="color:#998;font-style:italic"># 最下方添加</span>
+vi /home/postgres/data/pg_hba.conf
+<span style="color:#998;font-style:italic"># 最下方添加，表示运行任何IP连接</span>
 host     all     all    0.0.0.0/0   trust
 </code></pre></td></tr></table>
 </div>
@@ -339,6 +339,11 @@ netstat -an | grep <span style="color:#099">5432</span>
 
 
 
+
+
+
+
+
 <body>
     <div class="demo">
         <div id="player1">
@@ -419,6 +424,27 @@ netstat -an | grep <span style="color:#099">5432</span>
                             cover: '',
                             lrc:'H',
                             theme: ''
+                        },{
+                            name: 'I',
+                            artist:'I',
+                            url:'http://music.163.com/song/media/outer/url?id=1341800295.mp3',
+                            cover: '',
+                            lrc:'I',
+                            theme: ''
+                        },{
+                            name: 'J',
+                            artist:'J',
+                            url:'http://music.163.com/song/media/outer/url?id=32835377.mp3',
+                            cover: '',
+                            lrc:'J',
+                            theme: ''
+                        },{
+                            name: 'K',
+                            artist:' ',
+                            url:'https://sharefs.yun.kugou.com/202008060954/53c1b03f3bd2331b8a3bf7ee7d24e341/G190/M00/0F/05/_g0DAF35KwSAQNBgADgq8q4g6AI405.mp3',
+                            cover: '',
+                            lrc:'[00:00.000]K[00:02.000]K[00:04.000]K',
+                            theme: ''
                         },
                     ]
                     
@@ -442,6 +468,14 @@ netstat -an | grep <span style="color:#099">5432</span>
 <ul class="widget-list">
     
     <li>
+        <a href="https://cold-eye.github.io/post/wonderful-api/" title="一些非常有用的网站API（持续更新...）">一些非常有用的网站API（持续更新...）</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/kg-bootstrapping/" title="半监督学习Bootstrapping抽取知识图谱">半监督学习Bootstrapping抽取知识图谱</a>
+    </li>
+    
+    <li>
         <a href="https://cold-eye.github.io/post/rust-easy-to-deep-1/" title="rust 与 python 由浅入深：摄氏温度转华氏温度">rust 与 python 由浅入深：摄氏温度转华氏温度</a>
     </li>
     
@@ -453,14 +487,6 @@ netstat -an | grep <span style="color:#099">5432</span>
         <a href="https://cold-eye.github.io/post/nlp-corpus/" title="自然语言处理语料库（长期更新...）">自然语言处理语料库（长期更新...）</a>
     </li>
     
-    <li>
-        <a href="https://cold-eye.github.io/post/hugo-vscode/" title="hugo 博客编辑器">hugo 博客编辑器</a>
-    </li>
-    
-    <li>
-        <a href="https://cold-eye.github.io/post/best-websites-a-programmer-should-visit/" title="程序员网站收藏">程序员网站收藏</a>
-    </li>
-    
 </ul>
     </section>
 
@@ -470,11 +496,11 @@ netstat -an | grep <span style="color:#099">5432</span>
         <h3 class="widget-title">分类</h3>
 <ul class="widget-list">
     
-    <li><a href="https://cold-eye.github.io/categories/IT%E6%8A%80%E6%9C%AF/">IT技术 (4)</a></li>
+    <li><a href="https://cold-eye.github.io/categories/IT%E6%8A%80%E6%9C%AF/">IT技术 (5)</a></li>
     
     <li><a href="https://cold-eye.github.io/categories/hugo/">hugo (3)</a></li>
     
-    <li><a href="https://cold-eye.github.io/categories/nlp/">nlp (1)</a></li>
+    <li><a href="https://cold-eye.github.io/categories/nlp/">nlp (2)</a></li>
     
     <li><a href="https://cold-eye.github.io/categories/python/">python (3)</a></li>
     
@@ -510,6 +536,8 @@ netstat -an | grep <span style="color:#099">5432</span>
     <a href="https://cold-eye.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
     
     <a href="https://cold-eye.github.io/tags/%E7%88%AC%E8%99%AB/">爬虫</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">知识图谱</a>
     
     <a href="https://cold-eye.github.io/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/">程序员</a>
     

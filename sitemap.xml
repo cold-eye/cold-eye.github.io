@@ -4,12 +4,52 @@
   
   <url>
     <loc>https://cold-eye.github.io/categories/</loc>
-    <lastmod>2020-08-03T17:18:30+08:00</lastmod>
+    <lastmod>2020-08-05T15:18:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cold-eye.github.io/categories/IT%E6%8A%80%E6%9C%AF/</loc>
+    <lastmod>2020-08-05T15:18:30+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://cold-eye.github.io/post/</loc>
-    <lastmod>2020-08-03T17:18:30+08:00</lastmod>
+    <lastmod>2020-08-05T15:18:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cold-eye.github.io/tags/</loc>
+    <lastmod>2020-08-05T15:18:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cold-eye.github.io/post/wonderful-api/</loc>
+    <lastmod>2020-08-05T15:18:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cold-eye.github.io/</loc>
+    <lastmod>2020-08-05T15:18:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cold-eye.github.io/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/</loc>
+    <lastmod>2020-08-05T15:18:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cold-eye.github.io/categories/nlp/</loc>
+    <lastmod>2020-08-04T18:18:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cold-eye.github.io/post/kg-bootstrapping/</loc>
+    <lastmod>2020-08-04T18:18:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cold-eye.github.io/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/</loc>
+    <lastmod>2020-08-04T18:18:30+08:00</lastmod>
   </url>
   
   <url>
@@ -33,16 +73,6 @@
   </url>
   
   <url>
-    <loc>https://cold-eye.github.io/tags/</loc>
-    <lastmod>2020-08-03T17:18:30+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://cold-eye.github.io/</loc>
-    <lastmod>2020-08-03T17:18:30+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://cold-eye.github.io/categories/python/</loc>
     <lastmod>2020-08-03T09:18:30+08:00</lastmod>
   </url>
@@ -54,11 +84,6 @@
   
   <url>
     <loc>https://cold-eye.github.io/tags/nlp/</loc>
-    <lastmod>2020-08-02T15:00:30+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://cold-eye.github.io/categories/nlp/</loc>
     <lastmod>2020-08-02T15:00:30+08:00</lastmod>
   </url>
   
@@ -85,16 +110,6 @@
   <url>
     <loc>https://cold-eye.github.io/post/hugo-vscode/</loc>
     <lastmod>2020-08-01T15:18:30+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://cold-eye.github.io/categories/IT%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2020-08-01T13:18:30+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://cold-eye.github.io/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/</loc>
-    <lastmod>2020-08-01T13:18:30+08:00</lastmod>
   </url>
   
   <url>

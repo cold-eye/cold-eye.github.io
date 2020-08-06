@@ -6,10 +6,19 @@
     <description>Recent content in 程序员 on 冷眼-技术驱动</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 01 Aug 2020 13:18:30 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 05 Aug 2020 15:18:30 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>一些非常有用的网站API（持续更新...）</title>
+      <link>https://cold-eye.github.io/post/wonderful-api/</link>
+      <pubDate>Wed, 05 Aug 2020 15:18:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/wonderful-api/</guid>
+      <description>一些非常有用的网站API。</description>
+    </item>
     
     <item>
       <title>程序员网站收藏</title>
