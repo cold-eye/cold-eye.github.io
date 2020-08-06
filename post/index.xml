@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 冷眼-技术驱动</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 05 Aug 2020 15:18:30 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 06 Aug 2020 14:18:30 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>python flask 深度学习模型多端口服务</title>
+      <link>https://cold-eye.github.io/post/python-server-flask/</link>
+      <pubDate>Thu, 06 Aug 2020 14:18:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/python-server-flask/</guid>
+      <description>flash 开多个端口挂起人工智能模型服务的方法。</description>
+    </item>
     
     <item>
       <title>一些非常有用的网站API（持续更新...）</title>

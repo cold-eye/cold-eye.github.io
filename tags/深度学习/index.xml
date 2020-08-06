@@ -6,10 +6,19 @@
     <description>Recent content in 深度学习 on 冷眼-技术驱动</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 19 Jan 2018 19:31:04 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 06 Aug 2020 14:18:30 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>python flask 深度学习模型多端口服务</title>
+      <link>https://cold-eye.github.io/post/python-server-flask/</link>
+      <pubDate>Thu, 06 Aug 2020 14:18:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/python-server-flask/</guid>
+      <description>flash 开多个端口挂起人工智能模型服务的方法。</description>
+    </item>
     
     <item>
       <title>深度学习，制作类似cifar10图像数据集</title>
