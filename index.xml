@@ -1,15 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>冷眼-技术驱动</title>
+    <title>冷眼-风雨飘摇</title>
     <link>https://cold-eye.github.io/</link>
-    <description>Recent content on 冷眼-技术驱动</description>
+    <description>Recent content on 冷眼-风雨飘摇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 06 Aug 2020 14:18:30 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 09 Aug 2020 10:18:30 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>主动学习</title>
+      <link>https://cold-eye.github.io/post/active-learning/</link>
+      <pubDate>Sun, 09 Aug 2020 10:18:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/active-learning/</guid>
+      <description>转自：https://mp.weixin.qq.com/s/25wIFjksiB</description>
+    </item>
+    
+    <item>
+      <title>网站文本复制禁用的一种破解方法</title>
+      <link>https://cold-eye.github.io/post/wenku-free/</link>
+      <pubDate>Sat, 08 Aug 2020 10:18:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/wenku-free/</guid>
+      <description>遇到文档只能看不能复制的网站，提供一种破解方法。</description>
+    </item>
     
     <item>
       <title>python flask 深度学习模型多端口服务</title>
