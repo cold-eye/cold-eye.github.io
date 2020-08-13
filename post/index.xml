@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 冷眼-风雨飘摇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 11 Aug 2020 16:18:30 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 12 Aug 2020 16:18:30 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>第三方支付是否引发通货膨胀</title>
+      <link>https://cold-eye.github.io/post/third-party-payment-inflation/</link>
+      <pubDate>Wed, 12 Aug 2020 16:18:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/third-party-payment-inflation/</guid>
+      <description>我们先来了解下什么是通货膨胀 通货膨胀是造成一国货币贬值的物价上涨。造成通货膨胀的</description>
+    </item>
     
     <item>
       <title>python 一些好用的正则</title>
@@ -17,7 +26,7 @@
       <pubDate>Tue, 11 Aug 2020 16:18:30 +0800</pubDate>
       
       <guid>https://cold-eye.github.io/post/useful-regex/</guid>
-      <description>索引 1、汉字、英文、数字 2、标点符号 3、email 4、手机号码 5、IP地址 chinese-english-number 1 2</description>
+      <description>python关于汉字、英文、数字、标点符号、手机号码、IP地址、email等的正则方法。</description>
     </item>
     
     <item>

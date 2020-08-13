@@ -17,7 +17,7 @@
       <pubDate>Tue, 11 Aug 2020 16:18:30 +0800</pubDate>
       
       <guid>https://cold-eye.github.io/post/useful-regex/</guid>
-      <description>索引 1、汉字、英文、数字 2、标点符号 3、email 4、手机号码 5、IP地址 chinese-english-number 1 2</description>
+      <description>python关于汉字、英文、数字、标点符号、手机号码、IP地址、email等的正则方法。</description>
     </item>
     
     <item>
