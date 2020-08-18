@@ -6,10 +6,28 @@
     <description>Recent content in Categories on 冷眼-风雨飘摇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 12 Aug 2020 16:18:30 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 18 Aug 2020 10:18:30 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>IT技术</title>
+      <link>https://cold-eye.github.io/categories/IT%E6%8A%80%E6%9C%AF/</link>
+      <pubDate>Tue, 18 Aug 2020 10:18:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/categories/IT%E6%8A%80%E6%9C%AF/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>python</title>
+      <link>https://cold-eye.github.io/categories/python/</link>
+      <pubDate>Mon, 17 Aug 2020 10:18:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/categories/python/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>经济生活</title>
@@ -21,29 +39,11 @@
     </item>
     
     <item>
-      <title>python</title>
-      <link>https://cold-eye.github.io/categories/python/</link>
-      <pubDate>Tue, 11 Aug 2020 16:18:30 +0800</pubDate>
-      
-      <guid>https://cold-eye.github.io/categories/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>人工智能</title>
       <link>https://cold-eye.github.io/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</link>
       <pubDate>Sun, 09 Aug 2020 10:18:30 +0800</pubDate>
       
       <guid>https://cold-eye.github.io/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>IT技术</title>
-      <link>https://cold-eye.github.io/categories/IT%E6%8A%80%E6%9C%AF/</link>
-      <pubDate>Sat, 08 Aug 2020 10:18:30 +0800</pubDate>
-      
-      <guid>https://cold-eye.github.io/categories/IT%E6%8A%80%E6%9C%AF/</guid>
       <description></description>
     </item>
     
