@@ -95,12 +95,12 @@
         
         <div class="post-meta">
             <span id="busuanzi_container_page_pv">| <span id="busuanzi_value_page_pv"></span><span>
-                    阅读</span></span> | <span class="post-date">共531字</span>，阅读约<span class="more-meta"> 2 分钟</span>
+                    阅读</span></span> | <span class="post-date">共867字</span>，阅读约<span class="more-meta"> 2 分钟</span>
         </div>
         
         
         <div class="post-content">
-            <p>正则的效果，可以到<a href="https://cold-eye.github.io/post/wonderful-api/">这里</a>验证</p>
+            <p>正则的效果，可以到<a href="https://cold-eye.github.io/post/wonderful-api/#it-tech">这里</a>验证</p>
 <p>索引</p>
 <ul>
 <li>1、<a href="#chinese-english-number">汉字、英文、数字</a></li>
@@ -108,6 +108,7 @@
 <li>3、<a href="#email">email</a></li>
 <li>4、<a href="#phone-number">手机号码</a></li>
 <li>5、<a href="#ip">IP地址</a></li>
+<li>6、<a href="#complex">复杂需求</a></li>
 </ul>
 <h2 id="chinese-english-number">chinese-english-number</h2>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
@@ -196,6 +197,38 @@ phoneNumbers <span style="color:#000;font-weight:bold">=</span> re<span style="c
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">(<span style="color:#099">25</span>[<span style="color:#099">0</span><span style="color:#000;font-weight:bold">-</span><span style="color:#099">5</span>]<span style="color:#000;font-weight:bold">|</span><span style="color:#099">2</span>[<span style="color:#099">0</span><span style="color:#000;font-weight:bold">-</span><span style="color:#099">4</span>]\d<span style="color:#000;font-weight:bold">|</span>[<span style="color:#099">0</span><span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]\d{<span style="color:#099">2</span>}<span style="color:#000;font-weight:bold">|</span>[<span style="color:#099">1</span><span style="color:#000;font-weight:bold">-</span><span style="color:#099">9</span>]<span style="color:#a61717;background-color:#e3d2d2">?</span>\d)\<span style="color:#000;font-weight:bold">.</span>(<span style="color:#099">25</span>[<span style="color:#099">0</span><span style="color:#000;font-weight:bold">-</span><span style="color:#099">5</span>]<span style="color:#000;font-weight:bold">|</span><span style="color:#099">2</span>[<span style="color:#099">0</span><span style="color:#000;font-weight:bold">-</span><span style="color:#099">4</span>]\d<span style="color:#000;font-weight:bold">|</span>[<span style="color:#099">0</span><span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]\d{<span style="color:#099">2</span>}<span style="color:#000;font-weight:bold">|</span>[<span style="color:#099">1</span><span style="color:#000;font-weight:bold">-</span><span style="color:#099">9</span>]<span style="color:#a61717;background-color:#e3d2d2">?</span>\d)\<span style="color:#000;font-weight:bold">.</span>(<span style="color:#099">25</span>[<span style="color:#099">0</span><span style="color:#000;font-weight:bold">-</span><span style="color:#099">5</span>]<span style="color:#000;font-weight:bold">|</span><span style="color:#099">2</span>[<span style="color:#099">0</span><span style="color:#000;font-weight:bold">-</span><span style="color:#099">4</span>]\d<span style="color:#000;font-weight:bold">|</span>[<span style="color:#099">0</span><span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]\d{<span style="color:#099">2</span>}<span style="color:#000;font-weight:bold">|</span>[<span style="color:#099">1</span><span style="color:#000;font-weight:bold">-</span><span style="color:#099">9</span>]<span style="color:#a61717;background-color:#e3d2d2">?</span>\d)\<span style="color:#000;font-weight:bold">.</span>(<span style="color:#099">25</span>[<span style="color:#099">0</span><span style="color:#000;font-weight:bold">-</span><span style="color:#099">5</span>]<span style="color:#000;font-weight:bold">|</span><span style="color:#099">2</span>[<span style="color:#099">0</span><span style="color:#000;font-weight:bold">-</span><span style="color:#099">4</span>]\d<span style="color:#000;font-weight:bold">|</span>[<span style="color:#099">0</span><span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>]\d{<span style="color:#099">2</span>}<span style="color:#000;font-weight:bold">|</span>[<span style="color:#099">1</span><span style="color:#000;font-weight:bold">-</span><span style="color:#099">9</span>]<span style="color:#a61717;background-color:#e3d2d2">?</span>\d)
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="complex">complex</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">text <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;0023苏宁（中国）ABC123有限公司A平台&#34;</span>
+<span style="color:#998;font-style:italic"># 这里需要把开头的数字去掉^[0-9]*，结尾的‘A平台’固定字符串去掉 A平台$，有的字符串包含这些开头结尾，有些没有</span>
+<span style="color:#998;font-style:italic"># 中括号及内部字符串全去掉\\(.*?\\)|（.*?）</span>
+<span style="color:#998;font-style:italic"># 字符串内部仅保留中英文和数字[^\u4e00-\u9fa5A-Za-z0-9]</span>
+pattern <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;^[0-9]*|A平台$|</span><span style="color:#d14">\\</span><span style="color:#d14">(.*?</span><span style="color:#d14">\\</span><span style="color:#d14">)|（.*?）|[^</span><span style="color:#d14">\u4e00</span><span style="color:#d14">-</span><span style="color:#d14">\u9fa5</span><span style="color:#d14">A-Za-z0-9]&#39;</span>
+result <span style="color:#000;font-weight:bold">=</span> re<span style="color:#000;font-weight:bold">.</span>sub(pattern,<span style="color:#d14">&#34;&#34;</span>,text)
+result <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;苏宁ABC123有限公司&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>对于上面以固定字符的需求，也可以用以下方法：</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#998;font-style:italic"># texts: list of text</span>
+texts_new <span style="color:#000;font-weight:bold">=</span> [text[:<span style="color:#000;font-weight:bold">-</span><span style="color:#099">3</span>] <span style="color:#000;font-weight:bold">if</span> text<span style="color:#000;font-weight:bold">.</span>endswith(<span style="color:#d14">&#39;A平台&#39;</span>) <span style="color:#000;font-weight:bold">else</span> text <span style="color:#000;font-weight:bold">for</span> text <span style="color:#000;font-weight:bold">in</span> texts]
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="reference">Reference</h2>
@@ -529,6 +562,10 @@ phoneNumbers <span style="color:#000;font-weight:bold">=</span> re<span style="c
 <ul class="widget-list">
     
     <li>
+        <a href="https://cold-eye.github.io/post/python-handcalcs/" title="python handcalcs Latex公式编辑">python handcalcs Latex公式编辑</a>
+    </li>
+    
+    <li>
         <a href="https://cold-eye.github.io/post/wechat-sets/" title="微信小技巧--持续更新">微信小技巧--持续更新</a>
     </li>
     
@@ -542,10 +579,6 @@ phoneNumbers <span style="color:#000;font-weight:bold">=</span> re<span style="c
     
     <li>
         <a href="https://cold-eye.github.io/post/useful-regex/" title="python 一些好用的正则">python 一些好用的正则</a>
-    </li>
-    
-    <li>
-        <a href="https://cold-eye.github.io/post/python-es/" title="python es的一些简单操作">python es的一些简单操作</a>
     </li>
     
 </ul>
@@ -563,7 +596,7 @@ phoneNumbers <span style="color:#000;font-weight:bold">=</span> re<span style="c
     
     <li><a href="https://cold-eye.github.io/categories/nlp/">nlp (3)</a></li>
     
-    <li><a href="https://cold-eye.github.io/categories/python/">python (6)</a></li>
+    <li><a href="https://cold-eye.github.io/categories/python/">python (7)</a></li>
     
     <li><a href="https://cold-eye.github.io/categories/rust/">rust (1)</a></li>
     

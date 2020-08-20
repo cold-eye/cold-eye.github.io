@@ -6,10 +6,19 @@
     <description>Recent content on 冷眼-风雨飘摇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 18 Aug 2020 10:18:30 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 19 Aug 2020 15:18:30 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>python handcalcs Latex公式编辑</title>
+      <link>https://cold-eye.github.io/post/python-handcalcs/</link>
+      <pubDate>Wed, 19 Aug 2020 15:18:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/python-handcalcs/</guid>
+      <description>1行代码搞定Latex公式编写，这个4.6M的Python小插件，写论文神器。</description>
+    </item>
     
     <item>
       <title>微信小技巧--持续更新</title>
