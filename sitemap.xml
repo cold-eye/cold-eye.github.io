@@ -4,12 +4,52 @@
   
   <url>
     <loc>https://cold-eye.github.io/categories/</loc>
-    <lastmod>2020-08-19T15:18:30+08:00</lastmod>
+    <lastmod>2020-08-23T15:18:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cold-eye.github.io/tags/nlp/</loc>
+    <lastmod>2020-08-23T15:18:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cold-eye.github.io/categories/nlp/</loc>
+    <lastmod>2020-08-23T15:18:30+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://cold-eye.github.io/post/</loc>
-    <lastmod>2020-08-19T15:18:30+08:00</lastmod>
+    <lastmod>2020-08-23T15:18:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cold-eye.github.io/tags/</loc>
+    <lastmod>2020-08-23T15:18:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cold-eye.github.io/</loc>
+    <lastmod>2020-08-23T15:18:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cold-eye.github.io/post/tencent-word2vec/</loc>
+    <lastmod>2020-08-23T15:18:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cold-eye.github.io/post/dockerfile/</loc>
+    <lastmod>2020-08-22T15:18:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cold-eye.github.io/tags/IT%E6%8A%80%E6%9C%AF/</loc>
+    <lastmod>2020-08-22T15:18:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cold-eye.github.io/categories/IT%E6%8A%80%E6%9C%AF/</loc>
+    <lastmod>2020-08-22T15:18:30+08:00</lastmod>
   </url>
   
   <url>
@@ -25,26 +65,6 @@
   <url>
     <loc>https://cold-eye.github.io/post/python-handcalcs/</loc>
     <lastmod>2020-08-19T15:18:30+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://cold-eye.github.io/tags/</loc>
-    <lastmod>2020-08-19T15:18:30+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://cold-eye.github.io/</loc>
-    <lastmod>2020-08-19T15:18:30+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://cold-eye.github.io/tags/IT%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2020-08-18T10:18:30+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://cold-eye.github.io/categories/IT%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2020-08-18T10:18:30+08:00</lastmod>
   </url>
   
   <url>
@@ -103,11 +123,6 @@
   </url>
   
   <url>
-    <loc>https://cold-eye.github.io/categories/nlp/</loc>
-    <lastmod>2020-08-06T14:18:30+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://cold-eye.github.io/post/python-server-flask/</loc>
     <lastmod>2020-08-06T14:18:30+08:00</lastmod>
   </url>
@@ -155,11 +170,6 @@
   <url>
     <loc>https://cold-eye.github.io/post/python-words-frequency/</loc>
     <lastmod>2020-08-03T09:18:30+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://cold-eye.github.io/tags/nlp/</loc>
-    <lastmod>2020-08-02T15:00:30+08:00</lastmod>
   </url>
   
   <url>

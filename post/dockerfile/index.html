@@ -6,20 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>python 关键词快速匹配 | 冷眼-风雨飘摇</title>
-    <meta property="og:title" content="python 关键词快速匹配 - 冷眼-风雨飘摇">
+    <title>dockerfile | 冷眼-风雨飘摇</title>
+    <meta property="og:title" content="dockerfile - 冷眼-风雨飘摇">
     <meta property="og:type" content="article">
         
-    <meta property="article:published_time" content='2020-07-28T13:48:30&#43;08:00'>
+    <meta property="article:published_time" content='2020-08-22T15:18:30&#43;08:00'>
         
         
-    <meta property="article:modified_time" content='2020-07-28T13:48:30&#43;08:00'>
+    <meta property="article:modified_time" content='2020-08-22T15:18:30&#43;08:00'>
         
-    <meta name="Keywords" content="[python ac自动机 pyahocorasick ahocorasick flashtext 敏感词过滤 文本 文本快速匹配 关键词快速匹配]">
-    <meta name="description" content="python 关键词快速匹配">
+    <meta name="Keywords" content="[IT技术 docker dockerfile]">
+    <meta name="description" content="dockerfile">
         
     <meta name="author" content="冷眼">
-    <meta property="og:url" content="https://cold-eye.github.io/post/python-ac-flashtext/">
+    <meta property="og:url" content="https://cold-eye.github.io/post/dockerfile/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href='/css/normalize.css'>
@@ -79,32 +79,55 @@
     
     <article class="post">
         <header>
-            <h1 class="post-title">python 关键词快速匹配</h1>
+            <h1 class="post-title">dockerfile</h1>
         </header>
         <date class="post-meta meta-date">
-            2020年7月28日
+            2020年8月22日
         </date>
         
         <div class="post-meta">
             <span>|</span>
             
-            <span class="meta-category"><a href='https://cold-eye.github.io/categories/python'>python</a></span>
+            <span class="meta-category"><a href='https://cold-eye.github.io/categories/IT%E6%8A%80%E6%9C%AF'>IT技术</a></span>
             
         </div>
         
         
         <div class="post-meta">
             <span id="busuanzi_container_page_pv">| <span id="busuanzi_value_page_pv"></span><span>
-                    阅读</span></span> | <span class="post-date">共1115字</span>，阅读约<span class="more-meta"> 3 分钟</span>
+                    阅读</span></span> | <span class="post-date">共774字</span>，阅读约<span class="more-meta"> 2 分钟</span>
         </div>
         
         
         <div class="post-content">
-            <h3 id="一道bat面试题快速替换10亿条标题中的5万个敏感词有哪些解决思路">一道bat面试题：快速替换10亿条标题中的5万个敏感词，有哪些解决思路？</h3>
-<p>  有十亿个标题，存在一个文件中，一行一个标题。有5万个敏感词，存在另一个文件。写一个程序过滤掉所有标题中的所有敏感词，保存到另一个文件中。</p>
-<h2 id="一ac自动机">一、AC自动机</h2>
-<p>  一个常见的例子就是给出n个单词，再给出一段包含m个字符的文章，让你找出有多少个单词在文章里出现过。
-简单地讲，AC自动机就是字典树+kmp算法+失配指针。Python 库 <a href="https://github.com/WojciechMula/pyahocorasick">ahocorasick</a> 封装了 AC 自动机，简单易用，而且解决了 UTF-8 字符编码问题。</p>
+            <pre><code>file:
+    --bert_pretrain
+    --anaconda.sh
+    --Dockerfile
+    --server.py
+    --README.md
+    --requirements.txt
+    --run.sh
+</code></pre>
+<h2 id="一只拉一条镜像">一、只拉一条镜像</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo docker pull hub.yun.url/nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="二一步到位">二、一步到位</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker build -t server:v1 .
+</code></pre></td></tr></table>
+</div>
+</div><p>一个<code>Dockerfile</code>例子</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -119,52 +142,43 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">ahocorasick</span>
-
-patterns <span style="color:#000;font-weight:bold">=</span> [<span style="color:#d14">&#39;中国&#39;</span>, <span style="color:#d14">&#39;山东省&#39;</span>, <span style="color:#d14">&#39;威海市&#39;</span>, <span style="color:#d14">&#39;山东大学&#39;</span>, <span style="color:#d14">&#39;威海校区&#39;</span>] <span style="color:#998;font-style:italic"># 词典</span>
-text <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;山东大学威海校区坐落于美丽滨城威海市。&#39;</span>
-
-trie <span style="color:#000;font-weight:bold">=</span> ahocorasick<span style="color:#000;font-weight:bold">.</span>Automaton()
-<span style="color:#000;font-weight:bold">for</span> index, word <span style="color:#000;font-weight:bold">in</span> <span style="color:#0086b3">enumerate</span>(patterns):
-    trie<span style="color:#000;font-weight:bold">.</span>add_word(word, (index, word))
-trie<span style="color:#000;font-weight:bold">.</span>make_automaton()
-
-<span style="color:#000;font-weight:bold">for</span> each <span style="color:#000;font-weight:bold">in</span> trie<span style="color:#000;font-weight:bold">.</span>iter(text):
-    <span style="color:#000;font-weight:bold">print</span>(each)
-</code></pre></td></tr></table>
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#998;font-style:italic">#基于centos镜像</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span><span style="color:#000;font-weight:bold">FROM</span><span style="color:#d14"> centos</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span><span style="color:#998;font-style:italic">#维护人的信息</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span><span style="color:#000;font-weight:bold">MAINTAINER</span><span style="color:#d14"> The CentOS Project &lt;303323496@qq.com&gt;</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span><span style="color:#998;font-style:italic">#安装httpd软件包</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span><span style="color:#000;font-weight:bold">RUN</span> yum -y update<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span><span style="color:#000;font-weight:bold">RUN</span> yum -y install httpd<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span><span style="color:#998;font-style:italic">#开启80端口</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span><span style="color:#000;font-weight:bold">EXPOSE</span><span style="color:#d14"> 80</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span><span style="color:#998;font-style:italic">#复制网站首页文件至镜像中web站点下</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span><span style="color:#000;font-weight:bold">ADD</span> index.html /var/www/html/index.html<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span><span style="color:#998;font-style:italic">#复制该脚本至镜像中，并修改其权限</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span><span style="color:#000;font-weight:bold">ADD</span> run.sh /run.sh<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span><span style="color:#000;font-weight:bold">RUN</span> chmod <span style="color:#099">775</span> /run.sh<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span><span style="color:#998;font-style:italic">#当启动容器时执行的脚本文件</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span><span style="color:#000;font-weight:bold">CMD</span> [<span style="color:#d14">&#34;/run.sh&#34;</span>]<span style="color:#a61717;background-color:#e3d2d2">
+</span></code></pre></td></tr></table>
 </div>
-</div><p>  还可以提前创建一个最终的大型自动机，然后对其进行序列化以在以后重新加载。</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000;font-weight:bold">&gt;&gt;&gt;</span> <span style="color:#000;font-weight:bold">import</span> <span style="color:#555">cPickle</span>
-<span style="color:#000;font-weight:bold">&gt;&gt;&gt;</span> pickled <span style="color:#000;font-weight:bold">=</span> cPickle<span style="color:#000;font-weight:bold">.</span>dumps(trie)
-<span style="color:#000;font-weight:bold">&gt;&gt;&gt;</span> B <span style="color:#000;font-weight:bold">=</span> cPickle<span style="color:#000;font-weight:bold">.</span>loads(pickled)
-<span style="color:#000;font-weight:bold">&gt;&gt;&gt;</span> B<span style="color:#000;font-weight:bold">.</span>get(<span style="color:#d14">&#39;中国&#39;</span>)
-(<span style="color:#099">0</span>, <span style="color:#d14">&#39;中国&#39;</span>)
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="二flashtext">二、flashtext</h2>
-<p>  <a href="https://github.com/vi3k6i5/flashtext">Flashtext</a> 是一种基于 Trie 字典数据结构和 Aho Corasick 的算法。它的工作方式是，首先它将所有相关的关键字作为输入。使用这些关键字建立一个 trie 字典，如下图所示：
-<img src="/images/python-ac-flashtext-1.jpg" alt="flashtext">
-start 和 eot 是两个特殊的字符，用来定义词的边界。</p>
-<h4 id="flashtext-算法那主要分为三部分">Flashtext 算法那主要分为三部分：</h4>
-<ul>
-<li>构建 Trie 字典 KeywordProcessor</li>
-<li>新增关键词 add_keyword</li>
-<li>关键词抽取 extract_keywords</li>
-</ul>
-<h4 id="如果要支持中文需要进行修改将文本及字典中的每个汉字之间以空格分开这样形式上就和英文相同了另外看到一个flashtext的中文应用httpsgithubcomcold-eyeflashtext_chinese_nlp_data_augmentation_eda可供参考">如果要支持中文，需要进行修改。（将文本及字典中的每个汉字之间，以空格分开，这样形式上就和英文相同了）。另外，看到一个<a href="https://github.com/cold-eye/flashtext_chinese_nlp_data_augmentation_eda">flashtext的中文应用</a>，可供参考。</h4>
-<h2 id="三dfa算法">三、DFA算法</h2>
-<p>  DFA即Deterministic Finite Automaton，也就是确定有穷自动机。算法核心是建立了以敏感词为基础的许多敏感词树。</p>
+</div><p><code>Dockerfile</code> 内容</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -192,134 +206,104 @@ start 和 eot 是两个特殊的字符，用来定义词的边界。</p>
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">67
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">68
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">69
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#998;font-style:italic"># -*- coding:utf-8 -*-</span>
-
-<span style="color:#000;font-weight:bold">import</span> <span style="color:#555">time</span>
-time1<span style="color:#000;font-weight:bold">=</span>time<span style="color:#000;font-weight:bold">.</span>time()
-
-<span style="color:#998;font-style:italic"># DFA算法</span>
-<span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">DFAFilter</span>():
-    <span style="color:#000;font-weight:bold">def</span> __init__(<span style="color:#999">self</span>):
-        <span style="color:#999">self</span><span style="color:#000;font-weight:bold">.</span>keyword_chains <span style="color:#000;font-weight:bold">=</span> {}
-        <span style="color:#999">self</span><span style="color:#000;font-weight:bold">.</span>delimit <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;</span><span style="color:#d14">\x00</span><span style="color:#d14">&#39;</span>
-
-    <span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">add</span>(<span style="color:#999">self</span>, keyword):
-        keyword <span style="color:#000;font-weight:bold">=</span> keyword<span style="color:#000;font-weight:bold">.</span>lower()
-        chars <span style="color:#000;font-weight:bold">=</span> keyword<span style="color:#000;font-weight:bold">.</span>strip()
-        <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">not</span> chars:
-            <span style="color:#000;font-weight:bold">return</span>
-        level <span style="color:#000;font-weight:bold">=</span> <span style="color:#999">self</span><span style="color:#000;font-weight:bold">.</span>keyword_chains
-        <span style="color:#000;font-weight:bold">for</span> i <span style="color:#000;font-weight:bold">in</span> <span style="color:#0086b3">range</span>(<span style="color:#0086b3">len</span>(chars)):
-            <span style="color:#000;font-weight:bold">if</span> chars[i] <span style="color:#000;font-weight:bold">in</span> level:
-                level <span style="color:#000;font-weight:bold">=</span> level[chars[i]]
-            <span style="color:#000;font-weight:bold">else</span>:
-                <span style="color:#000;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">not</span> <span style="color:#0086b3">isinstance</span>(level, <span style="color:#0086b3">dict</span>):
-                    <span style="color:#000;font-weight:bold">break</span>
-                <span style="color:#000;font-weight:bold">for</span> j <span style="color:#000;font-weight:bold">in</span> <span style="color:#0086b3">range</span>(i, <span style="color:#0086b3">len</span>(chars)):
-                    level[chars[j]] <span style="color:#000;font-weight:bold">=</span> {}
-                    last_level, last_char <span style="color:#000;font-weight:bold">=</span> level, chars[j]
-                    level <span style="color:#000;font-weight:bold">=</span> level[chars[j]]
-                last_level[last_char] <span style="color:#000;font-weight:bold">=</span> {<span style="color:#999">self</span><span style="color:#000;font-weight:bold">.</span>delimit: <span style="color:#099">0</span>}
-                <span style="color:#000;font-weight:bold">break</span>
-        <span style="color:#000;font-weight:bold">if</span> i <span style="color:#000;font-weight:bold">==</span> <span style="color:#0086b3">len</span>(chars) <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>:
-            level[<span style="color:#999">self</span><span style="color:#000;font-weight:bold">.</span>delimit] <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>
-
-    <span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">parse</span>(<span style="color:#999">self</span>, path):
-        <span style="color:#000;font-weight:bold">with</span> <span style="color:#0086b3">open</span>(path,encoding<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;utf-8&#39;</span>) <span style="color:#000;font-weight:bold">as</span> f:
-            <span style="color:#000;font-weight:bold">for</span> keyword <span style="color:#000;font-weight:bold">in</span> f:
-                <span style="color:#999">self</span><span style="color:#000;font-weight:bold">.</span>add(<span style="color:#0086b3">str</span>(keyword)<span style="color:#000;font-weight:bold">.</span>strip())
-
-    <span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">filter</span>(<span style="color:#999">self</span>, message, repl<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;*&#34;</span>):
-        message <span style="color:#000;font-weight:bold">=</span> message<span style="color:#000;font-weight:bold">.</span>lower()
-        ret <span style="color:#000;font-weight:bold">=</span> []
-        start <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>
-        <span style="color:#000;font-weight:bold">while</span> start <span style="color:#000;font-weight:bold">&lt;</span> <span style="color:#0086b3">len</span>(message):
-            level <span style="color:#000;font-weight:bold">=</span> <span style="color:#999">self</span><span style="color:#000;font-weight:bold">.</span>keyword_chains
-            step_ins <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0</span>
-            <span style="color:#000;font-weight:bold">for</span> char <span style="color:#000;font-weight:bold">in</span> message[start:]:
-                <span style="color:#000;font-weight:bold">if</span> char <span style="color:#000;font-weight:bold">in</span> level:
-                    step_ins <span style="color:#000;font-weight:bold">+=</span> <span style="color:#099">1</span>
-                    <span style="color:#000;font-weight:bold">if</span> <span style="color:#999">self</span><span style="color:#000;font-weight:bold">.</span>delimit <span style="color:#000;font-weight:bold">not</span> <span style="color:#000;font-weight:bold">in</span> level[char]:
-                        level <span style="color:#000;font-weight:bold">=</span> level[char]
-                    <span style="color:#000;font-weight:bold">else</span>:
-                        ret<span style="color:#000;font-weight:bold">.</span>append(repl <span style="color:#000;font-weight:bold">*</span> step_ins)
-                        start <span style="color:#000;font-weight:bold">+=</span> step_ins <span style="color:#000;font-weight:bold">-</span> <span style="color:#099">1</span>
-                        <span style="color:#000;font-weight:bold">break</span>
-                <span style="color:#000;font-weight:bold">else</span>:
-                    ret<span style="color:#000;font-weight:bold">.</span>append(message[start])
-                    <span style="color:#000;font-weight:bold">break</span>
-            <span style="color:#000;font-weight:bold">else</span>:
-                ret<span style="color:#000;font-weight:bold">.</span>append(message[start])
-            start <span style="color:#000;font-weight:bold">+=</span> <span style="color:#099">1</span>
-
-        <span style="color:#000;font-weight:bold">return</span> <span style="color:#d14">&#39;&#39;</span><span style="color:#000;font-weight:bold">.</span>join(ret)
-
-gfw <span style="color:#000;font-weight:bold">=</span> DFAFilter()
-<span style="color:#998;font-style:italic"># 词典路径</span>
-words_path <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;...&#39;</span>
-gfw<span style="color:#000;font-weight:bold">.</span>parse(words_path)
-text<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;文本&#34;</span>
-result <span style="color:#000;font-weight:bold">=</span> gfw<span style="color:#000;font-weight:bold">.</span>filter(text)
-
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#000;font-weight:bold">FROM</span><span style="color:#d14"> hub.yun.url/nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span><span style="color:#998;font-style:italic"># 将Dockerfile同级目录下所有文件拷到docker镜像</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span><span style="color:#000;font-weight:bold">COPY</span> . /镜像位置/<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span><span style="color:#998;font-style:italic"># 将Dockerfile同级目录下某个文件拷到docker镜像</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span><span style="color:#998;font-style:italic"># ADD ./anaconda.sh /镜像位置/</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span><span style="color:#000;font-weight:bold">ENV</span> LANG C.UTF-8<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span><span style="color:#000;font-weight:bold">WORKDIR</span><span style="color:#d14"> /镜像位置/</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span><span style="color:#000;font-weight:bold">RUN</span> bash anaconda.sh -b -p /镜像位置/anaconda3 <span style="color:#000;font-weight:bold">&amp;&amp;</span> rm -f anaconda.sh<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span><span style="color:#000;font-weight:bold">ENV</span> PATH /镜像位置/anaconda3/bin:<span style="color:#008080">$PATH</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span><span style="color:#000;font-weight:bold">RUN</span> pip install <span style="color:#008080">msgpack</span><span style="color:#000;font-weight:bold">==</span>0.6.1 -i http://mirrors.yun.url:port/pypi/web/simple --trust-host mirrors.yun.url <span style="color:#000;font-weight:bold">&amp;&amp;</span> <span style="color:#d14">\
+</span><span style="color:#d14"></span>    pip install --upgrade pip -i http://mirrors.yun.url:port/pypi/web/simple --trust-host mirrors.yun.url <span style="color:#000;font-weight:bold">&amp;&amp;</span> <span style="color:#d14">\
+</span><span style="color:#d14"></span>    pip install -i -i http://mirrors.yun.url:port/pypi/web/simple --trust-host mirrors.yun.url -r requirements.txt<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span><span style="color:#998;font-style:italic"># 指定映射端口</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span><span style="color:#000;font-weight:bold">EXPOSE</span><span style="color:#d14"> 5000</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span><span style="color:#000;font-weight:bold">RUN</span> chmod <span style="color:#099">775</span> /镜像位置/server.py<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span><span style="color:#000;font-weight:bold">CMD</span> [<span style="color:#d14">&#34;python3&#34;</span>,<span style="color:#d14">&#34;/镜像位置/server.py&#34;</span>]<span style="color:#a61717;background-color:#e3d2d2">
+</span><span style="color:#a61717;background-color:#e3d2d2"></span><span style="color:#998;font-style:italic"># CMD [&#34;run.sh&#34;]</span><span style="color:#a61717;background-color:#e3d2d2">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>运行<code>docker server</code>镜像</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo docker run -p hostport:containerport server:v1
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="四总结">四、总结</h2>
-<p>  以上三种方法都可以实现在大量文本中，进行大规模词典文本快速匹配。应用场景包括：关键词提取，敏感词过滤，知识图谱检索（实体的提取和链接，在一个query中就要求提取出KB中包含的实体的名称）等。</p>
-<h2 id="reference">Reference</h2>
-<p>1、 <a href="https://zhuanlan.zhihu.com/p/137584630">https://zhuanlan.zhihu.com/p/137584630</a><br>
-2、 <a href="https://zhuanlan.zhihu.com/p/158767004">https://zhuanlan.zhihu.com/p/158767004</a><br>
-3、 <a href="https://blog.csdn.net/u013421629/article/details/83178970">https://blog.csdn.net/u013421629/article/details/83178970</a><br>
-4、 <a href="https://mattzheng.blog.csdn.net/article/details/78521871">https://mattzheng.blog.csdn.net/article/details/78521871</a><br>
-5、 <a href="https://github.com/WojciechMula/pyahocorasick">https://github.com/WojciechMula/pyahocorasick</a><br>
-6、 <a href="https://github.com/vi3k6i5/flashtext">https://github.com/vi3k6i5/flashtext</a><br>
-7、 <a href="https://github.com/cold-eye/flashtext_chinese_nlp_data_augmentation_eda">https://github.com/cold-eye/flashtext_chinese_nlp_data_augmentation_eda</a></p>
-<h2 id="打赏">打赏</h2>
+</div><h2 id="三使用gpu版">三、使用gpu版</h2>
+<p>安装<code>nvidia-docker2</code></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run --gpus all -it --rm tensorflow/tensorflow:latest-gpu <span style="color:#d14">\
+</span><span style="color:#d14"></span>   python -c <span style="color:#d14">&#34;import tensorflow as tf; print(tf.reduce_sum(tf.random.normal([1000, 1000])))&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="四删除镜像">四、删除镜像</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker rmi 镜像名
+docker rmi -f 镜像名  <span style="color:#998;font-style:italic"># force</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>删除<code>&lt;none&gt;</code></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker ps -a | grep <span style="color:#d14">&#34;Exited&#34;</span> | awk <span style="color:#d14">&#39;{print $1 }&#39;</span>|xargs docker stop
+docker ps -a | grep <span style="color:#d14">&#34;Exited&#34;</span> | awk <span style="color:#d14">&#39;{print $1 }&#39;</span>|xargs docker rm
+docker images|grep none|awk <span style="color:#d14">&#39;{print $3 }&#39;</span>|xargs docker rmi
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="五导出发布导入">五、导出、发布、导入</h2>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#998;font-style:italic"># 导出</span>
+sudo docker save -o server.tar server:v1
+<span style="color:#998;font-style:italic"># 发布</span>
+sudo docker login
+sudo docker tag server YOUR_DOCKER_ID/server
+sudo docker push YOUR_DOCKER_ID/server
+<span style="color:#998;font-style:italic"># 导入</span>
+sudo docker load -i server.tar
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="打赏">打赏</h2>
 <table>
 <thead>
 <tr>
@@ -341,7 +325,7 @@ result <span style="color:#000;font-weight:bold">=</span> gfw<span style="color:
 <div class="post-archive">
     <ul class="post-copyright">
         <li><strong>原文作者：</strong><a rel="author" href="https://cold-eye.github.io/">冷眼</a></li>
-        <li style="word-break:break-all"><strong>原文链接：</strong><a href="https://cold-eye.github.io/post/python-ac-flashtext/">https://cold-eye.github.io/post/python-ac-flashtext/</a></li>
+        <li style="word-break:break-all"><strong>原文链接：</strong><a href="https://cold-eye.github.io/post/dockerfile/">https://cold-eye.github.io/post/dockerfile/</a></li>
         <li><strong>版权声明：</strong>本作品采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可，非商业转载请注明出处（作者，原文链接），商业转载请联系作者获得授权。</li>
     </ul>
 </div>
@@ -355,9 +339,15 @@ result <span style="color:#000;font-weight:bold">=</span> gfw<span style="color:
     <h2>See Also</h2>
     <ul class="listing">
         
-        <li><a href="/post/python-cython-golang/">提速 7 到 72 倍，在 Python 里面调用 Cython 和 Golang 函数</a></li>
+        <li><a href="/post/wechat-sets/">微信小技巧--持续更新</a></li>
         
-        <li><a href="/post/cifar10/">深度学习，制作类似cifar10图像数据集</a></li>
+        <li><a href="/post/wenku-free/">网站文本复制禁用的一种破解方法</a></li>
+        
+        <li><a href="/post/wonderful-api/">一些非常有用的网站API（持续更新...）</a></li>
+        
+        <li><a href="/post/kg-bootstrapping/">半监督学习Bootstrapping抽取知识图谱</a></li>
+        
+        <li><a href="/post/hugo-vscode/">hugo 博客编辑器</a></li>
         
     </ul>
 </div>
@@ -367,7 +357,7 @@ result <span style="color:#000;font-weight:bold">=</span> gfw<span style="color:
             
             <ul class="clearfix">
                 
-                <li><a href='https://cold-eye.github.io/tags/python'>python</a></li>
+                <li><a href='https://cold-eye.github.io/tags/IT%E6%8A%80%E6%9C%AF'>IT技术</a></li>
                 
             </ul>
             

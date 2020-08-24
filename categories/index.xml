@@ -6,10 +6,28 @@
     <description>Recent content in Categories on 冷眼-风雨飘摇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 19 Aug 2020 15:18:30 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 23 Aug 2020 15:18:30 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>nlp</title>
+      <link>https://cold-eye.github.io/categories/nlp/</link>
+      <pubDate>Sun, 23 Aug 2020 15:18:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/categories/nlp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>IT技术</title>
+      <link>https://cold-eye.github.io/categories/IT%E6%8A%80%E6%9C%AF/</link>
+      <pubDate>Sat, 22 Aug 2020 15:18:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/categories/IT%E6%8A%80%E6%9C%AF/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>python</title>
@@ -17,15 +35,6 @@
       <pubDate>Wed, 19 Aug 2020 15:18:30 +0800</pubDate>
       
       <guid>https://cold-eye.github.io/categories/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>IT技术</title>
-      <link>https://cold-eye.github.io/categories/IT%E6%8A%80%E6%9C%AF/</link>
-      <pubDate>Tue, 18 Aug 2020 10:18:30 +0800</pubDate>
-      
-      <guid>https://cold-eye.github.io/categories/IT%E6%8A%80%E6%9C%AF/</guid>
       <description></description>
     </item>
     
@@ -44,15 +53,6 @@
       <pubDate>Sun, 09 Aug 2020 10:18:30 +0800</pubDate>
       
       <guid>https://cold-eye.github.io/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>nlp</title>
-      <link>https://cold-eye.github.io/categories/nlp/</link>
-      <pubDate>Thu, 06 Aug 2020 14:18:30 +0800</pubDate>
-      
-      <guid>https://cold-eye.github.io/categories/nlp/</guid>
       <description></description>
     </item>
     
