@@ -6,10 +6,19 @@
     <description>Recent content in python on 冷眼-风雨飘摇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 19 Aug 2020 15:18:30 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 31 Aug 2020 13:18:30 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>python ssh 上传下载文件</title>
+      <link>https://cold-eye.github.io/post/python-ssh/</link>
+      <pubDate>Mon, 31 Aug 2020 13:18:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/python-ssh/</guid>
+      <description>&lt;em&gt;python&lt;/em&gt; 公、私钥连接 &lt;em&gt;&lt;strong&gt;ssh&lt;/strong&gt;&lt;/em&gt; 并实现文件的上传下载。</description>
+    </item>
     
     <item>
       <title>python handcalcs Latex公式编辑</title>

@@ -95,7 +95,7 @@
         
         <div class="post-meta">
             <span id="busuanzi_container_page_pv">| <span id="busuanzi_value_page_pv"></span><span>
-                    阅读</span></span> | <span class="post-date">共867字</span>，阅读约<span class="more-meta"> 2 分钟</span>
+                    阅读</span></span> | <span class="post-date">共897字</span>，阅读约<span class="more-meta"> 2 分钟</span>
         </div>
         
         
@@ -119,11 +119,13 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#998;font-style:italic"># 保留文本中的汉字、英文、数字（标点符号不会保留）</span>
 <span style="color:#000;font-weight:bold">import</span> <span style="color:#555">re</span>
 <span style="color:#998;font-style:italic"># pattern = &#34;[^\u4e00-\u9fa5^A-Z^a-z^0-9]&#34; # 效果等价</span>
+<span style="color:#998;font-style:italic"># 如果需要保留字间的空格，直接在正则末尾加一个空格就行 [^\u4e00-\u9fa5A-Za-z0-9 ]</span>
 pattern <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;[^</span><span style="color:#d14">\u4e00</span><span style="color:#d14">-</span><span style="color:#d14">\u9fa5</span><span style="color:#d14">A-Za-z0-9]&#34;</span>
 text <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;\某某，</span><span style="color:#d14">\\</span><span style="color:#d14">你好=+！123【我//&#34;&#34;们】abc~————聊/天&#39;吧:：！这.!！_#？?（）个‘’“”￥$主|意()不错......！&#34;</span>
 result <span style="color:#000;font-weight:bold">=</span> re<span style="color:#000;font-weight:bold">.</span>sub(pattern,<span style="color:#d14">&#34;&#34;</span>,text)
@@ -361,6 +363,10 @@ texts_new <span style="color:#000;font-weight:bold">=</span> [text[:<span style=
 
 
 
+
+
+
+
 <body>
     <div class="demo">
         <div id="player1">
@@ -539,8 +545,37 @@ texts_new <span style="color:#000;font-weight:bold">=</span> [text[:<span style=
                             cover: '',
                             lrc:'V',
                             theme: ''
+                        },{
+                            name: 'W',
+                            artist:'W',
+                            url:'http://music.163.com/song/media/outer/url?id=5348853.mp3',
+                            cover: '',
+                            lrc:'W',
+                            theme: ''
+                        },{
+                            name: 'X',
+                            artist:'X',
+                            url:'http://music.163.com/song/media/outer/url?id=34613621.mp3',
+                            cover: '',
+                            lrc:'X',
+                            theme: ''
+                        },{
+                            name: 'Y',
+                            artist:'Y',
+                            url:'http://music.163.com/song/media/outer/url?id=553815184.mp3',
+                            cover: '',
+                            lrc:'Y',
+                            theme: ''
+                        },{
+                            name: 'Z',
+                            artist:'Z',
+                            url:'http://music.163.com/song/media/outer/url?id=16607021.mp3',
+                            cover: '',
+                            lrc:'Z',
+                            theme: ''
                         },
                     ]
+
                     
         });
         
@@ -562,6 +597,10 @@ texts_new <span style="color:#000;font-weight:bold">=</span> [text[:<span style=
 <ul class="widget-list">
     
     <li>
+        <a href="https://cold-eye.github.io/post/python-ssh/" title="python ssh 上传下载文件">python ssh 上传下载文件</a>
+    </li>
+    
+    <li>
         <a href="https://cold-eye.github.io/post/tencent-word2vec/" title="腾讯词向量制作同义词映射表、计算文本相似度">腾讯词向量制作同义词映射表、计算文本相似度</a>
     </li>
     
@@ -575,10 +614,6 @@ texts_new <span style="color:#000;font-weight:bold">=</span> [text[:<span style=
     
     <li>
         <a href="https://cold-eye.github.io/post/wechat-sets/" title="微信小技巧--持续更新">微信小技巧--持续更新</a>
-    </li>
-    
-    <li>
-        <a href="https://cold-eye.github.io/post/python-flask-web/" title="python flask 前端接收参数">python flask 前端接收参数</a>
     </li>
     
 </ul>
@@ -596,7 +631,7 @@ texts_new <span style="color:#000;font-weight:bold">=</span> [text[:<span style=
     
     <li><a href="https://cold-eye.github.io/categories/nlp/">nlp (4)</a></li>
     
-    <li><a href="https://cold-eye.github.io/categories/python/">python (7)</a></li>
+    <li><a href="https://cold-eye.github.io/categories/python/">python (8)</a></li>
     
     <li><a href="https://cold-eye.github.io/categories/rust/">rust (1)</a></li>
     
