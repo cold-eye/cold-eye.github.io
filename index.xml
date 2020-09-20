@@ -6,18 +6,63 @@
     <description>Recent content on 冷眼-风雨飘摇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 15 Sep 2020 13:18:30 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 20 Sep 2020 15:18:30 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>百万级的数据里找项目</title>
-      <link>https://cold-eye.github.io/post/data-mining/</link>
+      <title>数据挖掘5：互联网常见特殊词汇的商机</title>
+      <link>https://cold-eye.github.io/post/data-mining-5/</link>
+      <pubDate>Sun, 20 Sep 2020 15:18:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/data-mining-5/</guid>
+      <description>项目挖掘</description>
+    </item>
+    
+    <item>
+      <title>数据挖掘4：从付费行为里找项目</title>
+      <link>https://cold-eye.github.io/post/data-mining-4/</link>
+      <pubDate>Sun, 20 Sep 2020 13:18:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/data-mining-4/</guid>
+      <description>项目挖掘</description>
+    </item>
+    
+    <item>
+      <title>数据挖掘3：实操</title>
+      <link>https://cold-eye.github.io/post/data-mining-3/</link>
+      <pubDate>Sat, 19 Sep 2020 13:18:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/data-mining-3/</guid>
+      <description>项目挖掘</description>
+    </item>
+    
+    <item>
+      <title>数据挖掘2：具体项目</title>
+      <link>https://cold-eye.github.io/post/data-mining-2/</link>
+      <pubDate>Thu, 17 Sep 2020 13:18:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/data-mining-2/</guid>
+      <description>项目挖掘</description>
+    </item>
+    
+    <item>
+      <title>数据挖掘1：百万级的数据里找项目</title>
+      <link>https://cold-eye.github.io/post/data-mining-1/</link>
       <pubDate>Tue, 15 Sep 2020 13:18:30 +0800</pubDate>
       
-      <guid>https://cold-eye.github.io/post/data-mining/</guid>
+      <guid>https://cold-eye.github.io/post/data-mining-1/</guid>
       <description>项目挖掘</description>
+    </item>
+    
+    <item>
+      <title>通过 server 酱实现定时推送信息</title>
+      <link>https://cold-eye.github.io/post/server-jiang/</link>
+      <pubDate>Thu, 10 Sep 2020 13:48:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/server-jiang/</guid>
+      <description>通过第三方工具给自己的微信发消息。</description>
     </item>
     
     <item>
