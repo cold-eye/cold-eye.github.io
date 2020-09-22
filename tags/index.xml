@@ -6,10 +6,19 @@
     <description>Recent content in Tags on 冷眼-风雨飘摇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 20 Sep 2020 15:18:30 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 22 Sep 2020 13:48:30 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>nlp</title>
+      <link>https://cold-eye.github.io/tags/nlp/</link>
+      <pubDate>Tue, 22 Sep 2020 13:48:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/tags/nlp/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>经济生活</title>
@@ -26,15 +35,6 @@
       <pubDate>Thu, 10 Sep 2020 13:48:30 +0800</pubDate>
       
       <guid>https://cold-eye.github.io/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>nlp</title>
-      <link>https://cold-eye.github.io/tags/nlp/</link>
-      <pubDate>Sun, 23 Aug 2020 15:18:30 +0800</pubDate>
-      
-      <guid>https://cold-eye.github.io/tags/nlp/</guid>
       <description></description>
     </item>
     

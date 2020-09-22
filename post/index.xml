@@ -6,10 +6,28 @@
     <description>Recent content in Posts on 冷眼-风雨飘摇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 20 Sep 2020 15:18:30 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 22 Sep 2020 13:48:30 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>打破 BERT 天花板：11种花式炼丹术刷爆NLP分类SOTA！</title>
+      <link>https://cold-eye.github.io/post/nlp-classifier-sota/</link>
+      <pubDate>Tue, 22 Sep 2020 13:48:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/nlp-classifier-sota/</guid>
+      <description>利用机器学习思想，更好地去解决NLP分类任务中的低耗时、小样本、鲁棒性、不平衡、测试检验、增量学习、长文本等问题。</description>
+    </item>
+    
+    <item>
+      <title>NLP中的少样本困境问题探究</title>
+      <link>https://cold-eye.github.io/post/nlp-less-sample/</link>
+      <pubDate>Mon, 21 Sep 2020 13:48:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/nlp-less-sample/</guid>
+      <description>在医疗、金融、法律等领域，高质量的标注数据十分稀缺、昂贵，我们通常面临少样本低资源问题。本文从「文本增强」和「半监督学习」这两个角度出发，谈一谈如何解决少样本困境。</description>
+    </item>
     
     <item>
       <title>数据挖掘5：互联网常见特殊词汇的商机</title>

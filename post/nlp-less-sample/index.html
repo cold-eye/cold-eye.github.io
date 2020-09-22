@@ -1,0 +1,824 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>NLP中的少样本困境问题探究 | 冷眼-风雨飘摇</title>
+    <meta property="og:title" content="NLP中的少样本困境问题探究 - 冷眼-风雨飘摇">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2020-09-21T13:48:30&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2020-09-21T13:48:30&#43;08:00'>
+        
+    <meta name="Keywords" content="[python nlp 数据 少样本]">
+    <meta name="description" content="NLP中的少样本困境问题探究">
+        
+    <meta name="author" content="冷眼">
+    <meta property="og:url" content="https://cold-eye.github.io/post/nlp-less-sample/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+
+    
+    
+    
+
+    
+    
+        <link rel="stylesheet" href='/css/douban.css'>
+    
+        <link rel="stylesheet" href='/css/other.css'>
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://cold-eye.github.io/">
+                        冷眼-风雨飘摇
+                    </a>
+                
+                <p class="description">专注于python、自然语言处理</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://cold-eye.github.io/">首页</a>
+                    
+                    <a  href="https://cold-eye.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://cold-eye.github.io/categories/" title="分类">分类</a>
+                    
+                    <a  href="https://cold-eye.github.io/about/" title="博主">博主</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">NLP中的少样本困境问题探究</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年9月21日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://cold-eye.github.io/categories/nlp'>nlp</a></span>
+            
+        </div>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">| <span id="busuanzi_value_page_pv"></span><span>
+                    阅读</span></span> | <span class="post-date">共7892字</span>，阅读约<span class="more-meta"> 16 分钟</span>
+        </div>
+        
+        
+        <div class="post-content">
+            <h2 id="一前言">一、前言</h2>
+<p>在医疗、金融、法律等领域，高质量的标注数据十分稀缺、昂贵，我们通常面临少样本低资源问题。本文从「文本增强」和「半监督学习」这两个角度出发，谈一谈如何解决少样本困境。</p>
+<p>正式介绍之前，我们首先需要思考什么才是一种好的解决少样本困境的方案？本文尝试给出了三个层次的评价策略，我们希望采取相关数据增强或弱监督技术后：</p>
+<ol>
+<li>
+<p><strong><strong>在少样本场景下，比起同等标注量的无增强监督学习模型，性能有较大幅度的提升；</strong></strong></p>
+</li>
+<li>
+<p><strong><strong>在少样本场景下，能够达到或者逼近充分样本下的监督学习模型性能；</strong></strong></p>
+</li>
+<li>
+<p><strong><strong>在充分样本场景下，性能仍然有一定提升；</strong></strong></p>
+</li>
+</ol>
+<p>基于此，本文首先总结了nlp中的文本增强技术，然后串讲了近年来9个主流的半监督学习模型，最后主要介绍了来自Google提出的UDA（一种文本增强+半监督学习的结合体）。本文的组织结构为：
+<img src="/images/nlp-less-sample/nlp-less-sample-1.jpeg" alt="图1"></p>
+<h2 id="二nlp中的文本增强技术总结">二、NLP中的文本增强技术总结</h2>
+<p>谈起文本增强技术，相信NLPer一定不会陌生，相关方法也是数不胜数。我们通常对标注数据集提供附加的感应偏置进行扩充，如何设计增强变换就变得至关重要。本文尝试从一个新角度——是否条件增强，借鉴文献[1]进行了总结归纳：
+<img src="/images/nlp-less-sample/nlp-less-sample-2.jpeg" alt="图2"></p>
+<h3 id="无条件增强"><strong><strong>无条件增强</strong></strong></h3>
+<ul>
+<li>定义：既可以对标注数据进行增强（增强后标签不发生变化），又可以针对无标注数据进行增强，不需要强制引入标签信息。</li>
+</ul>
+<p><strong><strong>词汇&amp;短语替换</strong></strong></p>
+<ul>
+<li>
+<p><strong><strong>基于词典：主要从文本中选择词汇或短语进行同义词替换，词典可以采取 WordNet或哈工大词林等。著名的 EDA (Easy Data Augmentation)[2] 就采用了这种方法。</strong></strong></p>
+</li>
+<li>
+<p><strong><strong>基于词向量：在嵌入空间中找寻相邻词汇进行替换，我们所熟知的TinyBERT[3] 就利用这种技术进行了数据增强。</strong></strong></p>
+</li>
+<li>
+<p><strong><strong>Masked LM：借鉴预训练语言模型（如BERT）中的自编码语言模型，可以启发式地Mask词汇并进行预测替换。</strong></strong></p>
+</li>
+<li>
+<p><strong><strong>TF-IDF：实质上是一种非核心词替换，对那些low TF-IDF scores进行替换，这一方法最早由Google的UDA[4]提出</strong></strong>:
+<img src="/images/nlp-less-sample/nlp-less-sample-3.png" alt="图3"></p>
+</li>
+</ul>
+<p><strong><strong>随机噪音注入</strong></strong></p>
+<ul>
+<li>
+<p><strong><strong>随机插入：随机插入一个词汇、相应的拼写错误、占位符等，UDA[4]则根据Uni-gram词频分布进行了采样。</strong></strong></p>
+</li>
+<li>
+<p><strong><strong>随机交换：随机交换词汇或交换shuffle句子。</strong></strong></p>
+</li>
+<li>
+<p><strong><strong>随机删除：随机删除(drop)词汇或句子。</strong></strong></p>
+</li>
+</ul>
+<p>注意：EDA[2]除了进行同义词替换外，也同时采用上述三种随机噪音注入。</p>
+<p><strong><strong>混合&amp;交叉</strong></strong></p>
+<ul>
+<li>
+<p><strong><strong>混合增强</strong></strong>：起源于图像领域的Mixup[5]，这是一种表示增强方法，借鉴这种思想，文献[6]提出了wordMixup和sentMixup将词向量和句向量进行Mixup。
+<img src="/images/nlp-less-sample/nlp-less-sample-4.jpeg" alt="图4"></p>
+</li>
+<li>
+<p><strong><strong>交叉增强</strong></strong>：类似于“染色体的交叉操作”，文献[7]将相同极性的文本进行交叉：
+<img src="/images/nlp-less-sample/nlp-less-sample-5.png" alt="图5"></p>
+</li>
+<li>
+<p><strong><strong>回译：基于机器翻译技术，例如从中文-英文-日文-中文；我们熟知的机器阅读理解模型QANet[8]和UDA[4]都采用了回译技术进行数据增强。</strong></strong></p>
+</li>
+<li>
+<p><strong><strong>句法交换：通过句法树对文本句子进行解析，并利用相关规则进行转换，例如将主动式变成被动式句子。</strong></strong></p>
+</li>
+<li>
+<p><strong><strong>对抗增强: 不同于CV领域利用GAN生成对抗进行数据增强[9]，NLP中通常在词向量上添加扰动并进行对抗训练，文献[10]NLP中的对抗训练方法FGM, PGD, FreeAT, YOPO, FreeLB等进行了总结。</strong></strong></p>
+</li>
+</ul>
+<p>本节介绍的无条件增强方法，在对标注数据进行增强后标签不发生变化，但可能会造成文本主旨发生发生变化（例如情感分析中，某一时刻将good 替换为了bad），带来的噪音过大从而影响模型性能。因此，我们是否可以考虑引入标签信息来引导数据生成呢？</p>
+<h3 id="条件增强"><strong><strong>条件增强</strong></strong></h3>
+<p>定义：所谓条件增强（Conditional Data Augmentation），就是意味着需要强制引入「文本标签」信息到模型中再产生数据。</p>
+<p><strong><strong>深度生成模型</strong></strong>：既然条件增强需要引入标签信息进行数据增强，那么我们自然就会联想到Conditional变分自编码模型(CVAE)，文献[11]就利用CVA进行增强。想生成一个高质量的增强数据，往往需要充分的标注量，但这却与「少样本困境」这一前提所矛盾。这也正是GAN或者CVAE这一类深度生成模型在解决少样本问题时需要考虑的一个现状。</p>
+<p><strong><strong>预训练语言模型</strong></strong>：众所周知，BERT等在NLP领域取得了巨大成功，特别是其利用大量无标注数据进行了语言模型预训练。如果我们能够结合标签信息、充分利用这一系列语言模型去做文本增强，也许能够克服深度生成模型在少样本问题上的矛盾。近来许多研究者对Conditional Pre-trained Language Models 做文本增强进行了有益尝试：</p>
+<p><strong><strong>Contextual Augment</strong></strong>[12]：这是这一系列尝试的开篇之作，其基于LSTM进行biLM预训练，将标签信息融入网络结构进行finetune，是替换生成的词汇与标签信息兼容一致。</p>
+<p><strong><strong>CBERT</strong></strong>[13]：其主要思想还是借鉴了Contextual Augment，基于BERT进行finetune，将segment embedding转换融入标签指示的label embedding（如果标签类别数目大于2类，则相应扩充），如下图，替换good生成的funny与标签positive兼容。
+<img src="/images/nlp-less-sample/nlp-less-sample-6.jpeg" alt="图6"></p>
+<p><strong><strong>LAMBADA</strong></strong>[14]：来自IBM团队，其基于GPT-2将标签信息与原始文本拼接当作训练数据进行finetune（如下图所示，SEP代表标签和文本的分割，EOS是文本结束的标志），同时也采用一个判别器对生成数据进行了过滤降噪。
+<img src="/images/nlp-less-sample/nlp-less-sample-7.png" alt="图7"></p>
+<p>在最近的一篇paper《Data Augmentation using Pre-trained Transformer Models》[15]中，根据不同预训练目标对自编码(AE)的BERT、自回归(AR)的GPT-2、Seq2Seq的BART这3个预训练模型进行了对比。不同于CBERT，没有标签信息变为label embedding而是直接作为一个token&amp;sub-token来于原文拼接。
+<img src="/images/nlp-less-sample/nlp-less-sample-8.png" alt="图8"></p>
+<p>如上图所示，采样原始标注数据的1%作为少样本场景的设置，其发现BART表现最好，文中也做了相应对比实验发现：</p>
+<ol>
+<li>
+<p><strong><strong>AE模型BERT在做文本增强后，容易被约束产生相似的文本序列，且擅长保存标签信息。</strong></strong></p>
+</li>
+<li>
+<p><strong><strong>AR模型GPT-2在做文本增强后，不受约束地生成文本，不擅长无法保留标签信息。</strong></strong></p>
+</li>
+<li>
+<p><strong><strong>Seq2Seq模型BART位于AE和AR之间，可以在多样性和语义保真度之间取得良好的平衡。此外，BART可以通过更改跨度掩码的长度来控制生成数据的多样性。</strong></strong></p>
+</li>
+</ol>
+<h3 id="总结与分析">总结与分析</h3>
+<p>至此，我们介绍完了NLP中的文本增强技术，以[15]的实验结果为例，我们可以发现文本增强技术可以满足本文一开始给出的第一层次评价策略，即：<strong><strong>在少样本场景下，采用文本增强技术，比起同等标注量的无增强监督学习模型，性能会有较大幅度的提升</strong></strong>。需要注意的是，上述相关文献中，通常只针对标注数据进行文本增强。但我们是否可以充分利用领域相关的大量无标注数据解决少样本困境呢？我们将在第2部分进行介绍。</p>
+<p>除此之外，在实践中我们也要去思考：</p>
+<ul>
+<li>
+<p><strong><strong>是否存在一种文本增强技术，能够达到或者逼近充分样本下的监督学习模型性能？</strong></strong></p>
+</li>
+<li>
+<p><strong><strong>在充分样本下，采取文本增强技术，是否会陷入到过拟合的境地，又是否会由于噪音过大而影响性能？如何挑选样本？又如何降噪？</strong></strong></p>
+</li>
+</ul>
+<h2 id="三半监督学习">三、半监督学习</h2>
+<p>这一部分主要介绍如何结合大量无标注数据解决少样本困境，相应的弱监督方法层出不穷，本文着眼于「<strong><strong>半监督学习</strong></strong>」，借鉴CV领域的9个主流方法进行介绍，包括：Pseudo-Label / Π-Model / Temporal Ensembling / Mean Teacher / VAT / UDA / MixMatch /   ReMixMatch / FixMatch。</p>
+<h3 id="为什么要引入半监督学习">为什么要引入半监督学习？</h3>
+<p>监督学习往往需要大量的标注数据，而标注数据的成本比较高，因此如何利用大量的无标注数据来提高监督学习的效果，具有十分重要的意义。这种利用少量标注数据和大量无标注数据进行学习的方式称为<strong><strong>半监督学习</strong></strong>(Semi-Supervised Learning，SSL) 。
+<img src="/images/nlp-less-sample/nlp-less-sample-9.jpeg" alt="图9"></p>
+<p>如上图所示，在同等的少量标注样本下，半监督学习通常取得比监督学习较好的性能。进入深度学习时代以来，<strong><strong>SSL如何在少量标注样本下达到或超越大量标注样本下监督学习的效果，SSL如何在大量标注样本下也不会陷入到“过拟合陷阱”</strong></strong>，是SSL研究者面临的一个挑战。</p>
+<p>近年来，半监督深度学习取得了长足的进展，特别是在CV领域；相关的研究主要着力于如何针对未标注数据构建无监督信号，与监督学习联合建模；简单地讲，就是<strong><strong>如何在损失函数中添加针对未标注数据相关的正则项，使模型能够充分利用大量的未标注数据不断迭代，最终增强泛化性能</strong></strong>，正如下图所展示的那样（来自文献 [4] ）。
+<img src="/images/nlp-less-sample/nlp-less-sample-10.png" alt="图10"></p>
+<h3 id="半监督深度学习方法介绍">半监督深度学习方法介绍</h3>
+<p>总的来看，深度学习时代的半监督学习，主要针对未标注数据相关的正则化项进行设置，其通常有以下两种：</p>
+<ol>
+<li>熵最小化（Entropy Minimization）： 根据半监督学习的Cluster假设，决策边界应该尽可能地通过数据较为稀疏的地方（低密度区），以能够避免把密集的样本数据点分到决策边界的两侧。也就是模型通过对未标记数据预测后要作出低熵预测，即熵最小化：</li>
+<li>一致性正则（Consistency Regularization）： 对于未标记数据，希望模型在其输入受到扰动时产生相同的输出分布。即：</li>
+</ol>
+<p>重要说明：本文将 定义为人工标签，其含义是构建“标签”指导一致性正则的实施，通常采取weak数据增强方法，也可能来自历史平均预测或模型平均预测。 定义为预测标签，为模型当前时刻对无标注数据的预测，对其输入可进行strong增强或对抗扰动。</p>
+<p>(1) <strong><strong>Pseudo-Label</strong></strong> [16]</p>
+<p>Pseudo Label的原理很简单，选举每个未标注样本的最大概率作为其伪标签。为了降低噪音的影响，只有当置信度大于阈值时才计算相应的损失。</p>
+<p>(2) <strong><strong>Π-Model/Temporal Ensembling</strong></strong> [17]</p>
+<p>Π-Model 和 Temporal Ensembling来自同一篇论文，均利用了一致性正则。</p>
+<p>Π-Model如上图所示，对无标注数据输入进行了两次不同的随机数据增强、并通过不同dropout输出得到和 ，并引入一致性正则到损失函数(L2 loss)中：</p>
+<p>可以看出和 来自同一时间步产生的两次结果，同一个train step要进行两次前向计算，可以预见这种单次计算的噪音较大、同时降低训练速度。Temporal Ensembling则采用时序融合模型，是历史的EMA加权平均和，将其视作人工标签，同一个train step只进行一次计算，如下图所示：</p>
+<p>(3) Mean Teacher [18]</p>
+<p>Mean Teacher是对Temporal Ensembling的升级，仍然采用一致性正则(L2 loss)。</p>
+<p>Temporal Ensembling是对预测结果进行EMA平均，但是每个epoch才更新一次，需要等到下一个epoch相关信息才能被模型学习。为克服这一缺点，Mean Teacher采取对模型参数进行EMA平均，其认为训练步骤的上平均模型会比直接使用单一模型权重更精确，将平均模型作为teacher预测人工标签，由当前模型（看作student）预测。</p>
+<p>(4) Virtual Adversarial Training [19]</p>
+<p>Virtual Adversarial Training（VAT）仍然采用一致性正则，学习一致性就要添加扰动。作者认为，随机扰动无法模拟复杂情况的输入，不同于上述SSL方法采用数据增强进行施加扰动，VAT采取对抗训练的方式添加噪音。</p>
+<p>VAT不同于传统的有监督学习下的对抗训练（详细了解可阅读文献 [10] ），其没有标签信息，而是采用 构建一个虚拟标签，并根据这个虚拟标签计算对抗扰动方向 （通常是梯度上升的方向，为正梯度），这也是称之为“虚拟对抗训练”的原因吧～。VAT采用KL散度来计算一致性正则：</p>
+<p>(5) UDA:Unsupervised Data Augmentation for Consistency Training[4]</p>
+<p>UDA来自Google，同样也是采用一致性正则。一致性正则的关键在于如何注入噪声，一个好的模型对于输入扰动的任何细微变化也都应具有鲁棒性。上述SSL方法注入噪音的方法通常为高斯噪音、dropout噪音、对抗噪音，这些注入方式被认为是较弱的干扰。UDA针对图像采取一种高质量的数据增强方法——RandAugment [23]，通过这种strong的干扰来提高一致性训练性能。</p>
+<p>上图为UDA的损失函数，核心在于对无标注数据 通过strong增强转化为，采用KL散度来计算两者间的一致性损失。UDA也通过回译和非核心词替换对文本进行无监督增强，我们将在第3部分作详细介绍。</p>
+<p>此外，UDA也利用了一些辅助技术：</p>
+<p>结合了熵最小化正则：对无监督信号进行sharpen操作构建人工标签，使其趋近于 One-Hot 分布，对某一类别输出概率趋向 1，其他类别趋向0，此时熵最低。此外，还直接计算了熵损失。
+将人工标签与strong增强后的预测标签共同构建一致性正则，并计算损失时进行了confidence-based masking，低于置信度阈值不参与loss计算。
+采用训练信号退火(TSA)方法防止对标注数据过拟合，对于标注数据的置信度高于阈值要进行masking，这与无标注数据正好相反。
+使用初始模型过滤了领域外的无标注数据。</p>
+<p>(6)  MixMatch [20]</p>
+<p>MixMatch同样来自Google，与UDA类似，同样结合了熵最小化和一致性正则。其重要的操作就是通过MixMatch进行数据增强，与UDA的RandAugment不同，这种增强方式依然是weak的。MixMatch具体的数据增强操作为：</p>
+<p>对标注数据进行一次增强，对于未标注数据作K次weak增强输入模型得到average后的概率，并对其进行与UDA类似的sharpen操作得到人工标签，利用了熵最小化思想。
+将无标注数据得到的人工标签与标注数据混合在一起并进行MixUp[5]操作，进而得到增强后的无标注数据以及标注数据。
+最后对于MixMatch增强后的标注数据 和无标注数据分别计算损失项，采用L2 loss引入一致性正则：</p>
+<p>(7) ReMixMatch [21]</p>
+<p>ReMixMatch是MixMatch原作者对自己工作的改进，主要有两点：</p>
+<p>Distribution Alignment： 分布对齐，将无标注数据的人工标签与标注数据的标签分布对齐，如上图所示：根据标注数据的标签分布(Groud-truth labels)与无标注数据的平均预测(Model prediction)的比值作为“对齐因子”，缓解猜测标签的噪音和分布不一致情况。
+Strong Augmentation： MixMatch不稳定的原因可能是K次weak增强会导致不同的预测，取平均值不是具有意义的目标；ReMixMatch改进这一点，引入strong增强，将weak增强后的人工标签与strong增强后的预测标签共同构建一致性正则（KL散度）。具体的增强方式CTAugment 可参考原论文。
+此外，ReMixMatch还对未标注数据丢失的权重进行了退火，并引入了Rotation loss，这里不再赘述。</p>
+<p>(8) FixMatch [22]</p>
+<p>FixMatch也是来自Google，实质上是UDA和ReMixMatch一个综合简化版本，舍弃了sharpen操作和UDA的训练信号退火、ReMixMatch的分布对齐和旋转损失等。UDA和ReMixMatch表明引入strong增强方式，在与weak增强方式一同构建一致性正则时是有效的。FixMatch延续了这一思想，strong增强同时使用了UDA的RandAugment和ReMixMatch的CTAugment。</p>
+<p>不同于UDA和ReMixMatch通过sharpen构建人工标签来指导一致性正则的实施，FixMatch则直接利用Pseudo-Label 构建人工标签。具体地说：记strong增强为 和weak增强为，对于标注数据只使用弱增强并计算交叉熵；对于无标注数据使用weak增强构建人工标签  ，使用strong增强构建预测标签，最终损失形式为：</p>
+<p>其中 为置信度阈值，对低于阈值的人工标签不参与loss计算进行confidence-based masking。</p>
+<p>不同半监督学习方法的对比
+至此，我们已经介绍完了近年来主流的半监督深度学习方法。回顾1.1节对一致性正则公式的介绍，我们可以发现：</p>
+<p>人工标签是构建“标签”指导一致性正则的实施，通常采取weak数据增强方法，也可能来自历史平均预测(Temporal Ensembling)或模型平均预测(Mean Teacher)；
+预测标签为模型当前时刻对无标注数据的预测，其输入可进行strong增强(UDA/ReMixMatch/FixMatch)或对抗扰动(VAT).
+我们将其归纳如下：</p>
+<p>下图给出了上述SSL方法在不同数据集上的性能对比（指标为错误率）：</p>
+<p>我们可以发现借鉴了UDA和ReMixMatch的FixMatch，是目前的SOTA。上述大多数SSL方法都引入了一致性正则，其关键在于如何注入噪声，一个好的模型对于输入扰动的任何细微变化也都应具有鲁棒性。也许我们可以形成一个共识：通过strong增强的预测标签与weak增强的人工标签共同构建一致性损失，能够提高一致性训练性能，充分挖掘未标注数据中潜在的价值，最终增强泛化性能。</p>
+<p>上述结合图像数据增强的半监督学习方法在CV领域已经取得成功，基本满足本文一开始提出的三个层次评价策略，特别是：在少样本场景下可以比肩充分样本下的监督学习模型性能，而在充分样本场景下，性能仍然继续提升。相关实验可以进一步阅读CV相关论文，接下来我们主要关注其在NLP的表现。</p>
+<p>UDA：文本增强+半监督学习
+作为NLPer，我们更关心上述文本增强与半监督学习的结合在文本领域表现如何？我们主要介绍分析Google的UDA[]相关结果。</p>
+<p>本文在第1部分重点介绍了文本增强技术，文本增强方法通常针对标注数据（有监督数据增强），我们可以看到其在少样本场景通常会取得稳定的性能提升，但相较于充分样本下的监督学习性能，也许是有限的提升(&ldquo;cherry on the cake&rdquo;)。</p>
+<p>为克服这一限制，UDA通过一致性训练框架（正如2.2节介绍的那样），将有监督的数据增强技术的发展扩展到了有大量未标记数据的半监督学习，尽可能的去利用大量未标记数据，这也正是论文名字——无监督数据增强（Unsupervised Data Augmentation）的由来。</p>
+<p>UDA在六个文本分类任务上结合当前如日中天的BERT迁移学习框架进行了实验。迁移学习框架分别为：(1)Random：随机初始化的Transformer；(2):BERT_base；(3):BERT_large；(4):BERT_finetune:基于BERT_large在domain数据集上继续进行预训练；</p>
+<p>如上图所示（指标为错误率），Pre-BERT SOTA为BERT出现之前的相关SOTA模型。我们可以发现：</p>
+<p>在少样本场景下，UDA相较于同等监督学习模型，性能明显提升；
+在少样本场景下，UDA能够逼近充分样本下的监督学习模型性能，特别地，在IMDb上具有20个标注数据的UDA优于在1250倍标注数据上训练的SOTA模型。相较于2分类任务，5分类任务难度更高，未来仍有提升空间。
+UDA兼容了迁移学习框架，进一步domain预训练后，性能更佳。</p>
+<p>那么，在充分样本场景下，继续使用UDA框架表现如何？从上图可以看出，在更多、更充分的标注数据数量下，融合UDA框架，性能也有一定提升。</p>
+<p>总结与展望</p>
+<p>本文针对「如何解决少样本困境？」，从「文本增强」和「半监督学习」两个角度进行了介绍，简单总结如下：</p>
+<p>文本增强提供了原有标注数据缺少的归纳偏差，在少样本场景下通常会取得稳定、但有限的性能提升；更高级、更多样化和更自然的增强方法效果更佳。
+融合文本增强+半监督学习技术是一个不错的选择。半监督学习中一致性正则能够充分利用大量未标注数据，同时能够使输入空间的变化更加平滑，从另一个角度来看，降低一致性损失实质上也是将标签信息从标注数据传播到未标注数据的过程。</p>
+<p>在具体实践中，如何有效地解决少样本问题需要更为全面的考虑，我们可以融合文本增强、半监督学习、迁移学习、主动学习、少样本学习等构建统一的低资源NLP解决方案；如上图所示，笔者尝试给出了信息抽取领域的少样本低资源解决方案；此外，很多弱监督学习方法也被提出，这一类方法更为关键的是如何挑选样本、如何降噪学习等</p>
+<h2 id="reference">Reference</h2>
+<p>1、 <a href="https://mp.weixin.qq.com/s?__biz=MzIwNzc2NTk0NQ==&amp;mid=2247490516&amp;idx=1&amp;sn=16b1c520f312400ffcad5573d4330e08&amp;scene=21#wechat_redirect">https://mp.weixin.qq.com/s?__biz=MzIwNzc2NTk0NQ==&amp;mid=2247490516&amp;idx=1&amp;sn=16b1c520f312400ffcad5573d4330e08&amp;scene=21#wechat_redirect</a></p>
+<h2 id="打赏">打赏</h2>
+<table>
+<thead>
+<tr>
+<th align="left">微信<img src="/about/wechat.png" alt="微信"></th>
+<th align="left">支付宝<img src="/about/alipay.png" alt="支付宝"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em><strong>万分感谢</strong></em></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+
+        
+<div class="post-archive">
+    <ul class="post-copyright">
+        <li><strong>原文作者：</strong><a rel="author" href="https://cold-eye.github.io/">冷眼</a></li>
+        <li style="word-break:break-all"><strong>原文链接：</strong><a href="https://cold-eye.github.io/post/nlp-less-sample/">https://cold-eye.github.io/post/nlp-less-sample/</a></li>
+        <li><strong>版权声明：</strong>本作品采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可，非商业转载请注明出处（作者，原文链接），商业转载请联系作者获得授权。</li>
+    </ul>
+</div>
+<br/>
+
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/tencent-word2vec/">腾讯词向量制作同义词映射表、计算文本相似度</a></li>
+        
+        <li><a href="/post/nlp-corpus/">自然语言处理语料库（长期更新...）</a></li>
+        
+        <li><a href="/post/data-mining-5/">数据挖掘5：互联网常见特殊词汇的商机</a></li>
+        
+        <li><a href="/post/data-mining-4/">数据挖掘4：从付费行为里找项目</a></li>
+        
+        <li><a href="/post/data-mining-3/">数据挖掘3：实操</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='https://cold-eye.github.io/tags/nlp'>nlp</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    
+    
+    
+    <div id="vcomments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+    <script type="text/javascript">
+      new Valine({
+          el: '#vcomments' ,
+          appId: '2bNGHPmILSH9xQJ9XjQchomv-gzGzoHsz',
+          appKey: '52xbEYwnpwLahMh4Yj55r69v',
+          notify: 'false', 
+          verify: 'false', 
+          avatar:'mm', 
+          placeholder: '说点什么吧...',
+          visitor: 'false'
+      });
+    </script>
+</div>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <!DOCTYPE html>
+<html>
+
+<head>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+    <div class="demo">
+        <div id="player1">
+        </div>
+    </div>
+    <script>
+        var ap = new APlayer
+            ({
+                element: document.getElementById('player1'),
+                narrow: false,
+                fixed: false, 
+                autoplay: false,
+                showlrc: true,
+                mini: false,
+                theme: '#FADFA3',
+                loop: 'all',
+                order: 'random',
+                preload: 'auto',
+                volume: 0.5,
+                mutex: false,
+                listFolded: true,
+                listMaxHeight: 90,
+                lrcType: 2,
+                music:
+                    [
+                        {
+                            artist: 'A',
+                            name: 'A',
+                            url:'http://music.163.com/song/media/outer/url?id=28560087.mp3',
+                            cover: '',
+                            lrc:'A',
+                        },{
+                            name: 'B',
+                            artist:'B',
+                            url:'http://music.163.com/song/media/outer/url?id=1438282140.mp3',
+                            cover: '',
+                            lrc:'B',
+                            theme: '#ebd0c2'
+                        },{
+                            name: 'C',
+                            artist:'C',
+                            url:'http://music.163.com/song/media/outer/url?id=5316168.mp3',
+                            cover: '',
+                            lrc:'C',
+                            theme: '#46718b'
+                        },{
+                            name: 'D',
+                            artist:'D',
+                            url:'http://music.163.com/song/media/outer/url?id=2007819.mp3',
+                            cover: '',
+                            lrc:'D',
+                            theme: ''
+                        },{
+                            name: 'E',
+                            artist:'E',
+                            url:'http://music.163.com/song/media/outer/url?id=1398850429.mp3',
+                            cover: '',
+                            lrc:'E',
+                            theme: ''
+                        },{
+                            name: 'F',
+                            artist:'F',
+                            url:'http://music.163.com/song/media/outer/url?id=28830038.mp3',
+                            cover: '',
+                            lrc:'F',
+                            theme: ''
+                        },{
+                            name: 'G',
+                            artist:'G',
+                            url:'http://music.163.com/song/media/outer/url?id=451126971.mp3',
+                            cover: '',
+                            lrc:'G',
+                            theme: ''
+                        },{
+                            name: 'H',
+                            artist:'H',
+                            url:'http://music.163.com/song/media/outer/url?id=744866.mp3',
+                            cover: '',
+                            lrc:'H',
+                            theme: ''
+                        },{
+                            name: 'I',
+                            artist:'I',
+                            url:'http://music.163.com/song/media/outer/url?id=1341800295.mp3',
+                            cover: '',
+                            lrc:'I',
+                            theme: ''
+                        },{
+                            name: 'J',
+                            artist:'J',
+                            url:'http://music.163.com/song/media/outer/url?id=32835377.mp3',
+                            cover: '',
+                            lrc:'J',
+                            theme: ''
+                        },{
+                            name: 'K',
+                            artist:'K',
+                            url:'http://music.163.com/song/media/outer/url?id=1379464883.mp3',
+                            cover: '',
+                            lrc:'K',
+                            theme: ''
+                        },{
+                            name: 'L',
+                            artist:'L',
+                            url:'http://music.163.com/song/media/outer/url?id=506726178.mp3',
+                            cover: '',
+                            lrc:'L',
+                            theme: ''
+                        },{
+                            name: 'M',
+                            artist:'M',
+                            url:'http://music.163.com/song/media/outer/url?id=411214138.mp3',
+                            cover: '',
+                            lrc:'M',
+                            theme: ''
+                        },{
+                            name: 'N',
+                            artist:'N',
+                            url:'http://music.163.com/song/media/outer/url?id=1415097371.mp3',
+                            cover: '',
+                            lrc:'N',
+                            theme: ''
+                        },{
+                            name: 'O',
+                            artist:'O',
+                            url:'http://music.163.com/song/media/outer/url?id=505449407.mp3',
+                            cover: '',
+                            lrc:'O',
+                            theme: ''
+                        },{
+                            name: 'P',
+                            artist:'P',
+                            url:'http://music.163.com/song/media/outer/url?id=29947420.mp3',
+                            cover: '',
+                            lrc:'P',
+                            theme: ''
+                        },{
+                            name: 'Q',
+                            artist:'Q',
+                            url:'http://music.163.com/song/media/outer/url?id=21311956.mp3',
+                            cover: '',
+                            lrc:'Q',
+                            theme: ''
+                        },{
+                            name: 'R',
+                            artist:'R',
+                            url:'http://music.163.com/song/media/outer/url?id=418602088.mp3',
+                            cover: '',
+                            lrc:'R',
+                            theme: ''
+                        },{
+                            name: 'S',
+                            artist:'S',
+                            url:'http://music.163.com/song/media/outer/url?id=1363551021.mp3',
+                            cover: '',
+                            lrc:'S',
+                            theme: ''
+                        },{
+                            name: 'T',
+                            artist:'T',
+                            url:'http://music.163.com/song/media/outer/url?id=1376653715.mp3',
+                            cover: '',
+                            lrc:'T',
+                            theme: ''
+                        },{
+                            name: 'U',
+                            artist:'U',
+                            url:'http://music.163.com/song/media/outer/url?id=546838016.mp3',
+                            cover: '',
+                            lrc:'U',
+                            theme: ''
+                        },{
+                            name: 'V',
+                            artist:'V',
+                            url:'http://music.163.com/song/media/outer/url?id=1403250178.mp3',
+                            cover: '',
+                            lrc:'V',
+                            theme: ''
+                        },{
+                            name: 'W',
+                            artist:'W',
+                            url:'http://music.163.com/song/media/outer/url?id=5348853.mp3',
+                            cover: '',
+                            lrc:'W',
+                            theme: ''
+                        },{
+                            name: 'X',
+                            artist:'X',
+                            url:'http://music.163.com/song/media/outer/url?id=34613621.mp3',
+                            cover: '',
+                            lrc:'X',
+                            theme: ''
+                        },{
+                            name: 'Y',
+                            artist:'Y',
+                            url:'http://music.163.com/song/media/outer/url?id=553815184.mp3',
+                            cover: '',
+                            lrc:'Y',
+                            theme: ''
+                        },{
+                            name: 'Z',
+                            artist:'Z',
+                            url:'http://music.163.com/song/media/outer/url?id=16607021.mp3',
+                            cover: '',
+                            lrc:'Z',
+                            theme: ''
+                        },{
+                            name: 'X1',
+                            artist:'X1',
+                            url:'http://music.163.com/song/media/outer/url?id=3961975.mp3',
+                            cover: '',
+                            lrc:'X1',
+                            theme: ''
+                        },
+                    ]
+
+                    
+        });
+        
+    </script>
+</body>
+    </section>
+
+    <section class="widget">
+        <form id="search" action='https://cold-eye.github.io/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://cold-eye.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/nlp-classifier-sota/" title="打破 BERT 天花板：11种花式炼丹术刷爆NLP分类SOTA！">打破 BERT 天花板：11种花式炼丹术刷爆NLP分类SOTA！</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/nlp-less-sample/" title="NLP中的少样本困境问题探究">NLP中的少样本困境问题探究</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/data-mining-5/" title="数据挖掘5：互联网常见特殊词汇的商机">数据挖掘5：互联网常见特殊词汇的商机</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/data-mining-4/" title="数据挖掘4：从付费行为里找项目">数据挖掘4：从付费行为里找项目</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/data-mining-3/" title="数据挖掘3：实操">数据挖掘3：实操</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title" style="color:red">福利派送</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a href="https://www.freelancer.com/get/qinyukun1325?f=give" title="注册freelancer得20美刀" target="_blank" style="color:red">
+                
+                    注册freelancer得20美刀
+                
+            </a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li><a href="https://cold-eye.github.io/categories/IT%E6%8A%80%E6%9C%AF/">IT技术 (8)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/hugo/">hugo (3)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/nlp/">nlp (6)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/python/">python (13)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/rust/">rust (1)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能 (2)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/%E7%BB%8F%E6%B5%8E%E7%94%9F%E6%B4%BB/">经济生活 (8)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://cold-eye.github.io/tags/IT%E6%8A%80%E6%9C%AF/">IT技术</a>
+    
+    <a href="https://cold-eye.github.io/tags/hugo/">hugo</a>
+    
+    <a href="https://cold-eye.github.io/tags/linux/">linux</a>
+    
+    <a href="https://cold-eye.github.io/tags/mac/">mac</a>
+    
+    <a href="https://cold-eye.github.io/tags/nlp/">nlp</a>
+    
+    <a href="https://cold-eye.github.io/tags/python/">python</a>
+    
+    <a href="https://cold-eye.github.io/tags/rust/">rust</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E5%81%A5%E8%BA%AB/">健身</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E5%9B%BE%E5%83%8F/">图像</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E7%88%AC%E8%99%AB/">爬虫</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">知识图谱</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/">程序员</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E7%BB%8F%E6%B5%8E%E7%94%9F%E6%B4%BB/">经济生活</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E8%A2%AB%E5%8A%A8%E6%94%B6%E5%85%A5/">被动收入</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E8%B7%91%E6%AD%A5/">跑步</a>
+    
+</div>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://cold-eye.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <script src="//code.tidio.co/2dpeb0joi7ueoxequchq01ya9ckrmy63.js" async></script>
+    <div class="container">
+        &copy; 
+        2018 - 
+        2020
+        <a href="https://cold-eye.github.io/">冷眼-风雨飘摇 By 冷眼</a>.
+        
+        访问量<span id="busuanzi_value_site_pv"></span>次 | 访客<span id="busuanzi_value_site_uv"></span>人
+        
+        
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-173047983-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+    <script src='/js/douban.js'></script>
+
+
+
+</body>
+
+</html>
