@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 冷眼-风雨飘摇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 22 Sep 2020 13:48:30 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 23 Sep 2020 13:48:30 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>python图形界面库，写桌面程序</title>
+      <link>https://cold-eye.github.io/post/python-gui/</link>
+      <pubDate>Wed, 23 Sep 2020 13:48:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/python-gui/</guid>
+      <description>&lt;code&gt;python&lt;/code&gt; 写桌面程序。</description>
+    </item>
     
     <item>
       <title>打破 BERT 天花板：11种花式炼丹术刷爆NLP分类SOTA！</title>

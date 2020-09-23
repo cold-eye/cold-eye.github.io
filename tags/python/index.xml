@@ -6,10 +6,19 @@
     <description>Recent content in python on 冷眼-风雨飘摇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 10 Sep 2020 13:48:30 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 23 Sep 2020 13:48:30 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>python图形界面库，写桌面程序</title>
+      <link>https://cold-eye.github.io/post/python-gui/</link>
+      <pubDate>Wed, 23 Sep 2020 13:48:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/python-gui/</guid>
+      <description>&lt;code&gt;python&lt;/code&gt; 写桌面程序。</description>
+    </item>
     
     <item>
       <title>通过 server 酱实现定时推送信息</title>
