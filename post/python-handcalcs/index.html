@@ -33,6 +33,10 @@
     
 
     
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+
+    
     
         <link rel="stylesheet" href='/css/douban.css'>
     
@@ -115,7 +119,13 @@
 <li><a href="https://github.com/connorferster/handcalcs/wiki">Applications and Compatibility with Other Libraries (wiki)</a></li>
 </ul>
 <h2 id="basic-demo">Basic Demo</h2>
-<p><img src="/images/python-handcalcs/basic_demo.gif" alt="handcalcs demo 1"></p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-handcalcs/basic_demo.gif">
+            <img class="mx-auto" alt="handcalcs demo 1" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-handcalcs/basic_demo.gif" />
+        </a>
+    </p>
 <h2 id="installing">Installing</h2>
 <p>You can install using pip:</p>
 <p><code>pip install handcalcs</code></p>
@@ -200,7 +210,13 @@ c <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">2<
 <h3 id="-parameters"><code># Parameters</code>:</h3>
 <p><code>handcalcs</code> renders lines of code vertically, one after the other. However, when you are assigning variables, or displaying resulting variables, you may not want to waste all of that vertical space.</p>
 <p>Using the <code># Parameters</code> comment tag, your list of parameters will instead render in three columns, thereby saving vertical space.</p>
-<p><img src="/images/python-handcalcs/parameters.gif" alt="Parameters"></p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-handcalcs/parameters.gif">
+            <img class="mx-auto" alt="Parameters" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-handcalcs/parameters.gif" />
+        </a>
+    </p>
 <h3 id="-long-and--short"><code># Long</code> and <code># Short</code>:</h3>
 <p>To save vertical space, <code>handcalcs</code> <em>attempts</em> to figure out how long your calculation is and, if it is short enough, renders it out fully on one line.</p>
 <p>If <code>handcalcs</code>'s internal test deems the calculation as being too long to fit onto one line, it breaks it out into multiple lines.</p>
@@ -225,23 +241,47 @@ c <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">2<
       <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">5</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><img src="/images/python-handcalcs/shortandlong.gif" alt="Short and Long calculations"></p>
+</div><p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-handcalcs/shortandlong.gif">
+            <img class="mx-auto" alt="Short and Long calculations" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-handcalcs/shortandlong.gif" />
+        </a>
+    </p>
 <h3 id="-symbolic"><code># Symbolic</code></h3>
 <p>The primary purpose of <code>handcalcs</code> is to render the full calculation with the numeric substitution. This allows for easy traceability and verification of the calculation.</p>
 <p>However, there may be instances when it is preferred to simply display calculations symbolically. For example, you can use the <code># Symbolic</code> tag to use <code>handcalcs</code> as a fast way to render Latex equations symbolically.</p>
 <p>Alternatively, you may prefer to render out all of input parameters in one cell, your formulae symbolically in the following cell, and then all the final values in the last cell, skipping the numeric substitution process entirely.</p>
 <p>Keep in mind that even if you use the <code># Symbolic</code> tag with your calculations, you still need to declare those variables (by assigning values to them) ahead of time in order for your calculation to be valid Python.</p>
-<p><img src="/images/python-handcalcs/symbolic.gif" alt="handcalcs with forallpeople"></p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-handcalcs/symbolic.gif">
+            <img class="mx-auto" alt="handcalcs with forallpeople" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-handcalcs/symbolic.gif" />
+        </a>
+    </p>
 <hr>
 <h2 id="units-packages-compatibility">Units Packages Compatibility</h2>
 <p><code>handcalcs</code> was designed to be used with the units package, <a href="https://github.com/connorferster/forallpeople">forallpeople</a> (and <a href="https://github.com/connorferster/forallpeople">forallpeople</a> was designed to be compatible with <code>handcalcs</code>). However, it has been recently reported that <a href="pint.readthedocs.org">pint</a> can work to good effect, also.</p>
-<p><img src="/images/python-handcalcs/forallpeople.gif" alt="handcalcs with forallpeople"></p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-handcalcs/forallpeople.gif">
+            <img class="mx-auto" alt="handcalcs with forallpeople" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-handcalcs/forallpeople.gif" />
+        </a>
+    </p>
 <p><strong>For potential compatibility with other units packages, please see <a href="https://github.com/connorferster/handcalcs/wiki">the wiki.</a></strong></p>
 <hr>
 <h2 id="features">Features</h2>
 <h3 id="quickly-display-the-values-of-many-variables">Quickly display the values of many variables</h3>
 <p>In Python, displaying the value of many variables often requires tediously typing them all into a series of <code>print()</code> statements. <code>handcalcs</code> makes this much easier:</p>
-<p><img src="/images/python-handcalcs/outputs.gif" alt="display variable demo"></p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-handcalcs/outputs.gif">
+            <img class="mx-auto" alt="display variable demo" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-handcalcs/outputs.gif" />
+        </a>
+    </p>
 <h3 id="get-just-the-latex-code-without-the-render">Get Just the Latex Code, without the render</h3>
 <p>If you just want to generate the rendered Latex code directly to use in your own Latex files, you can use the <code>%%tex</code> cell magic instead:</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
@@ -259,11 +299,23 @@ c <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">2<
 </code></pre></td></tr></table>
 </div>
 </div><p>Then you can just copy and paste the result into your own LaTeX document.</p>
-<p><img src="/images/python-handcalcs/tex.gif" alt="tex cell magic demo"></p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-handcalcs/tex.gif">
+            <img class="mx-auto" alt="tex cell magic demo" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-handcalcs/tex.gif" />
+        </a>
+    </p>
 <hr>
 <h3 id="subscripts-and-sub-subscripts-etc">Subscripts (and sub-subscripts, etc.)</h3>
 <p>Subscripts in variable names are automatically created when <code>_</code> is used in the variable name. Sub-subscripts are nested for each separate <code>_</code> used in series.</p>
-<p><img src="/images/python-handcalcs/subscripts.gif" alt="Subscripts demo"></p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-handcalcs/subscripts.gif">
+            <img class="mx-auto" alt="Subscripts demo" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-handcalcs/subscripts.gif" />
+        </a>
+    </p>
 <hr>
 <h3 id="greek-symbols">Greek symbols</h3>
 <p>Any variable name that contains a Greek letter (e.g. &ldquo;pi&rdquo;, &ldquo;upsilon&rdquo;, &ldquo;eta&rdquo;, etc.) as a string or substring will be replaced by the appropriate Latex code to represent that Greek letter.</p>
@@ -275,34 +327,70 @@ c <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">2<
 <p>Using a Capitalized Name for your variable will render it as an upper case Greek letter.</p>
 </li>
 </ul>
-<p><img src="/images/python-handcalcs/greeks.gif" alt="Greek symbols demo"></p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-handcalcs/greeks.gif">
+            <img class="mx-auto" alt="Greek symbols demo" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-handcalcs/greeks.gif" />
+        </a>
+    </p>
 <hr>
 <h3 id="functions-built-in-or-custom">Functions, built-in or custom</h3>
 <p>If you are using Python functions in your calculation, eg. <code>min()</code> or <code>tan()</code>, they will be replaced with Latex code to represent that function in Latex.</p>
 <p>If you are creating your own functions, then they will be rendered in Latex as a custom operator.</p>
 <p>If you are using a function with the name <code>sqrt</code> (whether your own custom implementation or from <code>math.sqrt</code>), then it will be rendered as the radical sign.</p>
-<p><img src="/images/python-handcalcs/funcs.gif" alt="Functions"></p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-handcalcs/funcs.gif">
+            <img class="mx-auto" alt="Functions" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-handcalcs/funcs.gif" />
+        </a>
+    </p>
 <hr>
 <h3 id="rendered-in-line-comments">Rendered in-line Comments</h3>
 <p>Any comments placed after a line of calculation will be rendered as an inline comment in the Latex.</p>
 <p>This makes it convenient to make notes along side your calculations to briefly explain where you may have acquired or derived a particular value.</p>
-<p><img src="/images/python-handcalcs/comments.gif" alt="Comments"></p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-handcalcs/comments.gif">
+            <img class="mx-auto" alt="Comments" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-handcalcs/comments.gif" />
+        </a>
+    </p>
 <hr>
 <h3 id="skip-the-substitution">Skip the substitution</h3>
 <p>Any calculation entirely wrapped in parentheses, <code>()</code>, will be rendered as just <code>param = result</code>, without the substitution.</p>
 <p>This can be convient when you want to calculate a parameter on the fly and not have it be the focus of the calculation.</p>
-<p><img src="/images/python-handcalcs/skip_subs.gif" alt="Skip the substitution"></p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-handcalcs/skip_subs.gif">
+            <img class="mx-auto" alt="Skip the substitution" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-handcalcs/skip_subs.gif" />
+        </a>
+    </p>
 <hr>
 <h3 id="conditional-statements">Conditional statements</h3>
 <p>Many calculations in the &ldquo;real world&rdquo; are dependent on context.</p>
 <p><code>handcalcs</code> allows for the inclusion of some simple conditional statements into its code in a way that makes it easier to understand the context of the calculation.</p>
-<p><img src="/images/python-handcalcs/conditionals.gif" alt="Conditional calculations"></p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-handcalcs/conditionals.gif">
+            <img class="mx-auto" alt="Conditional calculations" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-handcalcs/conditionals.gif" />
+        </a>
+    </p>
 <p><em>Note: Multiple &ldquo;lines&rdquo; of calculations can be used after the conditional expression provided that they are all on the same line and separated with &ldquo;<code>;</code>&rdquo;. See <a href="https://github.com/connorferster/handcalcs#expected-behaviours">Expected Behaviours</a> for more context.</em></p>
 <hr>
 <h3 id="numeric-integration">Numeric integration</h3>
 <p>You can use <code>scipy.quad</code> to perform numeric integration on a pre-defined function and have <code>handcalcs</code> perform a basic rendering of it.</p>
 <p>This behaviour is triggered if you use a function with either <code>integrate</code> or <code>quad</code> in the name.</p>
-<p><img src="/images/python-handcalcs/integration.gif" alt="Numeric integration"></p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-handcalcs/integration.gif">
+            <img class="mx-auto" alt="Numeric integration" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-handcalcs/integration.gif" />
+        </a>
+    </p>
 <hr>
 <h2 id="pdf-printing-in-jupyter">PDF Printing in Jupyter</h2>
 <p>Jupyter Notebooks/Lab are able to print notebooks to PDF through two methods. Both can produce great results with handcalcs:</p>
@@ -444,7 +532,13 @@ b <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">9.
 c <span style="color:#000;font-weight:bold">=</span> (<span style="color:#099">3</span><span style="color:#000;font-weight:bold">*</span>a)<span style="color:#000;font-weight:bold">/</span>sqrt(<span style="color:#099">2</span><span style="color:#000;font-weight:bold">*</span>a <span style="color:#000;font-weight:bold">+</span> b<span style="color:#000;font-weight:bold">**</span><span style="color:#099">2</span>)
 </code></pre></td></tr></table>
 </div>
-</div><p><img src="/images/python-handcalcs/wrong_brackets.gif" alt="Incorrect brackets"></p>
+</div><p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-handcalcs/wrong_brackets.gif">
+            <img class="mx-auto" alt="Incorrect brackets" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-handcalcs/wrong_brackets.gif" />
+        </a>
+    </p>
 <p>Under-the-hood, parsed Python code in <code>handcalcs</code> is represented as a nested deque: every set of parentheses (no matter the context) begins a new nested deque which is recursively converted to Latex code.</p>
 <p>The above line would look like this (represented as a list, for brevity): <code>[[3, '*', 'a'], '/', 'sqrt', [2, '*', 'a', '+', 'b', '**', '2' ]]</code>. Notice how the <code>sqrt</code> is all alone after the <code>/</code> operator?</p>
 <p>To render the fraction properly, a lookahead is performed and the next item after the <code>/</code> is rendered as the denominator. In this instance, the next item is the function name, <code>sqrt</code>, and not the full expression.</p>
@@ -467,8 +561,20 @@ c <span style="color:#000;font-weight:bold">=</span> (<span style="color:#099">3
 <table>
 <thead>
 <tr>
-<th align="left">微信<img src="/about/wechat.png" alt="微信"></th>
-<th align="left">支付宝<img src="/about/alipay.png" alt="支付宝"></th>
+<th align="left">微信
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/wechat.png">
+            <img class="mx-auto" alt="微信" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/wechat.png" />
+        </a>
+    </th>
+<th align="left">支付宝
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/alipay.png">
+            <img class="mx-auto" alt="支付宝" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/alipay.png" />
+        </a>
+    </th>
 </tr>
 </thead>
 <tbody>
@@ -833,23 +939,23 @@ c <span style="color:#000;font-weight:bold">=</span> (<span style="color:#099">3
 <ul class="widget-list">
     
     <li>
+        <a href="https://cold-eye.github.io/post/python-streamlit-nlp/" title="Streamlit: 情感分析web应用">Streamlit: 情感分析web应用</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/python-streamlit-heroku/" title="Streamlit: 交互式数据分析产品及 heroku 免费部署">Streamlit: 交互式数据分析产品及 heroku 免费部署</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/python-streamlit/" title="python streamlit">python streamlit</a>
+    </li>
+    
+    <li>
         <a href="https://cold-eye.github.io/post/python-gui/" title="python图形界面库，写桌面程序">python图形界面库，写桌面程序</a>
     </li>
     
     <li>
         <a href="https://cold-eye.github.io/post/nlp-classifier-sota/" title="打破 BERT 天花板：11种花式炼丹术刷爆NLP分类SOTA！">打破 BERT 天花板：11种花式炼丹术刷爆NLP分类SOTA！</a>
-    </li>
-    
-    <li>
-        <a href="https://cold-eye.github.io/post/nlp-less-sample/" title="NLP中的少样本困境问题探究">NLP中的少样本困境问题探究</a>
-    </li>
-    
-    <li>
-        <a href="https://cold-eye.github.io/post/data-mining-5/" title="数据挖掘5：互联网常见特殊词汇的商机">数据挖掘5：互联网常见特殊词汇的商机</a>
-    </li>
-    
-    <li>
-        <a href="https://cold-eye.github.io/post/data-mining-4/" title="数据挖掘4：从付费行为里找项目">数据挖掘4：从付费行为里找项目</a>
     </li>
     
 </ul>
@@ -882,7 +988,7 @@ c <span style="color:#000;font-weight:bold">=</span> (<span style="color:#099">3
     
     <li><a href="https://cold-eye.github.io/categories/nlp/">nlp (6)</a></li>
     
-    <li><a href="https://cold-eye.github.io/categories/python/">python (14)</a></li>
+    <li><a href="https://cold-eye.github.io/categories/python/">python (17)</a></li>
     
     <li><a href="https://cold-eye.github.io/categories/rust/">rust (1)</a></li>
     
@@ -937,6 +1043,17 @@ c <span style="color:#000;font-weight:bold">=</span> (<span style="color:#099">3
     </section>
 
     
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://knowledge-of-medical.blogspot.com/" title="healthy">healthy</a>
+        </li>
+        
+    </ul>
+</section>
+
 
     <section class="widget">
         <h3 class="widget-title">其它</h3>
@@ -973,8 +1090,8 @@ c <span style="color:#000;font-weight:bold">=</span> (<span style="color:#099">3
                 }
             };
     </script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 
 <a id="rocket" href="#top"></a>
 <script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>

@@ -33,6 +33,10 @@
     
 
     
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+
+    
     
         <link rel="stylesheet" href='/css/douban.css'>
     
@@ -115,10 +119,22 @@
 </li>
 </ol>
 <p>基于此，本文首先总结了nlp中的文本增强技术，然后串讲了近年来9个主流的半监督学习模型，最后主要介绍了来自Google提出的UDA（一种文本增强+半监督学习的结合体）。本文的组织结构为：
-<img src="/images/nlp-less-sample/nlp-less-sample-1.jpeg" alt="图1"></p>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-less-sample/nlp-less-sample-1.jpeg">
+            <img class="mx-auto" alt="图1" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-less-sample/nlp-less-sample-1.jpeg" />
+        </a>
+    </p>
 <h2 id="二nlp中的文本增强技术总结">二、NLP中的文本增强技术总结</h2>
 <p>谈起文本增强技术，相信NLPer一定不会陌生，相关方法也是数不胜数。我们通常对标注数据集提供附加的感应偏置进行扩充，如何设计增强变换就变得至关重要。本文尝试从一个新角度——是否条件增强，借鉴文献[1]进行了总结归纳：
-<img src="/images/nlp-less-sample/nlp-less-sample-2.jpeg" alt="图2"></p>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-less-sample/nlp-less-sample-2.jpeg">
+            <img class="mx-auto" alt="图2" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-less-sample/nlp-less-sample-2.jpeg" />
+        </a>
+    </p>
 <h3 id="无条件增强"><strong><strong>无条件增强</strong></strong></h3>
 <ul>
 <li>定义：既可以对标注数据进行增强（增强后标签不发生变化），又可以针对无标注数据进行增强，不需要强制引入标签信息。</li>
@@ -136,7 +152,13 @@
 </li>
 <li>
 <p><strong><strong>TF-IDF：实质上是一种非核心词替换，对那些low TF-IDF scores进行替换，这一方法最早由Google的UDA[4]提出</strong></strong>:
-<img src="/images/nlp-less-sample/nlp-less-sample-3.png" alt="图3"></p>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-less-sample/nlp-less-sample-3.png">
+            <img class="mx-auto" alt="图3" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-less-sample/nlp-less-sample-3.png" />
+        </a>
+    </p>
 </li>
 </ul>
 <p><strong><strong>随机噪音注入</strong></strong></p>
@@ -156,11 +178,23 @@
 <ul>
 <li>
 <p><strong><strong>混合增强</strong></strong>：起源于图像领域的Mixup[5]，这是一种表示增强方法，借鉴这种思想，文献[6]提出了wordMixup和sentMixup将词向量和句向量进行Mixup。
-<img src="/images/nlp-less-sample/nlp-less-sample-4.jpeg" alt="图4"></p>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-less-sample/nlp-less-sample-4.jpeg">
+            <img class="mx-auto" alt="图4" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-less-sample/nlp-less-sample-4.jpeg" />
+        </a>
+    </p>
 </li>
 <li>
 <p><strong><strong>交叉增强</strong></strong>：类似于“染色体的交叉操作”，文献[7]将相同极性的文本进行交叉：
-<img src="/images/nlp-less-sample/nlp-less-sample-5.png" alt="图5"></p>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-less-sample/nlp-less-sample-5.png">
+            <img class="mx-auto" alt="图5" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-less-sample/nlp-less-sample-5.png" />
+        </a>
+    </p>
 </li>
 <li>
 <p><strong><strong>回译：基于机器翻译技术，例如从中文-英文-日文-中文；我们熟知的机器阅读理解模型QANet[8]和UDA[4]都采用了回译技术进行数据增强。</strong></strong></p>
@@ -179,11 +213,29 @@
 <p><strong><strong>预训练语言模型</strong></strong>：众所周知，BERT等在NLP领域取得了巨大成功，特别是其利用大量无标注数据进行了语言模型预训练。如果我们能够结合标签信息、充分利用这一系列语言模型去做文本增强，也许能够克服深度生成模型在少样本问题上的矛盾。近来许多研究者对Conditional Pre-trained Language Models 做文本增强进行了有益尝试：</p>
 <p><strong><strong>Contextual Augment</strong></strong>[12]：这是这一系列尝试的开篇之作，其基于LSTM进行biLM预训练，将标签信息融入网络结构进行finetune，是替换生成的词汇与标签信息兼容一致。</p>
 <p><strong><strong>CBERT</strong></strong>[13]：其主要思想还是借鉴了Contextual Augment，基于BERT进行finetune，将segment embedding转换融入标签指示的label embedding（如果标签类别数目大于2类，则相应扩充），如下图，替换good生成的funny与标签positive兼容。
-<img src="/images/nlp-less-sample/nlp-less-sample-6.jpeg" alt="图6"></p>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-less-sample/nlp-less-sample-6.jpeg">
+            <img class="mx-auto" alt="图6" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-less-sample/nlp-less-sample-6.jpeg" />
+        </a>
+    </p>
 <p><strong><strong>LAMBADA</strong></strong>[14]：来自IBM团队，其基于GPT-2将标签信息与原始文本拼接当作训练数据进行finetune（如下图所示，SEP代表标签和文本的分割，EOS是文本结束的标志），同时也采用一个判别器对生成数据进行了过滤降噪。
-<img src="/images/nlp-less-sample/nlp-less-sample-7.png" alt="图7"></p>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-less-sample/nlp-less-sample-7.png">
+            <img class="mx-auto" alt="图7" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-less-sample/nlp-less-sample-7.png" />
+        </a>
+    </p>
 <p>在最近的一篇paper《Data Augmentation using Pre-trained Transformer Models》[15]中，根据不同预训练目标对自编码(AE)的BERT、自回归(AR)的GPT-2、Seq2Seq的BART这3个预训练模型进行了对比。不同于CBERT，没有标签信息变为label embedding而是直接作为一个token&amp;sub-token来于原文拼接。
-<img src="/images/nlp-less-sample/nlp-less-sample-8.png" alt="图8"></p>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-less-sample/nlp-less-sample-8.png">
+            <img class="mx-auto" alt="图8" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-less-sample/nlp-less-sample-8.png" />
+        </a>
+    </p>
 <p>如上图所示，采样原始标注数据的1%作为少样本场景的设置，其发现BART表现最好，文中也做了相应对比实验发现：</p>
 <ol>
 <li>
@@ -211,10 +263,22 @@
 <p>这一部分主要介绍如何结合大量无标注数据解决少样本困境，相应的弱监督方法层出不穷，本文着眼于「<strong><strong>半监督学习</strong></strong>」，借鉴CV领域的9个主流方法进行介绍，包括：Pseudo-Label / Π-Model / Temporal Ensembling / Mean Teacher / VAT / UDA / MixMatch /   ReMixMatch / FixMatch。</p>
 <h3 id="为什么要引入半监督学习">为什么要引入半监督学习？</h3>
 <p>监督学习往往需要大量的标注数据，而标注数据的成本比较高，因此如何利用大量的无标注数据来提高监督学习的效果，具有十分重要的意义。这种利用少量标注数据和大量无标注数据进行学习的方式称为<strong><strong>半监督学习</strong></strong>(Semi-Supervised Learning，SSL) 。
-<img src="/images/nlp-less-sample/nlp-less-sample-9.jpeg" alt="图9"></p>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-less-sample/nlp-less-sample-9.jpeg">
+            <img class="mx-auto" alt="图9" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-less-sample/nlp-less-sample-9.jpeg" />
+        </a>
+    </p>
 <p>如上图所示，在同等的少量标注样本下，半监督学习通常取得比监督学习较好的性能。进入深度学习时代以来，<strong><strong>SSL如何在少量标注样本下达到或超越大量标注样本下监督学习的效果，SSL如何在大量标注样本下也不会陷入到“过拟合陷阱”</strong></strong>，是SSL研究者面临的一个挑战。</p>
 <p>近年来，半监督深度学习取得了长足的进展，特别是在CV领域；相关的研究主要着力于如何针对未标注数据构建无监督信号，与监督学习联合建模；简单地讲，就是<strong><strong>如何在损失函数中添加针对未标注数据相关的正则项，使模型能够充分利用大量的未标注数据不断迭代，最终增强泛化性能</strong></strong>，正如下图所展示的那样（来自文献 [4] ）。
-<img src="/images/nlp-less-sample/nlp-less-sample-10.png" alt="图10"></p>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-less-sample/nlp-less-sample-10.png">
+            <img class="mx-auto" alt="图10" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-less-sample/nlp-less-sample-10.png" />
+        </a>
+    </p>
 <h3 id="半监督深度学习方法介绍">半监督深度学习方法介绍</h3>
 <p>总的来看，深度学习时代的半监督学习，主要针对未标注数据相关的正则化项进行设置，其通常有以下两种：</p>
 <ol>
@@ -285,8 +349,20 @@ UDA兼容了迁移学习框架，进一步domain预训练后，性能更佳。</
 <table>
 <thead>
 <tr>
-<th align="left">微信<img src="/about/wechat.png" alt="微信"></th>
-<th align="left">支付宝<img src="/about/alipay.png" alt="支付宝"></th>
+<th align="left">微信
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/wechat.png">
+            <img class="mx-auto" alt="微信" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/wechat.png" />
+        </a>
+    </th>
+<th align="left">支付宝
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/alipay.png">
+            <img class="mx-auto" alt="支付宝" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/alipay.png" />
+        </a>
+    </th>
 </tr>
 </thead>
 <tbody>
@@ -651,23 +727,23 @@ UDA兼容了迁移学习框架，进一步domain预训练后，性能更佳。</
 <ul class="widget-list">
     
     <li>
+        <a href="https://cold-eye.github.io/post/python-streamlit-nlp/" title="Streamlit: 情感分析web应用">Streamlit: 情感分析web应用</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/python-streamlit-heroku/" title="Streamlit: 交互式数据分析产品及 heroku 免费部署">Streamlit: 交互式数据分析产品及 heroku 免费部署</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/python-streamlit/" title="python streamlit">python streamlit</a>
+    </li>
+    
+    <li>
         <a href="https://cold-eye.github.io/post/python-gui/" title="python图形界面库，写桌面程序">python图形界面库，写桌面程序</a>
     </li>
     
     <li>
         <a href="https://cold-eye.github.io/post/nlp-classifier-sota/" title="打破 BERT 天花板：11种花式炼丹术刷爆NLP分类SOTA！">打破 BERT 天花板：11种花式炼丹术刷爆NLP分类SOTA！</a>
-    </li>
-    
-    <li>
-        <a href="https://cold-eye.github.io/post/nlp-less-sample/" title="NLP中的少样本困境问题探究">NLP中的少样本困境问题探究</a>
-    </li>
-    
-    <li>
-        <a href="https://cold-eye.github.io/post/data-mining-5/" title="数据挖掘5：互联网常见特殊词汇的商机">数据挖掘5：互联网常见特殊词汇的商机</a>
-    </li>
-    
-    <li>
-        <a href="https://cold-eye.github.io/post/data-mining-4/" title="数据挖掘4：从付费行为里找项目">数据挖掘4：从付费行为里找项目</a>
     </li>
     
 </ul>
@@ -700,7 +776,7 @@ UDA兼容了迁移学习框架，进一步domain预训练后，性能更佳。</
     
     <li><a href="https://cold-eye.github.io/categories/nlp/">nlp (6)</a></li>
     
-    <li><a href="https://cold-eye.github.io/categories/python/">python (14)</a></li>
+    <li><a href="https://cold-eye.github.io/categories/python/">python (17)</a></li>
     
     <li><a href="https://cold-eye.github.io/categories/rust/">rust (1)</a></li>
     
@@ -755,6 +831,17 @@ UDA兼容了迁移学习框架，进一步domain预训练后，性能更佳。</
     </section>
 
     
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://knowledge-of-medical.blogspot.com/" title="healthy">healthy</a>
+        </li>
+        
+    </ul>
+</section>
+
 
     <section class="widget">
         <h3 class="widget-title">其它</h3>
@@ -791,8 +878,8 @@ UDA兼容了迁移学习框架，进一步domain预训练后，性能更佳。</
                 }
             };
     </script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 
 <a id="rocket" href="#top"></a>
 <script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>

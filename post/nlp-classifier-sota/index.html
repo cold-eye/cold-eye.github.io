@@ -33,6 +33,10 @@
     
 
     
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+
+    
     
         <link rel="stylesheet" href='/css/douban.css'>
     
@@ -102,9 +106,21 @@
         <div class="post-content">
             <p>对于NLP分类任务，我们的关注重点早已不再是如何构造模型、拘泥于分类模型长什么样子了。如同CV领域当前的重点一样，我们更应该关注如何利用机器学习思想，更好地去解决NLP分类任务中的低耗时、小样本、鲁棒性、不平衡、测试检验、增量学习、长文本等问题。</p>
 <p>本文以QA形式探讨了以下问题：
-<img src="/images/nlp-classifier-sota/nlp-classifier-sota-1.png" alt="图1"></p>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-classifier-sota/nlp-classifier-sota-1.png">
+            <img class="mx-auto" alt="图1" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-classifier-sota/nlp-classifier-sota-1.png" />
+        </a>
+    </p>
 <p>NLP分类任务我们每个NLPer都异常熟悉了，其在整个NLP业务中占据着举足轻重的地位，更多领域的子任务也常常转化为一个分类任务，例如新闻分类、情感识别、意图识别、关系分类、事件类型判断等等。构建一个完整的NLP分类任务主要包含4部分：标签定义、数据构建、算法策略、测试部署。本文的组织架构，如下图所示。
-<img src="/images/nlp-classifier-sota/nlp-classifier-sota-2.png" alt="图2"></p>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-classifier-sota/nlp-classifier-sota-2.png">
+            <img class="mx-auto" alt="图2" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-classifier-sota/nlp-classifier-sota-2.png" />
+        </a>
+    </p>
 <h2 id="q1-如何科学地构建分类标签体系">Q1: 如何科学地构建分类标签体系？</h2>
 <p>分类标签的定义至关重要，面对复杂的标签问题，最为关键的一点就是要紧密贴合业务、和专家共同设定，而不是靠“蛮力”去解决。这里给出笔者曾涉及到的一些标签定义方法：</p>
 <ul>
@@ -151,7 +167,13 @@
 </li>
 </ul>
 <p>笔者这里给出了上述一些策略的简要实验结果，如下图所示：
-<img src="/images/nlp-classifier-sota/nlp-classifier-sota-3.png" alt="图3"></p>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-classifier-sota/nlp-classifier-sota-3.png">
+            <img class="mx-auto" alt="图3" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-classifier-sota/nlp-classifier-sota-3.png" />
+        </a>
+    </p>
 <h2 id="q3-模型化就是唯一吗分类任务中算法策略构建的基本原则是什么">Q3: 模型化就是唯一吗？分类任务中，算法策略构建的基本原则是什么？</h2>
 <p>算法策略主要包括规则挖掘和模型化方法，基本原则应是：</p>
 <ul>
@@ -248,7 +270,13 @@
 </li>
 </ul>
 <p>下面是笔者的一些简要实验结果：
-<img src="/images/nlp-classifier-sota/nlp-classifier-sota-4.png" alt="图4"></p>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-classifier-sota/nlp-classifier-sota-4.png">
+            <img class="mx-auto" alt="图4" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-classifier-sota/nlp-classifier-sota-4.png" />
+        </a>
+    </p>
 <h2 id="q6-攻克分类任务的难点如何更好处理不平衡问题hard-example问题">Q6: 攻克分类任务的难点：如何更好处理不平衡问题（hard example问题）？</h2>
 <p>不平衡问题（长尾问题）是文本分类任务一个难啃的骨头。也许有人会问：为何不在初始构造数据集时，就让每个分类标签下的样本数量相同，这不就解决不平衡问题了吗？</p>
 <p>事实上，<strong><strong>不平衡问题不仅仅是分类标签下样本数量的不平衡，其本质上更是难易样本的不平衡</strong></strong>：即使样本数量是平衡的，有的hard example还是很难学习。类似，对那些数量较少的类别进行学习，在不做数据补充的情况下，也可看作是一个hard example问题。</p>
@@ -313,7 +341,13 @@
 </li>
 </ul>
 <p>如下图所示（图片来自知乎[5]），梯度模长g接近于0的样本数量最多，随着梯度模长的增长，样本数量迅速减少，但是在梯度模长接近于1时，样本数量也挺多。
-<img src="/images/nlp-classifier-sota/nlp-classifier-sota-5.png" alt="图5"></p>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-classifier-sota/nlp-classifier-sota-5.png">
+            <img class="mx-auto" alt="图5" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-classifier-sota/nlp-classifier-sota-5.png" />
+        </a>
+    </p>
 <p>因此，GHM的出发点是：既不要关注那些容易学的样本，也不要关注那些离群点特别难分的样本。为此，作者定义了梯度密度，其物理含义是：单位梯度模长g部分的样本个数。</p>
 <ul>
 <li>
@@ -362,7 +396,13 @@
 </li>
 <li>
 <p><strong><strong>Big Bird</strong></strong>[9]：在Longformer基础上增加了Random attention，当前长序列建模的SOTA，刷新了QA和摘要的SOTA，同时也被证明是图灵完备的。如下图：
-<img src="/images/nlp-classifier-sota/nlp-classifier-sota-6.png" alt="图6"></p>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-classifier-sota/nlp-classifier-sota-6.png">
+            <img class="mx-auto" alt="图6" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-classifier-sota/nlp-classifier-sota-6.png" />
+        </a>
+    </p>
 </li>
 </ul>
 <p>对于绝大数长文本分类问题，笔者建议首选「<strong><strong>文本处理</strong></strong>」方式。对于有条件的，可以采取上述「<strong><strong>改进attention机制</strong></strong>」方法进行尝试，比如，对已经预训练好的RoBERTa采取Longformer机制继续预训练。Longformer已经开源，并且可以直接在cuda内核上进行优化加速。</p>
@@ -457,13 +497,25 @@
 </li>
 </ol>
 <p>对上述两种蒸馏方式，笔者对业务中的一个21个分类任务（每类100条样本）进行了实验，相关结果如下：
-<img src="/images/nlp-classifier-sota/nlp-classifier-sota-7.png" alt="图7"></p>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-classifier-sota/nlp-classifier-sota-7.png">
+            <img class="mx-auto" alt="图7" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-classifier-sota/nlp-classifier-sota-7.png" />
+        </a>
+    </p>
 <p>从上图可以看出，如果我们能够获取更多的无标注数据，采取数据蒸馏的方式则更为有效，可以让一个轻量级的TextCNN最大程度逼近BERT。</p>
 <p>不过也许有的读者会问，为什么不直接蒸馏为一个浅层BERT呢？这当然可以，不过笔者这里推荐TextCNN的原因是：它实在太轻了，而且会更加方便引入一些业务相关的特征（会再之后的文章中再详细介绍）。</p>
 <p>如果仍然想蒸馏为一个浅层BERT，我们需要首先思考自己所在的领域是否与BERT原始预训练领域的gap是否较大？如果gap较大，我们不要停止预训练，继续进行领域预训练、然后再蒸馏；或者<strong><strong>重新预训练一个浅层BERT</strong></strong>。此外，采取BERT上线时，也可以进行<strong><strong>算子融合</strong></strong>（Faster Transformer）或者<strong><strong>混合精度</strong></strong>等方式。</p>
 <h2 id="写在最后">写在最后</h2>
 <p>让我们一起致敬：那些年陪我们一起入门（坑）NLP的分类模型吧～
-<img src="/images/nlp-classifier-sota/nlp-classifier-sota-8.png" alt="图8"></p>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-classifier-sota/nlp-classifier-sota-8.png">
+            <img class="mx-auto" alt="图8" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/nlp-classifier-sota/nlp-classifier-sota-8.png" />
+        </a>
+    </p>
 <h2 id="参考文献"><em>参考文献</em></h2>
 <ul>
 <li>[1] xDeepFM: Combining Explicit and Implicit Feature Interactions for Recommender Systems:
@@ -492,8 +544,20 @@
 <table>
 <thead>
 <tr>
-<th align="left">微信<img src="/about/wechat.png" alt="微信"></th>
-<th align="left">支付宝<img src="/about/alipay.png" alt="支付宝"></th>
+<th align="left">微信
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/wechat.png">
+            <img class="mx-auto" alt="微信" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/wechat.png" />
+        </a>
+    </th>
+<th align="left">支付宝
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/alipay.png">
+            <img class="mx-auto" alt="支付宝" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/alipay.png" />
+        </a>
+    </th>
 </tr>
 </thead>
 <tbody>
@@ -858,23 +922,23 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://cold-eye.github.io/post/python-streamlit-nlp/" title="Streamlit: 情感分析web应用">Streamlit: 情感分析web应用</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/python-streamlit-heroku/" title="Streamlit: 交互式数据分析产品及 heroku 免费部署">Streamlit: 交互式数据分析产品及 heroku 免费部署</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/python-streamlit/" title="python streamlit">python streamlit</a>
+    </li>
+    
+    <li>
         <a href="https://cold-eye.github.io/post/python-gui/" title="python图形界面库，写桌面程序">python图形界面库，写桌面程序</a>
     </li>
     
     <li>
         <a href="https://cold-eye.github.io/post/nlp-classifier-sota/" title="打破 BERT 天花板：11种花式炼丹术刷爆NLP分类SOTA！">打破 BERT 天花板：11种花式炼丹术刷爆NLP分类SOTA！</a>
-    </li>
-    
-    <li>
-        <a href="https://cold-eye.github.io/post/nlp-less-sample/" title="NLP中的少样本困境问题探究">NLP中的少样本困境问题探究</a>
-    </li>
-    
-    <li>
-        <a href="https://cold-eye.github.io/post/data-mining-5/" title="数据挖掘5：互联网常见特殊词汇的商机">数据挖掘5：互联网常见特殊词汇的商机</a>
-    </li>
-    
-    <li>
-        <a href="https://cold-eye.github.io/post/data-mining-4/" title="数据挖掘4：从付费行为里找项目">数据挖掘4：从付费行为里找项目</a>
     </li>
     
 </ul>
@@ -907,7 +971,7 @@
     
     <li><a href="https://cold-eye.github.io/categories/nlp/">nlp (6)</a></li>
     
-    <li><a href="https://cold-eye.github.io/categories/python/">python (14)</a></li>
+    <li><a href="https://cold-eye.github.io/categories/python/">python (17)</a></li>
     
     <li><a href="https://cold-eye.github.io/categories/rust/">rust (1)</a></li>
     
@@ -962,6 +1026,17 @@
     </section>
 
     
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://knowledge-of-medical.blogspot.com/" title="healthy">healthy</a>
+        </li>
+        
+    </ul>
+</section>
+
 
     <section class="widget">
         <h3 class="widget-title">其它</h3>
@@ -998,8 +1073,8 @@
                 }
             };
     </script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 
 <a id="rocket" href="#top"></a>
 <script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>

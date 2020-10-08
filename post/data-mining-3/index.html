@@ -33,6 +33,10 @@
     
 
     
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+
+    
     
         <link rel="stylesheet" href='/css/douban.css'>
     
@@ -121,7 +125,13 @@
 </li>
 </ul>
 <p>计算余弦值时每次都要对两个目标词做分词，考虑到重复计算，为节省计算时间，要先对所有词做分词预处理，也就是先把所有词都分词一遍，保存下来，需要使用的时候再拿出来。</p>
-<p><img src="/images/data-mining/data-mining-40.jpg" alt="图40"></p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-40.jpg">
+            <img class="mx-auto" alt="图40" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-40.jpg" />
+        </a>
+    </p>
 <h2 id="2关键词根提取法核心思路是">2：关键词根提取法，核心思路是：</h2>
 <ul>
 <li>
@@ -149,7 +159,13 @@
 <p>如：记录”QQ“，它的对应ID集合是set([1,2,3,4,5])，表示有包含它的关键词的对应ID是哪几个</p>
 <ul>
 <li>倒排索引
-<img src="/images/data-mining/data-mining-41.jpg" alt="图41"></li>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-41.jpg">
+            <img class="mx-auto" alt="图41" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-41.jpg" />
+        </a>
+    </li>
 </ul>
 <p>如果对搜索引擎的正排和倒排有了解的话，可以理解这里就是运用了类似的思路，用id对应文档，文档对应词根集合，词根对应文档id集合。</p>
 <p>如此一来，无论是提取还是做对比，都可以第一时间返回需要的子集，方便我们计算对比。</p>
@@ -159,14 +175,26 @@
 <h3 id="工具1"><em>工具1</em>：</h3>
 <p><a href="https://www.5118.com/naotu">5118-需求图谱</a></p>
 <p>当我们使用这个工具搜索目标关键词的时候，可以看到下面有一个词频放射图：
-<img src="/images/data-mining/data-mining-42.jpg" alt="图42"></p>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-42.jpg">
+            <img class="mx-auto" alt="图42" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-42.jpg" />
+        </a>
+    </p>
 <p>其实我就是看到了这个功能后，结合自己的思路，做出来的“关键词根提取法”！</p>
 <p>它同样的是由一个核心词，按照词频不断拓展出各层级的词根，通过这个工具一眼就可以看到某个行业的内容结构。</p>
 <p>将鼠标放置在某个词根上，左边会显示对于的词频关系介绍。</p>
 <p>不同的是他只有节点，没有在节点的最后显示代表性的长尾词，光看词频不太能理解具体的需求是什么。</p>
 <h3 id="工具2"><em>工具2</em>：</h3>
 <p><a href="https://www.5118.com/naotu">5118-需求图谱-高频需求</a> 搜索目标词后返回来的结果：
-<img src="/images/data-mining/data-mining-43.jpg" alt="图43"></p>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-43.jpg">
+            <img class="mx-auto" alt="图43" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-43.jpg" />
+        </a>
+    </p>
 <p>从左到右：</p>
 <p>第一列：最高词频的词根</p>
 <p>第二列：点击第一列某个词根会显示对应的长尾词</p>
@@ -185,8 +213,20 @@
 <table>
 <thead>
 <tr>
-<th align="left">微信<img src="/about/wechat.png" alt="微信"></th>
-<th align="left">支付宝<img src="/about/alipay.png" alt="支付宝"></th>
+<th align="left">微信
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/wechat.png">
+            <img class="mx-auto" alt="微信" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/wechat.png" />
+        </a>
+    </th>
+<th align="left">支付宝
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/alipay.png">
+            <img class="mx-auto" alt="支付宝" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/alipay.png" />
+        </a>
+    </th>
 </tr>
 </thead>
 <tbody>
@@ -551,23 +591,23 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://cold-eye.github.io/post/python-streamlit-nlp/" title="Streamlit: 情感分析web应用">Streamlit: 情感分析web应用</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/python-streamlit-heroku/" title="Streamlit: 交互式数据分析产品及 heroku 免费部署">Streamlit: 交互式数据分析产品及 heroku 免费部署</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/python-streamlit/" title="python streamlit">python streamlit</a>
+    </li>
+    
+    <li>
         <a href="https://cold-eye.github.io/post/python-gui/" title="python图形界面库，写桌面程序">python图形界面库，写桌面程序</a>
     </li>
     
     <li>
         <a href="https://cold-eye.github.io/post/nlp-classifier-sota/" title="打破 BERT 天花板：11种花式炼丹术刷爆NLP分类SOTA！">打破 BERT 天花板：11种花式炼丹术刷爆NLP分类SOTA！</a>
-    </li>
-    
-    <li>
-        <a href="https://cold-eye.github.io/post/nlp-less-sample/" title="NLP中的少样本困境问题探究">NLP中的少样本困境问题探究</a>
-    </li>
-    
-    <li>
-        <a href="https://cold-eye.github.io/post/data-mining-5/" title="数据挖掘5：互联网常见特殊词汇的商机">数据挖掘5：互联网常见特殊词汇的商机</a>
-    </li>
-    
-    <li>
-        <a href="https://cold-eye.github.io/post/data-mining-4/" title="数据挖掘4：从付费行为里找项目">数据挖掘4：从付费行为里找项目</a>
     </li>
     
 </ul>
@@ -600,7 +640,7 @@
     
     <li><a href="https://cold-eye.github.io/categories/nlp/">nlp (6)</a></li>
     
-    <li><a href="https://cold-eye.github.io/categories/python/">python (14)</a></li>
+    <li><a href="https://cold-eye.github.io/categories/python/">python (17)</a></li>
     
     <li><a href="https://cold-eye.github.io/categories/rust/">rust (1)</a></li>
     
@@ -655,6 +695,17 @@
     </section>
 
     
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://knowledge-of-medical.blogspot.com/" title="healthy">healthy</a>
+        </li>
+        
+    </ul>
+</section>
+
 
     <section class="widget">
         <h3 class="widget-title">其它</h3>
@@ -691,8 +742,8 @@
                 }
             };
     </script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 
 <a id="rocket" href="#top"></a>
 <script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>

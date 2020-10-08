@@ -1,0 +1,974 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Streamlit: 交互式数据分析产品及 heroku 免费部署 | 冷眼-风雨飘摇</title>
+    <meta property="og:title" content="Streamlit: 交互式数据分析产品及 heroku 免费部署 - 冷眼-风雨飘摇">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2020-10-08T14:48:30&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2020-10-08T14:48:30&#43;08:00'>
+        
+    <meta name="Keywords" content="[python streamlit heroku]">
+    <meta name="description" content="Streamlit: 交互式数据分析产品及 heroku 免费部署">
+        
+    <meta name="author" content="冷眼">
+    <meta property="og:url" content="https://cold-eye.github.io/post/python-streamlit-heroku/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+
+    
+    
+    
+
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+
+    
+    
+        <link rel="stylesheet" href='/css/douban.css'>
+    
+        <link rel="stylesheet" href='/css/other.css'>
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://cold-eye.github.io/">
+                        冷眼-风雨飘摇
+                    </a>
+                
+                <p class="description">专注于python、自然语言处理</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://cold-eye.github.io/">首页</a>
+                    
+                    <a  href="https://cold-eye.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://cold-eye.github.io/categories/" title="分类">分类</a>
+                    
+                    <a  href="https://cold-eye.github.io/about/" title="博主">博主</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">Streamlit: 交互式数据分析产品及 heroku 免费部署</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年10月8日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://cold-eye.github.io/categories/python'>python</a></span>
+            
+        </div>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">| <span id="busuanzi_value_page_pv"></span><span>
+                    阅读</span></span> | <span class="post-date">共2108字</span>，阅读约<span class="more-meta"> 5 分钟</span>
+        </div>
+        
+        
+        <div class="post-content">
+            <p>Streamlit开发手册 <a href="http://cw.hubwiz.com/card/c/streamlit-manual/">http://cw.hubwiz.com/card/c/streamlit-manual/</a></p>
+<p>打开浏览器，输入以下链接：</p>
+<p><a href="https://helloworld-streamlit.herokuapp.com/">https://helloworld-streamlit.herokuapp.com/</a></p>
+<p>需要加载一会</p>
+<h2 id="部署">部署</h2>
+<p>Streamlit 已经把它转换成了一个动态的 Web 应用。</p>
+<p>所以，只要是常见的 Web 应用发布平台，理论上你都可以用来部署你的交互式数据分析作品。</p>
+<p>这些平台，常见的包括：</p>
+<ul>
+<li>EC2</li>
+<li>Glitch</li>
+<li>Heroku</li>
+</ul>
+<p>这列表列下去就太多了。咱们这里只介绍 Heroku ，也就是前文给你展示的，样例使用的部署平台。</p>
+<p>这东西的好处，就是基础款<strong><code>免费</code></strong>。</p>
+<p>你需要先到 Heroku 平台注册一个<a href="https://signup.heroku.com/login">账号</a>。</p>
+<p>之后，注册一个<a href="https://id.heroku.com/login">应用</a>。</p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-streamlit-heroku/python-streamlit-heroku-1.jpg">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-streamlit-heroku/python-streamlit-heroku-1.jpg" />
+        </a>
+    </p>
+<p>我这里起的名字，叫做 <code>helloworld-streamlit</code> 。</p>
+<p>你可以根据自己的喜好，起名称。</p>
+<p>之后我们就要部署了。</p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-streamlit-heroku/python-streamlit-heroku-2.jpg">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-streamlit-heroku/python-streamlit-heroku-2.jpg" />
+        </a>
+    </p>
+<p>部署的步骤，在上图中，你可以参考。</p>
+<p>注意，上图中，右上角的 Open App 按钮，就是你的应用链接地址，你可以把它记下来。</p>
+<p>首先你需要准备一些配置文件。</p>
+<p>全部的配置文件，都给你展示在这个 (github)[https://github.com/wshuyi/demo-helloworld-streamlit] 项目中，你可以下载回来复用。</p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-streamlit-heroku/python-streamlit-heroku-3.jpg">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-streamlit-heroku/python-streamlit-heroku-3.jpg" />
+        </a>
+    </p>
+<p><code>helloword.py</code></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">streamlit</span> <span style="color:#000;font-weight:bold">as</span> <span style="color:#555">st</span>
+<span style="color:#000;font-weight:bold">import</span> <span style="color:#555">numpy</span> <span style="color:#000;font-weight:bold">as</span> <span style="color:#555">np</span>
+<span style="color:#000;font-weight:bold">import</span> <span style="color:#555">pandas</span> <span style="color:#000;font-weight:bold">as</span> <span style="color:#555">pd</span>
+
+st<span style="color:#000;font-weight:bold">.</span>title(<span style="color:#d14">&#34;my first app&#34;</span>)
+
+<span style="color:#3c5d5d;font-weight:bold">@st.cache</span>
+<span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">load_data</span>():
+    df <span style="color:#000;font-weight:bold">=</span> pd<span style="color:#000;font-weight:bold">.</span>read_csv(<span style="color:#d14">&#34;data.csv&#34;</span>)
+    df <span style="color:#000;font-weight:bold">=</span> df[[<span style="color:#d14">&#39;EVENT_TYPE&#39;</span>, <span style="color:#d14">&#39;CREATE_TIME&#39;</span>, <span style="color:#d14">&#39;COUNTY&#39;</span>, <span style="color:#d14">&#39;LAT&#39;</span>, <span style="color:#d14">&#39;LON&#39;</span>]]
+    df<span style="color:#000;font-weight:bold">.</span>columns <span style="color:#000;font-weight:bold">=</span> [<span style="color:#d14">&#39;event_type&#39;</span>, <span style="color:#d14">&#39;time&#39;</span>, <span style="color:#d14">&#39;county&#39;</span>, <span style="color:#d14">&#39;lat&#39;</span>, <span style="color:#d14">&#39;lon&#39;</span>]
+    <span style="color:#000;font-weight:bold">return</span> df
+
+df <span style="color:#000;font-weight:bold">=</span> load_data()
+
+st<span style="color:#000;font-weight:bold">.</span>table(df<span style="color:#000;font-weight:bold">.</span>head())
+
+event_list <span style="color:#000;font-weight:bold">=</span> df[<span style="color:#d14">&#34;event_type&#34;</span>]<span style="color:#000;font-weight:bold">.</span>unique()
+
+event_type <span style="color:#000;font-weight:bold">=</span> st<span style="color:#000;font-weight:bold">.</span>sidebar<span style="color:#000;font-weight:bold">.</span>selectbox(
+    <span style="color:#d14">&#34;Which kind of event do you want to explore?&#34;</span>,
+    event_list
+)
+
+county_list <span style="color:#000;font-weight:bold">=</span> df[<span style="color:#d14">&#34;county&#34;</span>]<span style="color:#000;font-weight:bold">.</span>unique()
+
+county_name <span style="color:#000;font-weight:bold">=</span> st<span style="color:#000;font-weight:bold">.</span>sidebar<span style="color:#000;font-weight:bold">.</span>selectbox(
+    <span style="color:#d14">&#34;Which county?&#34;</span>,
+    county_list
+) 
+
+part_df <span style="color:#000;font-weight:bold">=</span> df[(df[<span style="color:#d14">&#34;event_type&#34;</span>]<span style="color:#000;font-weight:bold">==</span>event_type) <span style="color:#000;font-weight:bold">&amp;</span> (df[<span style="color:#d14">&#39;county&#39;</span>]<span style="color:#000;font-weight:bold">==</span>county_name)]
+
+<span style="color:#998;font-style:italic"># 使用st.write可以写入任何文本，甚至可以直接显式Pandas数据帧。</span>
+st<span style="color:#000;font-weight:bold">.</span>write(f<span style="color:#d14">&#34;根据你的筛选，数据包含{len(part_df)}行&#34;</span>)
+
+st<span style="color:#000;font-weight:bold">.</span>map(part_df)
+
+st<span style="color:#000;font-weight:bold">.</span>markdown(<span style="color:#d14">&#34;&#34;&#34;
+</span><span style="color:#d14">欢迎订阅我的微信公众号“玉树芝兰”，**第一时间免费**收到文章更新。别忘了**加星标**，以免错过新推送提示。
+</span><span style="color:#d14">![](https://tva1.sinaimg.cn/large/006tNbRwly1gavw3v4iagj3076076dg2.jpg)
+</span><span style="color:#d14">赞赏就是力量。
+</span><span style="color:#d14">![](https://tva1.sinaimg.cn/large/006tNbRwly1gavw3vhpnpj30b40b4jrs.jpg)
+</span><span style="color:#d14">如果你对 Python 与数据科学感兴趣，希望能与其他热爱学习的小伙伴一起讨论切磋，答疑解惑，欢迎加入知识星球。
+</span><span style="color:#d14">![](https://tva1.sinaimg.cn/large/006tNbRwly1gavw3vz0ahj30dc0hzdgc.jpg)
+</span><span style="color:#d14">&#34;&#34;&#34;</span>)
+</code></pre></td></tr></table>
+</div>
+</div><p><code>setup.sh</code> 做一些初始设置，设定一些参数。</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir -p ~/.streamlit/
+
+<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;\
+</span><span style="color:#d14">[general]\n\
+</span><span style="color:#d14">email = \&#34;yourmail@email.com\&#34;\n\
+</span><span style="color:#d14">&#34;</span> &gt; ~/.streamlit/credentials.toml
+
+<span style="color:#0086b3">echo</span> <span style="color:#d14">&#34;\
+</span><span style="color:#d14">[server]\n\
+</span><span style="color:#d14">headless = true\n\
+</span><span style="color:#d14">enableCORS=false\n\
+</span><span style="color:#d14">port = </span><span style="color:#008080">$PORT</span><span style="color:#d14">\n\
+</span><span style="color:#d14">&#34;</span> &gt; ~/.streamlit/config.toml
+</code></pre></td></tr></table>
+</div>
+</div><p>注意你将来用的时候，需要把其中标红的部分，<strong>替换成自己注册 heroku 时候的邮箱</strong>。</p>
+<p><code>requirements.txt</code> 告诉机器，需要安装哪些 Python 依赖包。</p>
+<pre><code>numpy==1.15.0
+streamlit==0.52.2
+pandas==0.23.4
+</code></pre><p><code>Procfile</code> 是远端服务器上， Web 应用启动的时候，需要调用的脚本。其实里面只有一行。</p>
+<pre><code>web: sh setup.sh &amp;&amp; streamlit run helloworld.py
+</code></pre><p>请你下载，或者自行编辑上述 3 个文件后，与你的 Python 文件放在一个文件夹下面。</p>
+<p>之后，请你到这里<a href="https://devcenter.heroku.com/articles/heroku-cli">下载</a> heroku cli package。</p>
+<p>下载后，根据提示安装即可。</p>
+<p>进入终端。用 cd 命令切换到你的工作文件夹，也就是包含了你的 Python 脚本的目录。</p>
+<p>输入：</p>
+<pre><code>heroku login
+</code></pre><p>因为你已经在 <code>setup.sh</code> 中指定了自己的邮箱，所以这里会尝试直接用它来登录。</p>
+<p>这时按任意键，会跳出一个浏览器窗口。</p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-streamlit-heroku/python-streamlit-heroku-4.jpg">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-streamlit-heroku/python-streamlit-heroku-4.jpg" />
+        </a>
+    </p>
+<p>在浏览器中，点击确认即可登录。</p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-streamlit-heroku/python-streamlit-heroku-5.jpg">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-streamlit-heroku/python-streamlit-heroku-5.jpg" />
+        </a>
+    </p>
+<p>看到上面的提示，证明登录成功了。</p>
+<p>下面我们来设置 git ，这是推送我们文件和更新改动的途径。</p>
+<p>在终端下执行：</p>
+<pre><code>git init
+</code></pre><p>之后设置一下与远端的 heroku 服务器的连接：</p>
+<pre><code>heroku git:remote -a helloworld-streamlit
+</code></pre><p>若是看到下图，证明成功了：</p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-streamlit-heroku/python-streamlit-heroku-6.jpg">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-streamlit-heroku/python-streamlit-heroku-6.jpg" />
+        </a>
+    </p>
+<p>然后执行：</p>
+<pre><code>git add .
+git commit -m &quot;init&quot;
+</code></pre><p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-streamlit-heroku/python-streamlit-heroku-7.jpg">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-streamlit-heroku/python-streamlit-heroku-7.jpg" />
+        </a>
+    </p>
+<p>再执行：</p>
+<pre><code>git push heroku master
+</code></pre><p>这样就可以把全部内容推送到 heroku 了。</p>
+<p>推送的第一步，是上传文件。</p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-streamlit-heroku/python-streamlit-heroku-8.jpg">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-streamlit-heroku/python-streamlit-heroku-8.jpg" />
+        </a>
+    </p>
+<p>Heroku 发现咱们推送的是一个 Python App ，所以自动执行许多安装设置工作。</p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-streamlit-heroku/python-streamlit-heroku-9.jpg">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-streamlit-heroku/python-streamlit-heroku-9.jpg" />
+        </a>
+    </p>
+<p>这些安装和配置做完后，会出现下面这样的提示。</p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-streamlit-heroku/python-streamlit-heroku-10.jpg">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-streamlit-heroku/python-streamlit-heroku-10.jpg" />
+        </a>
+    </p>
+<p>到这里，你的 Web 应用部署就搞定了。</p>
+<p>回到浏览器里，用下图中标红的这个按钮开启你自己的应用吧。</p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-streamlit-heroku/python-streamlit-heroku-2.jpg">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-streamlit-heroku/python-streamlit-heroku-2.jpg" />
+        </a>
+    </p>
+<h2 id="思考">思考</h2>
+<p>尝试过之后，你应该不难发现，Streamlit 给你带来了什么。</p>
+<p>如果你学过 Javascript 和 Flask, Django 等 Web 应用开发技术，Streamlit 可以加快你的 Web 应用开发与测试进程。</p>
+<p>如果你还没有学过上述技术， Streamlit 就可以给你赋能，让你一下子有了把数据分析结果变成产品的能力。</p>
+<p>给你讲点儿更激进的。</p>
+<p>有人已经希望能用它替代掉 Flask 用于产品发布了。</p>
+<p>还有人说，将来写技术文档，也应该充分使用 Streamlit 。</p>
+<p>甚至，还把它比作了数据科学界的 iPhone 。</p>
+<p>这里，它是借喻 iPhone 开启智能手机时代，说明 Streamlit 的划时代性。</p>
+<p>我不希望你也变得如此激进。</p>
+<p>因为这里提到的每一种功用，现在还都有非常专业的工具做的更好，而且新的工具也在不断涌现。</p>
+<p>例如说，我们在<a href="https://zhuanlan.zhihu.com/p/29564719">多个教程</a>中一直使用 Jupyter Notebook 。</p>
+<p>现在凭借 Voila 扩展的加持，你也可以很轻松地把 Jupyter Notebook 变成 Web app ，而且可以<a href="https://zhuanlan.zhihu.com/p/36830594">免费运行在 mybinder 上面</a>。</p>
+<p>但是，你可以看到，一个新的工具，以一种简单，而不是更繁复的办法，解决一个功能痛点，是一件多么令人欣喜的事儿。</p>
+<p>看了这篇文章，可能会给你一种误解，似乎 JavaScript 为代表的前端编程技术，再也不需要学了。</p>
+<p>其实不是这样的。</p>
+<p>可以想象，开发门槛降低以后，将来会有更多的人使用 Python 来做 Web 应用。</p>
+<p>用 Streamlit 这样的方法，他们只是开发出了一个原型。</p>
+<p>要是想打造精品，就必须精细调控很多细节。</p>
+<p>这时候， Javascript 是绕不过去的。</p>
+<p>如果你精通 Javascript ，那你潜在的合作对象一下子就多了起来，你掌握的这门技术，也就有了更大的价值。</p>
+<p>还记得吗？我不止一次给你强调过，协作网络更重要。忘了的话，记得复习《<a href="https://zhuanlan.zhihu.com/p/53011746">学 Python ，能提升你的竞争力吗？</a>》。</p>
+<h2 id="小结">小结</h2>
+<p>本文我为你介绍了 Streamlit ，它可以让你用 Python 脚本编写简洁实用的交互式 Web 应用。</p>
+<p>通过学习本文，希望你掌握了以下知识点：</p>
+<ul>
+<li>现在你有了一种选择，仅用纯 Python 做一个完整的交互式数据分析产品出来；</li>
+<li>如何在读取数据等常用重复操作中，使用 st.cache 装饰器提升速度与效率；</li>
+<li>如何使用滑动条、下拉框等基本组件；</li>
+<li>如何在网页上输出文字、表格和图像；</li>
+<li>如何把你本地构建和测试后的 Web 应用部署到 Heroku 上，以发布给你的合作者与客户。</li>
+</ul>
+<p>咱们是以数据分析和可视化为例，进行了讲解。而且为了讲解的清晰，我们只介绍了 Streamlit 可实现功能的一小部分。但请注意，即便是目前， Streamlit 能帮你达成的目标，也远远不止于此。</p>
+<h2 id="reference">Reference</h2>
+<p>1、 <a href="https://github.com/streamlit/streamlit">https://github.com/streamlit/streamlit</a><br>
+2、 <a href="https://sspai.com/post/58474">https://sspai.com/post/58474</a> <br>
+3、 Streamlit开发手册 <a href="http://cw.hubwiz.com/card/c/streamlit-manual/">http://cw.hubwiz.com/card/c/streamlit-manual/</a></p>
+<h2 id="打赏">打赏</h2>
+<table>
+<thead>
+<tr>
+<th align="left">微信
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/wechat.png">
+            <img class="mx-auto" alt="微信" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/wechat.png" />
+        </a>
+    </th>
+<th align="left">支付宝
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/alipay.png">
+            <img class="mx-auto" alt="支付宝" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/alipay.png" />
+        </a>
+    </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em><strong>万分感谢</strong></em></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+
+        
+<div class="post-archive">
+    <ul class="post-copyright">
+        <li><strong>原文作者：</strong><a rel="author" href="https://cold-eye.github.io/">冷眼</a></li>
+        <li style="word-break:break-all"><strong>原文链接：</strong><a href="https://cold-eye.github.io/post/python-streamlit-heroku/">https://cold-eye.github.io/post/python-streamlit-heroku/</a></li>
+        <li><strong>版权声明：</strong>本作品采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可，非商业转载请注明出处（作者，原文链接），商业转载请联系作者获得授权。</li>
+    </ul>
+</div>
+<br/>
+
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/python-streamlit/">python streamlit</a></li>
+        
+        <li><a href="/post/python-gui/">python图形界面库，写桌面程序</a></li>
+        
+        <li><a href="/post/server-jiang/">通过 server 酱实现定时推送信息</a></li>
+        
+        <li><a href="/post/python-data-structure-chain/">Python 数据结构之链表</a></li>
+        
+        <li><a href="/post/python-postgre/">python 安装 postgre库</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='https://cold-eye.github.io/tags/python'>python</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    
+    
+    
+    <div id="vcomments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+    <script type="text/javascript">
+      new Valine({
+          el: '#vcomments' ,
+          appId: '2bNGHPmILSH9xQJ9XjQchomv-gzGzoHsz',
+          appKey: '52xbEYwnpwLahMh4Yj55r69v',
+          notify: 'false', 
+          verify: 'false', 
+          avatar:'mm', 
+          placeholder: '说点什么吧...',
+          visitor: 'false'
+      });
+    </script>
+</div>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <!DOCTYPE html>
+<html>
+
+<head>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+    <div class="demo">
+        <div id="player1">
+        </div>
+    </div>
+    <script>
+        var ap = new APlayer
+            ({
+                element: document.getElementById('player1'),
+                narrow: false,
+                fixed: false, 
+                autoplay: false,
+                showlrc: true,
+                mini: false,
+                theme: '#FADFA3',
+                loop: 'all',
+                order: 'random',
+                preload: 'auto',
+                volume: 0.5,
+                mutex: false,
+                listFolded: true,
+                listMaxHeight: 90,
+                lrcType: 2,
+                music:
+                    [
+                        {
+                            artist: 'A',
+                            name: 'A',
+                            url:'http://music.163.com/song/media/outer/url?id=28560087.mp3',
+                            cover: '',
+                            lrc:'A',
+                        },{
+                            name: 'B',
+                            artist:'B',
+                            url:'http://music.163.com/song/media/outer/url?id=1438282140.mp3',
+                            cover: '',
+                            lrc:'B',
+                            theme: '#ebd0c2'
+                        },{
+                            name: 'C',
+                            artist:'C',
+                            url:'http://music.163.com/song/media/outer/url?id=5316168.mp3',
+                            cover: '',
+                            lrc:'C',
+                            theme: '#46718b'
+                        },{
+                            name: 'D',
+                            artist:'D',
+                            url:'http://music.163.com/song/media/outer/url?id=2007819.mp3',
+                            cover: '',
+                            lrc:'D',
+                            theme: ''
+                        },{
+                            name: 'E',
+                            artist:'E',
+                            url:'http://music.163.com/song/media/outer/url?id=1398850429.mp3',
+                            cover: '',
+                            lrc:'E',
+                            theme: ''
+                        },{
+                            name: 'F',
+                            artist:'F',
+                            url:'http://music.163.com/song/media/outer/url?id=28830038.mp3',
+                            cover: '',
+                            lrc:'F',
+                            theme: ''
+                        },{
+                            name: 'G',
+                            artist:'G',
+                            url:'http://music.163.com/song/media/outer/url?id=451126971.mp3',
+                            cover: '',
+                            lrc:'G',
+                            theme: ''
+                        },{
+                            name: 'H',
+                            artist:'H',
+                            url:'http://music.163.com/song/media/outer/url?id=744866.mp3',
+                            cover: '',
+                            lrc:'H',
+                            theme: ''
+                        },{
+                            name: 'I',
+                            artist:'I',
+                            url:'http://music.163.com/song/media/outer/url?id=1341800295.mp3',
+                            cover: '',
+                            lrc:'I',
+                            theme: ''
+                        },{
+                            name: 'J',
+                            artist:'J',
+                            url:'http://music.163.com/song/media/outer/url?id=32835377.mp3',
+                            cover: '',
+                            lrc:'J',
+                            theme: ''
+                        },{
+                            name: 'K',
+                            artist:'K',
+                            url:'http://music.163.com/song/media/outer/url?id=1379464883.mp3',
+                            cover: '',
+                            lrc:'K',
+                            theme: ''
+                        },{
+                            name: 'L',
+                            artist:'L',
+                            url:'http://music.163.com/song/media/outer/url?id=506726178.mp3',
+                            cover: '',
+                            lrc:'L',
+                            theme: ''
+                        },{
+                            name: 'M',
+                            artist:'M',
+                            url:'http://music.163.com/song/media/outer/url?id=411214138.mp3',
+                            cover: '',
+                            lrc:'M',
+                            theme: ''
+                        },{
+                            name: 'N',
+                            artist:'N',
+                            url:'http://music.163.com/song/media/outer/url?id=1415097371.mp3',
+                            cover: '',
+                            lrc:'N',
+                            theme: ''
+                        },{
+                            name: 'O',
+                            artist:'O',
+                            url:'http://music.163.com/song/media/outer/url?id=505449407.mp3',
+                            cover: '',
+                            lrc:'O',
+                            theme: ''
+                        },{
+                            name: 'P',
+                            artist:'P',
+                            url:'http://music.163.com/song/media/outer/url?id=29947420.mp3',
+                            cover: '',
+                            lrc:'P',
+                            theme: ''
+                        },{
+                            name: 'Q',
+                            artist:'Q',
+                            url:'http://music.163.com/song/media/outer/url?id=21311956.mp3',
+                            cover: '',
+                            lrc:'Q',
+                            theme: ''
+                        },{
+                            name: 'R',
+                            artist:'R',
+                            url:'http://music.163.com/song/media/outer/url?id=418602088.mp3',
+                            cover: '',
+                            lrc:'R',
+                            theme: ''
+                        },{
+                            name: 'S',
+                            artist:'S',
+                            url:'http://music.163.com/song/media/outer/url?id=1363551021.mp3',
+                            cover: '',
+                            lrc:'S',
+                            theme: ''
+                        },{
+                            name: 'T',
+                            artist:'T',
+                            url:'http://music.163.com/song/media/outer/url?id=1376653715.mp3',
+                            cover: '',
+                            lrc:'T',
+                            theme: ''
+                        },{
+                            name: 'U',
+                            artist:'U',
+                            url:'http://music.163.com/song/media/outer/url?id=546838016.mp3',
+                            cover: '',
+                            lrc:'U',
+                            theme: ''
+                        },{
+                            name: 'V',
+                            artist:'V',
+                            url:'http://music.163.com/song/media/outer/url?id=1403250178.mp3',
+                            cover: '',
+                            lrc:'V',
+                            theme: ''
+                        },{
+                            name: 'W',
+                            artist:'W',
+                            url:'http://music.163.com/song/media/outer/url?id=5348853.mp3',
+                            cover: '',
+                            lrc:'W',
+                            theme: ''
+                        },{
+                            name: 'X',
+                            artist:'X',
+                            url:'http://music.163.com/song/media/outer/url?id=34613621.mp3',
+                            cover: '',
+                            lrc:'X',
+                            theme: ''
+                        },{
+                            name: 'Y',
+                            artist:'Y',
+                            url:'http://music.163.com/song/media/outer/url?id=553815184.mp3',
+                            cover: '',
+                            lrc:'Y',
+                            theme: ''
+                        },{
+                            name: 'Z',
+                            artist:'Z',
+                            url:'http://music.163.com/song/media/outer/url?id=16607021.mp3',
+                            cover: '',
+                            lrc:'Z',
+                            theme: ''
+                        },{
+                            name: 'X1',
+                            artist:'X1',
+                            url:'http://music.163.com/song/media/outer/url?id=3961975.mp3',
+                            cover: '',
+                            lrc:'X1',
+                            theme: ''
+                        },
+                    ]
+
+                    
+        });
+        
+    </script>
+</body>
+    </section>
+
+    <section class="widget">
+        <form id="search" action='https://cold-eye.github.io/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://cold-eye.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/python-streamlit-nlp/" title="Streamlit: 情感分析web应用">Streamlit: 情感分析web应用</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/python-streamlit-heroku/" title="Streamlit: 交互式数据分析产品及 heroku 免费部署">Streamlit: 交互式数据分析产品及 heroku 免费部署</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/python-streamlit/" title="python streamlit">python streamlit</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/python-gui/" title="python图形界面库，写桌面程序">python图形界面库，写桌面程序</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/nlp-classifier-sota/" title="打破 BERT 天花板：11种花式炼丹术刷爆NLP分类SOTA！">打破 BERT 天花板：11种花式炼丹术刷爆NLP分类SOTA！</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title" style="color:red">福利派送</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a href="https://www.freelancer.com/get/qinyukun1325?f=give" title="注册freelancer得20美刀" target="_blank" style="color:red">
+                
+                    注册freelancer得20美刀
+                
+            </a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li><a href="https://cold-eye.github.io/categories/IT%E6%8A%80%E6%9C%AF/">IT技术 (8)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/hugo/">hugo (3)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/nlp/">nlp (6)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/python/">python (17)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/rust/">rust (1)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能 (2)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/%E7%BB%8F%E6%B5%8E%E7%94%9F%E6%B4%BB/">经济生活 (8)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://cold-eye.github.io/tags/IT%E6%8A%80%E6%9C%AF/">IT技术</a>
+    
+    <a href="https://cold-eye.github.io/tags/hugo/">hugo</a>
+    
+    <a href="https://cold-eye.github.io/tags/linux/">linux</a>
+    
+    <a href="https://cold-eye.github.io/tags/mac/">mac</a>
+    
+    <a href="https://cold-eye.github.io/tags/nlp/">nlp</a>
+    
+    <a href="https://cold-eye.github.io/tags/python/">python</a>
+    
+    <a href="https://cold-eye.github.io/tags/rust/">rust</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E5%81%A5%E8%BA%AB/">健身</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E5%9B%BE%E5%83%8F/">图像</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E7%88%AC%E8%99%AB/">爬虫</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">知识图谱</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/">程序员</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E7%BB%8F%E6%B5%8E%E7%94%9F%E6%B4%BB/">经济生活</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E8%A2%AB%E5%8A%A8%E6%94%B6%E5%85%A5/">被动收入</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E8%B7%91%E6%AD%A5/">跑步</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://knowledge-of-medical.blogspot.com/" title="healthy">healthy</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://cold-eye.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <script src="//code.tidio.co/2dpeb0joi7ueoxequchq01ya9ckrmy63.js" async></script>
+    <div class="container">
+        &copy; 
+        2018 - 
+        2020
+        <a href="https://cold-eye.github.io/">冷眼-风雨飘摇 By 冷眼</a>.
+        
+        访问量<span id="busuanzi_value_site_pv"></span>次 | 访客<span id="busuanzi_value_site_uv"></span>人
+        
+        
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-173047983-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+    <script src='/js/douban.js'></script>
+
+
+
+</body>
+
+</html>

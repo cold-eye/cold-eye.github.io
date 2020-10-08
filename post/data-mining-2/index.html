@@ -33,6 +33,10 @@
     
 
     
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+
+    
     
         <link rel="stylesheet" href='/css/douban.css'>
     
@@ -106,17 +110,35 @@
 <ul>
 <li>
 <p>这是一份将就500W的词库
-<img src="/images/data-mining/data-mining-18.jpg" alt="图18"></p>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-18.jpg">
+            <img class="mx-auto" alt="图18" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-18.jpg" />
+        </a>
+    </p>
 </li>
 <li>
 <p>它保存在TXT里也就151M
-<img src="/images/data-mining/data-mining-19.jpg" alt="图19"></p>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-19.jpg">
+            <img class="mx-auto" alt="图19" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-19.jpg" />
+        </a>
+    </p>
 </li>
 </ul>
 <p>有别于上次，这次特意拓展了近500W的词，因为本次使用的方法需要更多的词库做支撑。</p>
 <p>上次我们使用了”<strong><strong>词向量文本分类</strong></strong>“来归类关键词，方便我们分析查看，但是这种方法的问题在于它是没有结构的，一份词库生成之后，你只能从上往下看，看到什么是什么。</p>
 <p>因此我采用了”<strong><strong>关键词根提取法</strong></strong>“的方式来归类，并且使归类好的内容自动按照思维导图的结构展示出来，先来感受一下：</p>
-<p><img src="/images/data-mining/data-mining-20.jpg" alt="图20"></p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-20.jpg">
+            <img class="mx-auto" alt="图20" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-20.jpg" />
+        </a>
+    </p>
 <p>简单说一下技术思路：</p>
 <p>1：提取一份词库里词频最高的topN</p>
 <p>2：按照上一条的思路在包含上一级词根的前提下陆续提取下一层级的topN词频</p>
@@ -125,37 +147,85 @@
 <p>肯定是看不懂，我们拿上图说明，这是一份”抖音“的词库（所有长尾词都包含”抖音“）：</p>
 <p>1：经过统计，我们得到了这份词库中除”抖音“这个词根外，词频最高的4个词根</p>
 <p>”视频“、”网红“、”直播“、”歌曲“（这些作为一级节点）</p>
-<p><img src="/images/data-mining/data-mining-21.jpg" alt="图21"></p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-21.jpg">
+            <img class="mx-auto" alt="图21" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-21.jpg" />
+        </a>
+    </p>
 <p>2：单独提取出包含”视频“这个词根的所有长尾词（肯定包含”抖音“），作为一个”子词库“，再按照（1）里的方式统计这个”子词库“里词频最高的词根</p>
 <p>”剪辑“、”水印“、”字幕“（这些作为二级节点）</p>
-<p><img src="/images/data-mining/data-mining-22.jpg" alt="图22"></p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-22.jpg">
+            <img class="mx-auto" alt="图22" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-22.jpg" />
+        </a>
+    </p>
 <p>3：如果我们只要两级，那么”剪辑“这个层级之后开始输出长尾词，这些长尾词包含他的父级节点的所有词根：”抖音“-”视频“-”剪辑“</p>
 <p>”抖音视频怎么剪辑“-”抖音视频剪辑教程“</p>
-<p><img src="/images/data-mining/data-mining-23.jpg" alt="图23"></p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-23.jpg">
+            <img class="mx-auto" alt="图23" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-23.jpg" />
+        </a>
+    </p>
 <p>4：自动输出一份思维导图文件</p>
-<p><img src="/images/data-mining/data-mining-24.jpg" alt="图24"></p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-24.jpg">
+            <img class="mx-auto" alt="图24" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-24.jpg" />
+        </a>
+    </p>
 <p>以上，就是一次完整的归类方式，上图就是我们得到的最终文档。</p>
 <p>这是一个简单的技术思路过程，怎么实现不是关键，先能理解就好，后面会说如何实现。</p>
 <hr>
 <p>上面我们仅仅是为了展示说明，而实际上本次我们统计的目标是一份仅500W的词库，所以需要在思维导图里分子页显示，如下：</p>
 <ul>
 <li>这是一级节点，以核心词”抖音“展开，共30个节点（未完全截图）
-<img src="/images/data-mining/data-mining-25.jpg" alt="图25"></li>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-25.jpg">
+            <img class="mx-auto" alt="图25" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-25.jpg" />
+        </a>
+    </li>
 </ul>
 <p>每一个节点中的数值代表：涵盖总词量/在词库里所占比例，这些数值可以给你一个概念，让你大概知道这个版块在这个领域的比重。</p>
 <ul>
 <li>这是所有节点的分页夹，除”抖音“外共30个一级节点
-<img src="/images/data-mining/data-mining-26.png" alt="图26"></li>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-26.png">
+            <img class="mx-auto" alt="图26" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-26.png" />
+        </a>
+    </li>
 </ul>
 <p>我们来看看占比最大的”视频“这个一级节点：</p>
 <ul>
 <li>一级节点”视频“下的二级节点和二级下的三级节点
-<img src="/images/data-mining/data-mining-27.jpg" alt="图27"></li>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-27.jpg">
+            <img class="mx-auto" alt="图27" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-27.jpg" />
+        </a>
+    </li>
 </ul>
 <p>比例显示0%是因为相对500W太小了，被约等于了（忘记处理这个问题了），我们把最后的节点打开看看，比如右下角的”水印“-”ios“：</p>
 <ul>
 <li>它保存了包含：“抖音”-“视频”-“水印”-“ios”的部分长尾词代表
-<img src="/images/data-mining/data-mining-28.jpg" alt="图28"></li>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-28.jpg">
+            <img class="mx-auto" alt="图28" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-28.jpg" />
+        </a>
+    </li>
 </ul>
 <p>据我了解，ios去抖音水印一直是个不太稳定的服务，目前能找到的很多平台很容易挂。</p>
 <hr>
@@ -165,7 +235,13 @@
 <p>我个人习惯去看那些我不能理解的，好奇的，往往这里面隐藏着寻常人不理解的商机，比如我找到了一个“表情”的版块，大家感受一下：</p>
 <ul>
 <li>部分节点展示，未完全截图
-<img src="/images/data-mining/data-mining-29.jpg" alt="图29"></li>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-29.jpg">
+            <img class="mx-auto" alt="图29" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-29.jpg" />
+        </a>
+    </li>
 </ul>
 <p>五花八门，长尾词数量有7W+，之所以让我好奇是因为“表情”（即表情包）这个东西，不应该有这么大的需求量（仅指在抖音里），同时多年从事搜索优化的工作让我发现这是一个好的需求，有各种大量长尾需求，能够使内容生产者有源源不断的内容可以产生。</p>
 <p>为什么这么说呢：</p>
@@ -174,8 +250,20 @@
 <p>（本文仅作为分析讲解，为避免给他方带来麻烦，所以隐私细节全部打码）</p>
 <ul>
 <li>粉丝量上限很高
-<img src="/images/data-mining/data-mining-30.jpg" alt="图30">
-<img src="/images/data-mining/data-mining-31.jpg" alt="图31"></li>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-30.jpg">
+            <img class="mx-auto" alt="图30" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-30.jpg" />
+        </a>
+    
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-31.jpg">
+            <img class="mx-auto" alt="图31" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-31.jpg" />
+        </a>
+    </li>
 </ul>
 <p>不管什么样的表情包资源，总有一堆人求。</p>
 <p><strong><strong>注意</strong></strong>：这里有一个小细节可以看得出这一定是一个行业，<strong><strong>看看图片里那个在别人求图时，回复别人说在这，让别人私他的人</strong></strong>，不信大家可以去搜索，然后翻翻评论，几乎求图下面总有这样的人。</p>
@@ -186,25 +274,67 @@
 <h2 id="步骤5">步骤5：</h2>
 <ul>
 <li>其中某个抖音号
-<img src="/images/data-mining/data-mining-32.jpg" alt="图32"></li>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-32.jpg">
+            <img class="mx-auto" alt="图32" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-32.jpg" />
+        </a>
+    </li>
 </ul>
 <p>这是翻了几页后的某一个表情包号，粉丝量和视频数量相对平均，不高不低，图中可以看出：</p>
 <p>1：背景图引导粉丝关注公众号取图</p>
 <p>2：简介留微信，并明确表示收徒</p>
 <p>这就更加验证有利可图了，我们先看看他的公众号：</p>
-<p><img src="/images/data-mining/data-mining-33.jpg" alt="图33"></p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-33.jpg">
+            <img class="mx-auto" alt="图33" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-33.jpg" />
+        </a>
+    </p>
 <p>更新频率并不高，几天更新一次，有时候甚至一个月，之所以这样，是因为这种公众号并不靠持续的优质内容来吸粉，吸粉行为本身就是在抖音进行的，公众号只是承载粉丝。</p>
-<p><img src="/images/data-mining/data-mining-34.jpg" alt="图34"></p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-34.jpg">
+            <img class="mx-auto" alt="图34" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-34.jpg" />
+        </a>
+    </p>
 <p>内容也没什么高质量的，无非是堆砌素材，需要的自取。</p>
-<p><img src="/images/data-mining/data-mining-35.jpg" alt="图35"></p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-35.jpg">
+            <img class="mx-auto" alt="图35" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-35.jpg" />
+        </a>
+    </p>
 <p>查看了几篇文章，大部分的阅读量都在4000左右，这种号的粉丝会比较泛，不够垂直，接广告的话撑死了一个粉丝2毛，也就是接一次广告能理论上能赚近800，另外还有广点通的广告分成。</p>
 <p>还算可以，但不足以算一个项目，接下来我们再看看ta的收徒是怎么赚的。</p>
 <p>以下是我加了微信后的聊天记录，为保证别人利益，避免给人带来不必要麻烦，涉及隐私的相关内容我就不显示了，只展示关键信息：</p>
 <p>加完微信后，看了下朋友圈，挺热闹</p>
-<p><img src="/images/data-mining/data-mining-36.jpg" alt="图36"></p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-36.jpg">
+            <img class="mx-auto" alt="图36" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-36.jpg" />
+        </a>
+    </p>
 <p>除了收徒还有帮引流、卖号等业务，简单沟通下，发了ta的套餐给我：</p>
-<p><img src="/images/data-mining/data-mining-37.jpg" alt="图37">
-<img src="/images/data-mining/data-mining-38.jpg" alt="图38"></p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-37.jpg">
+            <img class="mx-auto" alt="图37" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-37.jpg" />
+        </a>
+    
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-38.jpg">
+            <img class="mx-auto" alt="图38" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-38.jpg" />
+        </a>
+    </p>
 <p>大概沟通下来的意思是：</p>
 <p>1：教徒弟如何找资源、做资源</p>
 <p>2：教徒弟如何在抖音发布引流</p>
@@ -224,7 +354,13 @@
 <p>加微信的比例应该没有这么高，但是0.5%并不过分。也就是有1500个加粉。</p>
 <p>咱们保守一点，砍一半吧，750个加微信，这里面能否有10%的人被转化？</p>
 <p>我个人认为完全没问题，对方已经明确表示，要拜师才加微信，否则勿扰，加进来的都是目标群体，转化75个人应该不成问题。</p>
-<p><img src="/images/data-mining/data-mining-39.jpg" alt="图39"></p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-39.jpg">
+            <img class="mx-auto" alt="图39" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-39.jpg" />
+        </a>
+    </p>
 <p>看了下朋友圈，差不多是在3月份开始有抖音收徒的相关内容，之前都是只做拿图相关的，也就是到现在大概经营了4个月，75个转化，不过分，要不然朋友圈可以停了。</p>
 <p>75 * 600（不要688，假设有人讲价） = 45000</p>
 <p>这是4个月的，月超一万应该是没有问题的，而且是我折中保守估计的数据。</p>
@@ -248,8 +384,20 @@
 <table>
 <thead>
 <tr>
-<th align="left">微信<img src="/about/wechat.png" alt="微信"></th>
-<th align="left">支付宝<img src="/about/alipay.png" alt="支付宝"></th>
+<th align="left">微信
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/wechat.png">
+            <img class="mx-auto" alt="微信" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/wechat.png" />
+        </a>
+    </th>
+<th align="left">支付宝
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/alipay.png">
+            <img class="mx-auto" alt="支付宝" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/alipay.png" />
+        </a>
+    </th>
 </tr>
 </thead>
 <tbody>
@@ -614,23 +762,23 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://cold-eye.github.io/post/python-streamlit-nlp/" title="Streamlit: 情感分析web应用">Streamlit: 情感分析web应用</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/python-streamlit-heroku/" title="Streamlit: 交互式数据分析产品及 heroku 免费部署">Streamlit: 交互式数据分析产品及 heroku 免费部署</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/python-streamlit/" title="python streamlit">python streamlit</a>
+    </li>
+    
+    <li>
         <a href="https://cold-eye.github.io/post/python-gui/" title="python图形界面库，写桌面程序">python图形界面库，写桌面程序</a>
     </li>
     
     <li>
         <a href="https://cold-eye.github.io/post/nlp-classifier-sota/" title="打破 BERT 天花板：11种花式炼丹术刷爆NLP分类SOTA！">打破 BERT 天花板：11种花式炼丹术刷爆NLP分类SOTA！</a>
-    </li>
-    
-    <li>
-        <a href="https://cold-eye.github.io/post/nlp-less-sample/" title="NLP中的少样本困境问题探究">NLP中的少样本困境问题探究</a>
-    </li>
-    
-    <li>
-        <a href="https://cold-eye.github.io/post/data-mining-5/" title="数据挖掘5：互联网常见特殊词汇的商机">数据挖掘5：互联网常见特殊词汇的商机</a>
-    </li>
-    
-    <li>
-        <a href="https://cold-eye.github.io/post/data-mining-4/" title="数据挖掘4：从付费行为里找项目">数据挖掘4：从付费行为里找项目</a>
     </li>
     
 </ul>
@@ -663,7 +811,7 @@
     
     <li><a href="https://cold-eye.github.io/categories/nlp/">nlp (6)</a></li>
     
-    <li><a href="https://cold-eye.github.io/categories/python/">python (14)</a></li>
+    <li><a href="https://cold-eye.github.io/categories/python/">python (17)</a></li>
     
     <li><a href="https://cold-eye.github.io/categories/rust/">rust (1)</a></li>
     
@@ -718,6 +866,17 @@
     </section>
 
     
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://knowledge-of-medical.blogspot.com/" title="healthy">healthy</a>
+        </li>
+        
+    </ul>
+</section>
+
 
     <section class="widget">
         <h3 class="widget-title">其它</h3>
@@ -754,8 +913,8 @@
                 }
             };
     </script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 
 <a id="rocket" href="#top"></a>
 <script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>

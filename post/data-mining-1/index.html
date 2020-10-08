@@ -33,6 +33,10 @@
     
 
     
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+
+    
     
         <link rel="stylesheet" href='/css/douban.css'>
     
@@ -107,35 +111,77 @@
 <p>这两个神奇的词就是我们经常在使用的：<em><strong>怎么、什么</strong></em></p>
 <h2 id="步骤1">步骤1：</h2>
 <p>百度搜索：5118，进入5118官网，使用”查询长尾词“工具，搜索：怎么</p>
-<p><img src="/images/data-mining/data-mining-1.jpg" alt="图1"></p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-1.jpg">
+            <img class="mx-auto" alt="图1" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-1.jpg" />
+        </a>
+    </p>
 <p>可以看到相关长尾词有5亿多，右上角”导出数据“（年VIP可以导出50W条），这样我们可以拿到跟”怎么“有关的大量长尾词，如下：</p>
-<p><img src="/images/data-mining/data-mining-2.jpg" alt="图2"></p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-2.jpg">
+            <img class="mx-auto" alt="图2" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-2.jpg" />
+        </a>
+    </p>
 <p>但是词数有5亿多，我们可能只能下载几十万，不一定具有代表性，全部下载及分析既不现实也无意义，所以我们<em><strong>只需要提取有代表性的词</strong></em>即可，具体方法是：</p>
 <p>刚才导出的50W数据，用Python写个脚本，利用jieba分词模块，把一个个完整长尾词分成词根，比如：</p>
 <p>QQ邮箱格式怎么写 &ndash;&gt; QQ、邮箱、格式、怎么、写</p>
 <p>边分词的时候边自动记录每个词根的次数，即词频，结果保存到Excel里，然后在Excel里按照词频倒序排序出来，如下（分词的控制后面再说）：</p>
 <ul>
 <li>词频表示在词库里出现的次数
-<img src="/images/data-mining/data-mining-3.jpg" alt="图3"></li>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-3.jpg">
+            <img class="mx-auto" alt="图3" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-3.jpg" />
+        </a>
+    </li>
 </ul>
 <p>然后把”怎么“+上面的高频词根（如”手机“），再去5118上面拓展，导出，重复这个步骤（不包含再分词，分词只做第一次），拓展出来的词必定包含”怎么“和”手机“，如下：</p>
-<p><img src="/images/data-mining/data-mining-4.jpg" alt="图4"></p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-4.jpg">
+            <img class="mx-auto" alt="图4" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-4.jpg" />
+        </a>
+    </p>
 <p>关键词往往符合2/8定律，<em><strong>把能覆盖80%词量的20%词根都拿去拓展</strong></em>，基本就能收集到有代表性的词库了（去重问题暂时不管），这里也可以结合常识：“怎么”这个词跟哪个词应该是经常出现的，结合后应该有很多长尾词的，也可以一起拿去拓展，比如：“怎么制作”</p>
 <p>通过上面的步骤，我们已经导出了较为有代表性的长尾词库，这时你可能有百万级的关键词数据了，别急，还有其他渠道。</p>
 <p>百度搜索：百度推广，进入百度凤巢后台，没有账户用自己手机注册一个（本条不懂也没关系，后面有更简单的）</p>
 <ul>
 <li>推广后台
-<img src="/images/data-mining/data-mining-5.jpg" alt="图5"></li>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-5.jpg">
+            <img class="mx-auto" alt="图5" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-5.jpg" />
+        </a>
+    </li>
 </ul>
 <p>进入后台选择”关键词规划师“的工具</p>
 <p>接下来的步骤和5118的处理方式是一样的，这两个只是渠道不同而已，5118数据量大，而百度的搜索数据无论是词还是搜索量都是官方的，很权威，<em><strong>我们的目的是尽可能的收集到足够多足够有代表性的词库：</strong></em></p>
 <ul>
 <li>关键词规划师
-<img src="/images/data-mining/data-mining-6.jpg" alt="图6"></li>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-6.jpg">
+            <img class="mx-auto" alt="图6" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-6.jpg" />
+        </a>
+    </li>
 </ul>
 <p>网页版使用起来比较麻烦，我们可以无视上述的方式，推荐使用这个工具：艾奇关键词工具</p>
 <p>数据来源就是百度关键词规划师，和上面能拿到的数据是一样的。
-<img src="/images/data-mining/data-mining-7.jpg" alt="图7"></p>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-7.jpg">
+            <img class="mx-auto" alt="图7" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-7.jpg" />
+        </a>
+    </p>
 <p>这个工具的优势在于：我们只要第一次搜索“怎么”，导出来之后还是按照之前的方法统计出词频，然后批量的把所有组合词放进去，它可以一起拓展，效率很高。</p>
 <p>百度的数据一次不会拓展出很多，需要更多的数据，就需要不断的拓展，按我个人经验，拓展几次，有几万个词就足以，因为<em><strong>百度优先给你的都是搜索量相对高的，这样的词本身就具备代表性。</strong></em></p>
 <p>拓词到了这一步，其实已经累计出挺多的数据了，如果你觉得差不多了那也行，我个人认为足够分析了，如果你希望拓展更多，那也还有：</p>
@@ -143,7 +189,13 @@
 <p>到这些网站里再去运用同样的方法，导出更多的数据，方法和步骤同上处理（不同渠道导出的词，先分开处理和保存）</p>
 <ul>
 <li>爱站
-<img src="/images/data-mining/data-mining-8.jpg" alt="图8"></li>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-8.jpg">
+            <img class="mx-auto" alt="图8" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-8.jpg" />
+        </a>
+    </li>
 </ul>
 <p>挖词的步骤到这已经可以了，不需要再去找其他挖词工具，百度和5118还有站长工具足够覆盖，当然了，搜索引擎除了百度，还有其他：搜狗、好搜、神马，他们也一样有对应的工具，一样可以按照先前的步骤去处理。</p>
 <h2 id="步骤2">步骤2：</h2>
@@ -153,7 +205,13 @@
 <p>我们先把各Excel里的数据，除关键词这一列，其他列都删除，那些搜索数据、长尾数量、竞争程度，不是我们此次的分析目标，没有参考意义，我们只要“关键词”这一列。</p>
 <ul>
 <li>只保留关键词这一列
-<img src="/images/data-mining/data-mining-9.jpg" alt="图9"></li>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-9.jpg">
+            <img class="mx-auto" alt="图9" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-9.jpg" />
+        </a>
+    </li>
 </ul>
 <p>去重：需要把一模一样的词去除</p>
 <p>去长去短：一个正常的关键词的长度是在一定范围内的，太短没有参考意义，太长一般是有重复词根（这种一般都是用户非主观意识键入而被保存起来的），比如：</p>
@@ -166,11 +224,23 @@
 <ul>
 <li>
 <p>这是一份50W条数据的文档
-<img src="/images/data-mining/data-mining-10.jpg" alt="图10"></p>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-10.jpg">
+            <img class="mx-auto" alt="图10" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-10.jpg" />
+        </a>
+    </p>
 </li>
 <li>
 <p>里面就这样
-<img src="/images/data-mining/data-mining-11.jpg" alt="图11"></p>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-11.jpg">
+            <img class="mx-auto" alt="图11" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-11.jpg" />
+        </a>
+    </p>
 </li>
 </ul>
 <p>尽管已经做了清洗，但是几十万甚至几百万的关键词摆在我们眼前，依然眼花缭乱，我们根本记不住什么。</p>
@@ -189,7 +259,13 @@
 <p>自动归类完后的数据如下显示：</p>
 <ul>
 <li>部分需求类别
-<img src="/images/data-mining/data-mining-12.jpg" alt="图12"></li>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-12.jpg">
+            <img class="mx-auto" alt="图12" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-12.jpg" />
+        </a>
+    </li>
 </ul>
 <p>这样一份Excel，已经自动帮我们归类好相似的关键词，不同类的词会间隔开，好处在于：</p>
 <p><strong><strong>1：某些词可能只是小部分字眼不同，但实际表述的都是一件事，程序能帮你归类出来</strong></strong></p>
@@ -201,10 +277,28 @@
 <p>当我们在文档里看到一个想了解的需求，应该怎么做呢？</p>
 <h2 id="步骤4">步骤4：</h2>
 <p>比如我发现一个挺有意思的东西：
-<img src="/images/data-mining/data-mining-13.jpg" alt="图13"></p>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-13.jpg">
+            <img class="mx-auto" alt="图13" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-13.jpg" />
+        </a>
+    </p>
 <p>你可能经常看到&quot;PDF转Word&quot;的需求，但是转成一张图，应该很少见，如果平时看到了也不会在意，但是当一片词出现在你眼前时，你就会觉得奇怪，现在我们拿到百度搜索看看：</p>
-<p><img src="/images/data-mining/data-mining-14.jpg" alt="图14">
-<img src="/images/data-mining/data-mining-15.jpg" alt="图15"></p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-14.jpg">
+            <img class="mx-auto" alt="图14" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-14.jpg" />
+        </a>
+    
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-15.jpg">
+            <img class="mx-auto" alt="图15" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-15.jpg" />
+        </a>
+    </p>
 <p>不搜你都不知道，首屏5个广告位全满，原来这么不起眼的东西也能赚钱，一个PDF转图片的小功能，大不了自己截图一下的事情，居然也可以拿来做成一个服务卖给别人，而且竞争还很激烈。</p>
 <p>能赚多少？好赚吗？不知道！</p>
 <p><em><strong>这时我们可以：</strong></em></p>
@@ -218,11 +312,23 @@
 <ul>
 <li>
 <p>微信上有人做了专门的小程序和公众号
-<img src="/images/data-mining/data-mining-16.jpg" alt="图16"></p>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-16.jpg">
+            <img class="mx-auto" alt="图16" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-16.jpg" />
+        </a>
+    </p>
 </li>
 <li>
 <p>万能的某宝也少不了，销量还很可观
-<img src="/images/data-mining/data-mining-17.jpg" alt="图17"></p>
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-17.jpg">
+            <img class="mx-auto" alt="图17" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/data-mining/data-mining-17.jpg" />
+        </a>
+    </p>
 </li>
 </ul>
 <p>关键词就是有这样的特性，我们靠想，是绝对不可能凭空想出来的，即使人家就是用这个在赚着钱，但是我们就是不知道，而把数据都收集过来，再分类，那就可以清晰的一个个去了解了。</p>
@@ -243,8 +349,20 @@
 <table>
 <thead>
 <tr>
-<th align="left">微信<img src="/about/wechat.png" alt="微信"></th>
-<th align="left">支付宝<img src="/about/alipay.png" alt="支付宝"></th>
+<th align="left">微信
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/wechat.png">
+            <img class="mx-auto" alt="微信" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/wechat.png" />
+        </a>
+    </th>
+<th align="left">支付宝
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/alipay.png">
+            <img class="mx-auto" alt="支付宝" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/alipay.png" />
+        </a>
+    </th>
 </tr>
 </thead>
 <tbody>
@@ -609,23 +727,23 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://cold-eye.github.io/post/python-streamlit-nlp/" title="Streamlit: 情感分析web应用">Streamlit: 情感分析web应用</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/python-streamlit-heroku/" title="Streamlit: 交互式数据分析产品及 heroku 免费部署">Streamlit: 交互式数据分析产品及 heroku 免费部署</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/python-streamlit/" title="python streamlit">python streamlit</a>
+    </li>
+    
+    <li>
         <a href="https://cold-eye.github.io/post/python-gui/" title="python图形界面库，写桌面程序">python图形界面库，写桌面程序</a>
     </li>
     
     <li>
         <a href="https://cold-eye.github.io/post/nlp-classifier-sota/" title="打破 BERT 天花板：11种花式炼丹术刷爆NLP分类SOTA！">打破 BERT 天花板：11种花式炼丹术刷爆NLP分类SOTA！</a>
-    </li>
-    
-    <li>
-        <a href="https://cold-eye.github.io/post/nlp-less-sample/" title="NLP中的少样本困境问题探究">NLP中的少样本困境问题探究</a>
-    </li>
-    
-    <li>
-        <a href="https://cold-eye.github.io/post/data-mining-5/" title="数据挖掘5：互联网常见特殊词汇的商机">数据挖掘5：互联网常见特殊词汇的商机</a>
-    </li>
-    
-    <li>
-        <a href="https://cold-eye.github.io/post/data-mining-4/" title="数据挖掘4：从付费行为里找项目">数据挖掘4：从付费行为里找项目</a>
     </li>
     
 </ul>
@@ -658,7 +776,7 @@
     
     <li><a href="https://cold-eye.github.io/categories/nlp/">nlp (6)</a></li>
     
-    <li><a href="https://cold-eye.github.io/categories/python/">python (14)</a></li>
+    <li><a href="https://cold-eye.github.io/categories/python/">python (17)</a></li>
     
     <li><a href="https://cold-eye.github.io/categories/rust/">rust (1)</a></li>
     
@@ -713,6 +831,17 @@
     </section>
 
     
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://knowledge-of-medical.blogspot.com/" title="healthy">healthy</a>
+        </li>
+        
+    </ul>
+</section>
+
 
     <section class="widget">
         <h3 class="widget-title">其它</h3>
@@ -749,8 +878,8 @@
                 }
             };
     </script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 
 <a id="rocket" href="#top"></a>
 <script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
