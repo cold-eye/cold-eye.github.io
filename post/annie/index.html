@@ -1,0 +1,1337 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>annie: 视频下载 | 冷眼-风雨飘摇</title>
+    <meta property="og:title" content="annie: 视频下载 - 冷眼-风雨飘摇">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2020-10-09T09:48:30&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2020-10-09T09:48:30&#43;08:00'>
+        
+    <meta name="Keywords" content="[python annie 视频下载]">
+    <meta name="description" content="annie: 视频下载">
+        
+    <meta name="author" content="冷眼">
+    <meta property="og:url" content="https://cold-eye.github.io/post/annie/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+
+    
+    
+    
+
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+
+    
+    
+        <link rel="stylesheet" href='/css/douban.css'>
+    
+        <link rel="stylesheet" href='/css/other.css'>
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://cold-eye.github.io/">
+                        冷眼-风雨飘摇
+                    </a>
+                
+                <p class="description">专注于python、自然语言处理</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://cold-eye.github.io/">首页</a>
+                    
+                    <a  href="https://cold-eye.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://cold-eye.github.io/categories/" title="分类">分类</a>
+                    
+                    <a  href="https://cold-eye.github.io/about/" title="博主">博主</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">annie: 视频下载</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年10月9日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://cold-eye.github.io/categories/python'>python</a></span>
+            
+        </div>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">| <span id="busuanzi_value_page_pv"></span><span>
+                    阅读</span></span> | <span class="post-date">共2071字</span>，阅读约<span class="more-meta"> 5 分钟</span>
+        </div>
+        
+        
+        <div class="post-content">
+            <!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>👾 Annie is a fast, simple and clean video downloader built with Go.</p>
+<ul>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#getting-started">Getting Started</a>
+<ul>
+<li><a href="#download-a-video">Download a video</a></li>
+<li><a href="#download-anything-else">Download anything else</a></li>
+<li><a href="#download-playlist">Download playlist</a></li>
+<li><a href="#multiple-inputs">Multiple inputs</a></li>
+<li><a href="#resume-a-download">Resume a download</a></li>
+<li><a href="#cookies">Cookies</a></li>
+<li><a href="#auto-retry">Auto retry</a></li>
+<li><a href="#proxy">Proxy</a></li>
+<li><a href="#multi-thread">Multi-Thread</a></li>
+<li><a href="#short-link">Short link</a></li>
+<li><a href="#use-specified-referrer">Use specified Referrer</a></li>
+<li><a href="#specify-the-output-path-and-name">Specify the output path and name</a></li>
+<li><a href="#debug-mode">Debug Mode</a></li>
+<li><a href="#reuse-extracted-data">Reuse extracted data</a></li>
+<li><a href="#options">Options</a></li>
+</ul>
+</li>
+<li><a href="#supported-sites">Supported Sites</a></li>
+<li><a href="#known-issues">Known issues</a></li>
+<li><a href="#contributing">Contributing</a></li>
+<li><a href="#authors">Authors</a></li>
+<li><a href="#similar-projects">Similar projects</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<h2 id="installation">Installation</h2>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>The following dependencies are required and must be installed separately.</p>
+<ul>
+<li><strong><a href="https://www.ffmpeg.org">FFmpeg</a></strong></li>
+</ul>
+<blockquote>
+<p><strong>Note</strong>: FFmpeg does not affect the download, only affects the final file merge.</p>
+</blockquote>
+<h3 id="install-via-go-get">Install via <code>go get</code></h3>
+<p>To install Annie, use <code>go get</code>, or download the binary file from <a href="https://github.com/iawia002/annie/releases">Releases</a> page.</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#008080">GO111MODULE</span><span style="color:#000;font-weight:bold">=</span>on go get github.com/iawia002/annie
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="homebrew-macos-only">Homebrew (macOS only)</h3>
+<p>For macOS users, you can install <code>annie</code> via:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ brew install annie
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="arch-linux">Arch Linux</h3>
+<p>For Arch Users <a href="https://aur.archlinux.org/packages/annie">AUR</a> package is available.</p>
+<h3 id="void-linux">Void Linux</h3>
+<p>For Void linux users, you can install <code>annie</code> via:</p>
+<pre><code>$ xbps-install -S annie
+</code></pre><h3 id="scoophttpsscoopsh-on-windows"><a href="https://scoop.sh/">Scoop</a> on Windows</h3>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ scoop install annie
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="chocolateyhttpschocolateyorg-on-windows"><a href="https://chocolatey.org/">Chocolatey</a> on Windows</h3>
+<pre><code>$ choco install annie
+</code></pre><h2 id="getting-started">Getting Started</h2>
+<p>Usage:</p>
+<pre><code>annie [OPTIONS] URL [URL...]
+</code></pre><h3 id="download-a-video">Download a video</h3>
+<pre><code class="language-console" data-lang="console">$ annie https://www.youtube.com/watch?v=dQw4w9WgXcQ
+
+ Site:      YouTube youtube.com
+ Title:     Rick Astley - Never Gonna Give You Up (Video)
+ Type:      video
+ Stream:   
+     [248]  -------------------
+     Quality:         1080p video/webm; codecs=&quot;vp9&quot;
+     Size:            63.93 MiB (67038963 Bytes)
+     # download with: annie -f 248 ...
+
+ 41.88 MiB / 63.93 MiB [=================&gt;-------------]  65.51% 4.22 MiB/s 00m05s
+</code></pre><blockquote>
+<p>Note: wrap the URL in quotation marks if it contains special characters. (thanks @tonyxyl for pointing this out)</p>
+<p><code>$ annie 'https://...'</code></p>
+</blockquote>
+<p>The <code>-i</code> option displays all available quality of video without downloading.</p>
+<pre><code class="language-console" data-lang="console">$ annie -i https://www.youtube.com/watch?v=dQw4w9WgXcQ
+
+ Site:      YouTube youtube.com
+ Title:     Rick Astley - Never Gonna Give You Up (Video)
+ Type:      video
+ Streams:   # All available quality
+     [248]  -------------------
+     Quality:         1080p video/webm; codecs=&quot;vp9&quot;
+     Size:            49.29 MiB (51687554 Bytes)
+     # download with: annie -f 248 ...
+
+     [137]  -------------------
+     Quality:         1080p video/mp4; codecs=&quot;avc1.640028&quot;
+     Size:            43.45 MiB (45564306 Bytes)
+     # download with: annie -f 137 ...
+
+     [398]  -------------------
+     Quality:         720p video/mp4; codecs=&quot;av01.0.05M.08&quot;
+     Size:            37.12 MiB (38926432 Bytes)
+     # download with: annie -f 398 ...
+
+     [136]  -------------------
+     Quality:         720p video/mp4; codecs=&quot;avc1.4d401f&quot;
+     Size:            31.34 MiB (32867324 Bytes)
+     # download with: annie -f 136 ...
+
+     [247]  -------------------
+     Quality:         720p video/webm; codecs=&quot;vp9&quot;
+     Size:            31.03 MiB (32536181 Bytes)
+     # download with: annie -f 247 ...
+</code></pre><p>Use <code>annie -f stream &quot;URL&quot;</code> to download a specific stream listed in the output of <code>-i</code> option.</p>
+<h3 id="download-anything-else">Download anything else</h3>
+<p>If Annie is provided the URL of a specific resource, then it will be downloaded directly:</p>
+<pre><code class="language-console" data-lang="console">$ annie https://img9.bcyimg.com/drawer/15294/post/1799t/1f5a87801a0711e898b12b640777720f.jpg
+
+annie doesn't support this URL right now, but it will try to download it directly
+
+ Site:      Universal
+ Title:     1f5a87801a0711e898b12b640777720f
+ Type:      image/jpeg
+ Stream:
+     [default]  -------------------
+     Size:            1.00 MiB (1051042 Bytes)
+     # download with: annie -f default &quot;URL&quot;
+
+ 1.00 MiB / 1.00 MiB [===================================] 100.00% 1.21 MiB/s 0s
+</code></pre><h3 id="download-playlist">Download playlist</h3>
+<p>The <code>-p</code> option downloads an entire playlist instead of a single video.</p>
+<pre><code class="language-console" data-lang="console">$ annie -i -p https://www.bilibili.com/bangumi/play/ep198061
+
+ Site:      哔哩哔哩 bilibili.com
+ Title:     Doctor X 第四季：第一集
+ Type:      video
+ Streams:   # All available quality
+     [default]  -------------------
+     Quality:         高清 1080P
+     Size:            845.66 MiB (886738354 Bytes)
+     # download with: annie -f default &quot;URL&quot;
+
+
+ Site:      哔哩哔哩 bilibili.com
+ Title:     Doctor X 第四季：第二集
+ Type:      video
+ Streams:   # All available quality
+     [default]  -------------------
+     Quality:         高清 1080P
+     Size:            930.71 MiB (975919195 Bytes)
+     # download with: annie -f default &quot;URL&quot;
+
+......
+</code></pre><p>You can use the <code>-start</code>, <code>-end</code> or <code>-items</code> option to specify the download range of the list:</p>
+<pre><code>-start
+    	Playlist video to start at (default 1)
+-end
+    	Playlist video to end at
+-items
+    	Playlist video items to download. Separated by commas like: 1,5,6,8-10
+</code></pre><p>For bilibili playlists only:</p>
+<pre><code>-eto
+  File name of each bilibili episode doesn't include the playlist title
+</code></pre><h3 id="multiple-inputs">Multiple inputs</h3>
+<p>You can also download multiple URLs at once:</p>
+<pre><code class="language-console" data-lang="console">$ annie -i https://www.bilibili.com/video/av21877586 https://www.bilibili.com/video/av21990740
+
+ Site:      哔哩哔哩 bilibili.com
+ Title:     【莓机会了】甜到虐哭的13集单集MAD「我现在什么都不想干,更不想看14集」
+ Type:      video
+ Streams:   # All available quality
+     [default]  -------------------
+     Quality:         高清 1080P
+     Size:            51.88 MiB (54403767 Bytes)
+     # download with: annie -f default &quot;URL&quot;
+
+
+ Site:      哔哩哔哩 bilibili.com
+ Title:     【莓救了】甜到虐哭！！！国家队单集MAD-当熟悉的bgm响起，眼泪从脸颊滑下
+ Type:      video
+ Streams:   # All available quality
+     [default]  -------------------
+     Quality:         高清 1080P
+     Size:            77.63 MiB (81404093 Bytes)
+     # download with: annie -f default &quot;URL&quot;
+</code></pre><p>These URLs will be downloaded one by one.</p>
+<p>You can also use the <code>-F</code> option to read URLs from file:</p>
+<pre><code class="language-console" data-lang="console">$ annie -F ~/Desktop/u.txt
+
+ Site:      微博 weibo.com
+ Title:     在Google，我们设计什么？ via@阑夕
+ Type:      video
+ Stream:
+     [default]  -------------------
+     Size:            19.19 MiB (20118196 Bytes)
+     # download with: annie -f default &quot;URL&quot;
+
+ 19.19 MiB / 19.19 MiB [=================================] 100.00% 9.69 MiB/s 1s
+
+......
+</code></pre><p>You can use the <code>-start</code>, <code>-end</code> or <code>-items</code> option to specify the download range of the list:</p>
+<pre><code>-start
+    	File line to start at (default 1)
+-end
+    	File line to end at
+-items
+    	File lines to download. Separated by commas like: 1,5,6,8-10
+</code></pre><h3 id="resume-a-download">Resume a download</h3>
+<p><!-- raw HTML omitted -->Ctrl<!-- raw HTML omitted -->+<!-- raw HTML omitted -->C<!-- raw HTML omitted --> interrupts a download.</p>
+<p>A temporary <code>.download</code> file is kept in the output directory. If <code>annie</code> is ran with the same arguments, then the download progress will resume from the last session.</p>
+<h3 id="auto-retry">Auto retry</h3>
+<p>annie will auto retry when the download failed, you can specify the retry times by <code>-retry</code> option (default is 100).</p>
+<h3 id="cookies">Cookies</h3>
+<p>Cookies can be provided to <code>annie</code> with the <code>-c</code> option if they are required for accessing the video.</p>
+<p>Cookies can be the following format or <a href="https://curl.haxx.se/rfc/cookie_spec.html">Netscape Cookie</a> format:</p>
+<pre><code class="language-console" data-lang="console">name=value; name2=value2; ...
+</code></pre><p>Cookies can be a string or a text file, supply cookies in one of the two following ways.</p>
+<p>As a string:</p>
+<pre><code class="language-console" data-lang="console">$ annie -c &quot;name=value; name2=value2&quot; https://www.bilibili.com/video/av20203945
+</code></pre><p>As a text file:</p>
+<pre><code class="language-console" data-lang="console">$ annie -c cookies.txt https://www.bilibili.com/video/av20203945
+</code></pre><h3 id="proxy">Proxy</h3>
+<p>You can set the HTTP/SOCKS5 proxy using environment variables:</p>
+<pre><code class="language-console" data-lang="console">$ HTTP_PROXY=&quot;http://127.0.0.1:1087/&quot; annie -i https://www.youtube.com/watch?v=Gnbch2osEeo
+</code></pre><pre><code class="language-console" data-lang="console">$ HTTP_PROXY=&quot;socks5://127.0.0.1:1080/&quot; annie -i https://www.youtube.com/watch?v=Gnbch2osEeo
+</code></pre><h3 id="multi-thread">Multi-Thread</h3>
+<p>Use <code>-n</code> option to set the number of download threads(default is 10, only works for multiple-parts video).</p>
+<blockquote>
+<p><strong>Special Tips:</strong> Use too many threads in <strong>mgtv</strong> download will cause HTTP 403 error, we recommend setting the number of threads to <strong>1</strong>.</p>
+</blockquote>
+<h3 id="short-link">Short link</h3>
+<h4 id="bilibili">bilibili</h4>
+<p>You can just use <code>av</code> or <code>ep</code> number to download bilibili&rsquo;s video:</p>
+<pre><code class="language-console" data-lang="console">$ annie -i ep198381 av21877586
+
+ Site:      哔哩哔哩 bilibili.com
+ Title:     狐妖小红娘：第79话 南国公主的吃货本色
+ Type:      video
+ Streams:   # All available quality
+     [default]  -------------------
+     Quality:         高清 1080P
+     Size:            485.23 MiB (508798478 Bytes)
+     # download with: annie -f default &quot;URL&quot;
+
+
+ Site:      哔哩哔哩 bilibili.com
+ Title:     【莓机会了】甜到虐哭的13集单集MAD「我现在什么都不想干,更不想看14集」
+ Type:      video
+ Streams:   # All available quality
+     [default]  -------------------
+     Quality:         高清 1080P
+     Size:            51.88 MiB (54403767 Bytes)
+     # download with: annie -f default &quot;URL&quot;
+</code></pre><h3 id="use-specified-referrer">Use specified Referrer</h3>
+<p>A Referrer can be used for the request with the <code>-r</code> option:</p>
+<pre><code class="language-console" data-lang="console">$ annie -r https://www.bilibili.com/video/av20383055/ http://cn-scnc1-dx.acgvideo.com/...
+
+...
+</code></pre><h3 id="specify-the-output-path-and-name">Specify the output path and name</h3>
+<p>The <code>-o</code> option sets the path, and <code>-O</code> option sets the name of the downloaded file:</p>
+<pre><code class="language-console" data-lang="console">$ annie -o ../ -O &quot;hello&quot; https://...
+</code></pre><h3 id="debug-mode">Debug Mode</h3>
+<p>The <code>-d</code> option outputs network request messages:</p>
+<pre><code class="language-console" data-lang="console">$ annie -i -d http://www.bilibili.com/video/av20088587
+
+URL:         http://www.bilibili.com/video/av20088587
+Method:      GET
+Headers:     http.Header{
+    &quot;Referer&quot;:         {&quot;http://www.bilibili.com/video/av20088587&quot;},
+    &quot;Accept&quot;:          {&quot;text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&quot;},
+    &quot;Accept-Charset&quot;:  {&quot;UTF-8,*;q=0.5&quot;},
+    &quot;Accept-Encoding&quot;: {&quot;gzip,deflate,sdch&quot;},
+    &quot;Accept-Language&quot;: {&quot;en-US,en;q=0.8&quot;},
+    &quot;User-Agent&quot;:      {&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36&quot;},
+}
+Status Code: 200
+
+URL:         https://interface.bilibili.com/v2/playurl?appkey=84956560bc028eb7&amp;cid=32782944&amp;otype=json&amp;qn=116&amp;quality=116&amp;type=&amp;sign=fb2e3f261fec398652f96d358517e535
+Method:      GET
+Headers:     http.Header{
+    &quot;Accept-Charset&quot;:  {&quot;UTF-8,*;q=0.5&quot;},
+    &quot;Accept-Encoding&quot;: {&quot;gzip,deflate,sdch&quot;},
+    &quot;Accept-Language&quot;: {&quot;en-US,en;q=0.8&quot;},
+    &quot;User-Agent&quot;:      {&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36&quot;},
+    &quot;Referer&quot;:         {&quot;https://interface.bilibili.com/v2/playurl?appkey=84956560bc028eb7&amp;cid=32782944&amp;otype=json&amp;qn=116&amp;quality=116&amp;type=&amp;sign=fb2e3f261fec398652f96d358517e535&quot;},
+    &quot;Accept&quot;:          {&quot;text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&quot;},
+}
+Status Code: 200
+
+ Site:      哔哩哔哩 bilibili.com
+ Title:     燃油动力的遥控奥迪R8跑赛道
+ Type:      video
+ Streams:   # All available quality
+     [default]  -------------------
+     Quality:         高清 1080P
+     Size:            64.38 MiB (67504795 Bytes)
+     # download with: annie -f default &quot;URL&quot;
+</code></pre><h3 id="reuse-extracted-data">Reuse extracted data</h3>
+<p>The <code>-j</code> option will print the extracted data in JSON format.</p>
+<pre><code class="language-console" data-lang="console">$ annie -j https://www.bilibili.com/video/av20203945
+
+{
+    &quot;site&quot;: &quot;哔哩哔哩 bilibili.com&quot;,
+    &quot;title&quot;: &quot;【2018拜年祭单品】相遇day by day&quot;,
+    &quot;type&quot;: &quot;video&quot;,
+    &quot;streams&quot;: {
+        &quot;15&quot;: {
+            &quot;urls&quot;: [
+                {
+                    &quot;url&quot;: &quot;...&quot;,
+                    &quot;size&quot;: 18355205,
+                    &quot;ext&quot;: &quot;flv&quot;
+                }
+            ],
+            &quot;quality&quot;: &quot;流畅 360P&quot;,
+            &quot;size&quot;: 18355205
+        },
+        &quot;32&quot;: {
+            &quot;urls&quot;: [
+                {
+                    &quot;url&quot;: &quot;...&quot;,
+                    &quot;size&quot;: 40058632,
+                    &quot;ext&quot;: &quot;flv&quot;
+                }
+            ],
+            &quot;quality&quot;: &quot;清晰 480P&quot;,
+            &quot;size&quot;: 40058632
+        },
+        &quot;64&quot;: {
+            &quot;urls&quot;: [
+                {
+                    &quot;url&quot;: &quot;...&quot;,
+                    &quot;size&quot;: 82691087,
+                    &quot;ext&quot;: &quot;flv&quot;
+                }
+            ],
+            &quot;quality&quot;: &quot;高清 720P&quot;,
+            &quot;size&quot;: 82691087
+        },
+        &quot;80&quot;: {
+            &quot;urls&quot;: [
+                {
+                    &quot;url&quot;: &quot;...&quot;,
+                    &quot;size&quot;: 121735559,
+                    &quot;ext&quot;: &quot;flv&quot;
+                }
+            ],
+            &quot;quality&quot;: &quot;高清 1080P&quot;,
+            &quot;size&quot;: 121735559
+        }
+    }
+}
+</code></pre><h3 id="options">Options</h3>
+<pre><code>  -i	Information only
+  -F string
+    	URLs file path
+  -d	Debug mode
+  -j	Print extracted data
+  -v	Show version
+</code></pre><h4 id="download">Download:</h4>
+<pre><code>  -f string
+    	Select specific stream to download
+  -p	Download playlist
+  -n int
+    	The number of download thread (only works for multiple-parts video) (default 10)
+  -c string
+    	Cookie
+  -r string
+    	Use specified Referrer
+  -cs int
+    	HTTP chunk size for downloading (in MB) (default 0)
+</code></pre><h4 id="network">Network:</h4>
+<pre><code>  -retry int
+    	How many times to retry when the download failed (default 10)
+</code></pre><h4 id="playlist">Playlist:</h4>
+<pre><code>  -start int
+    	Playlist video to start at (default 1)
+  -end int
+    	Playlist video to end at
+  -items string
+    	Playlist video items to download. Separated by commas like: 1,5,6,8-10
+</code></pre><h4 id="filesystem">Filesystem:</h4>
+<pre><code>  -o string
+    	Specify the output path
+  -O string
+    	Specify the output file name
+</code></pre><h4 id="subtitle">Subtitle:</h4>
+<pre><code>  -C	Download captions
+</code></pre><h4 id="youku">Youku:</h4>
+<pre><code>  -ccode string
+    	Youku ccode (default &quot;0590&quot;)
+  -ckey string
+    	Youku ckey (default &quot;7B19C0AB12633B22E7FE81271162026020570708D6CC189E4924503C49D243A0DE6CD84A766832C2C99898FC5ED31F3709BB3CDD82C96492E721BDD381735026&quot;)
+  -password string
+    	Youku password
+</code></pre><h4 id="aria2">aria2:</h4>
+<blockquote>
+<p>Note: If you use aria2 to download, you need to merge the multi-part videos yourself.</p>
+</blockquote>
+<pre><code>  -aria2
+    	Use Aria2 RPC to download
+  -aria2addr string
+    	Aria2 Address (default &quot;localhost:6800&quot;)
+  -aria2method string
+    	Aria2 Method (default &quot;http&quot;)
+  -aria2token string
+    	Aria2 RPC Token
+</code></pre><h2 id="supported-sites">Supported Sites</h2>
+<table>
+<thead>
+<tr>
+<th>Site</th>
+<th>URL</th>
+<th>🎬 Videos</th>
+<th>🌁 Images</th>
+<th>📚 Playlist</th>
+<th>🍪 VIP adaptation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>抖音</td>
+<td><a href="https://www.douyin.com">https://www.douyin.com</a></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>哔哩哔哩</td>
+<td><a href="https://www.bilibili.com">https://www.bilibili.com</a></td>
+<td>✓</td>
+<td></td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>半次元</td>
+<td><a href="https://bcy.net">https://bcy.net</a></td>
+<td></td>
+<td>✓</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>pixivision</td>
+<td><a href="https://www.pixivision.net">https://www.pixivision.net</a></td>
+<td></td>
+<td>✓</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>优酷</td>
+<td><a href="https://www.youku.com">https://www.youku.com</a></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td>✓</td>
+</tr>
+<tr>
+<td>YouTube</td>
+<td><a href="https://www.youtube.com">https://www.youtube.com</a></td>
+<td>✓</td>
+<td></td>
+<td>✓</td>
+<td></td>
+</tr>
+<tr>
+<td>爱奇艺</td>
+<td><a href="https://www.iqiyi.com">https://www.iqiyi.com</a></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>芒果TV</td>
+<td><a href="https://www.mgtv.com">https://www.mgtv.com</a></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>糖豆广场舞</td>
+<td><a href="http://www.tangdou.com">http://www.tangdou.com</a></td>
+<td>✓</td>
+<td></td>
+<td>✓</td>
+<td></td>
+</tr>
+<tr>
+<td>Tumblr</td>
+<td><a href="https://www.tumblr.com">https://www.tumblr.com</a></td>
+<td>✓</td>
+<td>✓</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Vimeo</td>
+<td><a href="https://vimeo.com">https://vimeo.com</a></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Facebook</td>
+<td><a href="https://facebook.com">https://facebook.com</a></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>斗鱼视频</td>
+<td><a href="https://v.douyu.com">https://v.douyu.com</a></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>秒拍</td>
+<td><a href="https://www.miaopai.com">https://www.miaopai.com</a></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>微博</td>
+<td><a href="https://weibo.com">https://weibo.com</a></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Instagram</td>
+<td><a href="https://www.instagram.com">https://www.instagram.com</a></td>
+<td>✓</td>
+<td>✓</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Twitter</td>
+<td><a href="https://twitter.com">https://twitter.com</a></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>腾讯视频</td>
+<td><a href="https://v.qq.com">https://v.qq.com</a></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>网易云音乐</td>
+<td><a href="https://music.163.com">https://music.163.com</a></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>音悦台</td>
+<td><a href="https://yinyuetai.com">https://yinyuetai.com</a></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>极客时间</td>
+<td><a href="https://time.geekbang.org">https://time.geekbang.org</a></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Pornhub</td>
+<td><a href="https://pornhub.com">https://pornhub.com</a></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>XVIDEOS</td>
+<td><a href="https://xvideos.com">https://xvideos.com</a></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>聯合新聞網</td>
+<td><a href="https://udn.com">https://udn.com</a></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TikTok</td>
+<td><a href="https://www.tiktok.com">https://www.tiktok.com</a></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>好看视频</td>
+<td><a href="https://haokan.baidu.com">https://haokan.baidu.com</a></td>
+<td>✓</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="known-issues">Known issues</h2>
+<h3 id="优酷">优酷</h3>
+<p>优酷的 <code>ccode</code> 经常变化导致 annie 不可用，如果你知道有新的可用的 <code>ccode</code>，可以直接使用 <code>annie -ccode ...</code> 而不用等待 annie 更新（当然，也欢迎你给我们提一个 Pull request 来更新默认的 <code>ccode</code>）</p>
+<p>最好是每次下载都附带登录过的 Cookie 以避免部分 <code>ccode</code> 的问题</p>
+<h2 id="contributing">Contributing</h2>
+<p>Annie is an open source project and built on the top of open-source projects. If you are interested, then you are welcome to contribute. Let&rsquo;s make Annie better, together. 💪</p>
+<p>Check out the <a href="./CONTRIBUTING.md">Contributing Guide</a> to get started.</p>
+<p>Special thanks to <a href="https://github.com/Yasujizr">@Yasujizr</a> who designed the amazing logo!</p>
+<p>Thanks for <a href="https://www.jetbrains.com/?from=annie">JetBrains</a> for the wonderful IDE.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="authors">Authors</h2>
+<p>Code with ❤️ by <a href="https://github.com/iawia002">iawia002</a> and lovely <a href="https://github.com/iawia002/annie/graphs/contributors">contributors</a></p>
+<h2 id="similar-projects">Similar projects</h2>
+<ul>
+<li><a href="https://github.com/rg3/youtube-dl">youtube-dl</a></li>
+<li><a href="https://github.com/soimort/you-get">you-get</a></li>
+<li><a href="https://github.com/rylio/ytdl">ytdl</a></li>
+</ul>
+<h2 id="license">License</h2>
+<p>MIT</p>
+<p>Copyright (c) 2018-present, iawia002</p>
+<h2 id="reference">Reference</h2>
+<p>1、 <a href="https://github.com/iawia002/annie">https://github.com/iawia002/annie</a></p>
+<h2 id="打赏">打赏</h2>
+<table>
+<thead>
+<tr>
+<th align="left">微信
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/wechat.png">
+            <img class="mx-auto" alt="微信" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/wechat.png" />
+        </a>
+    </th>
+<th align="left">支付宝
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/alipay.png">
+            <img class="mx-auto" alt="支付宝" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/alipay.png" />
+        </a>
+    </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em><strong>万分感谢</strong></em></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+
+        
+<div class="post-archive">
+    <ul class="post-copyright">
+        <li><strong>原文作者：</strong><a rel="author" href="https://cold-eye.github.io/">冷眼</a></li>
+        <li style="word-break:break-all"><strong>原文链接：</strong><a href="https://cold-eye.github.io/post/annie/">https://cold-eye.github.io/post/annie/</a></li>
+        <li><strong>版权声明：</strong>本作品采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可，非商业转载请注明出处（作者，原文链接），商业转载请联系作者获得授权。</li>
+    </ul>
+</div>
+<br/>
+
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/python-streamlit-nlp/">Streamlit: 情感分析web应用</a></li>
+        
+        <li><a href="/post/python-streamlit-heroku/">Streamlit: 交互式数据分析产品及 heroku 免费部署</a></li>
+        
+        <li><a href="/post/python-streamlit/">python streamlit</a></li>
+        
+        <li><a href="/post/python-gui/">python图形界面库，写桌面程序</a></li>
+        
+        <li><a href="/post/server-jiang/">通过 server 酱实现定时推送信息</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='https://cold-eye.github.io/tags/python'>python</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    
+    
+    
+    <div id="vcomments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+    <script type="text/javascript">
+      new Valine({
+          el: '#vcomments' ,
+          appId: '2bNGHPmILSH9xQJ9XjQchomv-gzGzoHsz',
+          appKey: '52xbEYwnpwLahMh4Yj55r69v',
+          notify: 'false', 
+          verify: 'false', 
+          avatar:'mm', 
+          placeholder: '说点什么吧...',
+          visitor: 'false'
+      });
+    </script>
+</div>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <!DOCTYPE html>
+<html>
+
+<head>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+    <div class="demo">
+        <div id="player1">
+        </div>
+    </div>
+    <script>
+        var ap = new APlayer
+            ({
+                element: document.getElementById('player1'),
+                narrow: false,
+                fixed: false, 
+                autoplay: false,
+                showlrc: true,
+                mini: false,
+                theme: '#FADFA3',
+                loop: 'all',
+                order: 'random',
+                preload: 'auto',
+                volume: 0.5,
+                mutex: false,
+                listFolded: true,
+                listMaxHeight: 90,
+                lrcType: 2,
+                music:
+                    [
+                        {
+                            artist: 'A',
+                            name: 'A',
+                            url:'http://music.163.com/song/media/outer/url?id=28560087.mp3',
+                            cover: '',
+                            lrc:'A',
+                        },{
+                            name: 'B',
+                            artist:'B',
+                            url:'http://music.163.com/song/media/outer/url?id=1438282140.mp3',
+                            cover: '',
+                            lrc:'B',
+                            theme: '#ebd0c2'
+                        },{
+                            name: 'C',
+                            artist:'C',
+                            url:'http://music.163.com/song/media/outer/url?id=5316168.mp3',
+                            cover: '',
+                            lrc:'C',
+                            theme: '#46718b'
+                        },{
+                            name: 'D',
+                            artist:'D',
+                            url:'http://music.163.com/song/media/outer/url?id=2007819.mp3',
+                            cover: '',
+                            lrc:'D',
+                            theme: ''
+                        },{
+                            name: 'E',
+                            artist:'E',
+                            url:'http://music.163.com/song/media/outer/url?id=1398850429.mp3',
+                            cover: '',
+                            lrc:'E',
+                            theme: ''
+                        },{
+                            name: 'F',
+                            artist:'F',
+                            url:'http://music.163.com/song/media/outer/url?id=28830038.mp3',
+                            cover: '',
+                            lrc:'F',
+                            theme: ''
+                        },{
+                            name: 'G',
+                            artist:'G',
+                            url:'http://music.163.com/song/media/outer/url?id=451126971.mp3',
+                            cover: '',
+                            lrc:'G',
+                            theme: ''
+                        },{
+                            name: 'H',
+                            artist:'H',
+                            url:'http://music.163.com/song/media/outer/url?id=744866.mp3',
+                            cover: '',
+                            lrc:'H',
+                            theme: ''
+                        },{
+                            name: 'I',
+                            artist:'I',
+                            url:'http://music.163.com/song/media/outer/url?id=1341800295.mp3',
+                            cover: '',
+                            lrc:'I',
+                            theme: ''
+                        },{
+                            name: 'J',
+                            artist:'J',
+                            url:'http://music.163.com/song/media/outer/url?id=32835377.mp3',
+                            cover: '',
+                            lrc:'J',
+                            theme: ''
+                        },{
+                            name: 'K',
+                            artist:'K',
+                            url:'http://music.163.com/song/media/outer/url?id=1379464883.mp3',
+                            cover: '',
+                            lrc:'K',
+                            theme: ''
+                        },{
+                            name: 'L',
+                            artist:'L',
+                            url:'http://music.163.com/song/media/outer/url?id=506726178.mp3',
+                            cover: '',
+                            lrc:'L',
+                            theme: ''
+                        },{
+                            name: 'M',
+                            artist:'M',
+                            url:'http://music.163.com/song/media/outer/url?id=411214138.mp3',
+                            cover: '',
+                            lrc:'M',
+                            theme: ''
+                        },{
+                            name: 'N',
+                            artist:'N',
+                            url:'http://music.163.com/song/media/outer/url?id=1415097371.mp3',
+                            cover: '',
+                            lrc:'N',
+                            theme: ''
+                        },{
+                            name: 'O',
+                            artist:'O',
+                            url:'http://music.163.com/song/media/outer/url?id=505449407.mp3',
+                            cover: '',
+                            lrc:'O',
+                            theme: ''
+                        },{
+                            name: 'P',
+                            artist:'P',
+                            url:'http://music.163.com/song/media/outer/url?id=29947420.mp3',
+                            cover: '',
+                            lrc:'P',
+                            theme: ''
+                        },{
+                            name: 'Q',
+                            artist:'Q',
+                            url:'http://music.163.com/song/media/outer/url?id=21311956.mp3',
+                            cover: '',
+                            lrc:'Q',
+                            theme: ''
+                        },{
+                            name: 'R',
+                            artist:'R',
+                            url:'http://music.163.com/song/media/outer/url?id=418602088.mp3',
+                            cover: '',
+                            lrc:'R',
+                            theme: ''
+                        },{
+                            name: 'S',
+                            artist:'S',
+                            url:'http://music.163.com/song/media/outer/url?id=1363551021.mp3',
+                            cover: '',
+                            lrc:'S',
+                            theme: ''
+                        },{
+                            name: 'T',
+                            artist:'T',
+                            url:'http://music.163.com/song/media/outer/url?id=1376653715.mp3',
+                            cover: '',
+                            lrc:'T',
+                            theme: ''
+                        },{
+                            name: 'U',
+                            artist:'U',
+                            url:'http://music.163.com/song/media/outer/url?id=546838016.mp3',
+                            cover: '',
+                            lrc:'U',
+                            theme: ''
+                        },{
+                            name: 'V',
+                            artist:'V',
+                            url:'http://music.163.com/song/media/outer/url?id=1403250178.mp3',
+                            cover: '',
+                            lrc:'V',
+                            theme: ''
+                        },{
+                            name: 'W',
+                            artist:'W',
+                            url:'http://music.163.com/song/media/outer/url?id=5348853.mp3',
+                            cover: '',
+                            lrc:'W',
+                            theme: ''
+                        },{
+                            name: 'X',
+                            artist:'X',
+                            url:'http://music.163.com/song/media/outer/url?id=34613621.mp3',
+                            cover: '',
+                            lrc:'X',
+                            theme: ''
+                        },{
+                            name: 'Y',
+                            artist:'Y',
+                            url:'http://music.163.com/song/media/outer/url?id=553815184.mp3',
+                            cover: '',
+                            lrc:'Y',
+                            theme: ''
+                        },{
+                            name: 'Z',
+                            artist:'Z',
+                            url:'http://music.163.com/song/media/outer/url?id=16607021.mp3',
+                            cover: '',
+                            lrc:'Z',
+                            theme: ''
+                        },{
+                            name: 'X1',
+                            artist:'X1',
+                            url:'http://music.163.com/song/media/outer/url?id=3961975.mp3',
+                            cover: '',
+                            lrc:'X1',
+                            theme: ''
+                        },
+                    ]
+
+                    
+        });
+        
+    </script>
+</body>
+    </section>
+
+    <section class="widget">
+        <form id="search" action='https://cold-eye.github.io/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://cold-eye.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/hawk/" title="Hawk: 爬虫工具">Hawk: 爬虫工具</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/python-image-download/" title="Image Downloader: 图片下载">Image Downloader: 图片下载</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/annie/" title="annie: 视频下载">annie: 视频下载</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/python-streamlit-nlp/" title="Streamlit: 情感分析web应用">Streamlit: 情感分析web应用</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/python-streamlit-heroku/" title="Streamlit: 交互式数据分析产品及 heroku 免费部署">Streamlit: 交互式数据分析产品及 heroku 免费部署</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title" style="color:red">福利派送</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a href="https://www.freelancer.com/get/qinyukun1325?f=give" title="注册freelancer得20美刀" target="_blank" style="color:red">
+                
+                    注册freelancer得20美刀
+                
+            </a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li><a href="https://cold-eye.github.io/categories/IT%E6%8A%80%E6%9C%AF/">IT技术 (8)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/hugo/">hugo (3)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/nlp/">nlp (6)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/python/">python (20)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/rust/">rust (1)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能 (2)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/%E7%BB%8F%E6%B5%8E%E7%94%9F%E6%B4%BB/">经济生活 (8)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://cold-eye.github.io/tags/IT%E6%8A%80%E6%9C%AF/">IT技术</a>
+    
+    <a href="https://cold-eye.github.io/tags/hugo/">hugo</a>
+    
+    <a href="https://cold-eye.github.io/tags/linux/">linux</a>
+    
+    <a href="https://cold-eye.github.io/tags/mac/">mac</a>
+    
+    <a href="https://cold-eye.github.io/tags/nlp/">nlp</a>
+    
+    <a href="https://cold-eye.github.io/tags/python/">python</a>
+    
+    <a href="https://cold-eye.github.io/tags/rust/">rust</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E5%81%A5%E8%BA%AB/">健身</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E5%9B%BE%E5%83%8F/">图像</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E7%88%AC%E8%99%AB/">爬虫</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">知识图谱</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/">程序员</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E7%BB%8F%E6%B5%8E%E7%94%9F%E6%B4%BB/">经济生活</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E8%A2%AB%E5%8A%A8%E6%94%B6%E5%85%A5/">被动收入</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E8%B7%91%E6%AD%A5/">跑步</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://knowledge-of-medical.blogspot.com/" title="healthy">healthy</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://cold-eye.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <script src="//code.tidio.co/2dpeb0joi7ueoxequchq01ya9ckrmy63.js" async></script>
+    <div class="container">
+        &copy; 
+        2018 - 
+        2020
+        <a href="https://cold-eye.github.io/">冷眼-风雨飘摇 By 冷眼</a>.
+        
+        访问量<span id="busuanzi_value_site_pv"></span>次 | 访客<span id="busuanzi_value_site_uv"></span>人
+        
+        
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-173047983-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+    <script src='/js/douban.js'></script>
+
+
+
+</body>
+
+</html>
