@@ -6,20 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>python streamlit | 冷眼-风雨飘摇</title>
-    <meta property="og:title" content="python streamlit - 冷眼-风雨飘摇">
+    <title>效率倍增！5款超级好用的Python工具库！ | 冷眼-风雨飘摇</title>
+    <meta property="og:title" content="效率倍增！5款超级好用的Python工具库！ - 冷眼-风雨飘摇">
     <meta property="og:type" content="article">
         
-    <meta property="article:published_time" content='2020-10-08T13:48:30&#43;08:00'>
+    <meta property="article:published_time" content='2020-10-10T18:48:30&#43;08:00'>
         
         
-    <meta property="article:modified_time" content='2020-10-08T13:48:30&#43;08:00'>
+    <meta property="article:modified_time" content='2020-10-10T18:48:30&#43;08:00'>
         
-    <meta name="Keywords" content="[python streamlit]">
-    <meta name="description" content="python streamlit">
+    <meta name="Keywords" content="[python]">
+    <meta name="description" content="效率倍增！5款超级好用的Python工具库！">
         
     <meta name="author" content="冷眼">
-    <meta property="og:url" content="https://cold-eye.github.io/post/python-streamlit/">
+    <meta property="og:url" content="https://cold-eye.github.io/post/python-five-tools/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href='/css/normalize.css'>
@@ -83,10 +83,10 @@
     
     <article class="post">
         <header>
-            <h1 class="post-title">python streamlit</h1>
+            <h1 class="post-title">效率倍增！5款超级好用的Python工具库！</h1>
         </header>
         <date class="post-meta meta-date">
-            2020年10月8日
+            2020年10月10日
         </date>
         
         <div class="post-meta">
@@ -99,93 +99,205 @@
         
         <div class="post-meta">
             <span id="busuanzi_container_page_pv">| <span id="busuanzi_value_page_pv"></span><span>
-                    阅读</span></span> | <span class="post-date">共295字</span>，阅读约<span class="more-meta"> 1 分钟</span>
+                    阅读</span></span> | <span class="post-date">共1121字</span>，阅读约<span class="more-meta"> 3 分钟</span>
         </div>
         
         
         <div class="post-content">
-            <h1 id="welcome-to-streamlit-wave">Welcome to Streamlit :wave:</h1>
-<p><a href="https://docs.streamlit.io/en/latest/?badge=latest">
-        <a data-fancybox="gallery" href="https://readthedocs.com/projects/streamlit-streamlit/badge/?version=latest">
-            <img class="mx-auto" alt="Documentation Status" src="https://readthedocs.com/projects/streamlit-streamlit/badge/?version=latest" />
-        </a>
-    </a></p>
-<p><strong>The fastest way to build data apps.</strong></p>
-<p>Streamlit lets you create apps for your machine learning projects with deceptively simple Python scripts. It supports hot-reloading, so your app updates live as you edit and save your file. No need to mess with HTTP requests, HTML, JavaScript, etc. All you need is your favorite editor and a browser. Take a look at Streamlit in action:</p>
-<p>
-        <a data-fancybox="gallery" href="https://github.com/streamlit/streamlit/raw/develop/docs/_static/img/uber_dashboard.gif">
-            <img class="mx-auto" alt="Example of live coding a dashboard in Streamlit|635x380" src="https://github.com/streamlit/streamlit/raw/develop/docs/_static/img/uber_dashboard.gif" />
-        </a>
-    </p>
-<p><strong>Check out our <a href="https://towardsdatascience.com/coding-ml-tools-like-you-code-ml-models-ddba3357eace">launch blog post</a>!!</strong></p>
-<h2 id="installation">Installation</h2>
+            <ul>
+<li>Lux</li>
+<li>Translators</li>
+<li>TextShot</li>
+<li>Fancy-NLP</li>
+<li>latexify_py</li>
+</ul>
+<h2 id="1lux">1、Lux</h2>
+<p>Lux 是一个 Python 库，它可以自动化的进行数据探索，让你能更轻松的玩转数据科学。Lux 旨在与 Pandas 紧密集成，可以按原样使用，而无需修改您现有的Pandas代码。要启用Lux，只需将 import lux 与 Pandas import 语句一起添加即可。</p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pip install streamlit
-streamlit hello
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">lux</span>
+<span style="color:#000;font-weight:bold">import</span> <span style="color:#555">pandas</span> <span style="color:#000;font-weight:bold">as</span> <span style="color:#555">pd</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>We also have suggestions for installing Streamlit in a virtual environment in <a href="https://github.com/streamlit/streamlit/wiki/Installing-in-a-virtual-environment#on-windows">Windows</a>, <a href="https://github.com/streamlit/streamlit/wiki/Installing-in-a-virtual-environment#on-mac--linux">Mac</a>, and <a href="https://github.com/streamlit/streamlit/wiki/Installing-in-a-virtual-environment#on-mac--linux">Linux</a>.</p>
-<h2 id="example">Example</h2>
-<p>Streamlit lets you build interactive apps ridiculously easily:</p>
+</div><p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-five-tools/python-five-tools-1.gif">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-five-tools/python-five-tools-1.gif" />
+        </a>
+    </p>
+<p>瞧！这是一组可视化，你还可以在 Lux 中指定您感兴趣的属性和值。基于此意图，Lux会指导用户朝着潜在的下一步发展，当然还有很多功能，有兴趣可以进一步探索。</p>
+<p><strong>官方链接</strong></p>
+<pre><code>https://lux-api.readthedocs.io/en/latest/source/getting_started/installation.html
+</code></pre>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df<span style="color:#000;font-weight:bold">.</span>intent <span style="color:#000;font-weight:bold">=</span> [<span style="color:#d14">&#34;AverageCost&#34;</span>,<span style="color:#d14">&#34;SATAverage&#34;</span>]
+df
+</code></pre></td></tr></table>
+</div>
+</div><p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-five-tools/python-five-tools-2.gif">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-five-tools/python-five-tools-2.gif" />
+        </a>
+    </p>
+<p><strong>安装方法</strong></p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">streamlit</span> <span style="color:#000;font-weight:bold">as</span> <span style="color:#555">st</span>
-
-x <span style="color:#000;font-weight:bold">=</span> st<span style="color:#000;font-weight:bold">.</span>slider(<span style="color:#d14">&#39;Select a value&#39;</span>)
-st<span style="color:#000;font-weight:bold">.</span>write(x, <span style="color:#d14">&#39;squared is&#39;</span>, x <span style="color:#000;font-weight:bold">*</span> x)
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#998;font-style:italic"># PyPI安装Python Lux API</span>
+pip install lux-api
+<span style="color:#998;font-style:italic">#要安装小部件，我们需要安装webpack</span>
+npm install --save-dev webpack webpack-cli
+<span style="color:#998;font-style:italic"># npm安装Lux Jupyter小部件</span>
+npm i lux-widget
 </code></pre></td></tr></table>
 </div>
-</div><p>
-        <a data-fancybox="gallery" href="https://streamlit-demo-data.s3-us-west-2.amazonaws.com/squared-image-for-github-readme-2.png">
-            <img class="mx-auto" alt="1" src="https://streamlit-demo-data.s3-us-west-2.amazonaws.com/squared-image-for-github-readme-2.png" />
-        </a>
-    </p>
-<h1 id="img-srchttpsstreamlit-demo-datas3-us-west-2amazonawscomsquared-image-for-github-readme-2png-width490"><!-- raw HTML omitted --></h1>
-<h2 id="a-bigger-example">A Bigger Example</h2>
-<p>Despite its simplicity Streamlit lets you build incredibly rich and powerful tools. <a href="https://github.com/streamlit/demo-self-driving">This demo project</a> lets you browse the entire <a href="https://github.com/udacity/self-driving-car">Udacity self-driving-car dataset</a> and run inference in real time using the <a href="https://pjreddie.com/darknet/yolo">YOLO object detection net</a>.</p>
-<p><figure class="max-w-2xl mx-auto overflow-hidden">
-    
-    <a data-fancybox="gallery" href="https://raw.githubusercontent.com/streamlit/demo-self-driving/master/av_final_optimized.gif">
-        <img alt="Making-of Animation" src="https://raw.githubusercontent.com/streamlit/demo-self-driving/master/av_final_optimized.gif" />
-    </a>
-    
-    <figcaption class="p-2 text-center">Making-of Animation</figcaption>
-</figure></p>
-<p>The complete demo is implemented in less than 300 lines of Python. In fact, the app contains <a href="https://github.com/streamlit/demo-self-driving/blob/master/app.py">only 23 Streamlit calls</a> which illustrates all the major building blocks of Streamlit. You can try it right now with:</p>
+</div><h2 id="2translators">2、Translators</h2>
+<p>Translators 集成了谷歌、必应、有道、百度等多个翻译平台 API，支持上百种语言翻译，使用便捷，配置灵活。对于批量需要翻译的场景，绝对是提效利器。</p>
+<p><strong>安装</strong></p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pip install --upgrade streamlit opencv-python
-streamlit run https://raw.githubusercontent.com/streamlit/demo-self-driving/master/app.py
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#998;font-style:italic"># Windows, Mac, Linux</span>
+pip install translators --upgrade
+
+<span style="color:#998;font-style:italic"># Linux javascript runtime environment:</span>
+sudo yum -y install nodejs
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="more-information">More Information</h2>
-<ul>
-<li>Our <a href="https://towardsdatascience.com/coding-ml-tools-like-you-code-ml-models-ddba3357eace">launch post</a></li>
-<li>Our lovely <a href="https://discuss.streamlit.io/">community</a></li>
-<li>Streamlit <a href="https://docs.streamlit.io/">documentation</a></li>
-<li>More <a href="https://github.com/streamlit/">demo projects</a></li>
-<li>If you would like to contribute, see <a href="https://github.com/streamlit/streamlit/wiki/Contributing">instructions here</a></li>
-</ul>
-<h2 id="streamlit-for-teams">Streamlit for Teams</h2>
-<p><a href="https://streamlit.io/for-teams/">Streamlit for Teams</a> is our enterprise edition, with single-click deploy, authentication, web editing, versioning, and more. Please contact us if you would like to learn more.</p>
+</div><p><strong>示例展示</strong></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">translators</span> <span style="color:#000;font-weight:bold">as</span> <span style="color:#555">ts</span>
+
+wyw_text <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;季姬寂，集鸡，鸡即棘鸡。棘鸡饥叽，季姬及箕稷济鸡。&#39;</span>
+chs_text <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;季姬感到寂寞，罗集了一些鸡来养，鸡是那种出自荆棘丛中的野鸡。野鸡饿了唧唧叫，季姬就拿竹箕中的谷物喂鸡。&#39;</span>
+<span style="color:#998;font-style:italic"># input languages</span>
+<span style="color:#000;font-weight:bold">print</span>(ts<span style="color:#000;font-weight:bold">.</span>deepl(wyw_text)) <span style="color:#998;font-style:italic"># default: from_language=&#39;auto&#39;, to_language=&#39;en&#39;</span>
+<span style="color:#998;font-style:italic">## output language_map</span>
+<span style="color:#000;font-weight:bold">print</span>(ts<span style="color:#000;font-weight:bold">.</span>_deepl<span style="color:#000;font-weight:bold">.</span>language_map)
+<span style="color:#998;font-style:italic"># professional field</span>
+<span style="color:#000;font-weight:bold">print</span>(ts<span style="color:#000;font-weight:bold">.</span>baidu(wyw_text, professional_field<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;common&#39;</span>)) <span style="color:#998;font-style:italic"># (&#39;common&#39;,&#39;medicine&#39;,&#39;electronics&#39;,&#39;mechanics&#39;)</span>
+<span style="color:#998;font-style:italic"># requests</span>
+<span style="color:#000;font-weight:bold">print</span>(ts<span style="color:#000;font-weight:bold">.</span>youdao(wyw_text, sleep_seconds<span style="color:#000;font-weight:bold">=</span><span style="color:#099">5</span>, proxies<span style="color:#000;font-weight:bold">=</span>{}, use_cache<span style="color:#000;font-weight:bold">=</span><span style="color:#999">True</span>))
+<span style="color:#998;font-style:italic"># host service</span>
+<span style="color:#000;font-weight:bold">print</span>(ts<span style="color:#000;font-weight:bold">.</span>google(wyw_text, if_use_cn_host<span style="color:#000;font-weight:bold">=</span><span style="color:#999">True</span>))
+<span style="color:#000;font-weight:bold">print</span>(ts<span style="color:#000;font-weight:bold">.</span>bing(wyw_text, if_use_cn_host<span style="color:#000;font-weight:bold">=</span><span style="color:#999">False</span>))
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>Github 官方链接</strong></p>
+<pre><code>https://github.com/UlionTse/translators
+</code></pre>
+<h2 id="3textshot">3、TextShot</h2>
+<p>推荐一款高精度免费 OCR 工具：TextShot。开发这款工具仅仅使用 139 行 Python 代码完成，就可快速提取截屏文本内容并复制到剪贴板。且适用于 Windows，macOS 和 Linux 系统。</p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-five-tools/python-five-tools-3.gif">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-five-tools/python-five-tools-3.gif" />
+        </a>
+    </p>
+<h2 id="4fancy-nlp">4、Fancy-NLP</h2>
+<p>Fancy-NLP 是由腾讯商品广告策略组团队构建的用于建设商品画像的文本知识挖掘工具，其支持诸如实体提取、文本分类和文本相似度匹配等多种常见 NLP 任务。与当前业界常用框架相比，其能够支持用户进行快速的功能实现。</p>
+<p>在当前的商品广告业务场景中，我们利用该工具快速挖掘海量商品数据的特征，从而支持广告商品推荐等模块中。</p>
+<p><strong>安装方式</strong></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pip install fancy-nlp
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>示例代码</strong></p>
+<p>输出文本中的实体信息</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000;font-weight:bold">from</span> <span style="color:#555">fancy_nlp.applications</span> <span style="color:#000;font-weight:bold">import</span> NER
+ner_app <span style="color:#000;font-weight:bold">=</span> NER()
+ner_app<span style="color:#000;font-weight:bold">.</span>analyze(<span style="color:#d14">&#39;同济大学位于上海市杨浦区，校长为陈杰&#39;</span>)
+</code></pre></td></tr></table>
+</div>
+</div><p>结果产出</p>
+<pre><code>{'text': '同济大学位于上海市杨浦区，校长为陈杰',
+ 'entities': [
+  {'name': '同济大学',
+   'type': 'ORG',
+   'score': 1.0,
+   'beginOffset': 0,
+   'endOffset': 4},
+  {'name': '上海市',
+   'type': 'LOC',
+   'score': 1.0,
+   'beginOffset': 6,
+   'endOffset': 9},
+  {'name': '杨浦区',
+   'type': 'LOC',
+   'score': 1.0,
+   'beginOffset': 9,
+   'endOffset': 12},
+  {'name': '陈杰',
+   'type': 'PER',
+   'score': 1.0,
+   'beginOffset': 16,
+   'endOffset': 18}]}
+</code></pre><p>此外还可以进行文本类别识别、文本意图识别，测试后效果真的不错噢</p>
+<p><strong>Github 官方链接</strong></p>
+<pre><code>https://github.com/boat-group/fancy-nlp
+</code></pre>
+<h2 id="5latexify_py">5、latexify_py</h2>
+<p>latexify_py，可快速将 Python 函数快速转为 LaTeX 数学公式。对于有公式需要处理的小伙伴，绝对是福利！作者是 Google Brain 的软件工程师 Yusuke Oda，目前主要负责自然语言处理，语音处理，软件工程和机器学习等工程。</p>
+<p><strong>Github 官方链接</strong></p>
+<pre><code>https://github.com/google/latexify_py
+</code></pre>
 <h2 id="reference">Reference</h2>
-<p>1、 <a href="https://github.com/streamlit/streamlit">https://github.com/streamlit/streamlit</a><br>
-2、 Streamlit开发手册 <a href="http://cw.hubwiz.com/card/c/streamlit-manual/">http://cw.hubwiz.com/card/c/streamlit-manual/</a></p>
+<p>1、 <a href="https://zhuanlan.zhihu.com/p/260200838">https://zhuanlan.zhihu.com/p/260200838</a></p>
 <h2 id="打赏">打赏</h2>
 <table>
 <thead>
@@ -220,7 +332,7 @@ streamlit run https://raw.githubusercontent.com/streamlit/demo-self-driving/mast
 <div class="post-archive">
     <ul class="post-copyright">
         <li><strong>原文作者：</strong><a rel="author" href="https://cold-eye.github.io/">冷眼</a></li>
-        <li style="word-break:break-all"><strong>原文链接：</strong><a href="https://cold-eye.github.io/post/python-streamlit/">https://cold-eye.github.io/post/python-streamlit/</a></li>
+        <li style="word-break:break-all"><strong>原文链接：</strong><a href="https://cold-eye.github.io/post/python-five-tools/">https://cold-eye.github.io/post/python-five-tools/</a></li>
         <li><strong>版权声明：</strong>本作品采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可，非商业转载请注明出处（作者，原文链接），商业转载请联系作者获得授权。</li>
     </ul>
 </div>
@@ -234,15 +346,15 @@ streamlit run https://raw.githubusercontent.com/streamlit/demo-self-driving/mast
     <h2>See Also</h2>
     <ul class="listing">
         
-        <li><a href="/post/python-gui/">python图形界面库，写桌面程序</a></li>
+        <li><a href="/post/hawk/">Hawk: 爬虫工具</a></li>
         
-        <li><a href="/post/server-jiang/">通过 server 酱实现定时推送信息</a></li>
+        <li><a href="/post/python-image-download/">Image Downloader: 图片下载</a></li>
         
-        <li><a href="/post/python-data-structure-chain/">Python 数据结构之链表</a></li>
+        <li><a href="/post/annie/">annie: 视频下载</a></li>
         
-        <li><a href="/post/python-postgre/">python 安装 postgre库</a></li>
+        <li><a href="/post/python-streamlit-nlp/">Streamlit: 情感分析web应用</a></li>
         
-        <li><a href="/post/hanlp-tagging/">HanLP 词性标注列表</a></li>
+        <li><a href="/post/python-streamlit-heroku/">Streamlit: 交互式数据分析产品及 heroku 免费部署</a></li>
         
     </ul>
 </div>
