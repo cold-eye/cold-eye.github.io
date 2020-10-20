@@ -6,10 +6,19 @@
     <description>Recent content in Categories on 冷眼-风雨飘摇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 10 Oct 2020 18:48:30 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 15 Oct 2020 18:48:30 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>经济生活</title>
+      <link>https://cold-eye.github.io/categories/%E7%BB%8F%E6%B5%8E%E7%94%9F%E6%B4%BB/</link>
+      <pubDate>Thu, 15 Oct 2020 18:48:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/categories/%E7%BB%8F%E6%B5%8E%E7%94%9F%E6%B4%BB/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>python</title>
@@ -26,15 +35,6 @@
       <pubDate>Tue, 22 Sep 2020 13:48:30 +0800</pubDate>
       
       <guid>https://cold-eye.github.io/categories/nlp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>经济生活</title>
-      <link>https://cold-eye.github.io/categories/%E7%BB%8F%E6%B5%8E%E7%94%9F%E6%B4%BB/</link>
-      <pubDate>Sun, 20 Sep 2020 15:18:30 +0800</pubDate>
-      
-      <guid>https://cold-eye.github.io/categories/%E7%BB%8F%E6%B5%8E%E7%94%9F%E6%B4%BB/</guid>
       <description></description>
     </item>
     
