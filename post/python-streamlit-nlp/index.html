@@ -99,13 +99,20 @@
         
         <div class="post-meta">
             <span id="busuanzi_container_page_pv">| <span id="busuanzi_value_page_pv"></span><span>
-                    阅读</span></span> | <span class="post-date">共2997字</span>，阅读约<span class="more-meta"> 6 分钟</span>
+                    阅读</span></span> | <span class="post-date">共3231字</span>，阅读约<span class="more-meta"> 7 分钟</span>
         </div>
         
         
         <div class="post-content">
             <p>Streamlit开发手册 <a href="http://cw.hubwiz.com/card/c/streamlit-manual/">http://cw.hubwiz.com/card/c/streamlit-manual/</a></p>
 <p><a href="https://github.com/EvolvedSquid/tutorials/tree/master/twitter-sentiment?spm=a2c4e.10696291.0.0.4b0319a43aIQRD">本文代码</a></p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-streamlit-nlp/python-streamlit-nlp-3.gif">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/python-streamlit-nlp/python-streamlit-nlp-3.gif" />
+        </a>
+    </p>
 <h2 id="1情感分类">1、情感分类</h2>
 <p>情感分类是自然语言处理（NLP）中的一个经典问题，目的是判断一个语句的情感倾向是积极（Positive）还是消极（Negative）。</p>
 <p>例如，“I love Python！”这句话应当被归类为Positive，而“Python is the worst!”则应当被归类为Negative。</p>
@@ -834,9 +841,116 @@ query <span style="color:#000;font-weight:bold">=</span> st<span style="color:#0
     <span style="color:#000;font-weight:bold">pass</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="reference">Reference</h2>
+</div><h2 id="8隐藏下方-made-with-streamlit-及右上角菜单栏">8、隐藏下方 “Made with Streamlit” 及右上角菜单栏</h2>
+<p>To hide hamburger (top right corner) and “Made with Streamlit” footer, do this :</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">hide_streamlit_style <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;&#34;&#34;
+</span><span style="color:#d14">            &lt;style&gt;
+</span><span style="color:#d14">            #MainMenu {visibility: hidden;}
+</span><span style="color:#d14">            footer {visibility: hidden;}
+</span><span style="color:#d14">            &lt;/style&gt;
+</span><span style="color:#d14">            &#34;&#34;&#34;</span>
+st<span style="color:#000;font-weight:bold">.</span>markdown(hide_streamlit_style, unsafe_allow_html<span style="color:#000;font-weight:bold">=</span><span style="color:#999">True</span>) 
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">footer {
+	
+	visibility: hidden;
+	
+	}
+footer:after {
+	content:<span style="color:#d14">&#39;goodbye&#39;</span>; 
+	visibility: visible;
+	display: block;
+	position: relative;
+	<span style="color:#998;font-style:italic">#background-color: red;</span>
+	padding: <span style="color:#099">5</span>px;
+	top: <span style="color:#099">2</span>px;
+}
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">streamlit</span> <span style="color:#000;font-weight:bold">as</span> <span style="color:#555">st</span>
+<span style="color:#000;font-weight:bold">import</span> <span style="color:#555">webbrowser</span>
+
+url <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;https://www.streamlit.io/&#39;</span>
+
+<span style="color:#000;font-weight:bold">if</span> st<span style="color:#000;font-weight:bold">.</span>button(<span style="color:#d14">&#39;Open browser&#39;</span>):
+    webbrowser<span style="color:#000;font-weight:bold">.</span>open_new_tab(url)
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">link <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;[GitHub](http://github.com)&#39;</span>
+st<span style="color:#000;font-weight:bold">.</span>markdown(link, unsafe_allow_html<span style="color:#000;font-weight:bold">=</span><span style="color:#999">True</span>)
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>Bootstrap</strong></p>
+<p>Streamlit uses Bootstrap for styling, so you have access to Bootstrap classes such as buttons and warnings. For example, here’s how to display a success badge:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">st<span style="color:#000;font-weight:bold">.</span>markdown(
+    <span style="color:#d14">&#39;&lt;span class=&#34;badge badge-pill badge-success&#34;&gt; Badge &lt;/span&gt;&#39;</span>,
+    unsafe_allow_html<span style="color:#000;font-weight:bold">=</span><span style="color:#999">True</span>
+)
+</code></pre></td></tr></table>
+</div>
+</div><p>You can try to make a grid layout with Bootstrap, but Streamlit widgets won’t respect the layout, so it’s not a good option. ☹ ️A grid layout solution is in the works. 🙂</p>
+<h3 id="heading"></h3>
+<h2 id="reference">Reference</h2>
 <p>1、 <a href="https://yq.aliyun.com/articles/743284">https://yq.aliyun.com/articles/743284</a><br>
-2、 Streamlit开发手册 <a href="http://cw.hubwiz.com/card/c/streamlit-manual/">http://cw.hubwiz.com/card/c/streamlit-manual/</a></p>
+2、 Streamlit开发手册 <a href="http://cw.hubwiz.com/card/c/streamlit-manual/">http://cw.hubwiz.com/card/c/streamlit-manual/</a>  <br>
+3、 <a href="https://medium.com/analytics-vidhya/building-a-twitter-sentiment-analysis-app-using-streamlit-d16e9f5591f8">https://medium.com/analytics-vidhya/building-a-twitter-sentiment-analysis-app-using-streamlit-d16e9f5591f8</a>   <br>
+4、 <a href="https://discuss.streamlit.io/t/remove-made-with-streamlit-from-bottom-of-app/1370">https://discuss.streamlit.io/t/remove-made-with-streamlit-from-bottom-of-app/1370</a>
+5、 <a href="https://www.streamlit.io/">https://www.streamlit.io/</a></p>
 <h2 id="打赏">打赏</h2>
 <table>
 <thead>
@@ -949,6 +1063,7 @@ query <span style="color:#000;font-weight:bold">=</span> st<span style="color:#0
     
     <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
 </head>
+
 
 
 
@@ -1219,6 +1334,13 @@ query <span style="color:#000;font-weight:bold">=</span> st<span style="color:#0
                             url:'http://music.163.com/song/media/outer/url?id=1341964346.mp3',
                             cover: '',
                             lrc:'X4',
+                            theme: ''
+                        },{
+                            name: 'X5',
+                            artist:'X5',
+                            url:'http://music.163.com/song/media/outer/url?id=1374329431.mp3',
+                            cover: '',
+                            lrc:'X5',
                             theme: ''
                         },
                     ]
