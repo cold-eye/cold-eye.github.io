@@ -6,10 +6,28 @@
     <description>Recent content in python on 冷眼-风雨飘摇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 10 Oct 2020 18:48:30 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 29 Oct 2020 14:48:30 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ngrok 内网穿透，streamlit 建立外网服务</title>
+      <link>https://cold-eye.github.io/post/python-streamlit-ngrok/</link>
+      <pubDate>Thu, 29 Oct 2020 14:48:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/python-streamlit-ngrok/</guid>
+      <description>ngrok 内网穿透，streamlit 建立外网服务。</description>
+    </item>
+    
+    <item>
+      <title>python pandas 大文件读写</title>
+      <link>https://cold-eye.github.io/post/python-pandas-big-file/</link>
+      <pubDate>Thu, 29 Oct 2020 13:48:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/python-pandas-big-file/</guid>
+      <description>大文件读写。</description>
+    </item>
     
     <item>
       <title>效率倍增！5款超级好用的Python工具库！</title>
