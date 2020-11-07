@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>streamlit on 冷眼-风雨飘摇</title>
+    <link>https://cold-eye.github.io/categories/streamlit/</link>
+    <description>Recent content in streamlit on 冷眼-风雨飘摇</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 01 Nov 2020 13:48:30 +0800</lastBuildDate>
+    
+	<atom:link href="https://cold-eye.github.io/categories/streamlit/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>StreamLit coding</title>
+      <link>https://cold-eye.github.io/post/python-streamlit-coding/</link>
+      <pubDate>Sun, 01 Nov 2020 13:48:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/python-streamlit-coding/</guid>
+      <description>&lt;code&gt;python&lt;/code&gt; &lt;code&gt;streamlit&lt;/code&gt;。</description>
+    </item>
+    
+    <item>
+      <title>ngrok 内网穿透，streamlit 建立外网服务</title>
+      <link>https://cold-eye.github.io/post/python-streamlit-ngrok/</link>
+      <pubDate>Thu, 29 Oct 2020 14:48:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/python-streamlit-ngrok/</guid>
+      <description>ngrok 内网穿透，streamlit 建立外网服务。</description>
+    </item>
+    
+    <item>
+      <title>Streamlit: 情感分析web应用</title>
+      <link>https://cold-eye.github.io/post/python-streamlit-nlp/</link>
+      <pubDate>Thu, 08 Oct 2020 15:48:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/python-streamlit-nlp/</guid>
+      <description>&lt;code&gt;python&lt;/code&gt; &lt;code&gt;streamlit&lt;/code&gt; &lt;code&gt;情感分析&lt;/code&gt;。</description>
+    </item>
+    
+    <item>
+      <title>Streamlit: 交互式数据分析产品及 heroku 免费部署</title>
+      <link>https://cold-eye.github.io/post/python-streamlit-heroku/</link>
+      <pubDate>Thu, 08 Oct 2020 14:48:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/python-streamlit-heroku/</guid>
+      <description>&lt;code&gt;python&lt;/code&gt; &lt;code&gt;streamlit&lt;/code&gt; &lt;code&gt;heroku&lt;/code&gt;。</description>
+    </item>
+    
+    <item>
+      <title>python streamlit</title>
+      <link>https://cold-eye.github.io/post/python-streamlit/</link>
+      <pubDate>Thu, 08 Oct 2020 13:48:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/python-streamlit/</guid>
+      <description>&lt;code&gt;python&lt;/code&gt; &lt;code&gt;streamlit&lt;/code&gt;。</description>
+    </item>
+    
+  </channel>
+</rss>

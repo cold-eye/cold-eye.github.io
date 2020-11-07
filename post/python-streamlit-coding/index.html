@@ -1,0 +1,897 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>StreamLit coding | 冷眼-风雨飘摇</title>
+    <meta property="og:title" content="StreamLit coding - 冷眼-风雨飘摇">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2020-11-01T13:48:30&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2020-11-01T13:48:30&#43;08:00'>
+        
+    <meta name="Keywords" content="[python streamlit]">
+    <meta name="description" content="StreamLit coding">
+        
+    <meta name="author" content="冷眼">
+    <meta property="og:url" content="https://cold-eye.github.io/post/python-streamlit-coding/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+
+    
+    
+    
+
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+
+    
+    
+        <link rel="stylesheet" href='/css/douban.css'>
+    
+        <link rel="stylesheet" href='/css/other.css'>
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://cold-eye.github.io/">
+                        冷眼-风雨飘摇
+                    </a>
+                
+                <p class="description">专注于python、自然语言处理</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://cold-eye.github.io/">首页</a>
+                    
+                    <a  href="https://cold-eye.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://cold-eye.github.io/categories/" title="分类">分类</a>
+                    
+                    <a  href="https://cold-eye.github.io/about/" title="博主">博主</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">StreamLit coding</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年11月1日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://cold-eye.github.io/categories/python'>python</a></span>
+            
+            <span class="meta-category"><a href='https://cold-eye.github.io/categories/streamlit'>streamlit</a></span>
+            
+        </div>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">| <span id="busuanzi_value_page_pv"></span><span>
+                    阅读</span></span> | <span class="post-date">共921字</span>，阅读约<span class="more-meta"> 2 分钟</span>
+        </div>
+        
+        
+        <div class="post-content">
+            <h2 id="隐藏下方-made-with-streamlit-及右上角菜单栏">隐藏下方 “Made with Streamlit” 及右上角菜单栏</h2>
+<p>To hide hamburger (top right corner) and “Made with Streamlit” footer, do this :</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">hide_streamlit_style <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;&#34;&#34;
+</span><span style="color:#d14">            &lt;style&gt;
+</span><span style="color:#d14">            #MainMenu {visibility: hidden;}
+</span><span style="color:#d14">            footer {visibility: hidden;}
+</span><span style="color:#d14">            &lt;/style&gt;
+</span><span style="color:#d14">            &#34;&#34;&#34;</span>
+st<span style="color:#000;font-weight:bold">.</span>markdown(hide_streamlit_style, unsafe_allow_html<span style="color:#000;font-weight:bold">=</span><span style="color:#999">True</span>) 
+</code></pre></td></tr></table>
+</div>
+</div><p>将下面内容添加到 hide_streamlit_style 里，可以改变底部显示内容</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">footer {
+	
+	visibility: hidden;
+	
+	}
+footer:after {
+	content:<span style="color:#d14">&#39;goodbye&#39;</span>; 
+	visibility: visible;
+	display: block;
+	position: relative;
+	<span style="color:#998;font-style:italic">#background-color: red;</span>
+	padding: <span style="color:#099">5</span>px;
+	top: <span style="color:#099">2</span>px;
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>这个配置要放在最上面</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#998;font-style:italic"># 只有当page_title非常长的时候，后面才不会显示 &#34; ∙ Streamlit&#34;</span>
+st<span style="color:#000;font-weight:bold">.</span>beta_set_page_config(
+    page_title<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;测试++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++&#34;</span>,
+    page_icon<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;🦈&#34;</span>,<span style="color:#998;font-style:italic"># “:shark:”</span>
+    layout<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;centered&#34;</span>,
+    initial_sidebar_state<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#34;auto&#34;</span>,
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">streamlit</span> <span style="color:#000;font-weight:bold">as</span> <span style="color:#555">st</span>
+<span style="color:#000;font-weight:bold">import</span> <span style="color:#555">webbrowser</span>
+
+url <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;https://www.streamlit.io/&#39;</span>
+
+<span style="color:#000;font-weight:bold">if</span> st<span style="color:#000;font-weight:bold">.</span>button(<span style="color:#d14">&#39;Open browser&#39;</span>):
+    webbrowser<span style="color:#000;font-weight:bold">.</span>open_new_tab(url)
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">link <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;[GitHub](http://github.com)&#39;</span>
+st<span style="color:#000;font-weight:bold">.</span>markdown(link, unsafe_allow_html<span style="color:#000;font-weight:bold">=</span><span style="color:#999">True</span>)
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>Bootstrap</strong> 改变底部</p>
+<p>Streamlit uses Bootstrap for styling, so you have access to Bootstrap classes such as buttons and warnings. For example, here’s how to display a success badge:</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">st<span style="color:#000;font-weight:bold">.</span>markdown(
+    <span style="color:#d14">&#39;&lt;span class=&#34;badge badge-pill badge-success&#34;&gt; Badge &lt;/span&gt;&#39;</span>,
+    unsafe_allow_html<span style="color:#000;font-weight:bold">=</span><span style="color:#999">True</span>
+)
+</code></pre></td></tr></table>
+</div>
+</div><p>You can try to make a grid layout with Bootstrap, but Streamlit widgets won’t respect the layout, so it’s not a good option. ☹ ️A grid layout solution is in the works. 🙂</p>
+<p><strong>下载文件</strong></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">os</span>
+<span style="color:#000;font-weight:bold">import</span> <span style="color:#555">base64</span>
+
+<span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">get_binary_file_downloader_html</span>(bin_file, file_label<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;File&#39;</span>):
+    <span style="color:#000;font-weight:bold">with</span> <span style="color:#0086b3">open</span>(bin_file, <span style="color:#d14">&#39;rb&#39;</span>) <span style="color:#000;font-weight:bold">as</span> f:
+        data <span style="color:#000;font-weight:bold">=</span> f<span style="color:#000;font-weight:bold">.</span>read()
+    bin_str <span style="color:#000;font-weight:bold">=</span> base64<span style="color:#000;font-weight:bold">.</span>b64encode(data)<span style="color:#000;font-weight:bold">.</span>decode()
+    href <span style="color:#000;font-weight:bold">=</span> f<span style="color:#d14">&#39;&lt;a href=&#34;data:application/octet-stream;base64,{bin_str}&#34; download=&#34;{os.path.basename(bin_file)}&#34;&gt;Download {file_label}&lt;/a&gt;&#39;</span>
+    <span style="color:#000;font-weight:bold">return</span> href
+
+st<span style="color:#000;font-weight:bold">.</span>markdown(get_binary_file_downloader_html(<span style="color:#d14">&#39;photo.jpg&#39;</span>, <span style="color:#d14">&#39;Picture&#39;</span>), unsafe_allow_html<span style="color:#000;font-weight:bold">=</span><span style="color:#999">True</span>)
+st<span style="color:#000;font-weight:bold">.</span>markdown(get_binary_file_downloader_html(<span style="color:#d14">&#39;data.csv&#39;</span>, <span style="color:#d14">&#39;My Data&#39;</span>), unsafe_allow_html<span style="color:#000;font-weight:bold">=</span><span style="color:#999">True</span>)
+st<span style="color:#000;font-weight:bold">.</span>markdown(get_binary_file_downloader_html(<span style="color:#d14">&#39;2g1c.mp4&#39;</span>, <span style="color:#d14">&#39;Video&#39;</span>), unsafe_allow_html<span style="color:#000;font-weight:bold">=</span><span style="color:#999">True</span>)
+</code></pre></td></tr></table>
+</div>
+</div><p>如果文件是网络连接</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">base64</span>
+<span style="color:#000;font-weight:bold">from</span> <span style="color:#555">urllib</span> <span style="color:#000;font-weight:bold">import</span> request
+
+<span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">get_binary_file_downloader_html</span>(url, file_label<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;File&#39;</span>):
+    
+    data <span style="color:#000;font-weight:bold">=</span> request<span style="color:#000;font-weight:bold">.</span>urlopen(url)<span style="color:#000;font-weight:bold">.</span>read()
+    bin_str <span style="color:#000;font-weight:bold">=</span> base64<span style="color:#000;font-weight:bold">.</span>b64encode(data)<span style="color:#000;font-weight:bold">.</span>decode()
+    href <span style="color:#000;font-weight:bold">=</span> f<span style="color:#d14">&#39;&lt;a href=&#34;data:application/octet-stream;base64,{bin_str}&#34; download=&#34;{os.path.basename(url)}&#34;&gt;Download {file_label}&lt;/a&gt;&#39;</span>
+    <span style="color:#000;font-weight:bold">return</span> href
+
+st<span style="color:#000;font-weight:bold">.</span>markdown(get_binary_file_downloader_html(<span style="color:#d14">&#39;https://upload.wikimedia.org/wikipedia/commons/c/c4/Muriel-Nguyen-Xuan-Chopin-valse-opus64-1.ogg&#39;</span>, <span style="color:#d14">&#39;Audio&#39;</span>), unsafe_allow_html<span style="color:#000;font-weight:bold">=</span><span style="color:#999">True</span>)
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="reference">Reference</h2>
+<h2 id="打赏">打赏</h2>
+<table>
+<thead>
+<tr>
+<th align="left">微信
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/wechat.png">
+            <img class="mx-auto" alt="微信" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/wechat.png" />
+        </a>
+    </th>
+<th align="left">支付宝
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/alipay.png">
+            <img class="mx-auto" alt="支付宝" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/alipay.png" />
+        </a>
+    </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em><strong>万分感谢</strong></em></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+
+        
+<div class="post-archive">
+    <ul class="post-copyright">
+        <li><strong>原文作者：</strong><a rel="author" href="https://cold-eye.github.io/">冷眼</a></li>
+        <li style="word-break:break-all"><strong>原文链接：</strong><a href="https://cold-eye.github.io/post/python-streamlit-coding/">https://cold-eye.github.io/post/python-streamlit-coding/</a></li>
+        <li><strong>版权声明：</strong>本作品采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可，非商业转载请注明出处（作者，原文链接），商业转载请联系作者获得授权。</li>
+    </ul>
+</div>
+<br/>
+
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/python-streamlit-ngrok/">ngrok 内网穿透，streamlit 建立外网服务</a></li>
+        
+        <li><a href="/post/python-streamlit-nlp/">Streamlit: 情感分析web应用</a></li>
+        
+        <li><a href="/post/python-streamlit-heroku/">Streamlit: 交互式数据分析产品及 heroku 免费部署</a></li>
+        
+        <li><a href="/post/python-streamlit/">python streamlit</a></li>
+        
+        <li><a href="/post/python-pandas-big-file/">python pandas 大文件读写</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='https://cold-eye.github.io/tags/python'>python</a></li>
+                
+                <li><a href='https://cold-eye.github.io/tags/streamlit'>streamlit</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    
+    
+    
+    <div id="vcomments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+    <script type="text/javascript">
+      new Valine({
+          el: '#vcomments' ,
+          appId: '2bNGHPmILSH9xQJ9XjQchomv-gzGzoHsz',
+          appKey: '52xbEYwnpwLahMh4Yj55r69v',
+          notify: 'false', 
+          verify: 'false', 
+          avatar:'mm', 
+          placeholder: '说点什么吧...',
+          visitor: 'false'
+      });
+    </script>
+</div>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <!DOCTYPE html>
+<html>
+
+<head>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+    <div class="demo">
+        <div id="player1">
+        </div>
+    </div>
+    <script>
+        var ap = new APlayer
+            ({
+                element: document.getElementById('player1'),
+                narrow: false,
+                fixed: false, 
+                autoplay: false,
+                showlrc: true,
+                mini: false,
+                theme: '#FADFA3',
+                loop: 'all',
+                order: 'random',
+                preload: 'auto',
+                volume: 0.5,
+                mutex: false,
+                listFolded: true,
+                listMaxHeight: 90,
+                lrcType: 2,
+                music:
+                    [
+                        {
+                            artist: 'A',
+                            name: 'A',
+                            url:'http://music.163.com/song/media/outer/url?id=28560087.mp3',
+                            cover: '',
+                            lrc:'A',
+                        },{
+                            name: 'B',
+                            artist:'B',
+                            url:'http://music.163.com/song/media/outer/url?id=1438282140.mp3',
+                            cover: '',
+                            lrc:'B',
+                            theme: '#ebd0c2'
+                        },{
+                            name: 'C',
+                            artist:'C',
+                            url:'http://music.163.com/song/media/outer/url?id=5316168.mp3',
+                            cover: '',
+                            lrc:'C',
+                            theme: '#46718b'
+                        },{
+                            name: 'D',
+                            artist:'D',
+                            url:'http://music.163.com/song/media/outer/url?id=2007819.mp3',
+                            cover: '',
+                            lrc:'D',
+                            theme: ''
+                        },{
+                            name: 'E',
+                            artist:'E',
+                            url:'http://music.163.com/song/media/outer/url?id=1398850429.mp3',
+                            cover: '',
+                            lrc:'E',
+                            theme: ''
+                        },{
+                            name: 'F',
+                            artist:'F',
+                            url:'http://music.163.com/song/media/outer/url?id=28830038.mp3',
+                            cover: '',
+                            lrc:'F',
+                            theme: ''
+                        },{
+                            name: 'G',
+                            artist:'G',
+                            url:'http://music.163.com/song/media/outer/url?id=451126971.mp3',
+                            cover: '',
+                            lrc:'G',
+                            theme: ''
+                        },{
+                            name: 'H',
+                            artist:'H',
+                            url:'http://music.163.com/song/media/outer/url?id=744866.mp3',
+                            cover: '',
+                            lrc:'H',
+                            theme: ''
+                        },{
+                            name: 'I',
+                            artist:'I',
+                            url:'http://music.163.com/song/media/outer/url?id=1341800295.mp3',
+                            cover: '',
+                            lrc:'I',
+                            theme: ''
+                        },{
+                            name: 'J',
+                            artist:'J',
+                            url:'http://music.163.com/song/media/outer/url?id=32835377.mp3',
+                            cover: '',
+                            lrc:'J',
+                            theme: ''
+                        },{
+                            name: 'K',
+                            artist:'K',
+                            url:'http://music.163.com/song/media/outer/url?id=1379464883.mp3',
+                            cover: '',
+                            lrc:'K',
+                            theme: ''
+                        },{
+                            name: 'L',
+                            artist:'L',
+                            url:'http://music.163.com/song/media/outer/url?id=506726178.mp3',
+                            cover: '',
+                            lrc:'L',
+                            theme: ''
+                        },{
+                            name: 'M',
+                            artist:'M',
+                            url:'http://music.163.com/song/media/outer/url?id=411214138.mp3',
+                            cover: '',
+                            lrc:'M',
+                            theme: ''
+                        },{
+                            name: 'N',
+                            artist:'N',
+                            url:'http://music.163.com/song/media/outer/url?id=1415097371.mp3',
+                            cover: '',
+                            lrc:'N',
+                            theme: ''
+                        },{
+                            name: 'O',
+                            artist:'O',
+                            url:'http://music.163.com/song/media/outer/url?id=505449407.mp3',
+                            cover: '',
+                            lrc:'O',
+                            theme: ''
+                        },{
+                            name: 'P',
+                            artist:'P',
+                            url:'http://music.163.com/song/media/outer/url?id=29947420.mp3',
+                            cover: '',
+                            lrc:'P',
+                            theme: ''
+                        },{
+                            name: 'Q',
+                            artist:'Q',
+                            url:'http://music.163.com/song/media/outer/url?id=21311956.mp3',
+                            cover: '',
+                            lrc:'Q',
+                            theme: ''
+                        },{
+                            name: 'R',
+                            artist:'R',
+                            url:'http://music.163.com/song/media/outer/url?id=418602088.mp3',
+                            cover: '',
+                            lrc:'R',
+                            theme: ''
+                        },{
+                            name: 'S',
+                            artist:'S',
+                            url:'http://music.163.com/song/media/outer/url?id=1363551021.mp3',
+                            cover: '',
+                            lrc:'S',
+                            theme: ''
+                        },{
+                            name: 'T',
+                            artist:'T',
+                            url:'http://music.163.com/song/media/outer/url?id=1376653715.mp3',
+                            cover: '',
+                            lrc:'T',
+                            theme: ''
+                        },{
+                            name: 'U',
+                            artist:'U',
+                            url:'http://music.163.com/song/media/outer/url?id=546838016.mp3',
+                            cover: '',
+                            lrc:'U',
+                            theme: ''
+                        },{
+                            name: 'V',
+                            artist:'V',
+                            url:'http://music.163.com/song/media/outer/url?id=1403250178.mp3',
+                            cover: '',
+                            lrc:'V',
+                            theme: ''
+                        },{
+                            name: 'W',
+                            artist:'W',
+                            url:'http://music.163.com/song/media/outer/url?id=5348853.mp3',
+                            cover: '',
+                            lrc:'W',
+                            theme: ''
+                        },{
+                            name: 'X',
+                            artist:'X',
+                            url:'http://music.163.com/song/media/outer/url?id=34613621.mp3',
+                            cover: '',
+                            lrc:'X',
+                            theme: ''
+                        },{
+                            name: 'Y',
+                            artist:'Y',
+                            url:'http://music.163.com/song/media/outer/url?id=553815184.mp3',
+                            cover: '',
+                            lrc:'Y',
+                            theme: ''
+                        },{
+                            name: 'Z',
+                            artist:'Z',
+                            url:'http://music.163.com/song/media/outer/url?id=16607021.mp3',
+                            cover: '',
+                            lrc:'Z',
+                            theme: ''
+                        },{
+                            name: 'X1',
+                            artist:'X1',
+                            url:'http://music.163.com/song/media/outer/url?id=3961975.mp3',
+                            cover: '',
+                            lrc:'X1',
+                            theme: ''
+                        },{
+                            name: 'X2',
+                            artist:'X2',
+                            url:'http://music.163.com/song/media/outer/url?id=19615186.mp3',
+                            cover: '',
+                            lrc:'X2',
+                            theme: ''
+                        },{
+                            name: 'X3',
+                            artist:'X3',
+                            url:'http://music.163.com/song/media/outer/url?id=34468798.mp3',
+                            cover: '',
+                            lrc:'X3',
+                            theme: ''
+                        },{
+                            name: 'X4',
+                            artist:'X4',
+                            url:'http://music.163.com/song/media/outer/url?id=1341964346.mp3',
+                            cover: '',
+                            lrc:'X4',
+                            theme: ''
+                        },{
+                            name: 'X5',
+                            artist:'X5',
+                            url:'http://music.163.com/song/media/outer/url?id=1374329431.mp3',
+                            cover: '',
+                            lrc:'X5',
+                            theme: ''
+                        },
+                    ]
+
+                    
+        });
+        
+    </script>
+</body>
+    </section>
+
+    <section class="widget">
+        <form id="search" action='https://cold-eye.github.io/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://cold-eye.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/python-pandas-excel-sheet/" title="pandas 读取excel的每个sheet">pandas 读取excel的每个sheet</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/python-streamlit-coding/" title="StreamLit coding">StreamLit coding</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/python-streamlit-ngrok/" title="ngrok 内网穿透，streamlit 建立外网服务">ngrok 内网穿透，streamlit 建立外网服务</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/python-pandas-big-file/" title="python pandas 大文件读写">python pandas 大文件读写</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/useful-web/" title="不错的网站">不错的网站</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title" style="color:red">福利派送</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a href="https://www.freelancer.com/get/qinyukun1325?f=give" title="注册freelancer得20美刀" target="_blank" style="color:red">
+                
+                    注册freelancer得20美刀
+                
+            </a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li><a href="https://cold-eye.github.io/categories/IT%E6%8A%80%E6%9C%AF/">IT技术 (8)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/hugo/">hugo (3)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/nlp/">nlp (6)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/python/">python (25)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/rust/">rust (1)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/streamlit/">streamlit (5)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能 (2)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/%E7%BB%8F%E6%B5%8E%E7%94%9F%E6%B4%BB/">经济生活 (9)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://cold-eye.github.io/tags/IT%E6%8A%80%E6%9C%AF/">IT技术</a>
+    
+    <a href="https://cold-eye.github.io/tags/hugo/">hugo</a>
+    
+    <a href="https://cold-eye.github.io/tags/linux/">linux</a>
+    
+    <a href="https://cold-eye.github.io/tags/mac/">mac</a>
+    
+    <a href="https://cold-eye.github.io/tags/nlp/">nlp</a>
+    
+    <a href="https://cold-eye.github.io/tags/python/">python</a>
+    
+    <a href="https://cold-eye.github.io/tags/rust/">rust</a>
+    
+    <a href="https://cold-eye.github.io/tags/streamlit/">streamlit</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E5%81%A5%E8%BA%AB/">健身</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E5%9B%BE%E5%83%8F/">图像</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E7%88%AC%E8%99%AB/">爬虫</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">知识图谱</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/">程序员</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E7%BB%8F%E6%B5%8E%E7%94%9F%E6%B4%BB/">经济生活</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E8%A2%AB%E5%8A%A8%E6%94%B6%E5%85%A5/">被动收入</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E8%B7%91%E6%AD%A5/">跑步</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://knowledge-of-medical.blogspot.com/" title="healthy">healthy</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://cold-eye.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <script src="//code.tidio.co/2dpeb0joi7ueoxequchq01ya9ckrmy63.js" async></script>
+    <div class="container">
+        &copy; 
+        2018 - 
+        2020
+        <a href="https://cold-eye.github.io/">冷眼-风雨飘摇 By 冷眼</a>.
+        
+        访问量<span id="busuanzi_value_site_pv"></span>次 | 访客<span id="busuanzi_value_site_uv"></span>人
+        
+        
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-173047983-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+    <script src='/js/douban.js'></script>
+
+
+
+</body>
+
+</html>

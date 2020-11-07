@@ -94,12 +94,14 @@
             
             <span class="meta-category"><a href='https://cold-eye.github.io/categories/python'>python</a></span>
             
+            <span class="meta-category"><a href='https://cold-eye.github.io/categories/streamlit'>streamlit</a></span>
+            
         </div>
         
         
         <div class="post-meta">
             <span id="busuanzi_container_page_pv">| <span id="busuanzi_value_page_pv"></span><span>
-                    阅读</span></span> | <span class="post-date">共3231字</span>，阅读约<span class="more-meta"> 7 分钟</span>
+                    阅读</span></span> | <span class="post-date">共3006字</span>，阅读约<span class="more-meta"> 6 分钟</span>
         </div>
         
         
@@ -841,111 +843,7 @@ query <span style="color:#000;font-weight:bold">=</span> st<span style="color:#0
     <span style="color:#000;font-weight:bold">pass</span>
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="8隐藏下方-made-with-streamlit-及右上角菜单栏">8、隐藏下方 “Made with Streamlit” 及右上角菜单栏</h2>
-<p>To hide hamburger (top right corner) and “Made with Streamlit” footer, do this :</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">hide_streamlit_style <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;&#34;&#34;
-</span><span style="color:#d14">            &lt;style&gt;
-</span><span style="color:#d14">            #MainMenu {visibility: hidden;}
-</span><span style="color:#d14">            footer {visibility: hidden;}
-</span><span style="color:#d14">            &lt;/style&gt;
-</span><span style="color:#d14">            &#34;&#34;&#34;</span>
-st<span style="color:#000;font-weight:bold">.</span>markdown(hide_streamlit_style, unsafe_allow_html<span style="color:#000;font-weight:bold">=</span><span style="color:#999">True</span>) 
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">footer {
-	
-	visibility: hidden;
-	
-	}
-footer:after {
-	content:<span style="color:#d14">&#39;goodbye&#39;</span>; 
-	visibility: visible;
-	display: block;
-	position: relative;
-	<span style="color:#998;font-style:italic">#background-color: red;</span>
-	padding: <span style="color:#099">5</span>px;
-	top: <span style="color:#099">2</span>px;
-}
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">streamlit</span> <span style="color:#000;font-weight:bold">as</span> <span style="color:#555">st</span>
-<span style="color:#000;font-weight:bold">import</span> <span style="color:#555">webbrowser</span>
-
-url <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;https://www.streamlit.io/&#39;</span>
-
-<span style="color:#000;font-weight:bold">if</span> st<span style="color:#000;font-weight:bold">.</span>button(<span style="color:#d14">&#39;Open browser&#39;</span>):
-    webbrowser<span style="color:#000;font-weight:bold">.</span>open_new_tab(url)
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">link <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#39;[GitHub](http://github.com)&#39;</span>
-st<span style="color:#000;font-weight:bold">.</span>markdown(link, unsafe_allow_html<span style="color:#000;font-weight:bold">=</span><span style="color:#999">True</span>)
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>Bootstrap</strong></p>
-<p>Streamlit uses Bootstrap for styling, so you have access to Bootstrap classes such as buttons and warnings. For example, here’s how to display a success badge:</p>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">st<span style="color:#000;font-weight:bold">.</span>markdown(
-    <span style="color:#d14">&#39;&lt;span class=&#34;badge badge-pill badge-success&#34;&gt; Badge &lt;/span&gt;&#39;</span>,
-    unsafe_allow_html<span style="color:#000;font-weight:bold">=</span><span style="color:#999">True</span>
-)
-</code></pre></td></tr></table>
-</div>
-</div><p>You can try to make a grid layout with Bootstrap, but Streamlit widgets won’t respect the layout, so it’s not a good option. ☹ ️A grid layout solution is in the works. 🙂</p>
-<h3 id="heading"></h3>
-<h2 id="reference">Reference</h2>
+</div><h2 id="reference">Reference</h2>
 <p>1、 <a href="https://yq.aliyun.com/articles/743284">https://yq.aliyun.com/articles/743284</a><br>
 2、 Streamlit开发手册 <a href="http://cw.hubwiz.com/card/c/streamlit-manual/">http://cw.hubwiz.com/card/c/streamlit-manual/</a>  <br>
 3、 <a href="https://medium.com/analytics-vidhya/building-a-twitter-sentiment-analysis-app-using-streamlit-d16e9f5591f8">https://medium.com/analytics-vidhya/building-a-twitter-sentiment-analysis-app-using-streamlit-d16e9f5591f8</a>   <br>
@@ -1018,6 +916,8 @@ st<span style="color:#000;font-weight:bold">.</span>markdown(link, unsafe_allow_
             <ul class="clearfix">
                 
                 <li><a href='https://cold-eye.github.io/tags/python'>python</a></li>
+                
+                <li><a href='https://cold-eye.github.io/tags/streamlit'>streamlit</a></li>
                 
             </ul>
             
@@ -1366,6 +1266,14 @@ st<span style="color:#000;font-weight:bold">.</span>markdown(link, unsafe_allow_
 <ul class="widget-list">
     
     <li>
+        <a href="https://cold-eye.github.io/post/python-pandas-excel-sheet/" title="pandas 读取excel的每个sheet">pandas 读取excel的每个sheet</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/python-streamlit-coding/" title="StreamLit coding">StreamLit coding</a>
+    </li>
+    
+    <li>
         <a href="https://cold-eye.github.io/post/python-streamlit-ngrok/" title="ngrok 内网穿透，streamlit 建立外网服务">ngrok 内网穿透，streamlit 建立外网服务</a>
     </li>
     
@@ -1375,14 +1283,6 @@ st<span style="color:#000;font-weight:bold">.</span>markdown(link, unsafe_allow_
     
     <li>
         <a href="https://cold-eye.github.io/post/useful-web/" title="不错的网站">不错的网站</a>
-    </li>
-    
-    <li>
-        <a href="https://cold-eye.github.io/post/python-five-tools/" title="效率倍增！5款超级好用的Python工具库！">效率倍增！5款超级好用的Python工具库！</a>
-    </li>
-    
-    <li>
-        <a href="https://cold-eye.github.io/post/hawk/" title="Hawk: 爬虫工具">Hawk: 爬虫工具</a>
     </li>
     
 </ul>
@@ -1415,9 +1315,11 @@ st<span style="color:#000;font-weight:bold">.</span>markdown(link, unsafe_allow_
     
     <li><a href="https://cold-eye.github.io/categories/nlp/">nlp (6)</a></li>
     
-    <li><a href="https://cold-eye.github.io/categories/python/">python (23)</a></li>
+    <li><a href="https://cold-eye.github.io/categories/python/">python (25)</a></li>
     
     <li><a href="https://cold-eye.github.io/categories/rust/">rust (1)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/streamlit/">streamlit (5)</a></li>
     
     <li><a href="https://cold-eye.github.io/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能 (2)</a></li>
     
@@ -1443,6 +1345,8 @@ st<span style="color:#000;font-weight:bold">.</span>markdown(link, unsafe_allow_
     <a href="https://cold-eye.github.io/tags/python/">python</a>
     
     <a href="https://cold-eye.github.io/tags/rust/">rust</a>
+    
+    <a href="https://cold-eye.github.io/tags/streamlit/">streamlit</a>
     
     <a href="https://cold-eye.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
     

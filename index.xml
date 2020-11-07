@@ -6,10 +6,28 @@
     <description>Recent content on 冷眼-风雨飘摇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 29 Oct 2020 14:48:30 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 02 Nov 2020 13:48:30 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>pandas 读取excel的每个sheet</title>
+      <link>https://cold-eye.github.io/post/python-pandas-excel-sheet/</link>
+      <pubDate>Mon, 02 Nov 2020 13:48:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/python-pandas-excel-sheet/</guid>
+      <description>pandas 读取excel的每个sheet。</description>
+    </item>
+    
+    <item>
+      <title>StreamLit coding</title>
+      <link>https://cold-eye.github.io/post/python-streamlit-coding/</link>
+      <pubDate>Sun, 01 Nov 2020 13:48:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/python-streamlit-coding/</guid>
+      <description>&lt;code&gt;python&lt;/code&gt; &lt;code&gt;streamlit&lt;/code&gt;。</description>
+    </item>
     
     <item>
       <title>ngrok 内网穿透，streamlit 建立外网服务</title>

@@ -6,7 +6,7 @@
     <description>Recent content in Categories on 冷眼-风雨飘摇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 29 Oct 2020 14:48:30 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 02 Nov 2020 13:48:30 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,18 @@
     <item>
       <title>python</title>
       <link>https://cold-eye.github.io/categories/python/</link>
-      <pubDate>Thu, 29 Oct 2020 14:48:30 +0800</pubDate>
+      <pubDate>Mon, 02 Nov 2020 13:48:30 +0800</pubDate>
       
       <guid>https://cold-eye.github.io/categories/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>streamlit</title>
+      <link>https://cold-eye.github.io/categories/streamlit/</link>
+      <pubDate>Sun, 01 Nov 2020 13:48:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/categories/streamlit/</guid>
       <description></description>
     </item>
     
