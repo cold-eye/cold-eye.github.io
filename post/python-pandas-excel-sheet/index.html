@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>pandas 读取excel的每个sheet | 冷眼-风雨飘摇</title>
-    <meta property="og:title" content="pandas 读取excel的每个sheet - 冷眼-风雨飘摇">
+    <title>pandas 读写excel的每个sheet | 冷眼-风雨飘摇</title>
+    <meta property="og:title" content="pandas 读写excel的每个sheet - 冷眼-风雨飘摇">
     <meta property="og:type" content="article">
         
     <meta property="article:published_time" content='2020-11-02T13:48:30&#43;08:00'>
@@ -16,7 +16,7 @@
     <meta property="article:modified_time" content='2020-11-02T13:48:30&#43;08:00'>
         
     <meta name="Keywords" content="[python pandas]">
-    <meta name="description" content="pandas 读取excel的每个sheet">
+    <meta name="description" content="pandas 读写excel的每个sheet">
         
     <meta name="author" content="冷眼">
     <meta property="og:url" content="https://cold-eye.github.io/post/python-pandas-excel-sheet/">
@@ -83,7 +83,7 @@
     
     <article class="post">
         <header>
-            <h1 class="post-title">pandas 读取excel的每个sheet</h1>
+            <h1 class="post-title">pandas 读写excel的每个sheet</h1>
         </header>
         <date class="post-meta meta-date">
             2020年11月2日
@@ -99,7 +99,7 @@
         
         <div class="post-meta">
             <span id="busuanzi_container_page_pv">| <span id="busuanzi_value_page_pv"></span><span>
-                    阅读</span></span> | <span class="post-date">共56字</span>，阅读约<span class="more-meta"> 1 分钟</span>
+                    阅读</span></span> | <span class="post-date">共149字</span>，阅读约<span class="more-meta"> 1 分钟</span>
         </div>
         
         
@@ -128,8 +128,37 @@ data <span style="color:#000;font-weight:bold">=</span> pd<span style="color:#00
 data<span style="color:#000;font-weight:bold">.</span>shape
 </code></pre></td></tr></table>
 </div>
+</div><div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">write <span style="color:#000;font-weight:bold">=</span> pd<span style="color:#000;font-weight:bold">.</span>ExcelWriter(excel_filepath)
+
+df1 <span style="color:#000;font-weight:bold">=</span> pd<span style="color:#000;font-weight:bold">.</span>DataFrame(d_f1)
+excel_header <span style="color:#000;font-weight:bold">=</span> [<span style="color:#d14">&#39;日期&#39;</span>,<span style="color:#d14">&#39;年龄&#39;</span>]<span style="color:#998;font-style:italic">#excel的标题</span>
+df1<span style="color:#000;font-weight:bold">.</span>to_excel(write,sheet_name<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;Sheet1&#39;</span>,header<span style="color:#000;font-weight:bold">=</span>excel_header,index<span style="color:#000;font-weight:bold">=</span><span style="color:#999">False</span>)
+
+df2 <span style="color:#000;font-weight:bold">=</span> pd<span style="color:#000;font-weight:bold">.</span>DataFrame(d_f2)
+excel_header <span style="color:#000;font-weight:bold">=</span> [<span style="color:#d14">&#39;日期&#39;</span>,<span style="color:#d14">&#39;人数&#39;</span>]
+df2<span style="color:#000;font-weight:bold">.</span>to_excel(write,sheet_name<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;Sheet2&#39;</span>,header<span style="color:#000;font-weight:bold">=</span>excel_header,index<span style="color:#000;font-weight:bold">=</span><span style="color:#999">False</span>)
+
+write<span style="color:#000;font-weight:bold">.</span>save()
+</code></pre></td></tr></table>
+</div>
 </div><h2 id="reference">Reference</h2>
-<p>1、 <a href="https://blog.csdn.net/Animeisme/article/details/91960382">https://blog.csdn.net/Animeisme/article/details/91960382</a></p>
+<p>1、 <a href="https://blog.csdn.net/Animeisme/article/details/91960382">https://blog.csdn.net/Animeisme/article/details/91960382</a> <br>
+2、 <a href="https://blog.csdn.net/wangxingfan316/article/details/79628463">https://blog.csdn.net/wangxingfan316/article/details/79628463</a></p>
 <h2 id="打赏">打赏</h2>
 <table>
 <thead>
@@ -242,6 +271,7 @@ data<span style="color:#000;font-weight:bold">.</span>shape
     
     <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
 </head>
+
 
 
 
@@ -521,6 +551,13 @@ data<span style="color:#000;font-weight:bold">.</span>shape
                             cover: '',
                             lrc:'X5',
                             theme: ''
+                        },{
+                            name: 'X6',
+                            artist:'X6',
+                            url:'http://music.163.com/song/media/outer/url?id=3406143.mp3',
+                            cover: '',
+                            lrc:'X6',
+                            theme: ''
                         },
                     ]
 
@@ -545,7 +582,11 @@ data<span style="color:#000;font-weight:bold">.</span>shape
 <ul class="widget-list">
     
     <li>
-        <a href="https://cold-eye.github.io/post/python-pandas-excel-sheet/" title="pandas 读取excel的每个sheet">pandas 读取excel的每个sheet</a>
+        <a href="https://cold-eye.github.io/post/python-pandas-sql/" title="pandas 读写sql">pandas 读写sql</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/python-pandas-excel-sheet/" title="pandas 读写excel的每个sheet">pandas 读写excel的每个sheet</a>
     </li>
     
     <li>
@@ -558,10 +599,6 @@ data<span style="color:#000;font-weight:bold">.</span>shape
     
     <li>
         <a href="https://cold-eye.github.io/post/python-pandas-big-file/" title="python pandas 大文件读写">python pandas 大文件读写</a>
-    </li>
-    
-    <li>
-        <a href="https://cold-eye.github.io/post/useful-web/" title="不错的网站">不错的网站</a>
     </li>
     
 </ul>
@@ -594,7 +631,7 @@ data<span style="color:#000;font-weight:bold">.</span>shape
     
     <li><a href="https://cold-eye.github.io/categories/nlp/">nlp (6)</a></li>
     
-    <li><a href="https://cold-eye.github.io/categories/python/">python (25)</a></li>
+    <li><a href="https://cold-eye.github.io/categories/python/">python (26)</a></li>
     
     <li><a href="https://cold-eye.github.io/categories/rust/">rust (1)</a></li>
     
