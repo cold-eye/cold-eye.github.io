@@ -6,21 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>streamlit | 冷眼-风雨飘摇</title>
-    <meta property="og:title" content="streamlit - 冷眼-风雨飘摇">
+    <title>数据增强在文本分类中的应用 | 冷眼-风雨飘摇</title>
+    <meta property="og:title" content="数据增强在文本分类中的应用 - 冷眼-风雨飘摇">
     <meta property="og:type" content="article">
         
+    <meta property="article:published_time" content='2020-11-19T10:48:30&#43;08:00'>
         
-    <meta name="Keywords" content="python,自然语言处理">
-    <meta name="description" content="streamlit">
+        
+    <meta property="article:modified_time" content='2020-11-19T10:48:30&#43;08:00'>
+        
+    <meta name="Keywords" content="[nlp 数据增强 文本分类]">
+    <meta name="description" content="数据增强在文本分类中的应用">
         
     <meta name="author" content="冷眼">
-    <meta property="og:url" content="https://cold-eye.github.io/tags/streamlit/">
+    <meta property="og:url" content="https://cold-eye.github.io/post/nlp-classifier-enhence/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href='/css/normalize.css'>
     <link rel="stylesheet" href='/css/style.css'>
-    <link rel="alternate" type="application/rss+xml+xml" href="https://cold-eye.github.io/tags/streamlit/index.xml" title="冷眼-风雨飘摇" />
     <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
@@ -56,7 +59,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="" href="https://cold-eye.github.io/">首页</a>
+                    <a class="current" href="https://cold-eye.github.io/">首页</a>
                     
                     <a  href="https://cold-eye.github.io/archives/" title="归档">归档</a>
                     
@@ -78,146 +81,354 @@
                     
 <div class="res-cons">
     
-    <h3 class="archive-title">
-        包含标签
-        <span class="keyword">streamlit</span>
-        的文章
-    </h3>
-    
-
-    
     <article class="post">
         <header>
-            <h1 class="post-title">
-                <a href="https://cold-eye.github.io/post/python-streamlit-coding/">StreamLit coding</a>
-            </h1>
+            <h1 class="post-title">数据增强在文本分类中的应用</h1>
         </header>
         <date class="post-meta meta-date">
-            2020年11月1日
+            2020年11月19日
         </date>
         
-        <div class="post-meta meta-category">
-            |
+        <div class="post-meta">
+            <span>|</span>
             
-            <a href='https://cold-eye.github.io/categories/python'>python</a>
-            
-            <a href='https://cold-eye.github.io/categories/streamlit'>streamlit</a>
+            <span class="meta-category"><a href='https://cold-eye.github.io/categories/nlp'>nlp</a></span>
             
         </div>
         
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">| <span id="busuanzi_value_page_pv"></span><span>
+                    阅读</span></span> | <span class="post-date">共3117字</span>，阅读约<span class="more-meta"> 7 分钟</span>
+        </div>
+        
+        
         <div class="post-content">
-            <code>python</code> <code>streamlit</code>。……
-            <p class="readmore"><a href="https://cold-eye.github.io/post/python-streamlit-coding/">阅读全文</a></p>
+            <h2 id="一转自">一、转自</h2>
+<p><a href="https://mp.weixin.qq.com/s/oSOYIKO_75A2wzGg9EY8-A">数据增强在贝壳找房文本分类中的应用</a></p>
+<h2 id="二传统文本数据增强方法">二、传统文本数据增强方法</h2>
+<p>传统的NLP数据增强大致有两种思路，一个是加噪，另一个是回译。加噪即为在原数据的基础上通过替换、删除等方式创造和原数据相似的新数据。回译则是将原有的数据翻译为其他语言再翻译回原语言，翻译的中间链路可以随着引入更多的语言延长，由于语言逻辑顺序等的不同，回译的方法也往往能够得到和原数据相差较大的新数据。下面主要介绍两种方法。</p>
+<h3 id="21-加噪法">2.1 加噪法</h3>
+<h4 id="211-同义词替换sr-synonyms-replace">2.1.1 同义词替换(SR: Synonyms Replace)</h4>
+<p>从句子中随机选择n个非停用词，每个词随机选择一个同义词来替换。</p>
+<p><strong><code>输入:</code></strong> 推荐个海淀区的两居室</p>
+<p><strong><code>输出:</code></strong> <code>介绍</code>个海淀区的<code>两卧</code></p>
+<h4 id="212-随机插入ri-randomly-insert">2.1.2 随机插入(RI: Randomly Insert)</h4>
+<p>不考虑停用词，随机抽取一个词，然后在该词的同义词集合中随机选择一个，插入原句子中的随机位置，该过程可以重复n次。</p>
+<p><strong><code>输入</code></strong>: 推荐个海淀区的两居室</p>
+<p><strong><code>输出</code></strong>: 推荐<code>个介绍</code>海淀区的两居室</p>
+<h4 id="213-随机交换rs-randomly-swap">2.1.3 随机交换(RS: Randomly Swap)</h4>
+<p>句子中，随机选择两个词，交换位置，该过程可以重复n次</p>
+<p><strong><code>输入</code></strong>: 推荐个海淀区的两居室</p>
+<p><strong><code>输出</code></strong>: 两居室个海淀区的推荐</p>
+<h4 id="214-随机删除rd-randomly-delete">2.1.4 随机删除(RD: Randomly Delete)</h4>
+<p>句子中的每个词，以概率p随机删除</p>
+<p><strong><code>输入</code></strong>: 推荐个海淀区的两居室</p>
+<p><strong><code>输出</code></strong>: 推荐个的两居室</p>
+<h3 id="22-回译法">2.2 回译法</h3>
+<p>回译的方法往往能够增加文本数据的多样性，相比替换词来说，有时可以改变句法结构等，并保留语义信息。但是，回译的方法产生的数据依赖于翻译的质量，大多数出现的翻译结果可能并不那么准确。而实现回译的方案有两种：</p>
+<ul>
+<li>开放的翻译接口，如谷歌翻译、百度翻译、搜狗翻译等</li>
+<li>自己收集平行语料，训练seq2seq、transformer等翻译模型</li>
+</ul>
+<p>实际应用时，法2往往没有使用翻译工具效果好，而且投入成本比较高。</p>
+<p>利用翻译工具，进行汉-英回译，效果如下所示：</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Output</th>
+<th>Evaluation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>这里上的是哪个公立幼儿园？</td>
+<td>这是哪个公立幼儿园？</td>
+<td>good</td>
+</tr>
+<tr>
+<td>能上什么幼儿园？</td>
+<td>我可以去哪个幼儿园？</td>
+<td>good</td>
+</tr>
+<tr>
+<td>你好在链家买房子手续费多少？</td>
+<td>一个家庭买房要多少钱？</td>
+<td>bad</td>
+</tr>
+<tr>
+<td>加上中介费要十多万？</td>
+<td>加上代理费超过10万？</td>
+<td>good</td>
+</tr>
+<tr>
+<td>中介费百分之多少</td>
+<td>代理费的百分比</td>
+<td>good</td>
+</tr>
+</tbody>
+</table>
+<p>可以看到大部分回译结果是可用的，并且丰富了表达，增加了文本多样性。</p>
+<h2 id="三深度学习数据增强技术">三、深度学习数据增强技术</h2>
+<p>人类的学习方法是半监督学习，能够从大量的未标注数据和极少量的标记数据学习。在NLP任务中，有大量未经使用的未标注数据，相比于上文介绍的利用已标注数据来做增强，有广大的前景。受人类学习方法的启发，研究者在半监督学习方向做了一些探索。</p>
+<h3 id="31-半监督mixmatch">3.1 半监督MixMatch</h3>
+<p>此方法来源谷歌论文，作者集百家之长，设计了一种通用的训练框架。主要体现了4个思想。</p>
+<ul>
+<li><strong><code>自洽原则</code></strong>：即对未标注数据进行数据增强，产生的新数据输入分类器，预测结果应该保持自洽。</li>
+<li><strong><code>最小化熵</code></strong>：熵值越高，不确定性也就越高；反之，熵值最小化，可以使得信息更为确定，具体到分类任务，更能明显地判断预测出的类别。在半监督任务中，最小化未标注数据的概率熵有助于分类边界的确定。</li>
+<li><strong><code>传统正则</code></strong>：无需多言，是对训练参数加正则限定防止过拟合。</li>
+<li><strong><code>Mixup</code></strong>: 一种数据增强方式，是数据的线性组合。</li>
+</ul>
+<p>作者提出将有标签数据和无标签数据同时进行增强，其中有标签数据做一次增强，未标签数据做k次，通过标注数据训练的模型可以得到未标注数据增强后的概率分布，做最小化熵操作，最后分别将增强后的有标签数据和无标签数据与(k+1)个batch的混合数据做Mixup，由于Mixup过程是针对图像数据而言的，因此我们没有进行实践。只学习其主要思想。</p>
+<h3 id="32-无监督数据增强uda">3.2 无监督数据增强UDA</h3>
+<p>UDA虽然叫无监督数据增强，本质上也是半监督学习，利用了有标签数据引导无标签增广数据，只是其并未对有标签数据做增强。作者把目光聚焦到增强方式部分，提出更好的变换方式能有更好的表现，根据不同任务设置相适应的变换方法尤为重要。仅对未标注数据增强，并通过结合已标注数据的交叉熵损失做一致性训练，使得UDA能够将标签信息由标注数据引入到无标注数据。</p>
+<p>此外，可以看到半监督学习方法中都要设法降低标注数据的影响，MixMatch是对未标注数据增强做k次增强(标注数据增强1次)，而UDA新颖的设计了TSA(Training Signal Annealing)，即通过函数控制阈值，使其从低到高变化，每次训练只用到模型预测置信度低于阈值的数据，以此策略来逐步引入标注数据，常用的函数有线性函数，log函数和指数函数。</p>
+<h3 id="33-数据清洗">3.3 数据清洗</h3>
+<p>谈到数据增强，少有提到数据清洗的。实际上，这是十分必要的一步，也蕴含在半监督学习方法之中。半监督学习方法利用L2损失或者KL散度来度量增强前后的差异，其实是控制模型选择增强前后差异小、分布变化不大的数据。</p>
+<p>而对于传统的增强方法，加噪法本身就增加了噪声，回译法受限于翻译工具的质量也会生成一些脏数据，对增强后的数据进行清洗能够提升模型的表现，我们在实验中尝试了kmeans清洗法，此外，还可以考虑置信度学习的方法进行清洗。</p>
+<h2 id="四实验">四、实验</h2>
+<p>上文简单地介绍了数据增强方向主流的方法，大部分都在我们的任务中做了实践。</p>
+<h3 id="41-样本不均衡场景">4.1 样本不均衡场景</h3>
+<p>意图识别是小贝助手实现的关键一环，直接影响着下游的决策。由于意图划分粒度较细，不同类别的数量差距明显，显然这是个样本不均衡场景。</p>
+<p>每个意图有对应的技能，比如:房源价格、房源楼层等是不同的意图，但都属于“房屋信息”这一技能。通过归因分析，发现很多意图的预测错误源自技能层的错误划分，而技能层的数量分布同样很不均衡，尤其是other类，占比极高。</p>
+<h4 id="411-实验一">4.1.1 实验一</h4>
+<p>首先，我们尝试在技能层对数量少的类别做数据增强。实验发现，在多个技能下，召回提升明显，准确率稍有下降。以数据量比较少，预测结果比较差的“房源对比”技能为例，结果如下所示：</p>
+<table>
+<thead>
+<tr>
+<th>method</th>
+<th>precision</th>
+<th>recall</th>
+<th>support</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>baseline</td>
+<td>0.23</td>
+<td>0.29</td>
+<td>35</td>
+</tr>
+<tr>
+<td>EDA</td>
+<td>0.18</td>
+<td>0.46</td>
+<td>35</td>
+</tr>
+<tr>
+<td>回译</td>
+<td>0.18</td>
+<td>0.34</td>
+<td>35</td>
+</tr>
+<tr>
+<td>回译+EDA</td>
+<td>0.18</td>
+<td>0.49</td>
+<td>35</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>注</code></strong>： eda选择1:4扩充，回译1:1</p>
+<p>可以看到准确率稍有下降，召回提升明显，其中回译和EDA混合使用效果最佳，在其他技能上类似的结果。</p>
+<h4 id="412-实验二">4.1.2 实验二</h4>
+<p>在业务中，我们往往更关注预测的准确率，既然发现数据增强对召回提升明显，我们想到在other类上再次尝试，other类恰恰是我们不关注准确更关注召回的类别。</p>
+<table>
+<thead>
+<tr>
+<th>method</th>
+<th>precision</th>
+<th>recall</th>
+<th>support</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>baseline</td>
+<td>0.720</td>
+<td>0.710</td>
+<td>3566</td>
+</tr>
+<tr>
+<td>EDA</td>
+<td>0.690</td>
+<td>0.730</td>
+<td>3566</td>
+</tr>
+<tr>
+<td>EDA+kmeans</td>
+<td>0.710</td>
+<td>0.710</td>
+<td>3566</td>
+</tr>
+<tr>
+<td>回译</td>
+<td>0.695</td>
+<td>0.730</td>
+<td>3566</td>
+</tr>
+<tr>
+<td>回译+kmeans</td>
+<td>0.690</td>
+<td>0.745</td>
+<td>3566</td>
+</tr>
+<tr>
+<td>回译+EDA</td>
+<td>0.685</td>
+<td>0.765</td>
+<td>3566</td>
+</tr>
+<tr>
+<td>回译+EDA+kmeans</td>
+<td>0.690</td>
+<td>0.770</td>
+<td>3566</td>
+</tr>
+</tbody>
+</table>
+<p>本次实验引入了kmeans进行数据清洗，具体做法是对聚完类的类簇随机删除某一簇或某几簇，实验结果同样表明，回译和EDA混合使用效果会有提升，同时，用kmeans清洗后效果达到最佳。</p>
+<h3 id="42-样本量稀疏场景">4.2 样本量稀疏场景</h3>
+<p>在快节奏的今天，越来越多的客户选择vr看房，vr带看场景意图识别是一个急需的需求。项目成立初期，数据量较少，我们考虑了数据增强来提升模型表现。考虑到这批数据量差别相对不是那么大，我们尝试了UDA。整体意图识别结果如下所示。</p>
+<table>
+<thead>
+<tr>
+<th>method</th>
+<th>precision</th>
+<th>recall</th>
+<th>support</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>baseline</td>
+<td>0.716</td>
+<td>0.568</td>
+<td>634</td>
+</tr>
+<tr>
+<td>transformer+增强</td>
+<td>0.744</td>
+<td>0.584</td>
+<td>634</td>
+</tr>
+<tr>
+<td>uda-50</td>
+<td>0.663</td>
+<td>0.512</td>
+<td>634</td>
+</tr>
+<tr>
+<td>transformer-50</td>
+<td>0.696</td>
+<td>0.550</td>
+<td>634</td>
+</tr>
+</tbody>
+</table>
+<p>实验结果表明增强后准召都有明显提升，由于uda每个标签用50条数据，对比了一下transformer同样训练集下的效果，uda的实验效果差一些，一方面由于使用数据受限，必须要求每个标签使用同样数目数据；另一方面，可能由于未标注数据的选择对模型造成了干扰，目前uda在多项任务中效果都不如直接使用transformer或albert好。</p>
+<h2 id="五总结">五、总结</h2>
+<p>在贝壳NLP的真实任务中，我们对数据增强做了验证，结果发现在不均衡场景中，可以有效提升召回，而在少量样本场景下，能同时对准召有明显提升，证明了我们研究方向的正确，结果符合预期。</p>
+<p>然而，需要注意的是虽然数据增强方法能够得到很好的多样性和有效性。但是，由于多样性是通过改变原始数据得到的，所以，它存在改变数据类别的风险，好的结果往往是多样性与有效性的折中，理想的效果往往离不开数据清洗。如何进一步达到这一折中更充分地利用数据将会是我们今后的研究方向。</p>
+<h2 id="reference">Reference</h2>
+<p>1、 <a href="https://mp.weixin.qq.com/s/oSOYIKO_75A2wzGg9EY8-A">https://mp.weixin.qq.com/s/oSOYIKO_75A2wzGg9EY8-A</a></p>
+<h2 id="打赏">打赏</h2>
+<table>
+<thead>
+<tr>
+<th align="left">微信
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/wechat.png">
+            <img class="mx-auto" alt="微信" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/wechat.png" />
+        </a>
+    </th>
+<th align="left">支付宝
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/alipay.png">
+            <img class="mx-auto" alt="支付宝" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/alipay.png" />
+        </a>
+    </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em><strong>万分感谢</strong></em></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+
+        
+<div class="post-archive">
+    <ul class="post-copyright">
+        <li><strong>原文作者：</strong><a rel="author" href="https://cold-eye.github.io/">冷眼</a></li>
+        <li style="word-break:break-all"><strong>原文链接：</strong><a href="https://cold-eye.github.io/post/nlp-classifier-enhence/">https://cold-eye.github.io/post/nlp-classifier-enhence/</a></li>
+        <li><strong>版权声明：</strong>本作品采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可，非商业转载请注明出处（作者，原文链接），商业转载请联系作者获得授权。</li>
+    </ul>
+</div>
+<br/>
+
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/nlp-corpus/">自然语言处理语料库（长期更新...）</a></li>
+        
+        <li><a href="/post/nlp-classifier-sota/">打破 BERT 天花板：11种花式炼丹术刷爆NLP分类SOTA！</a></li>
+        
+        <li><a href="/post/nlp-less-sample/">NLP中的少样本困境问题探究</a></li>
+        
+        <li><a href="/post/tencent-word2vec/">腾讯词向量制作同义词映射表、计算文本相似度</a></li>
+        
+        <li><a href="/post/kg-bootstrapping/">半监督学习Bootstrapping抽取知识图谱</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='https://cold-eye.github.io/tags/nlp'>nlp</a></li>
+                
+            </ul>
+            
         </div>
     </article>
     
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://cold-eye.github.io/post/python-streamlit-ngrok/">ngrok 内网穿透，streamlit 建立外网服务</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2020年10月29日
-        </date>
-        
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='https://cold-eye.github.io/categories/python'>python</a>
-            
-            <a href='https://cold-eye.github.io/categories/streamlit'>streamlit</a>
-            
-        </div>
-        
-        <div class="post-content">
-            ngrok 内网穿透，streamlit 建立外网服务。……
-            <p class="readmore"><a href="https://cold-eye.github.io/post/python-streamlit-ngrok/">阅读全文</a></p>
-        </div>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://cold-eye.github.io/post/python-streamlit-nlp/">Streamlit: 情感分析web应用</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2020年10月8日
-        </date>
-        
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='https://cold-eye.github.io/categories/python'>python</a>
-            
-            <a href='https://cold-eye.github.io/categories/streamlit'>streamlit</a>
-            
-        </div>
-        
-        <div class="post-content">
-            <code>python</code> <code>streamlit</code> <code>情感分析</code>。……
-            <p class="readmore"><a href="https://cold-eye.github.io/post/python-streamlit-nlp/">阅读全文</a></p>
-        </div>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://cold-eye.github.io/post/python-streamlit-heroku/">Streamlit: 交互式数据分析产品及 heroku 免费部署</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2020年10月8日
-        </date>
-        
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='https://cold-eye.github.io/categories/python'>python</a>
-            
-            <a href='https://cold-eye.github.io/categories/streamlit'>streamlit</a>
-            
-        </div>
-        
-        <div class="post-content">
-            <code>python</code> <code>streamlit</code> <code>heroku</code>。……
-            <p class="readmore"><a href="https://cold-eye.github.io/post/python-streamlit-heroku/">阅读全文</a></p>
-        </div>
-    </article>
-    
-    <article class="post">
-        <header>
-            <h1 class="post-title">
-                <a href="https://cold-eye.github.io/post/python-streamlit/">python streamlit</a>
-            </h1>
-        </header>
-        <date class="post-meta meta-date">
-            2020年10月8日
-        </date>
-        
-        <div class="post-meta meta-category">
-            |
-            
-            <a href='https://cold-eye.github.io/categories/python'>python</a>
-            
-            <a href='https://cold-eye.github.io/categories/streamlit'>streamlit</a>
-            
-        </div>
-        
-        <div class="post-content">
-            <code>python</code> <code>streamlit</code>。……
-            <p class="readmore"><a href="https://cold-eye.github.io/post/python-streamlit/">阅读全文</a></p>
-        </div>
-    </article>
     
 
     
+    
+    
+    
+    
+    <div id="vcomments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
 
-
-
-
-
+    <script type="text/javascript">
+      new Valine({
+          el: '#vcomments' ,
+          appId: '2bNGHPmILSH9xQJ9XjQchomv-gzGzoHsz',
+          appKey: '52xbEYwnpwLahMh4Yj55r69v',
+          notify: 'false', 
+          verify: 'false', 
+          avatar:'mm', 
+          placeholder: '说点什么吧...',
+          visitor: 'false'
+      });
+    </script>
 </div>
 
                 </div>
@@ -691,6 +902,17 @@
 </footer>
 
 
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 
 <a id="rocket" href="#top"></a>
 <script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
