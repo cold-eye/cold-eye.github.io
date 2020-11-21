@@ -6,10 +6,19 @@
     <description>Recent content in streamlit on 冷眼-风雨飘摇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 01 Nov 2020 13:48:30 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 20 Nov 2020 15:48:30 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/categories/streamlit/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to Run Streamlit Apps From Colab</title>
+      <link>https://cold-eye.github.io/post/python-streamlit-colab/</link>
+      <pubDate>Fri, 20 Nov 2020 15:48:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/python-streamlit-colab/</guid>
+      <description>How to Run Streamlit Apps From Colab</description>
+    </item>
     
     <item>
       <title>StreamLit coding</title>

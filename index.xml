@@ -6,10 +6,28 @@
     <description>Recent content on 冷眼-风雨飘摇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 19 Nov 2020 10:48:30 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 20 Nov 2020 15:48:30 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to Run Streamlit Apps From Colab</title>
+      <link>https://cold-eye.github.io/post/python-streamlit-colab/</link>
+      <pubDate>Fri, 20 Nov 2020 15:48:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/python-streamlit-colab/</guid>
+      <description>How to Run Streamlit Apps From Colab</description>
+    </item>
+    
+    <item>
+      <title>python os.environ 环境变量</title>
+      <link>https://cold-eye.github.io/post/python-os-environ/</link>
+      <pubDate>Thu, 19 Nov 2020 15:48:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/python-os-environ/</guid>
+      <description>python os.environ 环境变量。</description>
+    </item>
     
     <item>
       <title>数据增强在文本分类中的应用</title>
