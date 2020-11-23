@@ -99,7 +99,7 @@
         
         <div class="post-meta">
             <span id="busuanzi_container_page_pv">| <span id="busuanzi_value_page_pv"></span><span>
-                    阅读</span></span> | <span class="post-date">共146字</span>，阅读约<span class="more-meta"> 1 分钟</span>
+                    阅读</span></span> | <span class="post-date">共166字</span>，阅读约<span class="more-meta"> 1 分钟</span>
         </div>
         
         
@@ -142,10 +142,16 @@
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
 </span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">pandas</span> <span style="color:#000;font-weight:bold">as</span> <span style="color:#555">pd</span>
 <span style="color:#000;font-weight:bold">import</span> <span style="color:#555">time</span>
+<span style="color:#000;font-weight:bold">from</span> <span style="color:#555">tqdm</span> <span style="color:#000;font-weight:bold">import</span> tqdm
 
 start <span style="color:#000;font-weight:bold">=</span> time<span style="color:#000;font-weight:bold">.</span>time()
 blank_df <span style="color:#000;font-weight:bold">=</span> pd<span style="color:#000;font-weight:bold">.</span>DataFrame(colunms<span style="color:#000;font-weight:bold">=</span>[<span style="color:#d14">&#39;idx&#39;</span>,<span style="color:#d14">&#39;text&#39;</span>,<span style="color:#d14">&#39;labels&#39;</span>,<span style="color:#d14">&#39;probs&#39;</span>])
@@ -156,23 +162,27 @@ chunk_df <span style="color:#000;font-weight:bold">=</span> pd<span style="color
 model<span style="color:#000;font-weight:bold">.</span>load_weights(model_path)
 
 df_all <span style="color:#000;font-weight:bold">=</span> blank_df<span style="color:#000;font-weight:bold">.</span>copy()
-<span style="color:#000;font-weight:bold">for</span> i,df_sample <span style="color:#000;font-weight:bold">in</span> <span style="color:#0086b3">enumerate</span>(chunk_df):
+<span style="color:#000;font-weight:bold">for</span> df_sample <span style="color:#000;font-weight:bold">in</span> tqdm(chunk_df):
     df_sample<span style="color:#000;font-weight:bold">.</span>columns <span style="color:#000;font-weight:bold">=</span> [<span style="color:#d14">&#39;idx&#39;</span>,<span style="color:#d14">&#39;text&#39;</span>]
 
     tokens, segments <span style="color:#000;font-weight:bold">=</span> [], []
-    <span style="color:#000;font-weight:bold">try</span>:
-        <span style="color:#000;font-weight:bold">for</span> text <span style="color:#000;font-weight:bold">in</span> df_sample<span style="color:#000;font-weight:bold">.</span>text:
+    <span style="color:#000;font-weight:bold">for</span> j, text <span style="color:#000;font-weight:bold">in</span> <span style="color:#0086b3">enumerate</span>(df_sample<span style="color:#000;font-weight:bold">.</span>text):
+        <span style="color:#000;font-weight:bold">try</span>:
             token_ids, segment_ids <span style="color:#000;font-weight:bold">=</span> tokenizer<span style="color:#000;font-weight:bold">.</span>encode(text, max_length<span style="color:#000;font-weight:bold">=</span>maxlen)
-            tokens<span style="color:#000;font-weight:bold">.</span>append(token_ids)
-            segments<span style="color:#000;font-weight:bold">.</span>append(segment_ids)
+        
+        <span style="color:#000;font-weight:bold">except</span>:
+            <span style="color:#998;font-style:italic"># df_sample[&#39;labels&#39;] = np.nan</span>
+            <span style="color:#998;font-style:italic"># df_sample[&#39;probs&#39;] = np.nan</span>
+            token_ids <span style="color:#000;font-weight:bold">=</span> [<span style="color:#099">101</span>, <span style="color:#099">102</span>]
+            segment_ids <span style="color:#000;font-weight:bold">=</span> [<span style="color:#099">0</span>, <span style="color:#099">0</span>]
     
-        y_preds <span style="color:#000;font-weight:bold">=</span> model<span style="color:#000;font-weight:bold">.</span>predict([sequence_padding(tokens),sequence_padding(segments)],batch_size<span style="color:#000;font-weight:bold">=</span>batch_size)
-        df_sample[<span style="color:#d14">&#39;labels&#39;</span>] <span style="color:#000;font-weight:bold">=</span> y_preds<span style="color:#000;font-weight:bold">.</span>argmax(axis<span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>)
-        df_sample[<span style="color:#d14">&#39;probs&#39;</span>] <span style="color:#000;font-weight:bold">=</span> y_preds<span style="color:#000;font-weight:bold">.</span>max(axis<span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>)
-    <span style="color:#000;font-weight:bold">except</span>:
-        df_sample[<span style="color:#d14">&#39;labels&#39;</span>] <span style="color:#000;font-weight:bold">=</span> np<span style="color:#000;font-weight:bold">.</span>nan
-        df_sample[<span style="color:#d14">&#39;probs&#39;</span>] <span style="color:#000;font-weight:bold">=</span> np<span style="color:#000;font-weight:bold">.</span>nan
+        tokens<span style="color:#000;font-weight:bold">.</span>append(token_ids)
+        segments<span style="color:#000;font-weight:bold">.</span>append(segment_ids)
     
+    y_preds <span style="color:#000;font-weight:bold">=</span> model<span style="color:#000;font-weight:bold">.</span>predict([sequence_padding(tokens),sequence_padding(segments)],batch_size<span style="color:#000;font-weight:bold">=</span>batch_size)
+    df_sample[<span style="color:#d14">&#39;labels&#39;</span>] <span style="color:#000;font-weight:bold">=</span> y_preds<span style="color:#000;font-weight:bold">.</span>argmax(axis<span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>)
+    df_sample[<span style="color:#d14">&#39;probs&#39;</span>] <span style="color:#000;font-weight:bold">=</span> y_preds<span style="color:#000;font-weight:bold">.</span>max(axis<span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>)
+
     df_sample<span style="color:#000;font-weight:bold">.</span>to_csv(csv_path, index<span style="color:#000;font-weight:bold">=</span><span style="color:#999">None</span>, mode<span style="color:#000;font-weight:bold">=</span><span style="color:#d14">&#39;a&#39;</span>)
     df_all <span style="color:#000;font-weight:bold">=</span> pd<span style="color:#000;font-weight:bold">.</span>concat([df_all, df_sample])
         
@@ -605,6 +615,10 @@ end <span style="color:#000;font-weight:bold">=</span> time<span style="color:#0
 <ul class="widget-list">
     
     <li>
+        <a href="https://cold-eye.github.io/post/python-faker/" title="Python中神奇的第三方库：Faker">Python中神奇的第三方库：Faker</a>
+    </li>
+    
+    <li>
         <a href="https://cold-eye.github.io/post/python-streamlit-colab/" title="How to Run Streamlit Apps From Colab">How to Run Streamlit Apps From Colab</a>
     </li>
     
@@ -618,10 +632,6 @@ end <span style="color:#000;font-weight:bold">=</span> time<span style="color:#0
     
     <li>
         <a href="https://cold-eye.github.io/post/python-wechat-reminder/" title="白嫖：只需一点点代码，即可实现微信给自己发提醒消息">白嫖：只需一点点代码，即可实现微信给自己发提醒消息</a>
-    </li>
-    
-    <li>
-        <a href="https://cold-eye.github.io/post/python-pandas-sql/" title="pandas 读写sql">pandas 读写sql</a>
     </li>
     
 </ul>
@@ -654,7 +664,7 @@ end <span style="color:#000;font-weight:bold">=</span> time<span style="color:#0
     
     <li><a href="https://cold-eye.github.io/categories/nlp/">nlp (7)</a></li>
     
-    <li><a href="https://cold-eye.github.io/categories/python/">python (29)</a></li>
+    <li><a href="https://cold-eye.github.io/categories/python/">python (30)</a></li>
     
     <li><a href="https://cold-eye.github.io/categories/rust/">rust (1)</a></li>
     
