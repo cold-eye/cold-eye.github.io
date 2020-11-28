@@ -6,10 +6,28 @@
     <description>Recent content in Posts on 冷眼-风雨飘摇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 23 Nov 2020 13:48:30 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2020 13:48:30 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to create buttons in Jupyter</title>
+      <link>https://cold-eye.github.io/post/python-jupyter-button/</link>
+      <pubDate>Thu, 26 Nov 2020 13:48:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/python-jupyter-button/</guid>
+      <description>How to create buttons in Jupyter</description>
+    </item>
+    
+    <item>
+      <title>linux 一行命令查找文件</title>
+      <link>https://cold-eye.github.io/post/linux-locate/</link>
+      <pubDate>Thu, 26 Nov 2020 13:48:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/linux-locate/</guid>
+      <description>linux 一行命令查找文件</description>
+    </item>
     
     <item>
       <title>python生成uuid的方法</title>
