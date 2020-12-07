@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 冷眼-风雨飘摇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 01 Dec 2020 13:48:30 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 06 Dec 2020 13:48:30 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>信息抽取竞赛方案</title>
+      <link>https://cold-eye.github.io/post/nlp-information-extraction-competiton/</link>
+      <pubDate>Sun, 06 Dec 2020 13:48:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/nlp-information-extraction-competiton/</guid>
+      <description>信息抽取竞赛方案。</description>
+    </item>
     
     <item>
       <title>对比 bert、albert、textcnn 在cpu、gpu 环境下，文本分类耗时</title>
