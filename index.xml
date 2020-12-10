@@ -6,10 +6,19 @@
     <description>Recent content on 冷眼-风雨飘摇</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 06 Dec 2020 13:48:30 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 09 Dec 2020 13:48:30 +0800</lastBuildDate>
     
 	<atom:link href="https://cold-eye.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>python读GB级大文件</title>
+      <link>https://cold-eye.github.io/post/python-open-big-file/</link>
+      <pubDate>Wed, 09 Dec 2020 13:48:30 +0800</pubDate>
+      
+      <guid>https://cold-eye.github.io/post/python-open-big-file/</guid>
+      <description>python读GB级大文件。</description>
+    </item>
     
     <item>
       <title>信息抽取竞赛方案</title>
