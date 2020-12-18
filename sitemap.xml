@@ -4,12 +4,37 @@
   
   <url>
     <loc>https://cold-eye.github.io/categories/</loc>
-    <lastmod>2020-12-09T13:48:30+08:00</lastmod>
+    <lastmod>2020-12-16T13:48:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cold-eye.github.io/tags/linux/</loc>
+    <lastmod>2020-12-16T13:48:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cold-eye.github.io/categories/linux/</loc>
+    <lastmod>2020-12-16T13:48:30+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://cold-eye.github.io/post/</loc>
-    <lastmod>2020-12-09T13:48:30+08:00</lastmod>
+    <lastmod>2020-12-16T13:48:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cold-eye.github.io/tags/</loc>
+    <lastmod>2020-12-16T13:48:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cold-eye.github.io/post/personal-deeplearning-workstation/</loc>
+    <lastmod>2020-12-16T13:48:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://cold-eye.github.io/</loc>
+    <lastmod>2020-12-16T13:48:30+08:00</lastmod>
   </url>
   
   <url>
@@ -24,16 +49,6 @@
   
   <url>
     <loc>https://cold-eye.github.io/post/python-open-big-file/</loc>
-    <lastmod>2020-12-09T13:48:30+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://cold-eye.github.io/tags/</loc>
-    <lastmod>2020-12-09T13:48:30+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://cold-eye.github.io/</loc>
     <lastmod>2020-12-09T13:48:30+08:00</lastmod>
   </url>
   
@@ -63,17 +78,7 @@
   </url>
   
   <url>
-    <loc>https://cold-eye.github.io/tags/linux/</loc>
-    <lastmod>2020-11-26T13:48:30+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://cold-eye.github.io/categories/linux/</loc>
-    <lastmod>2020-11-26T13:48:30+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://cold-eye.github.io/post/linux-locate/</loc>
+    <loc>https://cold-eye.github.io/post/linux-find-files/</loc>
     <lastmod>2020-11-26T13:48:30+08:00</lastmod>
   </url>
   

@@ -1,0 +1,1531 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>【转】保姆级教程：个人深度学习工作站配置指南 | 冷眼-风雨飘摇</title>
+    <meta property="og:title" content="【转】保姆级教程：个人深度学习工作站配置指南 - 冷眼-风雨飘摇">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2020-12-16T13:48:30&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2020-12-16T13:48:30&#43;08:00'>
+        
+    <meta name="Keywords" content="[linux 深度学习工作站]">
+    <meta name="description" content="【转】保姆级教程：个人深度学习工作站配置指南">
+        
+    <meta name="author" content="冷眼">
+    <meta property="og:url" content="https://cold-eye.github.io/post/personal-deeplearning-workstation/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+
+    
+    
+    
+
+    
+        <link href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" rel="stylesheet">
+    
+
+    
+    
+        <link rel="stylesheet" href='/css/douban.css'>
+    
+        <link rel="stylesheet" href='/css/other.css'>
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://cold-eye.github.io/">
+                        冷眼-风雨飘摇
+                    </a>
+                
+                <p class="description">专注于python、自然语言处理</p>
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://cold-eye.github.io/">首页</a>
+                    
+                    <a  href="https://cold-eye.github.io/archives/" title="归档">归档</a>
+                    
+                    <a  href="https://cold-eye.github.io/categories/" title="分类">分类</a>
+                    
+                    <a  href="https://cold-eye.github.io/about/" title="博主">博主</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">【转】保姆级教程：个人深度学习工作站配置指南</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年12月16日
+        </date>
+        
+        <div class="post-meta">
+            <span>|</span>
+            
+            <span class="meta-category"><a href='https://cold-eye.github.io/categories/linux'>linux</a></span>
+            
+        </div>
+        
+        
+        <div class="post-meta">
+            <span id="busuanzi_container_page_pv">| <span id="busuanzi_value_page_pv"></span><span>
+                    阅读</span></span> | <span class="post-date">共9726字</span>，阅读约<span class="more-meta"> 20 分钟</span>
+        </div>
+        
+        
+        <div class="post-content">
+            <h2 id="前言">前言</h2>
+<p>工作原因一直想配置一台自己的深度学习工作站服务器，之前自己看完paper想做一些实验或者复现模型的时候只能用自己的日常PC来跑很麻烦&hellip;一方面电脑得装双系统，干活的时候就不能用作其他用途了；另一方面，即使是没有使用流程的问题，GTX1080的性能也还是弱了一些，更何况我用的是一个A4迷你机箱，长时间高负载的训练任务也不太可靠。</p>
+<p>以前在公司的时候还可以用公司的DGX训练集群做一些实验，但是我现在的开发环境已经切换到了昇腾的NPU架构芯片之上了，昇腾平台算力方面虽然是比肩甚至可以超越英伟达，但是目前暂时很多学术界的生态都还是基于GPU服务器的（主要是指开源代码），且我们这儿昇腾服务器对个人也不好买（且买不起），所以有一台这样的GPU工作站还是会方便一些。</p>
+<p>那么本文是我在组装工作站过程中记录的详细操作流程，供有类似需求的同学参考~</p>
+<p>首先我们来看一下配置完后最终效果的视频：
+
+        <a data-fancybox="gallery" href="http://mpvideo.qpic.cn/0bf2dyaa4aaajyalnpgyavpvahwdbypaadqa.f10002.mp4?dis_k=ea9b2a53282441fa0ef09fcc7d7d5d24&amp;dis_t=1608186467&amp;vid=wxv_1651653315392274434&amp;format_id=10002">
+            <img class="mx-auto" alt="点击播放视频" src="http://mpvideo.qpic.cn/0bf2dyaa4aaajyalnpgyavpvahwdbypaadqa.f10002.mp4?dis_k=ea9b2a53282441fa0ef09fcc7d7d5d24&amp;dis_t=1608186467&amp;vid=wxv_1651653315392274434&amp;format_id=10002" />
+        </a>
+    </p>
+<h2 id="1-硬件篇">1. 硬件篇</h2>
+<h3 id="11-工作站配置选型">1.1 工作站配置选型</h3>
+<p>配件全家福
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-1.jpg">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-1.jpg" />
+        </a>
+    </p>
+<p>服务器的配置以个人使用性价比为主，同时考虑到以后的扩展性像是主板和机箱这些配件配置设置一些冗余。首先是CPU平台的选择，虽然AMD这两年实在是香，但是作为生产力工具考虑到软件库的兼容性问题，还是决定选择intel平台里十代X系列CPU+X299主板，算是比较稳的方案，而且某东上CPU搭配主板套装一起买也性价比也很高。GPU方面今年的30系显卡都比较良心，使用两块3080或者一块3090都是很给力的，24G的显存也已经跟TITAN RTX持平了（价格却只要一半）&hellip;这里考虑到主板上只能插两块PCIEx16的卡，为了以后可能的提升性能还需要再加一块卡，所以3090是最佳选择。</p>
+<p>最后选定的配置如下：</p>
+<ul>
+<li><strong>CPU</strong>：i9-10920X</li>
+<li><strong>显卡GPU</strong>：七彩虹RTX3090 Advance</li>
+<li><strong>内存</strong>：芝奇幻光戟16G x 4共64G</li>
+<li><strong>主板</strong>：华硕X299-DELUXE PRIME</li>
+<li><strong>固态硬盘</strong>：1TB西数NVME SSD + 1TB三星870QVO SATA SSD</li>
+<li><strong>机械硬盘</strong>：希捷EXOS 12TB氦气盘</li>
+<li><strong>电源</strong>：海盗船AX1200i 1200W模组电源</li>
+<li><strong>散热器</strong>：海盗船H100X240水冷 + 若干120机箱风扇</li>
+<li><strong>机箱</strong>：海盗船AIR540 E-ATX机箱</li>
+</ul>
+<p>其中硬盘的设计是这样的：1T的NVME固态做系统盘，12T的机械盘作为数据集仓库，另外一个1T SATA固态作为训练时的数据集缓存，因为IO读写速度也是会影响训练效率的，所以相比于直接从机械盘里面读取数据，加一块SSD做cache效果会好很多。</p>
+<h3 id="12-电脑组装">1.2 电脑组装</h3>
+<p>总之就是快乐的玩具拼装过程~</p>
+<p>机箱尺寸比较大，预留的空间非常足所以不会出现像是在装A4机箱时那种考验走线和装配顺序的技巧问题；而且服务器嘛，安静地塞在某个角落就好了，也不用过于考虑什么美观问题，所以走线就很随意了：</p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-2.jpg">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-2.jpg" />
+        </a>
+    </p>
+<p>这个机箱设计还是很科学的，预留了足够多的扩展接口比如：2个 3.5寸可快拆盘位、5个2.5寸可快拆盘位、光驱位（用不到，后期改造了）、前后顶部一堆风扇位等等。线材基本都可以塞到机箱的另一个侧面，前面板安装了三个进风风扇，背部安装了一个出风风扇，水冷的冷排和风扇在顶端。</p>
+<p>这里值得一提的是，正面的光驱位属于用不上的老古董，所以我改造了一下准备装一个小型的LCD屏幕上去，这样偶尔需要进图形桌面或者BIOS界面的时候，就不用再抱个显示器插在机箱上了；此外以后也可以写个软件把这个屏幕作为系统状态监视器来使用~</p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-3.jpg">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-3.jpg" />
+        </a>
+    </p>
+<p><strong>↑ 后面会3D打印一个外壳把屏幕固定住。</strong></p>
+<p>这个屏幕也是我前阵子刚设计的，项目已经开源了叫做PocketLCD，感兴趣的可以去仓库看看：</p>
+<p><a href="https://github.com/peng-zhihui/PocketLCDgithub.com">https://github.com/peng-zhihui/PocketLCDgithub.com</a></p>
+<h2 id="2-系统篇">2. 系统篇</h2>
+<p>系统选择DL开发里面最常用的Ubuntu，最新的稳定版本是20.04，安装过程需要准备一个U盘作为系统启动盘。</p>
+<h3 id="21-安装ubuntu-2004系统">2.1 安装Ubuntu 20.04系统</h3>
+<ol>
+<li>
+<p>在官网下载Ubuntu镜像：Ubuntu 20.04.1 LTS (Focal Fossa)(<a href="http://releases.ubuntu.com/20.04/">http://releases.ubuntu.com/20.04/</a>)，选择Desktop Image版本，得到.iso的镜像文件。</p>
+</li>
+<li>
+<p>Windows下使用UltraISO工具打开.iso镜像文件，并将其写入到一个U盘，得到系统启动盘：
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-4.jpg">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-4.jpg" />
+        </a>
+    </p>
+</li>
+<li>
+<p>将U盘插到服务器上，开机按<code>del键</code>（具体什么键跟主板型号有关）选择启动项进入临时的Ubuntu系统，在图形界面中选择<code>Install Ubuntu</code>，所有配置都可以使用默认的，改一下用户名和密码即可。这里建议使用英文作为默认语言，省得给自己日后开发找麻烦哈。
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-5.jpg">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-5.jpg" />
+        </a>
+    
+安装过程中会联网下载一些软件包更新，可以直接点skip掉，在安装好系统之后再手动更新也是一样的。</p>
+</li>
+<li>
+<p>进入系统后设置一下root账户密码：</p>
+</li>
+</ol>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo passwd root
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="22-配置国内镜像软件源">2.2 配置国内镜像软件源</h3>
+<p>为了提升后续安装软件时的幸福感，第一步当然先要替换一下软件源。</p>
+<ol>
+<li>备份原来的源：</li>
+</ol>
+<pre><code>cp /etc/apt/sources.list /etc/apt/sources.list.bak
+</code></pre><ol start="2">
+<li>将源的内容设置为阿里云镜像：</li>
+</ol>
+<pre><code>sudo vim /etc/apt/sources.list
+</code></pre><p>内容改为：</p>
+<pre><code>deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
+</code></pre><ol start="3">
+<li>更新软件列表：</li>
+</ol>
+<pre><code>sudo apt update
+sudo apt upgrade
+</code></pre><p>也可以去网上搜其他镜像，在我这边经测试阿里云是最快的。另外也可以在图形桌面环境下打开<code>Software &amp; Updates</code>软件，在里面也有网速测试并选择最佳源的功能。</p>
+<h3 id="23-安装python和pip">2.3 安装Python和pip</h3>
+<p>1.Ubuntu系统默认自带python，有版本需求的话也可以自己安装一下（不安装也行因为后面会安装conda环境）：</p>
+<pre><code>sudo apt install python3
+sudo apt install python3-pip
+</code></pre><p>2.不管是不是自己安装的python，替换python的pip源建议是一定操作一下的，pip安装速度会快很多：</p>
+<pre><code>cd ~
+mkdir .pip
+</code></pre><p>直接新建并编辑pip.conf：</p>
+<pre><code>sudo vim ~/.pip/pip.conf
+</code></pre><p>改为以下内容（这里用的清华源，也可以试一下阿里、豆瓣等源）：</p>
+<pre><code>[global]
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple/ 
+[install]
+trusted-host = pypi.tuna.tsinghua.edu.cn
+</code></pre><p>3.更改默认python版本，python目录默认链接的是python2，而现在基本都是用python3开发了，每次都输入python3很麻烦所以这里直接更换默认的python命令链接。</p>
+<p>把原来的python软链接删掉：</p>
+<pre><code>sudo rm /usr/bin/python
+</code></pre><p>新建一个软链接：</p>
+<pre><code>sudo ln -s /usr/bin/python3 /usr/bin/python
+sudo ln -s /usr/bin/pip3 /usr/bin/pip
+</code></pre><p>现在输入python就会进入python3环境了。</p>
+<h3 id="24-配置ssh--远程桌面">2.4 配置SSH &amp; 远程桌面</h3>
+<p>纯净安装的系统里面默认没有开启SSH，我们手动安装一下。</p>
+<ol>
+<li>安装ssh：</li>
+</ol>
+<pre><code>sudo apt install ssh
+</code></pre><p>会自动安装好很多依赖包并启动服务，完成之后用XShell等软件就可以SSH登录服务器了。</p>
+<ol start="2">
+<li>安装xrdp</li>
+</ol>
+<p>Xrdp 是一个微软远程桌面协议（RDP）的开源实现，它允许我们通过图形界面控制远程系统。这里使用RDP而不是VNC作为远程桌面，是因为Windows自带的远程桌面连接软件就可以连接很方便，另外RDP在Windows下的体验非常好，包括速度很快（因为压缩方案做得比较好），可以直接在主机和远程桌面之间复制粘贴等等。</p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-6.jpg">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-6.jpg" />
+        </a>
+    
+<strong>有的Xwindow软件是不太兼容xrdp的（比如ubuntu 18.04的默认桌面），但是ubuntu 20.04使用的Gnome是完全ok的。</strong></p>
+<p>安装过程如下：</p>
+<pre><code>sudo apt install xrdp
+</code></pre><p>安装完成xrdp 服务将会自动启动，可以输入下面的命令验证它：</p>
+<pre><code>sudo systemctl status xrdp
+</code></pre><p>默认情况下，xrdp 使用<code>/etc/ssl/private/ssl-cert-snakeoil.key</code>，它仅仅对ssl-cert用户组成员可读，所以需要运行下面的命令，将xrdp用户添加到这个用户组：</p>
+<pre><code>sudo adduser xrdp ssl-cert  
+sudo systemctl restart xrdp
+</code></pre><p>然后使用Windows自带的远程桌面软件连接服务器IP地址或者域名就行了。</p>
+<h3 id="25-安装frp进行内网穿透">2.5 安装frp进行内网穿透</h3>
+<p>前面介绍的SSH和远程桌面都是需要在局域网下通过IP地址进行连接的，而我们配置一台服务器最重要的诉求，应该是可以随时随地去访问服务器。</p>
+<p>那在家里面，网络运营商提供的网络服务通过路由器路由到各个设备，此时路由器会同时具备内网地址（路由器之内，局域网，LAN，也就是192.168.x.x）和外网地址（路由器之外，互联网，WAN）。但是其实这个WAN口的IP并不是真正的“公网IP”，而是经过了多层的NAT转换之后的地址，外网的设备是不能通过这个地址访问到路由器的。这个问题的原因是ipv4地址池紧张，如果运营商给每家的路由器都安排一个公网ip的话，那ip地址早就不够用了呀。</p>
+<p>因此为了能让外网访问到我们局域网内的设备，就需要跟中国电信等运营商申请公网ip（现在能申请到的概率也已经不大了，而且即使申请到也不是所有端口都可以使用的），或者我们自己动手做一些操作来达到同样的目的。</p>
+<p>有几种方法:</p>
+<ul>
+<li>可以直接用类似花生壳（https://hsk.oray.com/）这样的DDNS服务平台做转发实现内网穿透，优点是比较简单稳定，缺点是需要持续付费，而且速度和延迟效果一般，而且每加一个端口都要额外付费。</li>
+<li>也可以像我一样使用frp之类的软件做反向代理来实现内网穿透，这个方案也是需要你有一台带公网IP的云服务器的，优点就是完全可控，自己想配置多少个端口的穿透都可以，速度跟你的云服务器带宽有关。</li>
+</ul>
+<p><strong>为什么需要多个端口？是因为不同应用占用的端口不同，比如我们的SSH走的是22号端口，而远程桌面的rdp走的是3389号端口，如果需要自建Web服务的话则是走80/443端口、想把工作站作为上外网的代理服务器的话会需要1080端口等等&hellip;所以用上面第二个方案显然会方便很多，而且云服务器也不贵，我在腾讯云上购买一年只要200左右。</strong></p>
+<p>下面介绍如何安装配置frp：</p>
+<p>frp分为frps（server）和frpc（client）两个包 ，其中前者安装到我们的云服务器上，后者安装在需要被外网访问到的各个设备上，这里就是指我们的深度学习工作站。</p>
+<p>云服务器端：</p>
+<p>去https://github.com/fatedier/frp/releases 下载适合你服务器系统的frp软件，我这里是用的是腾讯云64位Ubuntu16.04所以选择frp_0.34.3_linux_amd64.tar.gz(<a href="https://github.com/fatedier/frp/releases/download/v0.34.3/frp_0.34.3_linux_amd64.tar.gz">https://github.com/fatedier/frp/releases/download/v0.34.3/frp_0.34.3_linux_amd64.tar.gz</a>)，下好之后解压：</p>
+<pre><code>tar -zxvf frp_0.34.3_linux_amd64.tar.gz
+</code></pre><p>我们需要编辑的文件是frps.ini :</p>
+<p>内容改为：</p>
+<pre><code> [common]
+ bind_port = 7000 # frp服务的端口号，可以自己定
+ dashboard_port = 7500 # frp的web界面的端口号
+ dashboard_user = user # web界面的登陆账户，自己修改
+ dashboard_pwd = pass # web界面的登陆密码，自己修改
+ authentication_method = token
+ token = xxxxx # frp客户端连接时的密码，自己修改
+</code></pre><p>保存配置后，使用该命令启动：</p>
+<pre><code> ./frps -c ./frps.ini
+</code></pre><p>在浏览器输入 <code>[云服务器的公网ip]:7500</code> 即可访问到 frp的web管理界面。</p>
+<p><code>注意，可能需要去云服务器控制台配置安全组规则 开放以上涉及到的端口，否则无法访问。</code></p>
+<p>本地的深度学习服务器端：</p>
+<p>1.下载相应版本的frpc软件包（跟刚刚一样的）：Releases · fatedier/frp (github.com)(<a href="https://github.com/fatedier/frp/releases">https://github.com/fatedier/frp/releases</a>)，这里选amd64的，下好之后解压到一个临时文件夹。</p>
+<p>2.修改frpc.ini配置文件，内容如下：</p>
+<pre><code> [common]
+ server_addr = xx.xx.xx.xx # 你的云服务器的公网ip
+ authentication_method = token
+ token = xxxxx # 刚刚配置的frp连接密码 
+ server_port = 7000 # 刚刚配置的frp服务端口
+ 
+ [Fusion-ssh]
+ type = tcp
+ local_ip = 127.0.0.1
+ local_port = 22
+ remote_port = 20022
+ 
+ [Fusion-rdp]
+ type = tcp
+ local_ip = 127.0.0.1
+ local_port = 3389
+ remote_port = 23389
+</code></pre><p>通过上面的脚本就可以把对于云服务器特定端口的访问给重定向到本地服务器的某个端口了，简单地讲就是：假如我用SSH客户端访问 <code>[云服务器ip]:20022</code>，就可以经过反向代理直接访问到<code>[本地的训练服务器ip]:22</code>；同理需要连接远程桌面的话，只需要访问<code>[云服务器ip]:23389</code>就可以了。</p>
+<p>当然你也可以修改脚本添加更多映射~</p>
+<p>3.添加开机自动启动的脚本，新建一个文件内容如下：</p>
+<p>文件名/etc/systemd/system/frpc.service，注意修改其中的路径：</p>
+<pre><code> [Fusion]
+ Description=Frp Server Daemon
+ After=syslog.target network.target
+ Wants=network.target
+ 
+ [Service]
+ Type=simple
+ ExecStart=/usr/local/bin/frp/frpc -c /usr/local/bin/frp/frpc.ini # 修改为你的frp实际安装目录
+ ExecStop=/usr/bin/killall frpc
+ #启动失败1分钟后再次启动
+ RestartSec=1min
+ KillMode=control-group
+ #重启控制：总是重启
+ Restart=always
+ 
+ [Install]
+ WantedBy=multi-user.target
+</code></pre><p>然后执行以下命令启用脚本：</p>
+<pre><code>sudo systemctl enable frpc.service
+sudo systemctl start frpc.service
+</code></pre><p>通过下面的命令查看服务状态，如果是running的话就说明可以了：</p>
+<pre><code>sudo systemctl status frpc.service
+</code></pre><p><code>这里顺便提一下，按照习惯一般把上面的frp软件解压防止在 /usr/local/bin 目录下。Linux 的软件安装目录是也是有讲究的，理解这一点，在对系统管理是有益的</code></p>
+<ul>
+<li>/usr：系统级的目录，可以理解为C:/Windows/</li>
+<li>/usr/lib：可以理解为C:/Windows/System32</li>
+<li>/usr/local：用户级的程序目录，可以理解为C:/Progrem Files/，用户自己编译的软件默认会安装到这个目录下</li>
+<li>/opt：用户级的程序目录，可以理解为D:/Software，opt有可选的意思，这里可以用于放置第三方大型软件（或游戏），当你不需要时，直接rm -rf掉即可。在硬盘容量不够时，也可将/opt单独挂载到其他磁盘上使用</li>
+</ul>
+<p><code>源码放哪里？</code></p>
+<ul>
+<li>/usr/src：系统级的源码目录</li>
+<li>/usr/local/src：用户级的源码目录。</li>
+</ul>
+<h3 id="26-安装samba服务">2.6 安装SAMBA服务</h3>
+<p>如果能把服务器上的磁盘直接挂载到我们使用的Windows个人PC上是不是很爽？</p>
+<p>如开头的视频里面演示的，可以通过建立局域网SAMBA服务来实现这个效果：</p>
+<ol>
+<li>安装<code>samba</code> 和<code>samba-common-bin</code></li>
+</ol>
+<pre><code>sudo apt-get install samba samba-common-bin
+</code></pre><ol start="2">
+<li>配置/etc/samba/smb.conf文件</li>
+</ol>
+<pre><code>sudo nano /etc/samba/smb.conf
+</code></pre><p>在最后一行后面加入：</p>
+<pre><code># 共享文件夹显示的名称
+[home]
+# 说明信息
+comment = Fusion WorkStation Storage
+# 可以访问的用户
+valid users = pengzhihui,root
+# 共享文件的路径
+path = /home/pengzhihui/
+# 可被其他人看到资源名称（非内容）
+browseable = yes
+# 可写
+writable = yes
+# 新建文件的权限为 664
+create mask = 0664
+# 新建目录的权限为 775
+directory mask = 0775
+</code></pre><p>可以把配置文件中你不需要的分享名称删除，例如 [homes], [printers] 等。</p>
+<p>运行这个命令测试一下配置文件是否有错误，根据提示做相应修改：<code>testparm</code></p>
+<ol start="3">
+<li>添加登陆账户并创建密码</li>
+</ol>
+<p>必须是 linux 已存在的用户：</p>
+<pre><code>sudo smbpasswd -a pi
+</code></pre><p>然后重启服务即可：</p>
+<pre><code>sudo /etc/init.d/samba-ad-dc restart
+</code></pre><p>接下来可以在Windows的网络中发现设备了：</p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-7.jpg">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-7.jpg" />
+        </a>
+    </p>
+<p>但是可能会出现无法点开的情况，这里需要在Windows的凭据管理器中添加账户信息（开始菜单里搜索凭据管理器即可打开），点击添加Windows凭据，输入你的服务器名称和账户密码：</p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-8.jpg">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-8.jpg" />
+        </a>
+    </p>
+<p>接下来就可以点进去看到服务器上的文件了。为了更加方便地进行文件交互，我们添加对应的磁盘到Windows资源管理器的此电脑中：</p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-9.jpg">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-9.jpg" />
+        </a>
+    
+选择刚刚服务器的网络路径即可添加：</p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-10.jpg">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-10.jpg" />
+        </a>
+    </p>
+<h2 id="3-dl开发环境配置篇">3. DL开发环境配置篇</h2>
+<p>配置这台服务器的主要作用就是做深度学习训练，所以GPU相关的驱动和环境时肯定要安排好的，网上资料很多很杂，这里梳理出了最便捷可靠的安装方法供大家参考~</p>
+<h3 id="31-安装nvidia显卡驱动">3.1 安装Nvidia显卡驱动</h3>
+<p>最简单的方式是通过系统的软件与更新来安装：</p>
+<p>1.进入系统的图形桌面，打开Software &amp; Updates软件，可以看到标签栏有一个Additional Drivers：
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-11.jpg">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-11.jpg" />
+        </a>
+    </p>
+<p>选择第一个安装Nvidia官方驱动（第二个是开源驱动）即可，根据网络情况稍等大概十分钟，安装完重启服务器。</p>
+<p>2.重启完之后更新一下软件：</p>
+<pre><code>sudo apt update
+sudo apt upgrade
+</code></pre><p>这里会连带Nvidia的驱动一起升级一遍，更新到最新的驱动；更新完可能会出现nvidia-smi命令报错，再重启一下就解决了。</p>
+<h3 id="32-安装cuda">3.2 安装CUDA</h3>
+<p>如果之前安装了旧版本的cuda和cudnn的话，需要先卸载后再安装：</p>
+<pre><code> sudo apt-get remove --purge nvidia*
+</code></pre><p>然后按照前面的方法重新安装显卡驱动，安装好了之后开始安装CUDA：</p>
+<p>1.去官网下载cuda安装包CUDA Toolkit 11.0 Download | NVIDIA Developer(<a href="https://developer.nvidia.com/cuda-11.0-download-archive">https://developer.nvidia.com/cuda-11.0-download-archive</a>)，相关选项如下（根据实际情况选择）：
+
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-12.jpg">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-12.jpg" />
+        </a>
+    </p>
+<p>运行下面的命令进行安装：</p>
+<pre><code>chmod +x cuda_11.0.2_450.51.05_linux.run
+sudo sh ./cuda_11.0.2_450.51.05_linux.run
+</code></pre><p>可能会报一个警告：</p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-13.jpg">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-13.jpg" />
+        </a>
+    </p>
+<p>前面已经卸载过旧版本了直接Continue就好。然后根据提示选择安装选项，注意不要勾选第一个安装显卡驱动的，因为之前已经安装过了。安装完成后提示</p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-14.jpg">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-14.jpg" />
+        </a>
+    </p>
+<p>3.根据上图提示需要配置环境变量：</p>
+<pre><code>nano  ~/.bashrc
+</code></pre><p>在文件最后加入以下语句：</p>
+<pre><code>export CUDA_HOME=/usr/local/cuda-11.0
+export LD_LIBRARY_PATH=${CUDA_HOME}/lib64
+export PATH=${CUDA_HOME}/bin:${PATH}
+</code></pre><p>然后使其生效：</p>
+<pre><code>source ~/.bashrc
+</code></pre><p>4.可以使用命令<code>nvcc \-V</code>查看安装的版本信息：</p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-15.jpg">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-15.jpg" />
+        </a>
+    </p>
+<p>也可以编译一个程序测试安装是否成功，执行以下几条命令：</p>
+<pre><code>cd ~/Softwares/cuda/NVIDIA_CUDA-11.0_Samples/1_Utilities/deviceQuery
+ make
+./deviceQuery
+</code></pre><p>正常的话会有相应输出，打印显卡的信息。</p>
+<h3 id="33-安装cudnn">3.3 安装CuDNN</h3>
+<p>进入到CUDNN的下载官网：cuDNN Download | NVIDIA Developer(<a href="https://developer.nvidia.com/rdp/cudnn-download">https://developer.nvidia.com/rdp/cudnn-download</a>)，然点击Download开始选择下载版本，当然在下载之前还有登录，选择版本界面如下：</p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-16.jpg">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-16.jpg" />
+        </a>
+    </p>
+<p>我们选择和之前cuda版本对应的cudnn版本：</p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-17.jpg">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-17.jpg" />
+        </a>
+    </p>
+<p>下载之后是一个压缩包，对它进行解压，命令如下：</p>
+<pre><code> tar -xzvf cudnn-11.0-linux-x64-v8.0.5.39.tgz
+</code></pre><p>使用以下两条命令复制这些文件到CUDA目录下：</p>
+<pre><code> sudo cp cuda/lib64/* /usr/local/cuda-11.0/lib64/
+ sudo cp cuda/include/* /usr/local/cuda-11.0/include/
+</code></pre><p>拷贝完成之后，可以使用以下命令查看CUDNN的版本信息：</p>
+<pre><code> cat /usr/local/cuda/include/cudnn_version.h | grep CUDNN_MAJOR -A 2
+</code></pre><p>可以看到版本信息如下，为<code>8.0.5</code>：</p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-18.jpg">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-18.jpg" />
+        </a>
+    </p>
+<h3 id="34-安装conda环境">3.4 安装Conda环境</h3>
+<p>不同的训练框架和版本可能会需要不同的python版本相对应，而且有的包比如numpy也对版本有要求，所以比较优雅的方法是给每个配置建立一个虚拟的python环境，在需要的时候可以随时切换，而不需要的时候也能删除不浪费磁盘资源，那在这方面conda是做得最好的。</p>
+<p>下面介绍怎么安装conda：</p>
+<ol>
+<li>在Anaconda官网下载Linux安装包：Anaconda | Individual Edition (<a href="https://www.anaconda.com/products/individual">https://www.anaconda.com/products/individual</a>)</li>
+<li>运行下面的命令安装：</li>
+</ol>
+<pre><code>chmod +x Anaconda3-2020.11-Linux-x86_64.sh
+./Anaconda3-2020.11-Linux-x86_64.sh
+</code></pre><p>一路按ENTER确认，然后根据提示输入yes，这里我为了目录整洁不安装在默认路径，设置为下面的路径：<code>/home/pengzhihui/Softwares/anaconda</code></p>
+<p>然后会询问你是否要初始化conda，输入yes确认，重开终端窗口之后，就可以看到conda环境可用了（base代表默认环境）：</p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-19.jpg">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-19.jpg" />
+        </a>
+    </p>
+<p><strong>conda的使用方法网上搜一下有很多，这里就不赘述了。</strong></p>
+<h3 id="35-安装nvidia-docker">3.5 安装Nvidia-Docker</h3>
+<p>Docker也是虚拟化环境的神器，前面说的conda虽然可以提供python的虚拟环境并方便地切换，但是有的时候我们的开发环境并不只是用到python，比如有的native库需要对应gcc版本的编译环境，或者进行交叉编译时安装很多工具链等等。如果这些操作都在服务器本地上进行，那时间久了就会让服务器的文件系统非常杂乱，而且还会遇到各种软件版本冲突问题。</p>
+<p>Docker就可以很好地解决这些问题，它其实可以理解为就是一个非常轻量化的虚拟机，我们可以在宿主服务器上新建很多个这种被称为容器的虚拟机，然后在里面配置我们的开发环境，且这些配置好的环境是可以打包成镜像的，方便随时做分享和重用；不需要的时候，我们直接删除容器就好了，其资源是和我们的服务器宿主机完全隔离的。</p>
+<p>Docker的具体使用可以自己搜索一下很多教程，这里主要介绍如何把GPU暴露给Docker的容器（因为大家都知道像是VMware这种虚拟机里面都是无法共享宿主机的GPU的），是通过<code>nvidia-docker</code>实现的。</p>
+<p><code>以前为了配置nvidia-docker，需要安装完docker之后再安装单独的nvidia docker2，而现在只需要安装nvidia container toolkit即可，更加方便了。</code></p>
+<p>1.docker安装 官网上有详细的介绍：Install Docker Engine on Ubuntudocs.docker.com(<a href="https://docs.docker.com/engine/install/ubuntu/">https://docs.docker.com/engine/install/ubuntu/</a>) 或者运行下面的命令安装：</p>
+<pre><code>sudo apt-get update
+sudo apt-get install docker.io
+systemctl start docker
+systemctl enable docker
+</code></pre><p>可以运行这条命令检查是否安装成功：</p>
+<pre><code>docker version
+</code></pre><p>2.安装NVIDIA Container Toolkit</p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-20.png">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-20.png" />
+        </a>
+    </p>
+<p>官网安装步骤：NVIDIA/nvidia-docker: Build and run Docker containers leveraging NVIDIA GPUs (github.com) (<a href="https://github.com/NVIDIA/nvidia-docker">https://github.com/NVIDIA/nvidia-docker</a>) 或者直接运行下面的命令：</p>
+<pre><code> ##首先要确保已经安装了nvidia driver
+ # 2. 添加源
+ distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+ curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+ curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+ 
+ # 2. 安装并重启
+ sudo apt-get update &amp;&amp; sudo apt-get install -y nvidia-container-toolkit
+ sudo systemctl restart docker
+</code></pre><p>安装完成后可以新建一个容器测试一下：</p>
+<pre><code>sudo docker run -it --name test_nvidia_docker --gpus all nvidia/cuda:11.1-base
+</code></pre><p>其中最后的参数<code>nvidia/cuda:11.1-base</code> 是Nvidia官方的镜像，需要根据工作站主机中实际安装的cuda版本进行修改，版本可以用<code>nvcc \-V</code>查看。</p>
+<p>进入容器之后可以跑一下<code>nvidia-smi</code>命令看看：</p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-21.png">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-21.png" />
+        </a>
+    </p>
+<p>现在可以在docker里面正常使用GPU啦~</p>
+<h3 id="36-测试">3.6 测试</h3>
+<p>这里通过一个简单的python脚本测试一下GPU训练是否一切正常，跑一个DL里面的Hello World程序，通过两种方法测试：本地conda和docker虚拟机。</p>
+<p><strong>以后的开发过程中一般还是使用Docker的方式来进行更为优雅。</strong></p>
+<p><strong>1. 本地Conda环境方式：</strong></p>
+<p>先用conda新建一个python3.8+pytorch1.7+cuda11.0的虚拟环境：</p>
+<pre><code> conda create --name python_38-pytorch_1.7.0 python=3.8
+</code></pre><p>创建完成后进入环境：</p>
+<pre><code> conda activate python_38-pytorch_1.7.0
+</code></pre><p>检查一下是否切换到所需环境了：</p>
+<pre><code> which pip
+</code></pre><p>如果看到使用的确实是我们设置的环境目录中的pip的话说明就ok。</p>
+<p>接下来在环境中安装pytorch，可以参考官网的安装命令：Start Locally | PyTorch(<a href="https://pytorch.org/get-started/locally/">https://pytorch.org/get-started/locally/</a>)</p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-22.png">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-22.png" />
+        </a>
+    </p>
+<p>输入以下命令进行安装：</p>
+<pre><code> pip install torch==1.7.0+cu110 torchvision==0.8.1+cu110 torchaudio===0.7.0 -f https://download.pytorch.org/whl/torch_stable.html
+</code></pre><p>环境配置就完成了，下面新建一个简单的测试脚本验证功能，新建mnist_train.py，内容如下：</p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000;font-weight:bold">import</span> <span style="color:#555">torch</span>
+<span style="color:#000;font-weight:bold">import</span> <span style="color:#555">torch.nn</span> <span style="color:#000;font-weight:bold">as</span> <span style="color:#555">nn</span>
+<span style="color:#000;font-weight:bold">import</span> <span style="color:#555">torch.nn.functional</span> <span style="color:#000;font-weight:bold">as</span> <span style="color:#555">F</span>
+<span style="color:#000;font-weight:bold">import</span> <span style="color:#555">torch.optim</span> <span style="color:#000;font-weight:bold">as</span> <span style="color:#555">optim</span>
+<span style="color:#000;font-weight:bold">import</span> <span style="color:#555">torch.backends.cudnn</span> <span style="color:#000;font-weight:bold">as</span> <span style="color:#555">cudnn</span>
+<span style="color:#000;font-weight:bold">from</span> <span style="color:#555">torchvision</span> <span style="color:#000;font-weight:bold">import</span> datasets, transforms
+
+
+<span style="color:#000;font-weight:bold">class</span> <span style="color:#458;font-weight:bold">Net</span>(nn<span style="color:#000;font-weight:bold">.</span>Module):
+    <span style="color:#000;font-weight:bold">def</span> __init__(<span style="color:#999">self</span>):
+        <span style="color:#0086b3">super</span>(Net, <span style="color:#999">self</span>)<span style="color:#000;font-weight:bold">.</span>__init__()
+        <span style="color:#999">self</span><span style="color:#000;font-weight:bold">.</span>conv1 <span style="color:#000;font-weight:bold">=</span> nn<span style="color:#000;font-weight:bold">.</span>Conv2d(<span style="color:#099">1</span>, <span style="color:#099">10</span>, kernel_size<span style="color:#000;font-weight:bold">=</span><span style="color:#099">5</span>)
+        <span style="color:#999">self</span><span style="color:#000;font-weight:bold">.</span>conv2 <span style="color:#000;font-weight:bold">=</span> nn<span style="color:#000;font-weight:bold">.</span>Conv2d(<span style="color:#099">10</span>, <span style="color:#099">20</span>, kernel_size<span style="color:#000;font-weight:bold">=</span><span style="color:#099">5</span>)
+        <span style="color:#999">self</span><span style="color:#000;font-weight:bold">.</span>conv2_drop <span style="color:#000;font-weight:bold">=</span> nn<span style="color:#000;font-weight:bold">.</span>Dropout2d()
+        <span style="color:#999">self</span><span style="color:#000;font-weight:bold">.</span>fc1 <span style="color:#000;font-weight:bold">=</span> nn<span style="color:#000;font-weight:bold">.</span>Linear(<span style="color:#099">320</span>, <span style="color:#099">50</span>)
+        <span style="color:#999">self</span><span style="color:#000;font-weight:bold">.</span>fc2 <span style="color:#000;font-weight:bold">=</span> nn<span style="color:#000;font-weight:bold">.</span>Linear(<span style="color:#099">50</span>, <span style="color:#099">10</span>)
+
+
+<span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">forward</span>(<span style="color:#999">self</span>, x):
+    x <span style="color:#000;font-weight:bold">=</span> F<span style="color:#000;font-weight:bold">.</span>relu(F<span style="color:#000;font-weight:bold">.</span>max_pool2d(<span style="color:#999">self</span><span style="color:#000;font-weight:bold">.</span>conv1(x), <span style="color:#099">2</span>))
+    x <span style="color:#000;font-weight:bold">=</span> F<span style="color:#000;font-weight:bold">.</span>relu(F<span style="color:#000;font-weight:bold">.</span>max_pool2d(<span style="color:#999">self</span><span style="color:#000;font-weight:bold">.</span>conv2_drop(<span style="color:#999">self</span><span style="color:#000;font-weight:bold">.</span>conv2(x)), <span style="color:#099">2</span>))
+    x <span style="color:#000;font-weight:bold">=</span> x<span style="color:#000;font-weight:bold">.</span>view(<span style="color:#000;font-weight:bold">-</span><span style="color:#099">1</span>, <span style="color:#099">320</span>)
+    x <span style="color:#000;font-weight:bold">=</span> F<span style="color:#000;font-weight:bold">.</span>relu(<span style="color:#999">self</span><span style="color:#000;font-weight:bold">.</span>fc1(x))
+    x <span style="color:#000;font-weight:bold">=</span> F<span style="color:#000;font-weight:bold">.</span>dropout(x, training<span style="color:#000;font-weight:bold">=</span><span style="color:#999">self</span><span style="color:#000;font-weight:bold">.</span>training)
+    x <span style="color:#000;font-weight:bold">=</span> <span style="color:#999">self</span><span style="color:#000;font-weight:bold">.</span>fc2(x)
+    <span style="color:#000;font-weight:bold">return</span> F<span style="color:#000;font-weight:bold">.</span>log_softmax(x, dim<span style="color:#000;font-weight:bold">=</span><span style="color:#099">1</span>)
+
+
+<span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">train</span>(model, device, train_loader, optimizer, epoch):
+    model<span style="color:#000;font-weight:bold">.</span>train()
+    <span style="color:#000;font-weight:bold">for</span> batch_idx, (data, target) <span style="color:#000;font-weight:bold">in</span> <span style="color:#0086b3">enumerate</span>(train_loader):
+        data, target <span style="color:#000;font-weight:bold">=</span> data<span style="color:#000;font-weight:bold">.</span>to(device), target<span style="color:#000;font-weight:bold">.</span>to(device)
+        optimizer<span style="color:#000;font-weight:bold">.</span>zero_grad()
+        output <span style="color:#000;font-weight:bold">=</span> model(data)
+        loss <span style="color:#000;font-weight:bold">=</span> F<span style="color:#000;font-weight:bold">.</span>nll_loss(output, target)
+        loss<span style="color:#000;font-weight:bold">.</span>backward()
+        optimizer<span style="color:#000;font-weight:bold">.</span>step()
+        <span style="color:#000;font-weight:bold">if</span> batch_idx <span style="color:#000;font-weight:bold">%</span> <span style="color:#099">10</span> <span style="color:#000;font-weight:bold">==</span> <span style="color:#099">0</span>:
+            <span style="color:#000;font-weight:bold">print</span>(<span style="color:#d14">&#39;Train Epoch: {} [{}/{} ({:.0f}%)]</span><span style="color:#d14">\t</span><span style="color:#d14">Loss: {:.6f}&#39;</span><span style="color:#000;font-weight:bold">.</span>format(
+                epoch, batch_idx <span style="color:#000;font-weight:bold">*</span> <span style="color:#0086b3">len</span>(data), <span style="color:#0086b3">len</span>(train_loader<span style="color:#000;font-weight:bold">.</span>dataset),
+                       <span style="color:#099">100.</span> <span style="color:#000;font-weight:bold">*</span> batch_idx <span style="color:#000;font-weight:bold">/</span> <span style="color:#0086b3">len</span>(train_loader), loss<span style="color:#000;font-weight:bold">.</span>item()))
+
+
+<span style="color:#000;font-weight:bold">def</span> <span style="color:#900;font-weight:bold">main</span>():
+    cudnn<span style="color:#000;font-weight:bold">.</span>benchmark <span style="color:#000;font-weight:bold">=</span> <span style="color:#999">True</span>
+    torch<span style="color:#000;font-weight:bold">.</span>manual_seed(<span style="color:#099">1</span>)
+    device <span style="color:#000;font-weight:bold">=</span> torch<span style="color:#000;font-weight:bold">.</span>device(<span style="color:#d14">&#34;cuda&#34;</span>) <span style="color:#000;font-weight:bold">if</span> torch<span style="color:#000;font-weight:bold">.</span>cuda<span style="color:#000;font-weight:bold">.</span>is_available() <span style="color:#000;font-weight:bold">else</span> torch<span style="color:#000;font-weight:bold">.</span>device(<span style="color:#d14">&#34;cpu&#34;</span>)
+    <span style="color:#000;font-weight:bold">print</span>(<span style="color:#d14">&#34;Using device: {}&#34;</span><span style="color:#000;font-weight:bold">.</span>format(device))
+    kwargs <span style="color:#000;font-weight:bold">=</span> {<span style="color:#d14">&#39;num_workers&#39;</span>: <span style="color:#099">1</span>, <span style="color:#d14">&#39;pin_memory&#39;</span>: <span style="color:#999">True</span>}
+    train_loader <span style="color:#000;font-weight:bold">=</span> torch<span style="color:#000;font-weight:bold">.</span>utils<span style="color:#000;font-weight:bold">.</span>data<span style="color:#000;font-weight:bold">.</span>DataLoader(
+        datasets<span style="color:#000;font-weight:bold">.</span>MNIST(<span style="color:#d14">&#39;./data&#39;</span>, train<span style="color:#000;font-weight:bold">=</span><span style="color:#999">True</span>, download<span style="color:#000;font-weight:bold">=</span><span style="color:#999">True</span>,
+                       transform<span style="color:#000;font-weight:bold">=</span>transforms<span style="color:#000;font-weight:bold">.</span>Compose([
+                           transforms<span style="color:#000;font-weight:bold">.</span>ToTensor(),
+                           transforms<span style="color:#000;font-weight:bold">.</span>Normalize((<span style="color:#099">0.1307</span>,), (<span style="color:#099">0.3081</span>,))
+                       ])),
+        batch_size<span style="color:#000;font-weight:bold">=</span><span style="color:#099">64</span>, shuffle<span style="color:#000;font-weight:bold">=</span><span style="color:#999">True</span>, <span style="color:#000;font-weight:bold">**</span>kwargs)
+
+
+model <span style="color:#000;font-weight:bold">=</span> Net()<span style="color:#000;font-weight:bold">.</span>to(device)
+optimizer <span style="color:#000;font-weight:bold">=</span> optim<span style="color:#000;font-weight:bold">.</span>SGD(model<span style="color:#000;font-weight:bold">.</span>parameters(), lr<span style="color:#000;font-weight:bold">=</span><span style="color:#099">0.01</span>, momentum<span style="color:#000;font-weight:bold">=</span><span style="color:#099">0.5</span>)
+
+<span style="color:#000;font-weight:bold">for</span> epoch <span style="color:#000;font-weight:bold">in</span> <span style="color:#0086b3">range</span>(<span style="color:#099">1</span>, <span style="color:#099">11</span>):
+    train(model, device, train_loader, optimizer, epoch)
+
+<span style="color:#000;font-weight:bold">if</span> __name__ <span style="color:#000;font-weight:bold">==</span> <span style="color:#d14">&#39;__main__&#39;</span>:
+    main()
+</code></pre></td></tr></table>
+</div>
+</div><p>运行脚本，正常的话就可以看到训练输出了：</p>
+<p>
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-23.png">
+            <img class="mx-auto" alt="" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/images/personal-deeplearning-workstation/personal-deeplearning-workstation-23.png" />
+        </a>
+    </p>
+<p><strong>2. Docker环境方式：</strong>
+首先还是新建一个Docker镜像，运行下面的命令：</p>
+<pre><code> sudo docker run  -it  --name train_mnist \
+ -v /etc/timezone:/etc/timezone \
+ -v /etc/localtime:/etc/localtime \
+ -v /home/pengzhihui/WorkSpace/_share:/home/workspace/_share  \
+ --gpus all nvidia/cuda:11.1-base
+</code></pre><p>就进入到了带gpu的ubuntu20.04容器中，效果可以参考文章开头的视频。按照前面的配置方法同样配置好pytorch和其他软件包，然后运行同样的脚本，也可以得到上述输出，说明gpu在docker中正常工作。</p>
+<h2 id="4-工作站维护篇">4. 工作站维护篇</h2>
+<h3 id="41-工作站系统备份还原">4.1 工作站系统备份还原</h3>
+<h4 id="1--备份">1.  备份</h4>
+<p>由于Linux本身万物皆文件的设计理念，加上root用户对几乎全部的系统文件都有访问和更改的权限，因此Linux系统的备份和还原其实非常简单，我们直接打包整个根文件系统就可以了。</p>
+<p>我们可以使用tar命令来打包并压缩文件系统，不过这里在打包的过程中需要排除一些不需要文件，或者与新系统文件冲突的文件，包括/tmp、/proc、/lost+found 等目录。</p>
+<p>找一个你想保存备份文件的目录，运行下面的命令：</p>
+<pre><code>tar -cvpzf ubuntu_backup@`date +%Y-%m+%d`.tar.gz --exclude=/proc --exclude=/tmp --exclude=/boot  --exclude=/lost+found --exclude=/media --exclude=/mnt --exclude=/run /
+</code></pre><p>我们会得到一个名为backup.tgz的压缩文件，这个文件包含我们需要备份的系统的全部内容。</p>
+<h4 id="2-还原">2. 还原</h4>
+<p>如果系统没有出问题可以正常启动的话，那直接在刚刚的压缩包找找到想还原的文件替换就好了。而如果系统无法启动了，或者说想换一块硬盘克隆一样的系统，那么可以按一下步骤操作：</p>
+<ul>
+<li>重装干净的Ubuntu系统。跟上面介绍的一样，使用U盘给目标磁盘重装一个干净的系统，这一步是为了省去自己分配存储空间和挂载的麻烦，如果你会自己配置的话那也可以不做这一步。</li>
+<li>再次使用U盘进入系统，这次选择try ubuntu without installing，然后可以看到挂载好的刚刚安装了干净系统的另一个盘，我们在这里对盘里的根文件系统进行一些文件的提取：</li>
+</ul>
+<pre><code>sudo su
+
+# 在tryUbuntu根目录下有media文件夹，里面是U盘文件夹和新安装的系统文件夹，在在里分别用（U盘）和（UBUNTU）表示
+cd /media/（U盘）
+mount -o remount rw ./
+ 
+# 将新系统根目录下/boot/grub/grub.cfg文件备份到U盘中
+sudo cp /media/(Ubuntu)/boot/grub/grub.cfg ./    
+ 
+# 将新系统根目录下/etc/fstab文件备份到U盘中，fstab是与系统开机挂载有关的文件，grub.cfg是与开机引导有关的文件，所以这一步至关重要
+sudo cp /media/(UBUNTU)/etc/fstab ./
+ 
+# 这一步删除新装ubuntu全部的系统文件，有用的fstab及grub.cfg已经备份
+cd /media/(UBUNTU)
+sudo rm -rf ./*
+ 
+# 将U盘中backup.tgz复制到该目录下并解压缩
+cp /media/(U盘)/backup.tgz ./
+sudo tar xvpfz backup.tgz ./
+ 
+# 创建打包系统时排除的文件
+sudo mkdir proc lost+found mnt sys media
+</code></pre><p>这一步完成后，在用我们在新系统中备份的fatab及grub.cfg 文件去替换压缩包中解压出来的同名文件，sudo reboot重启后就发现系统已经恢复到备份时的状态，包括各种框架，环境，系统设置~</p>
+<h2 id="reference">Reference</h2>
+<p>1、 <a href="https://mp.weixin.qq.com/s/TsETgLLNWRskYbmh2wdiLg">https://mp.weixin.qq.com/s/TsETgLLNWRskYbmh2wdiLg</a></p>
+<h2 id="打赏">打赏</h2>
+<table>
+<thead>
+<tr>
+<th align="left">微信
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/wechat.png">
+            <img class="mx-auto" alt="微信" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/wechat.png" />
+        </a>
+    </th>
+<th align="left">支付宝
+    
+    
+        <a data-fancybox="gallery" href="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/alipay.png">
+            <img class="mx-auto" alt="支付宝" src="https://cdn.jsdelivr.net/gh/cold-eye/cold-eye.github.io/about/alipay.png" />
+        </a>
+    </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><em><strong>万分感谢</strong></em></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+
+        
+<div class="post-archive">
+    <ul class="post-copyright">
+        <li><strong>原文作者：</strong><a rel="author" href="https://cold-eye.github.io/">冷眼</a></li>
+        <li style="word-break:break-all"><strong>原文链接：</strong><a href="https://cold-eye.github.io/post/personal-deeplearning-workstation/">https://cold-eye.github.io/post/personal-deeplearning-workstation/</a></li>
+        <li><strong>版权声明：</strong>本作品采用<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议</a>进行许可，非商业转载请注明出处（作者，原文链接），商业转载请联系作者获得授权。</li>
+    </ul>
+</div>
+<br/>
+
+
+
+        
+
+<div class="post-archive">
+    <h2>See Also</h2>
+    <ul class="listing">
+        
+        <li><a href="/post/linux-find-files/">linux 查找文件</a></li>
+        
+        <li><a href="/post/linux-postgresql-install/">linux 下用户安装 postgresql</a></li>
+        
+    </ul>
+</div>
+
+
+        <div class="post-meta meta-tags">
+            
+            <ul class="clearfix">
+                
+                <li><a href='https://cold-eye.github.io/tags/linux'>linux</a></li>
+                
+            </ul>
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+    
+    
+    
+    <div id="vcomments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+    <script type="text/javascript">
+      new Valine({
+          el: '#vcomments' ,
+          appId: '2bNGHPmILSH9xQJ9XjQchomv-gzGzoHsz',
+          appKey: '52xbEYwnpwLahMh4Yj55r69v',
+          notify: 'false', 
+          verify: 'false', 
+          avatar:'mm', 
+          placeholder: '说点什么吧...',
+          visitor: 'false'
+      });
+    </script>
+</div>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <!DOCTYPE html>
+<html>
+
+<head>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+    <div class="demo">
+        <div id="player1">
+        </div>
+    </div>
+    <script>
+        var ap = new APlayer
+            ({
+                element: document.getElementById('player1'),
+                narrow: false,
+                fixed: false, 
+                autoplay: false,
+                showlrc: true,
+                mini: false,
+                theme: '#FADFA3',
+                loop: 'all',
+                order: 'random',
+                preload: 'auto',
+                volume: 0.5,
+                mutex: false,
+                listFolded: true,
+                listMaxHeight: 90,
+                lrcType: 2,
+                music:
+                    [
+                        {
+                            artist: 'A',
+                            name: 'A',
+                            url:'http://music.163.com/song/media/outer/url?id=28560087.mp3',
+                            cover: '',
+                            lrc:'A',
+                        },{
+                            name: 'B',
+                            artist:'B',
+                            url:'http://music.163.com/song/media/outer/url?id=1438282140.mp3',
+                            cover: '',
+                            lrc:'B',
+                            theme: '#ebd0c2'
+                        },{
+                            name: 'C',
+                            artist:'C',
+                            url:'http://music.163.com/song/media/outer/url?id=5316168.mp3',
+                            cover: '',
+                            lrc:'C',
+                            theme: '#46718b'
+                        },{
+                            name: 'D',
+                            artist:'D',
+                            url:'http://music.163.com/song/media/outer/url?id=2007819.mp3',
+                            cover: '',
+                            lrc:'D',
+                            theme: ''
+                        },{
+                            name: 'E',
+                            artist:'E',
+                            url:'http://music.163.com/song/media/outer/url?id=1398850429.mp3',
+                            cover: '',
+                            lrc:'E',
+                            theme: ''
+                        },{
+                            name: 'F',
+                            artist:'F',
+                            url:'http://music.163.com/song/media/outer/url?id=28830038.mp3',
+                            cover: '',
+                            lrc:'F',
+                            theme: ''
+                        },{
+                            name: 'G',
+                            artist:'G',
+                            url:'http://music.163.com/song/media/outer/url?id=451126971.mp3',
+                            cover: '',
+                            lrc:'G',
+                            theme: ''
+                        },{
+                            name: 'H',
+                            artist:'H',
+                            url:'http://music.163.com/song/media/outer/url?id=744866.mp3',
+                            cover: '',
+                            lrc:'H',
+                            theme: ''
+                        },{
+                            name: 'I',
+                            artist:'I',
+                            url:'http://music.163.com/song/media/outer/url?id=1341800295.mp3',
+                            cover: '',
+                            lrc:'I',
+                            theme: ''
+                        },{
+                            name: 'J',
+                            artist:'J',
+                            url:'http://music.163.com/song/media/outer/url?id=32835377.mp3',
+                            cover: '',
+                            lrc:'J',
+                            theme: ''
+                        },{
+                            name: 'K',
+                            artist:'K',
+                            url:'http://music.163.com/song/media/outer/url?id=1379464883.mp3',
+                            cover: '',
+                            lrc:'K',
+                            theme: ''
+                        },{
+                            name: 'L',
+                            artist:'L',
+                            url:'http://music.163.com/song/media/outer/url?id=506726178.mp3',
+                            cover: '',
+                            lrc:'L',
+                            theme: ''
+                        },{
+                            name: 'M',
+                            artist:'M',
+                            url:'http://music.163.com/song/media/outer/url?id=411214138.mp3',
+                            cover: '',
+                            lrc:'M',
+                            theme: ''
+                        },{
+                            name: 'N',
+                            artist:'N',
+                            url:'http://music.163.com/song/media/outer/url?id=1415097371.mp3',
+                            cover: '',
+                            lrc:'N',
+                            theme: ''
+                        },{
+                            name: 'O',
+                            artist:'O',
+                            url:'http://music.163.com/song/media/outer/url?id=505449407.mp3',
+                            cover: '',
+                            lrc:'O',
+                            theme: ''
+                        },{
+                            name: 'P',
+                            artist:'P',
+                            url:'http://music.163.com/song/media/outer/url?id=29947420.mp3',
+                            cover: '',
+                            lrc:'P',
+                            theme: ''
+                        },{
+                            name: 'Q',
+                            artist:'Q',
+                            url:'http://music.163.com/song/media/outer/url?id=21311956.mp3',
+                            cover: '',
+                            lrc:'Q',
+                            theme: ''
+                        },{
+                            name: 'R',
+                            artist:'R',
+                            url:'http://music.163.com/song/media/outer/url?id=418602088.mp3',
+                            cover: '',
+                            lrc:'R',
+                            theme: ''
+                        },{
+                            name: 'S',
+                            artist:'S',
+                            url:'http://music.163.com/song/media/outer/url?id=1363551021.mp3',
+                            cover: '',
+                            lrc:'S',
+                            theme: ''
+                        },{
+                            name: 'T',
+                            artist:'T',
+                            url:'http://music.163.com/song/media/outer/url?id=1376653715.mp3',
+                            cover: '',
+                            lrc:'T',
+                            theme: ''
+                        },{
+                            name: 'U',
+                            artist:'U',
+                            url:'http://music.163.com/song/media/outer/url?id=546838016.mp3',
+                            cover: '',
+                            lrc:'U',
+                            theme: ''
+                        },{
+                            name: 'V',
+                            artist:'V',
+                            url:'http://music.163.com/song/media/outer/url?id=1403250178.mp3',
+                            cover: '',
+                            lrc:'V',
+                            theme: ''
+                        },{
+                            name: 'W',
+                            artist:'W',
+                            url:'http://music.163.com/song/media/outer/url?id=5348853.mp3',
+                            cover: '',
+                            lrc:'W',
+                            theme: ''
+                        },{
+                            name: 'X',
+                            artist:'X',
+                            url:'http://music.163.com/song/media/outer/url?id=34613621.mp3',
+                            cover: '',
+                            lrc:'X',
+                            theme: ''
+                        },{
+                            name: 'Y',
+                            artist:'Y',
+                            url:'http://music.163.com/song/media/outer/url?id=553815184.mp3',
+                            cover: '',
+                            lrc:'Y',
+                            theme: ''
+                        },{
+                            name: 'Z',
+                            artist:'Z',
+                            url:'http://music.163.com/song/media/outer/url?id=16607021.mp3',
+                            cover: '',
+                            lrc:'Z',
+                            theme: ''
+                        },{
+                            name: 'X1',
+                            artist:'X1',
+                            url:'http://music.163.com/song/media/outer/url?id=3961975.mp3',
+                            cover: '',
+                            lrc:'X1',
+                            theme: ''
+                        },{
+                            name: 'X2',
+                            artist:'X2',
+                            url:'http://music.163.com/song/media/outer/url?id=19615186.mp3',
+                            cover: '',
+                            lrc:'X2',
+                            theme: ''
+                        },{
+                            name: 'X3',
+                            artist:'X3',
+                            url:'http://music.163.com/song/media/outer/url?id=34468798.mp3',
+                            cover: '',
+                            lrc:'X3',
+                            theme: ''
+                        },{
+                            name: 'X4',
+                            artist:'X4',
+                            url:'http://music.163.com/song/media/outer/url?id=1341964346.mp3',
+                            cover: '',
+                            lrc:'X4',
+                            theme: ''
+                        },{
+                            name: 'X5',
+                            artist:'X5',
+                            url:'http://music.163.com/song/media/outer/url?id=1374329431.mp3',
+                            cover: '',
+                            lrc:'X5',
+                            theme: ''
+                        },{
+                            name: 'X6',
+                            artist:'X6',
+                            url:'http://music.163.com/song/media/outer/url?id=3406143.mp3',
+                            cover: '',
+                            lrc:'X6',
+                            theme: ''
+                        },{
+                            name: 'X7',
+                            artist:'X7',
+                            url:'http://music.163.com/song/media/outer/url?id=32405684.mp3',
+                            cover: '',
+                            lrc:'X7',
+                            theme: ''
+                        },{
+                            name: 'X8',
+                            artist:'X8',
+                            url:'http://music.163.com/song/media/outer/url?id=458231315.mp3',
+                            cover: '',
+                            lrc:'X8',
+                            theme: ''
+                        },{
+                            name: 'X9',
+                            artist:'X9',
+                            url:'http://music.163.com/song/media/outer/url?id=16432049.mp3',
+                            cover: '',
+                            lrc:'X9',
+                            theme: ''
+                        },{
+                            name: 'X10',
+                            artist:'X10',
+                            url:'http://music.163.com/song/media/outer/url?id=2117962.mp3',
+                            cover: '',
+                            lrc:'X10',
+                            theme: ''
+                        },{
+                            name: 'X11',
+                            artist:'X11',
+                            url:'http://music.163.com/song/media/outer/url?id=1457707546.mp3',
+                            cover: '',
+                            lrc:'X11',
+                            theme: ''
+                        },{
+                            name: 'X12',
+                            artist:'X12',
+                            url:'http://music.163.com/song/media/outer/url?id=1457707551.mp3',
+                            cover: '',
+                            lrc:'X12',
+                            theme: ''
+                        },{
+                            name: 'X13',
+                            artist:'X13',
+                            url:'http://music.163.com/song/media/outer/url?id=1405259103.mp3',
+                            cover: '',
+                            lrc:'X13',
+                            theme: ''
+                        },{
+                            name: 'X14',
+                            artist:'X14',
+                            url:'http://music.163.com/song/media/outer/url?id=1388967976.mp3',
+                            cover: '',
+                            lrc:'X14',
+                            theme: ''
+                        },{
+                            name: 'X15',
+                            artist:'X15',
+                            url:'http://music.163.com/song/media/outer/url?id=1343458283.mp3',
+                            cover: '',
+                            lrc:'X15',
+                            theme: ''
+                        },{
+                            name: 'X16',
+                            artist:'X16',
+                            url:'http://music.163.com/song/media/outer/url?id=1419789491.mp3',
+                            cover: '',
+                            lrc:'X16',
+                            theme: ''
+                        },{
+                            name: 'X17',
+                            artist:'X17',
+                            url:'http://music.163.com/song/media/outer/url?id=1385336748.mp3',
+                            cover: '',
+                            lrc:'X17',
+                            theme: ''
+                        },{
+                            name: 'X18',
+                            artist:'X18',
+                            url:'http://music.163.com/song/media/outer/url?id=1407950330.mp3',
+                            cover: '',
+                            lrc:'X18',
+                            theme: ''
+                        },{
+                            name: 'X19',
+                            artist:'X19',
+                            url:'http://music.163.com/song/media/outer/url?id=554200219.mp3',
+                            cover: '',
+                            lrc:'X19',
+                            theme: ''
+                        },{
+                            name: 'X20',
+                            artist:'X20',
+                            url:'http://music.163.com/song/media/outer/url?id=525427197.mp3',
+                            cover: '',
+                            lrc:'X20',
+                            theme: ''
+                        },{
+                            name: 'X21',
+                            artist:'X21',
+                            url:'http://music.163.com/song/media/outer/url?id=1424213633.mp3',
+                            cover: '',
+                            lrc:'X21',
+                            theme: ''
+                        },
+                    ]
+        });
+        
+    </script>
+</body>
+    </section>
+
+    <section class="widget">
+        <form id="search" action='https://cold-eye.github.io/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://cold-eye.github.io/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/personal-deeplearning-workstation/" title="【转】保姆级教程：个人深度学习工作站配置指南">【转】保姆级教程：个人深度学习工作站配置指南</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/python-open-big-file/" title="python读GB级大文件">python读GB级大文件</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/nlp-information-extraction-competiton/" title="信息抽取竞赛方案">信息抽取竞赛方案</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/nlp-bert-albert-textcnn/" title="对比 bert、albert、textcnn 在cpu、gpu 环境下，文本分类耗时">对比 bert、albert、textcnn 在cpu、gpu 环境下，文本分类耗时</a>
+    </li>
+    
+    <li>
+        <a href="https://cold-eye.github.io/post/python-jupyter-button/" title="How to create buttons in Jupyter">How to create buttons in Jupyter</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title" style="color:red">福利派送</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a href="https://www.freelancer.com/get/qinyukun1325?f=give" title="注册freelancer得20美刀" target="_blank" style="color:red">
+                
+                    注册freelancer得20美刀
+                
+            </a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+    <li><a href="https://cold-eye.github.io/categories/IT%E6%8A%80%E6%9C%AF/">IT技术 (8)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/hugo/">hugo (3)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/linux/">linux (2)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/nlp/">nlp (9)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/python/">python (33)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/rust/">rust (1)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/streamlit/">streamlit (6)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能 (2)</a></li>
+    
+    <li><a href="https://cold-eye.github.io/categories/%E7%BB%8F%E6%B5%8E%E7%94%9F%E6%B4%BB/">经济生活 (9)</a></li>
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+    <a href="https://cold-eye.github.io/tags/IT%E6%8A%80%E6%9C%AF/">IT技术</a>
+    
+    <a href="https://cold-eye.github.io/tags/hugo/">hugo</a>
+    
+    <a href="https://cold-eye.github.io/tags/linux/">linux</a>
+    
+    <a href="https://cold-eye.github.io/tags/mac/">mac</a>
+    
+    <a href="https://cold-eye.github.io/tags/nlp/">nlp</a>
+    
+    <a href="https://cold-eye.github.io/tags/python/">python</a>
+    
+    <a href="https://cold-eye.github.io/tags/rust/">rust</a>
+    
+    <a href="https://cold-eye.github.io/tags/streamlit/">streamlit</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E5%81%A5%E8%BA%AB/">健身</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E5%9B%BE%E5%83%8F/">图像</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E7%88%AC%E8%99%AB/">爬虫</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">知识图谱</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/">程序员</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E7%BB%8F%E6%B5%8E%E7%94%9F%E6%B4%BB/">经济生活</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E8%A2%AB%E5%8A%A8%E6%94%B6%E5%85%A5/">被动收入</a>
+    
+    <a href="https://cold-eye.github.io/tags/%E8%B7%91%E6%AD%A5/">跑步</a>
+    
+</div>
+    </section>
+
+    
+<section class="widget">
+    <h3 class="widget-title">友情链接</h3>
+    <ul class="widget-list">
+        
+        <li>
+            <a target="_blank" href="https://knowledge-of-medical.blogspot.com/" title="healthy">healthy</a>
+        </li>
+        
+    </ul>
+</section>
+
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://cold-eye.github.io/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <script src="//code.tidio.co/2dpeb0joi7ueoxequchq01ya9ckrmy63.js" async></script>
+    <div class="container">
+        &copy; 
+        2018 - 
+        2020
+        <a href="https://cold-eye.github.io/">冷眼-风雨飘摇 By 冷眼</a>.
+        
+        访问量<span id="busuanzi_value_site_pv"></span>次 | 访客<span id="busuanzi_value_site_uv"></span>人
+        
+        
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script><script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-173047983-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+
+
+
+
+    <script src='/js/douban.js'></script>
+
+
+
+</body>
+
+</html>

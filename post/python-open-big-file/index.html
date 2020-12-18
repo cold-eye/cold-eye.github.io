@@ -99,7 +99,7 @@
         
         <div class="post-meta">
             <span id="busuanzi_container_page_pv">| <span id="busuanzi_value_page_pv"></span><span>
-                    阅读</span></span> | <span class="post-date">共629字</span>，阅读约<span class="more-meta"> 2 分钟</span>
+                    阅读</span></span> | <span class="post-date">共802字</span>，阅读约<span class="more-meta"> 2 分钟</span>
         </div>
         
         
@@ -189,6 +189,7 @@
 </div><p>顺便提一下我遇到的问题，因为后面测试需要，我将读取的文件按行存到了list里面，memory使用率一路飙升过50%，这真是作死的节奏……之后我取了前500行做测试，memory始终稳定保持在3.5%，问题解决。</p>
 <pre><code>参考链接 http://chenqx.github.io/2014/10/29/Python-fastest-way-to-read-a-large-file/
 </code></pre>
+<p><strong>下面这个方法虽然快，但是每次是读一定数量的字符，主要应用于没有换行符的文本。此方法用于有换行符的文件时，可以使用<code>split(&quot;\n&quot;)</code>的方法提取内容，但是可能要涉及拼接，上一个chunk的末尾拼接下一个chunk的开头</strong></p>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -209,6 +210,23 @@
     <span style="color:#998;font-style:italic"># 循环将不断返回 fp.read(block_size) 调用结果，直到其为 &#39;&#39; 时终止</span>
     <span style="color:#000;font-weight:bold">for</span> chunk <span style="color:#000;font-weight:bold">in</span> <span style="color:#0086b3">iter</span>(partial(<span style="color:#0086b3">file</span><span style="color:#000;font-weight:bold">.</span>read, block_size), <span style="color:#d14">&#39;&#39;</span>):
         <span style="color:#000;font-weight:bold">yield</span> chunk
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>One useful application of the second form of iter() is to build a block-reader. For example, reading fixed-width blocks from a binary database file until the end of file is reached:</strong></p>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#998;font-style:italic"># https://docs.python.org/3/library/functions.html</span>
+<span style="color:#000;font-weight:bold">from</span> <span style="color:#555">functools</span> <span style="color:#000;font-weight:bold">import</span> partial
+<span style="color:#000;font-weight:bold">with</span> <span style="color:#0086b3">open</span>(<span style="color:#d14">&#39;mydata.db&#39;</span>, <span style="color:#d14">&#39;rb&#39;</span>) <span style="color:#000;font-weight:bold">as</span> f:
+    <span style="color:#000;font-weight:bold">for</span> block <span style="color:#000;font-weight:bold">in</span> <span style="color:#0086b3">iter</span>(partial(f<span style="color:#000;font-weight:bold">.</span>read, <span style="color:#099">64</span>), <span style="color:#d14">b</span><span style="color:#d14">&#39;&#39;</span>):
+        process_block(block)
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="reference">Reference</h2>
@@ -754,6 +772,10 @@
 <ul class="widget-list">
     
     <li>
+        <a href="https://cold-eye.github.io/post/personal-deeplearning-workstation/" title="【转】保姆级教程：个人深度学习工作站配置指南">【转】保姆级教程：个人深度学习工作站配置指南</a>
+    </li>
+    
+    <li>
         <a href="https://cold-eye.github.io/post/python-open-big-file/" title="python读GB级大文件">python读GB级大文件</a>
     </li>
     
@@ -767,10 +789,6 @@
     
     <li>
         <a href="https://cold-eye.github.io/post/python-jupyter-button/" title="How to create buttons in Jupyter">How to create buttons in Jupyter</a>
-    </li>
-    
-    <li>
-        <a href="https://cold-eye.github.io/post/linux-locate/" title="linux 一行命令查找文件">linux 一行命令查找文件</a>
     </li>
     
 </ul>
@@ -801,7 +819,7 @@
     
     <li><a href="https://cold-eye.github.io/categories/hugo/">hugo (3)</a></li>
     
-    <li><a href="https://cold-eye.github.io/categories/linux/">linux (1)</a></li>
+    <li><a href="https://cold-eye.github.io/categories/linux/">linux (2)</a></li>
     
     <li><a href="https://cold-eye.github.io/categories/nlp/">nlp (9)</a></li>
     
